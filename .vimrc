@@ -1,0 +1,15 @@
+set nocompatible
+set number
+syntax on
+filetype on
+set autoindent
+set smartindent
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set backspace=2
+set expandtab
+set showmatch
+set number
+set ruler
+set encoding=UTF-8

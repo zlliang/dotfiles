@@ -1,0 +1,20 @@
+[user]
+	name = Zilong Liang
+	email = zlliang15@fudan.edu.cn
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+[core]
+	editor = code --wait
+    excludesfile = ~/.gitignore
+[alias]
+	st = status
+	ci = commit
+	co = checkout
+	br = branch
+	unstage = reset HEAD --
+	last = log -1 HEAD
+	lg = log --color --graph --decorate --all --pretty --oneline
+[commit]
+    template = ~/.gitmsg

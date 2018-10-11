@@ -1,0 +1,125 @@
+{
+  // Editor
+  "editor.fontFamily": "IBM Plex Mono",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 15.5,
+  "editor.renderLineHighlight": "none",
+  "editor.minimap.enabled": false,
+  "editor.scrollBeyondLastLine": false,
+  "editor.tabSize": 2,
+  "editor.wordWrap": "off",
+  "editor.rulers": [80],
+
+  // Workbench and Window
+  "workbench.statusBar.feedback.visible": false,
+  "workbench.settings.editor": "json",
+  "workbench.colorTheme": "Sapphire",
+  "workbench.iconTheme": "material-icon-theme",
+  "window.restoreFullscreen": true,
+
+  // Integrated Terminal
+  "terminal.integrated.cursorStyle": "line",
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.fontFamily": "IBM Plex Mono",
+  "terminal.integrated.fontSize": 15,
+  "terminal.integrated.lineHeight": 1.2,
+
+  // Files
+  "files.autoSave": "onFocusChange",
+  "files.encoding": "utf8",
+  "files.eol": "\n",
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    // custom
+    "**/.localized": true,
+    "**/.settings/": true,
+    "**/.classpath": true,
+    "**/.project": true,
+    "**/.gradle/": true,
+    "bin/": true,
+    "**/__pycache__/": true,
+    "**/*.pyc": true,
+  },
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": false,
+
+  // Git and GitHub
+  "git.confirmSync": false,
+  "git.autofetch": false,
+  "github.hosts": [
+    {
+      "host": "https://github.com",
+      "username": "oauth",
+      "token": "system"
+    }
+  ],
+  
+  // Markdown
+  "[markdown]": {
+    "editor.wordWrap": "on",
+    "editor.tabSize": 4,
+    "editor.rulers": []
+  },
+
+  // C / C++ / Fortran
+  "[fortran_fixed-form]": {
+    "editor.rulers": [5, 6, 72],
+    "editor.renderIndentGuides": false
+  },
+
+  // Python
+  "python.unitTest.pyTestEnabled": false,
+  "python.linting.enabled": false,
+  "[python]": {
+    "editor.tabSize": 4
+  },
+
+  // HTML, CSS and JavaScript
+  "eslint.packageManager": "yarn",
+  "tslint.packageManager": "yarn",
+  "emmet.includeLanguages": {"javascript": "javascriptreact"},
+  
+  // LaTeX
+  "[latex]": {
+    "editor.wordWrap": "on",
+    "editor.autoIndent": true
+  },
+  "latex-workshop.message.update.show": false,
+  "latex-workshop.latex.autoBuild.onSave.enabled": false,
+  "latex-workshop.view.pdf.viewer": "tab",
+  "latex-workshop.latex.clean.enabled": true,
+  "latex-workshop.latex.clean.fileTypes": [
+    "*.aux", "*.bbl", "*.blg", "*.idx", "*.ind", "*.lof",
+    "*.lot", "*.out", "*.toc", "*.acn", "*.acr", "*.alg", 
+    "*.glg", "*.glo", "*.gls", "*.ist", "*.fls", "*.log",
+    "*.fdb_latexmk", "*.thm", "*.synctex.gz", 
+    "*.synctex(busy)", "*.nav", "*.snm"
+  ],
+  "latex-workshop.latex.recipes": [
+    { "name": "latexmk", "tools": ["latexmk"] },
+    { "name": "latexmk-ctex", "tools": ["latexmk-ctex"] }
+  ],
+  "latex-workshop.latex.tools": [
+    {
+      "name": "latexmk",
+      "command": "latexmk",
+      "args": [
+        "-shell-escape", "-synctex=1", "-interaction=nonstopmode",
+        "-file-line-error", "-pdf", "-pdflatex=pdflatex", "%DOC%"
+      ]
+    },
+    {
+      "name": "latexmk-ctex",
+      "command": "latexmk",
+      "args": [
+        "-shell-escape", "-synctex=1", "-interaction=nonstopmode",
+        "-file-line-error", "-pdf", "-pdflatex=xelatex", "%DOC%"
+      ]
+    },
+  ],
+}
