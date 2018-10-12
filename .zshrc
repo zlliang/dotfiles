@@ -25,7 +25,6 @@ alias py2="python2"
 
 # Node.JS
 export NODE_ENV="development"
-alias title="/usr/local/bin/title"
 
 # Rust
 export PATH="$HOME/.cargo/bin:$PATH"

@@ -21,7 +21,7 @@
   "terminal.integrated.cursorStyle": "line",
   "terminal.integrated.cursorBlinking": true,
   "terminal.integrated.fontFamily": "IBM Plex Mono",
-  "terminal.integrated.fontSize": 15,
+  "terminal.integrated.fontSize": 15.5,
   "terminal.integrated.lineHeight": 1.2,
 
   // Files
@@ -80,6 +80,7 @@
   },
 
   // HTML, CSS and JavaScript
+  "eslint.enable": false,
   "eslint.packageManager": "yarn",
   "tslint.packageManager": "yarn",
   "emmet.includeLanguages": {"javascript": "javascriptreact"},
@@ -121,5 +122,5 @@
         "-file-line-error", "-pdf", "-pdflatex=xelatex", "%DOC%"
       ]
     },
-  ],
+  ]
 }
