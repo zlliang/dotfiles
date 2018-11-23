@@ -13,7 +13,7 @@
   // Workbench and Window
   "workbench.statusBar.feedback.visible": false,
   "workbench.settings.editor": "json",
-  "workbench.colorTheme": "Sapphire",
+  "workbench.colorTheme": "Nord",
   "workbench.iconTheme": "material-icon-theme",
   "window.restoreFullscreen": true,
 
@@ -51,11 +51,34 @@
   // Git and GitHub
   "git.confirmSync": false,
   "git.autofetch": false,
-  "github.hosts": [
+  "githubPullRequests.hosts": [
     {
       "host": "https://github.com",
       "username": "oauth",
       "token": "system"
+    }
+  ],
+
+  // Spell Checker
+  "cSpell.allowCompoundWords": true,
+  "cSpell.dictionaries": [
+    "roundoff", "Schwarz", "eigenvectors", "Frobenius", "eigendecomposition",
+    "BLAS", "Kahan", "semilogx", "linearization"
+  ],
+
+  // Comments
+  "better-comments.tags": [
+    {
+      "tag": "fixme",
+      "color": "#FF2D00",
+      "strikethrough": false,
+      "backgroundColor": "transparent"
+    },
+    {
+      "tag": "todo",
+      "color": "#FF8C00",
+      "strikethrough": false,
+      "backgroundColor": "transparent"
     }
   ],
   
@@ -71,8 +94,18 @@
     "editor.rulers": [5, 6, 72],
     "editor.renderIndentGuides": false
   },
+  "C_Cpp.default.cppStandard": "c++17",
+  "C_Cpp.default.includePath": [
+    "/usr/local/include",
+    "~/Applications/MATLAB.app/extern/include"
+  ],
+
+  // MATLAB
+  "matlab.lintOnSave": false,
+  "matlab.mlintpath": "~/Applications/MATLAB.app/bin/maci64/mlint",
 
   // Python
+  "python.pythonPath": "python3",
   "python.unitTest.pyTestEnabled": false,
   "python.linting.enabled": false,
   "[python]": {
@@ -92,6 +125,7 @@
   },
   "latex-workshop.message.update.show": false,
   "latex-workshop.latex.autoBuild.onSave.enabled": false,
+  "latex-workshop.view.autoActivateLatex.enabled": false,
   "latex-workshop.view.pdf.viewer": "tab",
   "latex-workshop.latex.clean.enabled": true,
   "latex-workshop.latex.clean.fileTypes": [
