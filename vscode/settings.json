@@ -2,159 +2,141 @@
   // Editor
   "editor.fontFamily": "IBM Plex Mono",
   "editor.fontLigatures": true,
-  "editor.fontSize": 15.5,
+  "editor.fontSize": 16,
   "editor.renderLineHighlight": "none",
   "editor.minimap.enabled": false,
   "editor.scrollBeyondLastLine": false,
   "editor.tabSize": 2,
   "editor.wordWrap": "off",
   "editor.rulers": [80],
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
 
   // Workbench and Window
   "workbench.statusBar.feedback.visible": false,
   "workbench.settings.editor": "json",
-  "workbench.colorTheme": "Nord",
+  "workbench.settings.useSplitJSON": true,
+  "workbench.colorTheme": "Min Dark",
   "workbench.iconTheme": "material-icon-theme",
-  "window.restoreFullscreen": true,
+  "material-icon-theme.activeIconPack": "react",
+  "window.restoreFullscreen": false,
 
   // Integrated Terminal
   "terminal.integrated.cursorStyle": "line",
   "terminal.integrated.cursorBlinking": true,
   "terminal.integrated.fontFamily": "IBM Plex Mono",
-  "terminal.integrated.fontSize": 15.5,
+  "terminal.integrated.fontSize": 16,
   "terminal.integrated.lineHeight": 1.2,
 
   // Files
   "files.autoSave": "onFocusChange",
   "files.encoding": "utf8",
+  "files.autoGuessEncoding": false,
   "files.eol": "\n",
-  "files.exclude": {
-    "**/.git": true,
-    "**/.svn": true,
-    "**/.hg": true,
-    "**/CVS": true,
-    "**/.DS_Store": true,
-    // custom
-    "**/.localized": true,
-    "**/.settings/": true,
-    "**/.classpath": true,
-    "**/.project": true,
-    "**/.gradle/": true,
-    "bin/": true,
-    "**/__pycache__/": true,
-    "**/*.pyc": true,
-  },
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": false,
+  "files.exclude": {
+    "**/.git": true, "**/.svn": true, "**/.hg": true,
+    "**/CVS": true, "**/.DS_Store": true,
+    // custom
+    "**/.localized": true, "**/.settings/": true, "**/.classpath": true,
+    "**/.project": true, "**/.gradle/": true, "bin/": true,
+    "**/__pycache__/": true, "**/*.pyc": true, "**/.next/": true,
+    "**/.pytest_cache": true, "**/node_modules/": true
+  },
 
   // Git and GitHub
   "git.confirmSync": false,
   "git.autofetch": false,
-  "githubPullRequests.hosts": [
-    {
-      "host": "https://github.com",
-      "username": "oauth",
-      "token": "system"
-    }
-  ],
 
   // Spell Checker
   "cSpell.allowCompoundWords": true,
-  "cSpell.dictionaries": [
-    "roundoff", "Schwarz", "eigenvectors", "Frobenius", "eigendecomposition",
-    "BLAS", "Kahan", "semilogx", "linearization"
-  ],
-
-  // Comments
-  "better-comments.tags": [
-    {
-      "tag": "fixme",
-      "color": "#FF2D00",
-      "strikethrough": false,
-      "backgroundColor": "transparent"
-    },
-    {
-      "tag": "todo",
-      "color": "#FF8C00",
-      "strikethrough": false,
-      "backgroundColor": "transparent"
-    }
-  ],
   
   // Markdown
-  "[markdown]": {
-    "editor.wordWrap": "on",
-    "editor.tabSize": 4,
-    "editor.rulers": []
-  },
-
+  "[markdown]": { "editor.wordWrap": "on" },
+  "markdown.preview.fontFamily": "Lora",
+  "markdown.preview.fontSize": 16,
+  
   // C / C++ / Fortran
   "[fortran_fixed-form]": {
     "editor.rulers": [5, 6, 72],
     "editor.renderIndentGuides": false
   },
-  "C_Cpp.default.cppStandard": "c++17",
+  "C_Cpp.autoAddFileAssociations": false,
+  "C_Cpp.clang_format_fallbackStyle": "Google",
+  "C_Cpp.configurationWarnings": "Disabled",
+  "C_Cpp.default.cppStandard": "c++11",
   "C_Cpp.default.includePath": [
     "/usr/local/include",
-    "~/Applications/MATLAB.app/extern/include"
+    "/usr/local/include/eigen3",
+    "/usr/local/include/node",
+    "node_modules/nan",
+    "~/Applications/MATLAB.app/extern/include",
+    "/opt/intel/mkl/include/",
+    "/opt/arrayfire/include/"
   ],
+
+  // Rust
+  "[rust]": { "editor.tabSize": 4 },
 
   // MATLAB
   "matlab.lintOnSave": false,
   "matlab.mlintpath": "~/Applications/MATLAB.app/bin/maci64/mlint",
 
   // Python
+  "[python]": { "editor.tabSize": 4 },
   "python.pythonPath": "python3",
-  "python.unitTest.pyTestEnabled": false,
+  "python.testing.pyTestEnabled": false,
   "python.linting.enabled": false,
-  "[python]": {
-    "editor.tabSize": 4
-  },
+  "python.jediEnabled": false,  // Use Microsoft IntelliCode instead of Jedi
+  
 
   // HTML, CSS and JavaScript
-  "eslint.enable": false,
+  "eslint.enable": true,
   "eslint.packageManager": "yarn",
-  "tslint.packageManager": "yarn",
-  "emmet.includeLanguages": {"javascript": "javascriptreact"},
-  
+  "emmet.includeLanguages": { "javascript": "javascriptreact" },
+  "prettier.semi": false,
+  "prettier.singleQuote": true,
+  "prettier.jsxSingleQuote": true,
+  "[javascript]": { "editor.formatOnSave": true },
+  "[typescript]": { "editor.formatOnSave": true },
+
   // LaTeX
-  "[latex]": {
-    "editor.wordWrap": "on",
-    "editor.autoIndent": true
-  },
+  "[latex]": { "editor.wordWrap": "on", "editor.autoIndent": true },
   "latex-workshop.message.update.show": false,
-  "latex-workshop.latex.autoBuild.onSave.enabled": false,
-  "latex-workshop.view.autoActivateLatex.enabled": false,
   "latex-workshop.view.pdf.viewer": "tab",
-  "latex-workshop.latex.clean.enabled": true,
+  "latex-workshop.view.autoFocus.enabled": false,
+  "latex-workshop.hover.preview.cursor.enabled": false,
+  "latex-workshop.latex.autoClean.run": "onBuilt",
+  "latex-workshop.latex.autoBuild.run": "never",
   "latex-workshop.latex.clean.fileTypes": [
     "*.aux", "*.bbl", "*.blg", "*.idx", "*.ind", "*.lof",
     "*.lot", "*.out", "*.toc", "*.acn", "*.acr", "*.alg", 
     "*.glg", "*.glo", "*.gls", "*.ist", "*.fls", "*.log",
-    "*.fdb_latexmk", "*.thm", "*.synctex.gz", 
-    "*.synctex(busy)", "*.nav", "*.snm"
+    "*.fdb_latexmk", "*.thm", "*.synctex.gz", "*.nav",
+    "*.synctex(busy)", "*.snm", "_minted-document"
   ],
   "latex-workshop.latex.recipes": [
-    { "name": "latexmk", "tools": ["latexmk"] },
-    { "name": "latexmk-ctex", "tools": ["latexmk-ctex"] }
+    { "name": "Build LaTeX (pdfLaTeX)", "tools": ["pdflatex"] },
+    { "name": "Build LaTeX (XeLaTeX)", "tools": ["xelatex"] }
   ],
   "latex-workshop.latex.tools": [
     {
-      "name": "latexmk",
+      "name": "pdflatex",
       "command": "latexmk",
       "args": [
         "-shell-escape", "-synctex=1", "-interaction=nonstopmode",
-        "-file-line-error", "-pdf", "-pdflatex=pdflatex", "%DOC%"
+        "-file-line-error", "-pdf", "%DOC%"
       ]
     },
     {
-      "name": "latexmk-ctex",
+      "name": "xelatex",
       "command": "latexmk",
       "args": [
         "-shell-escape", "-synctex=1", "-interaction=nonstopmode",
-        "-file-line-error", "-pdf", "-pdflatex=xelatex", "%DOC%"
+        "-file-line-error", "-xelatex", "%DOC%"
       ]
     },
-  ]
+  ],
 }

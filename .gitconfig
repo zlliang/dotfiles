@@ -1,6 +1,6 @@
 [user]
 	name = Zilong Liang
-	email = zlliang15@fudan.edu.cn
+	email = zlliang96@outlook.com
 [filter "lfs"]
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
