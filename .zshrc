@@ -35,15 +35,6 @@ alias ipy="ipython"
 alias python2="/usr/bin/python"
 alias py2="python2"
 
-# Node.js
-export NODE_ENV="development"
-
-# Rust
-export PATH="$HOME/.cargo/bin:$PATH"
-
-# Haskell
-export PATH="$HOME/.local/bin:$PATH"
-
 # Exa -- A modern replacement for ls
 alias ls="exa -lhH --git --time-style='long-iso'"
 alias la="ls -a"
@@ -57,6 +48,3 @@ function gitio() {
   grep 'Location' |
   sed 's/Location: //';
 }
-
-# Travis CI
-[ -f /Users/Quincy/.travis/travis.sh ] && source /Users/Quincy/.travis/travis.sh
