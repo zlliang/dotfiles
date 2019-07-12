@@ -1,3 +1,6 @@
+// VS Code Keyboard shortcuts
+// Location: ~/Library/Application Support/Code/User/keybindings.json
+
 [
   {
     "key": "ctrl+shift+m",

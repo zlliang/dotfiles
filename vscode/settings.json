@@ -1,3 +1,6 @@
+// VS Code settings
+// Location: ~/Library/Application Support/Code/User/settings.json
+
 {
   // Editor
   "editor.fontFamily": "IBM Plex Mono",

@@ -1,3 +1,6 @@
+# Git global configurations
+# Location: ~/.gitconfig
+
 [user]
 	name = Zilong Liang
 	email = zlliang96@outlook.com
@@ -6,8 +9,8 @@
 	smudge = git-lfs smudge %f
 	required = true
 [core]
-	editor = code --wait
-    excludesfile = ~/.gitignore
+	editor = code --wait  # Default editor: VS Code
+  excludesfile = ~/.gitignore
 [alias]
 	st = status
 	ci = commit
@@ -16,5 +19,3 @@
 	unstage = reset HEAD --
 	last = log -1 HEAD
 	lg = log --color --graph --decorate --all --pretty --oneline
-[commit]
-    template = ~/.gitmsg
