@@ -124,7 +124,7 @@
     "*.lot", "*.out", "*.toc", "*.acn", "*.acr", "*.alg", 
     "*.glg", "*.glo", "*.gls", "*.ist", "*.fls", "*.log",
     "*.fdb_latexmk", "*.thm", "*.synctex.gz", "*.nav",
-    "*.synctex(busy)", "*.snm", "_minted-document"
+    "*.synctex(busy)", "*.snm", "*.xdv", "_minted-document"
   ],
   "latex-workshop.latex.recipes": [
     { "name": "Build LaTeX (pdfLaTeX)", "tools": ["pdflatex"] },
