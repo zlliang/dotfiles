@@ -5,14 +5,14 @@
 set -x LANG en_US.UTF-8
 set -x SSH_KEY_PATH $HOME/.ssh/rsa_id
 set -x HOMEBREW_BOTTLE_DOMAIN https://mirrors.ustc.edu.cn/homebrew-bottles
-set -x PATH $HOME/.bin $HOME/.cargo/bin $PATH
+set -x PATH $HOME/.cargo/bin $PATH
 
 # System utilities
 alias ls "exa -lhH --git --time-style='long-iso'"
 alias l  "ls -a"
 
 # C and C++
-set -x FLAGS "-I/usr/local/include -I/usr/local/include/eigen3 -L/usr/local/lib"
+set -x FLAGS "-I/usr/local/include -L/usr/local/lib"
 alias clang "clang $FLAGS"
 alias clang++ "clang++ --std=c++17 $FLAGS"  # Use C++17 standard
 alias gfortran "gfortran $FLAGS"
