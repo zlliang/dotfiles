@@ -3,25 +3,24 @@
   "editor.fontFamily": "IBM Plex Mono",
   "editor.fontLigatures": true,
   "editor.fontSize": 16,
-  "editor.renderLineHighlight": "none",
+  "editor.renderLineHighlight": "all",
   "editor.minimap.enabled": false,
   "editor.scrollBeyondLastLine": false,
   "editor.tabSize": 2,
   "editor.wordWrap": "off",
   "editor.rulers": [80],
-  "editor.suggestSelection": "first",
-  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
 
   // Workbench and Window
-  "workbench.statusBar.feedback.visible": false,
+  "explorer.sortOrder": "modified",
   "workbench.settings.editor": "json",
   "workbench.settings.useSplitJSON": true,
-  "workbench.colorTheme": "Min Dark",
+  "workbench.colorTheme": "Night Owl",
   "workbench.iconTheme": "material-icon-theme",
   "material-icon-theme.activeIconPack": "react",
   "window.restoreFullscreen": false,
 
   // Integrated Terminal
+  "terminal.integrated.shell.osx": "fish",
   "terminal.integrated.cursorStyle": "line",
   "terminal.integrated.cursorBlinking": true,
   "terminal.integrated.fontFamily": "IBM Plex Mono",
@@ -30,9 +29,7 @@
 
   // Files
   "files.autoSave": "onFocusChange",
-  "files.encoding": "utf8",
   "files.autoGuessEncoding": false,
-  "files.eol": "\n",
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": false,
@@ -40,10 +37,10 @@
     "**/.git": true, "**/.svn": true, "**/.hg": true,
     "**/CVS": true, "**/.DS_Store": true,
     // custom
-    "**/.localized": true, "**/.settings/": true, "**/.classpath": true,
-    "**/.project": true, "**/.gradle/": true, "bin/": true,
-    "**/__pycache__/": true, "**/*.pyc": true, "**/.next/": true,
-    "**/.pytest_cache": true, "**/node_modules/": true
+    "**/.localized": true, "**/.settings": true, "**/.classpath": true,
+    "**/.project": true, "**/.factorypath": true, "**/.gradle": true,
+    "**/__pycache__/": true, "**/*.pyc": true, "**/.next": true,
+    "**/.pytest_cache": true, "**/node_modules": true
   },
 
   // Git and GitHub
@@ -54,8 +51,7 @@
   "cSpell.allowCompoundWords": true,
   
   // Markdown
-  "[markdown]": { "editor.wordWrap": "on" },
-  "markdown.preview.fontFamily": "Lora",
+  "[markdown]": { "editor.wordWrap": "on", "editor.tabSize": 4 },
   "markdown.preview.fontSize": 16,
   
   // C / C++ / Fortran
@@ -63,44 +59,54 @@
     "editor.rulers": [5, 6, 72],
     "editor.renderIndentGuides": false
   },
-  "C_Cpp.autoAddFileAssociations": false,
-  "C_Cpp.clang_format_fallbackStyle": "Google",
+  "[c]": { "editor.formatOnSave": true, },
+  "[cpp]": { "editor.formatOnSave": true, },
   "C_Cpp.configurationWarnings": "Disabled",
-  "C_Cpp.default.cppStandard": "c++11",
-  "C_Cpp.default.includePath": [
-    "/usr/local/include",
-    "/usr/local/include/eigen3",
-    "/usr/local/include/node",
-    "node_modules/nan",
-    "~/Applications/MATLAB.app/extern/include",
-    "/opt/intel/mkl/include/",
-    "/opt/arrayfire/include/"
-  ],
+  "C_Cpp.default.cppStandard": "c++17",
+  "C_Cpp.clang_format_fallbackStyle": "Google",
+  "cmake.configureOnOpen": true,
 
   // Rust
-  "[rust]": { "editor.tabSize": 4 },
-
-  // MATLAB
-  "matlab.lintOnSave": false,
-  "matlab.mlintpath": "~/Applications/MATLAB.app/bin/maci64/mlint",
-
-  // Python
-  "[python]": { "editor.tabSize": 4 },
-  "python.pythonPath": "python3",
-  "python.testing.pyTestEnabled": false,
-  "python.linting.enabled": false,
-  "python.jediEnabled": false,  // Use Microsoft IntelliCode instead of Jedi
+  "[rust]": { "editor.tabSize": 4, "editor.formatOnSave": true },
   
-
+  // Python
+  "[python]": { "editor.tabSize": 4, "editor.formatOnSave": true },
+  "python.formatting.provider": "black",
+  
   // HTML, CSS and JavaScript
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
   "eslint.enable": true,
   "eslint.packageManager": "yarn",
-  "emmet.includeLanguages": { "javascript": "javascriptreact" },
+  "eslint.validate": [
+    "javascript", "javascriptreact",
+    "typescript", "typescriptreact"
+  ],
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact",
+    "typescript": "typescriptreact"
+  },
   "prettier.semi": false,
   "prettier.singleQuote": true,
   "prettier.jsxSingleQuote": true,
-  "[javascript]": { "editor.formatOnSave": true },
-  "[typescript]": { "editor.formatOnSave": true },
 
   // LaTeX
   "[latex]": { "editor.wordWrap": "on", "editor.autoIndent": true },
@@ -126,7 +132,7 @@
       "name": "pdflatex",
       "command": "latexmk",
       "args": [
-        "-shell-escape", "-synctex=1", "-interaction=nonstopmode",
+        "-shell-escape", "-interaction=nonstopmode",
         "-file-line-error", "-pdf", "%DOC%"
       ]
     },
@@ -134,9 +140,9 @@
       "name": "xelatex",
       "command": "latexmk",
       "args": [
-        "-shell-escape", "-synctex=1", "-interaction=nonstopmode",
+        "-shell-escape", "-interaction=nonstopmode",
         "-file-line-error", "-xelatex", "%DOC%"
       ]
     },
-  ],
+  ]
 }
