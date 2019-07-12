@@ -1,15 +1,15 @@
-set nocompatible
-set number
-syntax on
-filetype on
-set autoindent
-set smartindent
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set backspace=2
+" Vim setting file
+" Location: ~/.vimrc
+
+syntax enable
+
+set tabstop=2
+set softtabstop=2
 set expandtab
-set showmatch
+filetype indent on
+
 set number
-set ruler
-set encoding=UTF-8
+set showcmd
+
+set lazyredraw
+set showmatch
