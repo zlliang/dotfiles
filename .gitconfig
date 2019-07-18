@@ -2,20 +2,20 @@
 # Location: ~/.gitconfig
 
 [user]
-	name = Zilong Liang
-	email = zlliang96@outlook.com
+  name = Zilong Liang
+  email = zlliang96@outlook.com
 [filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
-	required = true
+  clean = git-lfs clean %f
+  smudge = git-lfs smudge %f
+  required = true
 [core]
-	editor = code --wait  # Default editor: VS Code
+  editor = code --wait  # Default editor: VS Code
   excludesfile = ~/.gitignore
 [alias]
-	st = status
-	ci = commit
-	co = checkout
-	br = branch
-	unstage = reset HEAD --
-	last = log -1 HEAD
-	lg = log --color --graph --decorate --all --pretty --oneline
+  st = status
+  ci = commit
+  co = checkout
+  br = branch
+  unstage = reset HEAD --
+  last = log -1 HEAD
+  lg = log --color --graph --decorate --all --pretty --oneline
