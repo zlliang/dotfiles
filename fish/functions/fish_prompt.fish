@@ -76,7 +76,7 @@ function echo_pipenv -d "Auxiliary function to print Pipenv info"
   end
 end
 
-function echo_node -d "Auxiliary function to print Pipenv info"
+function echo_node -d "Auxiliary function to print Node info"
   if test -f package.json || test -f ../package.json || test -f ../../package.json ||\
      test -f ../../../package.json || test -f ../../../../package.json ||\
      test -f ../../../../../package.json || test -f ../../../../../../package.json ||\

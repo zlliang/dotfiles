@@ -17,10 +17,13 @@
   "explorer.sortOrder": "modified",
   "workbench.settings.editor": "json",
   "workbench.settings.useSplitJSON": true,
-  "workbench.colorTheme": "Night Owl",
+  "window.restoreFullscreen": false,
+
+  // Theme
+  "workbench.colorTheme": "Min Light",
   "workbench.iconTheme": "material-icon-theme",
   "material-icon-theme.activeIconPack": "react",
-  "window.restoreFullscreen": false,
+  "material-icon-theme.folders.associations": { "types": "typescript" },
 
   // Integrated Terminal
   "terminal.integrated.shell.osx": "fish",
@@ -32,7 +35,6 @@
 
   // Files
   "files.autoSave": "onFocusChange",
-  "files.autoGuessEncoding": false,
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": false,
@@ -42,8 +44,8 @@
     // custom
     "**/.localized": true, "**/.settings": true, "**/.classpath": true,
     "**/.project": true, "**/.factorypath": true, "**/.gradle": true,
-    "**/__pycache__/": true, "**/*.pyc": true, "**/.next": true,
-    "**/.pytest_cache": true, "**/node_modules": true
+    "**/.pytest_cache": true, "**/node_modules": true, "**/.cache": true,
+    "**/__pycache__/": true, "**/*.pyc": true, "**/.next": true
   },
 
   // Git and GitHub
@@ -54,7 +56,12 @@
   "cSpell.allowCompoundWords": true,
   
   // Markdown
-  "[markdown]": { "editor.wordWrap": "on", "editor.tabSize": 4 },
+  "[markdown]": {
+    "editor.wordWrap": "on",
+    "editor.tabSize": 4,
+    "editor.defaultFormatter": "yzhang.markdown-all-in-one",
+    "editor.formatOnSave": true
+  },
   "markdown.preview.fontSize": 16,
   
   // C / C++ / Fortran
@@ -75,8 +82,11 @@
   // Python
   "[python]": { "editor.tabSize": 4, "editor.formatOnSave": true },
   "python.formatting.provider": "black",
+
+  // Flutter
+  "[dart]": { "editor.formatOnSave": true },
   
-  // HTML, CSS and JavaScript
+  // Web development
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
@@ -103,14 +113,12 @@
     "javascript", "javascriptreact",
     "typescript", "typescriptreact"
   ],
-  "emmet.includeLanguages": {
-    "javascript": "javascriptreact",
-    "typescript": "typescriptreact"
-  },
+  "emmet.includeLanguages": { "javascript": "javascriptreact", },
+  "prettier.bracketSpacing": true,
+  "prettier.jsxSingleQuote": true,
   "prettier.semi": false,
   "prettier.singleQuote": true,
-  "prettier.jsxSingleQuote": true,
-
+  
   // LaTeX
   "[latex]": { "editor.wordWrap": "on", "editor.autoIndent": true },
   "latex-workshop.message.update.show": false,
@@ -124,7 +132,7 @@
     "*.lot", "*.out", "*.toc", "*.acn", "*.acr", "*.alg", 
     "*.glg", "*.glo", "*.gls", "*.ist", "*.fls", "*.log",
     "*.fdb_latexmk", "*.thm", "*.synctex.gz", "*.nav",
-    "*.synctex(busy)", "*.snm", "*.xdv", "_minted-document"
+    "*.synctex(busy)", "*.snm", "*.xdv", "_minted-*"
   ],
   "latex-workshop.latex.recipes": [
     { "name": "Build LaTeX (pdfLaTeX)", "tools": ["pdflatex"] },
@@ -146,6 +154,6 @@
         "-shell-escape", "-interaction=nonstopmode",
         "-file-line-error", "-xelatex", "%DOC%"
       ]
-    },
+    }
   ]
 }
