@@ -36,7 +36,7 @@ This repository contains several dotfiles I am using in daily development on mac
 ## Appendices
 
 ### Software mirrors
-In China you usually suffer from the connection problems. See [USTC mirrors](https://mirrors.ustc.edu.cn) or [TUNA mirrors](https://mirrors.tuna.tsinghua.edu.cn) to configure `homebrew`, `pypi` and `CTAN`. See [npm Taobao mirror](https://npm.taobao.org) to configure `npm` or `yarn`.
+In China you usually suffer from the connection problems. See [USTC mirrors](https://mirrors.ustc.edu.cn), [TUNA mirrors](https://mirrors.tuna.tsinghua.edu.cn) and [Tencent Cloud mirrors](https://mirrors.cloud.tencent.com) to configure `homebrew`, `pypi`, `CTAN` and `npm` (`yarn`).
 
 ### Preferred Monospaced Fonts
 - [IBM Plex Mono](https://www.ibm.com/plex/)
