@@ -20,7 +20,7 @@
   "window.restoreFullscreen": false,
 
   // Theme
-  "workbench.colorTheme": "Min Light",
+  "workbench.colorTheme": "Min Dark",
   "workbench.iconTheme": "material-icon-theme",
   "material-icon-theme.activeIconPack": "react",
   "material-icon-theme.folders.associations": { "types": "typescript" },
@@ -136,7 +136,7 @@
   ],
   "latex-workshop.latex.recipes": [
     { "name": "Build LaTeX (pdfLaTeX)", "tools": ["pdflatex"] },
-    { "name": "Build LaTeX (XeLaTeX)", "tools": ["xelatex"] }
+    { "name": "Build LaTeX (XeLaTeX)", "tools": ["xelatex"] },
   ],
   "latex-workshop.latex.tools": [
     {
@@ -154,6 +154,6 @@
         "-shell-escape", "-interaction=nonstopmode",
         "-file-line-error", "-xelatex", "%DOC%"
       ]
-    }
-  ]
+    },
+  ],
 }
