@@ -21,12 +21,7 @@ function upgrade -d "Upgrade development tools"
   yarn global upgrade -s --latest
 
   set_color cyan
-  echo "4) Rust"
-  set_color normal
-  rustup update
-
-  set_color cyan
-  echo "5) TeX Live"
+  echo "4) TeX Live"
   set_color normal
   tlmgr update --all
 
