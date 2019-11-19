@@ -5,9 +5,10 @@
   name = Zilong Liang
   email = zlliang96@outlook.com
 [filter "lfs"]
-  clean = git-lfs clean %f
-  smudge = git-lfs smudge %f
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
   required = true
+  process = git-lfs filter-process
 [core]
   editor = code --wait  # Default editor: VS Code
   excludesfile = ~/.gitignore
