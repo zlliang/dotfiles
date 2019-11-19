@@ -5,7 +5,7 @@
   // Editor
   "editor.fontFamily": "IBM Plex Mono",
   "editor.fontLigatures": true,
-  "editor.fontSize": 16,
+  "editor.fontSize": 16.5,
   "editor.renderLineHighlight": "all",
   "editor.minimap.enabled": false,
   "editor.scrollBeyondLastLine": false,
@@ -30,7 +30,7 @@
   "terminal.integrated.cursorStyle": "line",
   "terminal.integrated.cursorBlinking": true,
   "terminal.integrated.fontFamily": "IBM Plex Mono",
-  "terminal.integrated.fontSize": 16,
+  "terminal.integrated.fontSize": 16.5,
   "terminal.integrated.lineHeight": 1.2,
 
   // Files
@@ -82,9 +82,6 @@
   // Python
   "[python]": { "editor.tabSize": 4, "editor.formatOnSave": true },
   "python.formatting.provider": "black",
-
-  // Flutter
-  "[dart]": { "editor.formatOnSave": true },
   
   // Web development
   "[html]": {
