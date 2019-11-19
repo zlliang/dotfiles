@@ -8,6 +8,11 @@
     "when": "editorLangId == 'markdown'"
   },
   {
+    "key": "ctrl+shift+m",
+    "command": "latex-workshop.view",
+    "when": "editorLangId == 'latex'"
+  },
+  {
     "key": "ctrl+shift+b",
     "command": "latex-workshop.build",
     "when": "editorTextFocus"
@@ -22,7 +27,15 @@
     "command": "workbench.action.terminal.toggleTerminal"
   },
   {
-    "key": "cmd+\\",
+    "key": "ctrl+shift+\\",
     "command": "workbench.action.toggleSidebarVisibility"
+  },
+  {
+    "key": "ctrl+alt+m",
+    "command": "editor.action.toggleTabFocusMode"
+  },
+  {
+    "key": "ctrl+shift+m",
+    "command": "-editor.action.toggleTabFocusMode"
   }
 ]
