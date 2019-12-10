@@ -26,7 +26,7 @@ alias tlmgr "tlmgr --repository $TLMGR_REPO"
 
 # Python
 set -x VIRTUAL_ENV_DISABLE_PROMPT true
-set -x PIPENV_PYPI_MIRROR "https://pypi.tuna.tsinghua.edu.cn/simple"
+set -x PIPENV_PYPI_MIRROR "https://mirrors.cloud.tencent.com/pypi/simple"
 set -x PIPENV_VERBOSITY -1
 
 # autojump

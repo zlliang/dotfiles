@@ -46,10 +46,10 @@ function echo_git_status -d "Auxiliary function to print git status"
   set -l __status (command git status --porcelain 2>/dev/null)
   if test -z "$__status"
     set_color green
-    echo "(clean)"  # Dirty
+    echo "(clean)"
   else
     set_color red
-    echo "(dirty)"  # Clean
+    echo "(dirty)"
   end
 end
 
