@@ -79,7 +79,7 @@
   "[rust]": { "editor.tabSize": 4, "editor.formatOnSave": true },
   
   // Python
-  "[python]": { "editor.tabSize": 4, "editor.formatOnSave": true },
+  "[python]": { "editor.tabSize": 4, "editor.formatOnSave": false },
   "python.formatting.provider": "black",
   
   // Web development
@@ -109,7 +109,7 @@
     "javascript", "javascriptreact",
     "typescript", "typescriptreact"
   ],
-  "emmet.includeLanguages": { "javascript": "javascriptreact", },
+  "emmet.includeLanguages": { "javascript": "javascriptreact" },
   "prettier.bracketSpacing": true,
   "prettier.jsxSingleQuote": true,
   "prettier.semi": false,
