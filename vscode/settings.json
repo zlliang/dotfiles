@@ -20,13 +20,12 @@
   "window.restoreFullscreen": false,
 
   // Theme
-  "workbench.colorTheme": "Min Dark",
+  "workbench.colorTheme": "Dracula",
   "workbench.iconTheme": "material-icon-theme",
   "material-icon-theme.activeIconPack": "react",
   "material-icon-theme.folders.associations": { "types": "typescript" },
 
   // Integrated Terminal
-  "terminal.integrated.shell.osx": "fish",
   "terminal.integrated.cursorStyle": "line",
   "terminal.integrated.cursorBlinking": true,
   "terminal.integrated.fontFamily": "IBM Plex Mono",
@@ -50,7 +49,7 @@
 
   // Git and GitHub
   "git.confirmSync": false,
-  "git.autofetch": false,
+  "git.autofetch": true,
 
   // Spell Checker
   "cSpell.allowCompoundWords": true,

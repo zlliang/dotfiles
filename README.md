@@ -28,7 +28,7 @@ This repository contains several dotfiles I am using in daily development on mac
    - [`tldr`](https://tldr.sh): Simplified and community-driven man pages
    - [`autojump (j)`](https://github.com/wting/autojump): A `cd` command that learns
 5. Useful Homebrew bottles:
-   - Languages and tools: `java` (via cask), `gradle`, `python`, `pipenv`, `node`, `yarn`, `cmake`
+   - Languages and tools: `java` (via cask), `gradle`, `python`, `node`, `yarn`, `cmake`
    - Libraries: `boost`, `fmt`, `openblas` (remember to run `link --force`), `hdf5`, `eigen`, `mpich`, `catch2`
 6. Useful Python packages to install globally (via `pip3`): `black`, `pylint`, `pytest`, `pygments`, `numpy`, `scipy`, `pandas`, `bokeh`, `jupyterlab`
 7. Install the code editor: [VS Code](https://code.visualstudio.com)
