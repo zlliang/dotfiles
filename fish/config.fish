@@ -9,7 +9,7 @@ set -x PATH /usr/local/opt/python/libexec/bin $PATH  # Python symlinks
 
 # System utilities
 alias ls "exa -lhH --git --time-style='long-iso'"
-alias l  "ls -a"
+alias l "ls"
 
 # C and C++
 set -x FLAGS "-I/usr/local/include -L/usr/local/lib"
