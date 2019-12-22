@@ -22,9 +22,6 @@ function fish_prompt -d "Rich fish prompt"
     echo -n ] " "
   end
 
-  # Pipenv info
-  echo_pipenv
-
   # Node info
   echo_node
 
@@ -50,29 +47,6 @@ function echo_git_status -d "Auxiliary function to print git status"
   else
     set_color red
     echo "(dirty)"
-  end
-end
-
-function echo_pipenv -d "Auxiliary function to print Pipenv info"
-  if test -f Pipfile || test -f ../Pipfile || test -f ../../Pipfile ||\
-     test -f ../../../Pipfile || test -f ../../../../Pipfile ||\
-     test -f ../../../../../Pipfile || test -f ../../../../../../Pipfile ||\
-     test -f ../../../../../../../Pipfile
-    set_color yellow
-    echo -n [
-    echo -n "pipenv:"
-    if test (echo $PATH | grep "virtualenv")
-      set -l python_version (python --version | sed "s/Python //")
-      set_color green
-      echo -n $python_version
-      set_color yellow
-    else
-      set_color red
-      echo -n "not-active"
-      set_color yellow
-    end
-    echo -n ] " "
-    set_color normal
   end
 end
 
