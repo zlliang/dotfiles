@@ -8,14 +8,12 @@ The following list contains useful extensions of VS Code:
 - Web development
     - [Auto Close Tag](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-close-tag)
     - [Auto Rename Tag](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag)
-    - [IntelliSense for CSS class names in HTML](https://marketplace.visualstudio.com/items?itemName=Zignd.html-css-class-completion)
     - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
     - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 - C/C++/Fortran
     - [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
     - [CMake](https://marketplace.visualstudio.com/items?itemName=twxs.cmake)
-    - [CMake Tools](https://marketplace.visualstudio.com/items?itemName=vector-of-bool.cmake-tools)
-    - [Modern Fortran](https://marketplace.visualstudio.com/items?itemName=krvajalm.linter-gfortran)
+    - [CMake Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools)
 - Language Supports
     - [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
     - [Rust](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust)
@@ -26,8 +24,7 @@ The following list contains useful extensions of VS Code:
     - [GitHub Issues](https://marketplace.visualstudio.com/items?itemName=ms-vscode.github-issues-prs)
     - [GitHub Pull Requests](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github)
 - Miscellaneous
-    - [Path IntelliSense](https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense)
-    - [Fish Support](https://marketplace.visualstudio.com/items?itemName=skyapps.fish-vscode)
+    - [Fish](https://marketplace.visualstudio.com/items?itemName=bmalehorn.vscode-fish)
     - [Better TOML](https://marketplace.visualstudio.com/items?itemName=bungcip.better-toml)
     - [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
 - Theme
