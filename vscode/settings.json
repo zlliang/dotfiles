@@ -20,7 +20,7 @@
   "window.restoreFullscreen": false,
 
   // Theme
-  "workbench.colorTheme": "Dracula",
+  "workbench.colorTheme": "Min Light",
   "workbench.iconTheme": "material-icon-theme",
   "material-icon-theme.activeIconPack": "react",
   "material-icon-theme.folders.associations": { "types": "typescript" },
@@ -110,13 +110,12 @@
     "typescript", "typescriptreact"
   ],
   "emmet.includeLanguages": { "javascript": "javascriptreact" },
-  "prettier.bracketSpacing": true,
+  "prettier.singleQuote": true,
   "prettier.jsxSingleQuote": true,
   "prettier.semi": false,
-  "prettier.singleQuote": true,
   
   // LaTeX
-  "[latex]": { "editor.wordWrap": "on", "editor.autoIndent": true },
+  "[latex]": { "editor.wordWrap": "on" },
   "latex-workshop.message.update.show": false,
   "latex-workshop.view.pdf.viewer": "tab",
   "latex-workshop.view.autoFocus.enabled": false,
