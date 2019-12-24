@@ -20,7 +20,7 @@
   "window.restoreFullscreen": false,
 
   // Theme
-  "workbench.colorTheme": "Min Light",
+  "workbench.colorTheme": "Dracula",
   "workbench.iconTheme": "material-icon-theme",
   "material-icon-theme.activeIconPack": "react",
   "material-icon-theme.folders.associations": { "types": "typescript" },
@@ -103,13 +103,18 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
   },
-  "eslint.enable": true,
+  "npm.packageManager": "yarn",
   "eslint.packageManager": "yarn",
+  "prettier.packageManager": "yarn",
+  "eslint.enable": true,
   "eslint.validate": [
     "javascript", "javascriptreact",
     "typescript", "typescriptreact"
   ],
-  "emmet.includeLanguages": { "javascript": "javascriptreact" },
+  "emmet.includeLanguages": {
+    "vue-html": "html",
+    "javascript": "javascriptreact"
+  },
   "prettier.singleQuote": true,
   "prettier.jsxSingleQuote": true,
   "prettier.semi": false,
