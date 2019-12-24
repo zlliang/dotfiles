@@ -11,12 +11,6 @@ set -x PATH /usr/local/opt/python/libexec/bin $PATH  # Python symlinks
 alias ls "exa -lhH --git --time-style='long-iso'"
 alias l "ls"
 
-# C and C++
-set -x FLAGS "-I/usr/local/include -L/usr/local/lib"
-alias clang "clang $FLAGS"
-alias clang++ "clang++ --std=c++17 $FLAGS"  # Use C++17 standard
-alias gfortran "gfortran $FLAGS"
-
 # Java (OpenJDK)
 set -x JAVA_HOME (/usr/libexec/java_home)
 
