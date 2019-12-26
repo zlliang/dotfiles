@@ -25,6 +25,9 @@ function fish_prompt -d "Rich fish prompt"
   # Node info
   echo_node
 
+  # venv info
+  echo_venv
+
   # Background jobs
   echo -n (echo_jobs)
 
@@ -61,6 +64,20 @@ function echo_node -d "Auxiliary function to print Node info"
     set_color cyan
     echo -n (node --version | sed "s/v//")
     set_color green
+    echo -n ] " "
+    set_color normal
+  end
+end
+
+function echo_venv -d "Auxiliary function to print virtualenv info"
+  if test (echo $PATH | rg ".venv/bin")
+    set_color yellow
+    echo -n [
+    set_color cyan
+    echo -n "venv:"
+    set_color yellow
+    echo -n "python:"
+    echo -n (python --version | sed "s/Python //")
     echo -n ] " "
     set_color normal
   end
