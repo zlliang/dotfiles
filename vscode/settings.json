@@ -20,7 +20,7 @@
   "window.restoreFullscreen": false,
 
   // Theme
-  "workbench.colorTheme": "Nord",
+  "workbench.colorTheme": "Dracula",
   "workbench.iconTheme": "material-icon-theme",
   "material-icon-theme.activeIconPack": "react",
   "material-icon-theme.folders.associations": { "types": "typescript" },
@@ -45,7 +45,7 @@
     "**/.project": true, "**/.factorypath": true, "**/.gradle": true,
     "**/.pytest_cache": true, "**/node_modules": true, "**/.cache": true,
     "**/__pycache__/": true, "**/*.pyc": true, "**/.next": true,
-    "**/.venv": true, "**/*.egg-info": true
+    "**/.venv": true, "**/*.egg-info": true, "**/.github": true
   },
 
   // Git and GitHub
