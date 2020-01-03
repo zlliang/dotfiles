@@ -116,9 +116,6 @@
     "vue-html": "html",
     "javascript": "javascriptreact"
   },
-  "prettier.singleQuote": true,
-  "prettier.jsxSingleQuote": true,
-  "prettier.semi": false,
   
   // LaTeX
   "[latex]": { "editor.wordWrap": "on" },
