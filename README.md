@@ -8,7 +8,6 @@ This repository contains several dotfiles I am using in daily development on mac
 2. Fish shell files: See [`fish/`](./fish/)
 3. Git global configuration files: See [`.gitconfig`](./.gitconfig) and [`.gitignore`](./.gitignore)
 4. Vim settings: See [`.vimrc`](./.vimrc)
-5. Python pip settings: See [`pip.conf`](./pip.conf)
 
 ## Guide: Configure a macOS
 
