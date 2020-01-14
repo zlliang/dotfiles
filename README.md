@@ -1,17 +1,19 @@
 # Dotfiles 🌚
 
-This repository contains several dotfiles I am using in daily development on macOS, and this README file also contains a guide to configure the developing environment.
+Here are several dotfiles I am using on my macOS, and this README file is also a guide to configure the developing environment.
 
-## Configuration Files
+## Configuration files
 
 1. VS Code files: See [`vscode/`](./vscode/)
 2. Fish shell files: See [`fish/`](./fish/)
 3. Git global configuration files: See [`.gitconfig`](./.gitconfig) and [`.gitignore`](./.gitignore)
 4. Vim settings: See [`.vimrc`](./.vimrc)
 
-## Guide: Configure a macOS
+To link these configuration files to their suggested locations, run [`hardlink.sh`](./hardlink.sh).
 
-1. Install XCode command line tools: Run `xcode-select --install`
+## Guide to configure a macOS
+
+1. Install XCode command line tools: run `xcode-select --install`
 1. Install [Homebrew](https://brew.sh)
 2. Install [Git](https://git-scm.com) and [Git-LFS](https://git-lfs.github.com) (via Homebrew)
 3. Set [Fish](https://fishshell.com) as the default shell:
@@ -28,15 +30,6 @@ This repository contains several dotfiles I am using in daily development on mac
    - [`autojump (j)`](https://github.com/wting/autojump): A `cd` command that learns
 5. Useful Homebrew bottles:
    - Languages and tools: `java` (via cask), `gradle`, `python`, `poetry`, `node`, `yarn`, `cmake`
-   - Libraries: `boost`, `fmt`, `hdf5`, `eigen`, `mpich`, `catch2`
+   - C/C++ Libraries: `boost`, `fmt`, `hdf5`, `eigen`, `mpich`, `catch2`
 6. Useful Python packages: `black`, `pylint`, `pytest`, `pygments`, `numpy`, `scipy`, `pandas`, `bokeh`, `jupyterlab`
 7. Install the code editor: [VS Code](https://code.visualstudio.com)
-
-## Appendices
-
-### Software mirrors
-In China you usually suffer from the connection problems. See [USTC mirrors](https://mirrors.ustc.edu.cn), [TUNA mirrors](https://mirrors.tuna.tsinghua.edu.cn) and [Tencent Cloud mirrors](https://mirrors.cloud.tencent.com) to configure `homebrew`, `pypi`, `CTAN` and `npm` (`yarn`).
-
-### Preferred Monospaced Fonts
-- [IBM Plex Mono](https://www.ibm.com/plex/)
-- [Fira Code](https://github.com/tonsky/FiraCode), with programming ligatures!
