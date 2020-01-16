@@ -20,7 +20,7 @@
   "window.restoreFullscreen": false,
 
   // Theme
-  "workbench.colorTheme": "Min Dark",
+  "workbench.colorTheme": "Dracula",
   "workbench.iconTheme": "material-icon-theme",
   "material-icon-theme.activeIconPack": "react",
   "material-icon-theme.folders.associations": { "types": "typescript" },

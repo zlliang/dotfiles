@@ -7,7 +7,7 @@ Here are two [VS Code](https://code.visualstudio.com) setting files: [`settings.
 - Web development
     - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
     - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
-- C/C++/Fortran
+- C/C++
     - [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
     - [CMake](https://marketplace.visualstudio.com/items?itemName=twxs.cmake)
     - [CMake Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools)
@@ -21,9 +21,9 @@ Here are two [VS Code](https://code.visualstudio.com) setting files: [`settings.
     - [GitHub Pull Requests](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github)
 - Miscellaneous
     - [Fish](https://marketplace.visualstudio.com/items?itemName=bmalehorn.vscode-fish)
-    - [Better TOML](https://marketplace.visualstudio.com/items?itemName=bungcip.better-toml)
     - [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
 - Themes
     - [Min Theme](https://marketplace.visualstudio.com/items?itemName=miguelsolorio.min-theme)
     - [Night Owl](https://marketplace.visualstudio.com/items?itemName=sdras.night-owl)
+    - [Dracula](https://marketplace.visualstudio.com/items?itemName=dracula-theme.theme-dracula)
     - [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme)
