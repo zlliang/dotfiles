@@ -14,10 +14,6 @@ alias l "ls"
 # Java (OpenJDK)
 set -x JAVA_HOME (/usr/libexec/java_home)
 
-# TeX Live
-set -x TLMGR_REPO "https://mirrors.ustc.edu.cn/CTAN/systems/texlive/tlnet/"
-alias tlmgr "tlmgr --repository $TLMGR_REPO"
-
 # Python
 set -x VIRTUAL_ENV_DISABLE_PROMPT true
 
