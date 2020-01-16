@@ -1,4 +1,4 @@
-# Fish shell configuration
+# Fish shell settings
 # Location: ~/.config/fish/config.fish
 
 # Environment variables
