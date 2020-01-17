@@ -1,6 +1,9 @@
 # Docker Practices
 
-I use [Docker](https://docker.com) containers as my development enviroments, thanks to VS Code's [remote development feature for containers](https://code.visualstudio.com/docs/remote/containers).
+I use [Docker](https://docker.com) containers as my development enviroments, thanks to VS Code's [remote development feature for containers](https://code.visualstudio.com/docs/remote/containers). This directory contains several image building files to build Docker images for development. These images can be found on the [Docker Hub](https://hub.docker.com) repository [`zllliang/dev`](https://hub.docker.com/r/zlliang/dev/).
+
+- `zlliang/dev:base`: Basic image built from `debian:sid`. Fish shell, exa, bat, ripgrep and fd-find are installed.
+- `zlliang/dev:gcc`: C/C++ development environment built from `base`. GCC and CMake are installed.
 
 ## Story: Why I use Docker for development?
 
