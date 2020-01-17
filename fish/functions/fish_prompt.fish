@@ -6,7 +6,7 @@ function fish_prompt -d "Rich fish prompt"
   set -l git_branch (command git rev-parse --abbrev-ref HEAD 2>/dev/null)
   set -l pwd_str (prompt_pwd)
   
-  # Date and time
+  # Date, time and working directory
   echo -n \n
   set_color yellow
   echo -n $time_str " "
