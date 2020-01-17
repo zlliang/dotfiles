@@ -49,6 +49,7 @@
   },
 
   // Remote development
+  "terminal.integrated.shell.linux": "/usr/bin/fish",
   "remote.containers.defaultExtensions": [
     "streetsidesoftware.code-spell-checker",
     "yzhang.markdown-all-in-one",
