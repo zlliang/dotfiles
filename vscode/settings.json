@@ -28,6 +28,7 @@
   // Integrated terminal
   "terminal.integrated.cursorStyle": "line",
   "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.detectLocale": "off",
   "terminal.integrated.fontFamily": "JetBrains Mono",
   "terminal.integrated.fontSize": 15,
   "terminal.integrated.lineHeight": 1.25,
