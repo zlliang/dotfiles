@@ -10,18 +10,18 @@ function upgrade -d "Upgrade development tools"
   set_color normal
   brew update && brew upgrade && brew cleanup
 
-  set_color cyan
-  echo "2) Python"
-  set_color normal
-  pip_upgrade
+  # set_color cyan
+  # echo "2) Python"
+  # set_color normal
+  # pip_upgrade
+
+  # set_color cyan
+  # echo "3) Node (yarn)"
+  # set_color normal
+  # yarn global upgrade -s --latest
 
   set_color cyan
-  echo "3) Node (yarn)"
-  set_color normal
-  yarn global upgrade -s --latest
-
-  set_color cyan
-  echo "4) TeX Live"
+  echo "2) TeX Live"
   set_color normal
   tlmgr update --all
 
