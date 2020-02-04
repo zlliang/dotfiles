@@ -60,6 +60,10 @@
     "yzhang.markdown-all-in-one",
   ],
 
+  // Visual Studio IntelliCode
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+
   // Git and GitHub
   "git.confirmSync": false,
   "git.autofetch": true,
@@ -90,6 +94,7 @@
   // Python
   "[python]": { "editor.tabSize": 4, "editor.formatOnSave": false },
   "python.formatting.provider": "black",
+  "python.jediEnabled": false,
   
   // Web development
   "[html]": {
