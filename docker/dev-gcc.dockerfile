@@ -4,8 +4,6 @@
 
 FROM zlliang/dev:base
 
-RUN apt-get update
-
 # Install GCC and CMake
 RUN apt-get install -y gcc g++ cmake
 
