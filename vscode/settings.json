@@ -94,6 +94,10 @@
   // Rust
   "[rust]": { "editor.tabSize": 4, "editor.formatOnSave": true },
   
+  // Java
+  "[java]": { "editor.formatOnSave": true },
+  "java.configuration.updateBuildConfiguration": "automatic",
+
   // Python
   "[python]": { "editor.tabSize": 4, "editor.formatOnSave": false },
   "python.formatting.provider": "black",
