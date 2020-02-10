@@ -27,10 +27,9 @@ To link these configuration files to their suggested locations, run [`hardlink.s
    - [`fd`](https://github.com/sharkdp/fd): A simple, fast and user-friendly alternative to `find`;
    - [`bat`](https://github.com/sharkdp/bat): A `cat` clone with wings;
    - [`ripgrep (rg)`](https://github.com/BurntSushi/ripgrep): An algernative to `grep`;
-   - [`tldr`](https://tldr.sh): Simplified and community-driven man pages;
    - [`autojump (j)`](https://github.com/wting/autojump): A `cd` command that learns;
 6. Useful Homebrew bottles:
-   - Programming languages and tools: `java` (via cask), `gradle`, `python`, `poetry`, `node`, `yarn`;
+   - Programming languages and tools: `openjdk`, `gradle`, `python`, `poetry`, `node`, `yarn`;
    - C/C++ tools and libraries: `cmake`, `boost`, `fmt`, `eigen`, `catch2`;
 7. Useful Python packages: `black`, `pylint`, `pytest`, `pygments`, `numpy`, `scipy`, `pandas`, `bokeh`, `jupyterlab`;
 8. Install [MacTeX](http://tug.org/mactex/) for LaTeX typesetting: `brew cask install mactex-no-gui`;
