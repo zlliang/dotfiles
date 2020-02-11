@@ -31,11 +31,7 @@
     "command": "workbench.action.toggleSidebarVisibility"
   },
   {
-    "key": "ctrl+alt+m",
-    "command": "editor.action.toggleTabFocusMode"
-  },
-  {
-    "key": "ctrl+shift+m",
-    "command": "-editor.action.toggleTabFocusMode"
+    "key": "ctrl+shift+c",
+    "command": "cmake.configure"
   }
 ]

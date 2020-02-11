@@ -93,6 +93,7 @@
   "C_Cpp.default.cppStandard": "c++17",
   "C_Cpp.clang_format_fallbackStyle": "Google",
   "cmake.configureOnOpen": true,
+  "cmake.revealLog": "never",
 
   // Rust
   "[rust]": { "editor.tabSize": 4, "editor.formatOnSave": true },
