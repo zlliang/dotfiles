@@ -20,8 +20,8 @@
 
   // Theme
   "window.autoDetectColorScheme": true,
-  "workbench.colorTheme": "Min Light",
-  "workbench.preferredLightColorTheme": "Min Light",
+  "workbench.colorTheme": "Default Light+",
+  "workbench.preferredLightColorTheme": "Default Light+",
   "workbench.preferredDarkColorTheme": "Dracula",
   "workbench.iconTheme": "material-icon-theme",
   "material-icon-theme.activeIconPack": "react",
