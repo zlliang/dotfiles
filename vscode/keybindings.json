@@ -3,6 +3,10 @@
 
 [
   {
+    "key": "ctrl+shift+\\",
+    "command": "workbench.action.toggleSidebarVisibility"
+  },
+  {
     "key": "ctrl+shift+m",
     "command": "markdown.showPreviewToSide",
     "when": "editorLangId == 'markdown'"
@@ -25,10 +29,6 @@
   {
     "key": "ctrl+shift+t",
     "command": "workbench.action.terminal.toggleTerminal"
-  },
-  {
-    "key": "ctrl+shift+\\",
-    "command": "workbench.action.toggleSidebarVisibility"
   },
   {
     "key": "ctrl+shift+c",
