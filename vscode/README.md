@@ -1,6 +1,6 @@
 # VS Code Settings
 
-Here are two [VS Code](https://code.visualstudio.com) setting files: [`settings.json`](./settings.json) and [`keybindings.json`](./keybindings.json). To apply these settings, copy the contents to the corresponding default setting files.
+Here are two [VS Code](https://code.visualstudio.com) setting files: [`settings.json`](./settings.json) and [`keybindings.json`](./keybindings.json). To apply these settings, copy them to the corresponding locations.
 
 ## Useful VS Code Extensions
 
@@ -27,7 +27,5 @@ Here are two [VS Code](https://code.visualstudio.com) setting files: [`settings.
   - [Fish](https://marketplace.visualstudio.com/items?itemName=bmalehorn.vscode-fish)
   - [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
 - Themes
-  - [Min Theme](https://marketplace.visualstudio.com/items?itemName=miguelsolorio.min-theme)
-  - [Night Owl](https://marketplace.visualstudio.com/items?itemName=sdras.night-owl)
   - [Dracula](https://marketplace.visualstudio.com/items?itemName=dracula-theme.theme-dracula)
   - [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme)

@@ -6,9 +6,8 @@ Here are several dotfiles I am using on my macOS, and guides to configure a deve
 
 1. Fish shell: See [`fish/`](./fish/);
 2. VS Code: See [`vscode/`](./vscode/);
-3. Docker: See [`docker/`](./docker/);
-4. Git global configuration files: See [`.gitconfig`](./.gitconfig) and [`.gitignore`](./.gitignore);
-5. Vim settings: See [`.vimrc`](./.vimrc).
+3. Git global configuration files: See [`.gitconfig`](./.gitconfig) and [`.gitignore`](./.gitignore);
+4. Vim settings: See [`.vimrc`](./.vimrc).
 
 To link these configuration files to their suggested locations, run [`hardlink.sh`](./hardlink.sh).
 
@@ -30,9 +29,8 @@ To link these configuration files to their suggested locations, run [`hardlink.s
    - [`autojump (j)`](https://github.com/wting/autojump): A `cd` command that learns;
 6. Useful Homebrew bottles:
    - Programming languages and tools: `openjdk`, `gradle`, `python`, `poetry`, `node`, `yarn`;
-   - C/C++ tools and libraries: `cmake`, `boost`, `fmt`, `eigen`, `catch2`;
-7. Useful Python packages: `black`, `pylint`, `pytest`, `pygments`, `numpy`, `scipy`, `pandas`, `bokeh`, `jupyterlab`;
+   - C/C++ tools and libraries: `cmake`, `boost`, `fmt`, `eigen`, `spdlog`;
+7. Useful Python packages: `black`, `pylint`, `pytest`, `numpy`, `scipy`, `pandas`, `bokeh`, `jupyterlab`;
 8. Install [MacTeX](http://tug.org/mactex/) for LaTeX typesetting: `brew cask install mactex-no-gui`;
 9. Install [VS Code](https://code.visualstudio.com) as the code editor;
-10. Install [Docker Desktop](https://www.docker.com) for development;
-11. Install [MATLAB](https://www.mathworks.com).
+10. Install [MATLAB](https://www.mathworks.com).
