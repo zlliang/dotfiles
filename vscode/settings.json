@@ -168,7 +168,7 @@
       "command": "latexmk",
       "args": [
         "-shell-escape", "-interaction=nonstopmode",
-        "-file-line-error", "-pdf", "%DOC%"
+        "-file-line-error", "-pdflatex", "%DOC%"
       ]
     },
     {
@@ -176,7 +176,7 @@
       "command": "latexmk",
       "args": [
         "-shell-escape", "-interaction=nonstopmode",
-        "-file-line-error", "-xelatex", "%DOC%"
+        "-file-line-error", "-pdfxelatex", "%DOC%"
       ]
     }
   ]
