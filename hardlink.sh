@@ -10,8 +10,12 @@ fi
 if test ! -d ~/Library/Application\ Support/Code/User; then
   mkdir -p ~/Library/Application\ Support/Code/User
 fi
+if test ! -d ~/Library/Application\ Support/Code/User/snippets; then
+  mkdir -p ~/Library/Application\ Support/Code/User/snippets
+fi
 
 ln -vf .gitignore .gitconfig .vimrc ~
 ln -vf fish/config.fish ~/.config/fish
 ln -vf fish/functions/*.fish ~/.config/fish/functions
 ln -vf vscode/*.json ~/Library/Application\ Support/Code/User
+ln -vf vscode/snippets/*.json ~/Library/Application\ Support/Code/User/snippets
