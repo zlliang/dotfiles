@@ -22,6 +22,20 @@
       "\\end{figure}"
     ]
   },
+  "table": {
+    "prefix": "table",
+    "body": [
+      "\\begin{table}[ht]",
+      "  \\centering",
+      "  \\caption",
+      "  \\begin{tabular}{$1}",
+      "    \\toprule\n    $2",
+      "    \\midrule\n    $3",
+      "    \\bottomrule",
+      "  \\end{tabular}",
+      "\\end{table}"
+    ]
+  },
   "algorithm": {
     "prefix": "algorithm",
     "body": [
@@ -33,6 +47,16 @@
       "    $5",
       "  \\end{algorithmic}",
       "\\end{algorithm}"
+    ]
+  },
+  "algorithmic": {
+    "prefix": "algorithmic",
+    "body": [
+      "\\begin{algorithmic}[1]",
+      "  \\Require $1",
+      "  \\Ensure $2",
+      "  $3",
+      "\\end{algorithmic}"
     ]
   },
   "minted": {
