@@ -20,7 +20,7 @@
 
   // Theme
   "window.autoDetectColorScheme": true,
-  "workbench.colorTheme": "Default Light+",
+  "workbench.colorTheme": "Dracula",
   "workbench.preferredLightColorTheme": "Default Light+",
   "workbench.preferredDarkColorTheme": "Dracula",
   "workbench.iconTheme": "material-icon-theme",
@@ -176,7 +176,7 @@
       "command": "latexmk",
       "args": [
         "-shell-escape", "-interaction=nonstopmode",
-        "-file-line-error", "-pdfxelatex", "%DOC%"
+        "-file-line-error", "-xelatex", "%DOC%"
       ]
     }
   ]
