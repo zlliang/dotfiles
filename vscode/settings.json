@@ -20,7 +20,7 @@
 
   // Theme
   "window.autoDetectColorScheme": true,
-  "workbench.colorTheme": "Dracula",
+  "workbench.colorTheme": "Default Light+",
   "workbench.preferredLightColorTheme": "Default Light+",
   "workbench.preferredDarkColorTheme": "Dracula",
   "workbench.iconTheme": "material-icon-theme",
@@ -155,8 +155,8 @@
     "*.aux", "*.bbl", "*.blg", "*.idx", "*.ind", "*.lof",
     "*.lot", "*.out", "*.toc", "*.acn", "*.acr", "*.alg", 
     "*.glg", "*.glo", "*.gls", "*.ist", "*.fls", "*.log",
-    "*.fdb_latexmk", "*.thm", "*.synctex.gz", "*.nav",
-    "*.synctex(busy)", "*.snm", "*.xdv", "_minted-*"
+    "*.fdb_latexmk", "*.thm", "*.nav", "*.xdv", "_minted-*",
+    "*.synctex(busy)", "*.synctex.gz(busy)", "*.snm"
   ],
   "latex-workshop.latex.recipes": [
     { "name": "Build LaTeX (pdfLaTeX)", "tools": ["pdflatex"] },
@@ -168,7 +168,7 @@
       "command": "latexmk",
       "args": [
         "-shell-escape", "-interaction=nonstopmode",
-        "-file-line-error", "-pdflatex", "%DOC%"
+        "-file-line-error", "-synctex=1", "-pdflatex", "%DOC%"
       ]
     },
     {
@@ -176,7 +176,7 @@
       "command": "latexmk",
       "args": [
         "-shell-escape", "-interaction=nonstopmode",
-        "-file-line-error", "-xelatex", "%DOC%"
+        "-file-line-error", "-synctex=1", "-xelatex", "%DOC%"
       ]
     }
   ]
