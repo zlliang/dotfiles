@@ -27,10 +27,10 @@
     "body": [
       "\\begin{table}[ht]",
       "  \\centering",
-      "  \\caption",
-      "  \\begin{tabular}{$1}",
-      "    \\toprule\n    $2",
-      "    \\midrule\n    $3",
+      "  \\caption{$1}",
+      "  \\begin{tabular}{$2}",
+      "    \\toprule\n    $3",
+      "    \\midrule\n    $4",
       "    \\bottomrule",
       "  \\end{tabular}",
       "\\end{table}"
