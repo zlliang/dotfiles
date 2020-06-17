@@ -20,7 +20,7 @@
 
   // Theme
   "window.autoDetectColorScheme": true,
-  "workbench.colorTheme": "Default Light+",
+  "workbench.colorTheme": "Dracula",
   "workbench.preferredLightColorTheme": "Default Light+",
   "workbench.preferredDarkColorTheme": "Dracula",
   "workbench.iconTheme": "material-icon-theme",
@@ -160,7 +160,8 @@
   ],
   "latex-workshop.latex.recipes": [
     { "name": "Build LaTeX (pdfLaTeX)", "tools": ["pdflatex"] },
-    { "name": "Build LaTeX (XeLaTeX)", "tools": ["xelatex"] }
+    { "name": "Build LaTeX (XeLaTeX)", "tools": ["xelatex"] },
+    { "name": "Build LaTeX (upLaTeX)", "tools": ["uplatex"] }
   ],
   "latex-workshop.latex.tools": [
     {
@@ -175,8 +176,27 @@
       "name": "xelatex",
       "command": "latexmk",
       "args": [
+        "-xelatex", "%DOC%"
+      ]
+    },
+    {
+      "name": "uplatex",
+      "command": "latexmk",
+      "args": [
+        "-e",
+        "$latex=q/uplatex -kanji=utf8 %O %S/",
         "-shell-escape", "-interaction=nonstopmode",
-        "-file-line-error", "-synctex=1", "-xelatex", "%DOC%"
+        "-file-line-error", "-synctex=1", 
+        "-e",
+        "$bibtex=q/upbibtex %O %B/",
+        "-e",
+        "$biber=q/biber %O --bblencoding=utf8 -u -U --output_safechars %B/",
+        "-e",
+        "$makeindex=q/upmendex %O -o %D %S/",
+        "-e",
+        "$dvipdf=q/dvipdfmx %O -o %D %S/",
+        "-pdfdvi",
+        "%DOC%"
       ]
     }
   ]
