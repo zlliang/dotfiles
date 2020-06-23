@@ -20,7 +20,7 @@
 
   // Theme
   "window.autoDetectColorScheme": true,
-  "workbench.colorTheme": "Default Light+",
+  "workbench.colorTheme": "Dracula",
   "workbench.preferredLightColorTheme": "Default Light+",
   "workbench.preferredDarkColorTheme": "Dracula",
   "workbench.iconTheme": "material-icon-theme",
@@ -90,6 +90,7 @@
 
   // Python
   "[python]": { "editor.tabSize": 4, "editor.formatOnSave": false },
+  "python.showStartPage": false,
   "python.formatting.provider": "black",
   "python.languageServer": "Microsoft",
   
