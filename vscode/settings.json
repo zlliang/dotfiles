@@ -20,9 +20,9 @@
 
   // Theme
   "window.autoDetectColorScheme": true,
-  "workbench.colorTheme": "Dracula",
-  "workbench.preferredLightColorTheme": "Default Light+",
-  "workbench.preferredDarkColorTheme": "Dracula",
+  "workbench.colorTheme": "GitHub Light",
+  "workbench.preferredLightColorTheme": "GitHub Light",
+  "workbench.preferredDarkColorTheme": "GitHub Dark",
   "workbench.iconTheme": "material-icon-theme",
   "material-icon-theme.activeIconPack": "react",
   "material-icon-theme.folders.associations": { "types": "typescript" },
