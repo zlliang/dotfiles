@@ -92,7 +92,7 @@
   "[python]": { "editor.tabSize": 4, "editor.formatOnSave": false },
   "python.showStartPage": false,
   "python.formatting.provider": "black",
-  "python.languageServer": "Microsoft",
+  "python.languageServer": "Pylance",
   
   // Web development
   "[html]": {
@@ -121,7 +121,6 @@
   "npm.packageManager": "yarn",
   "eslint.packageManager": "yarn",
   "prettier.packageManager": "yarn",
-  "eslint.enable": true,
   "eslint.validate": [
     "javascript", "javascriptreact",
     "typescript", "typescriptreact"
