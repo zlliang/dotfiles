@@ -20,7 +20,7 @@
 
   // Theme
   "window.autoDetectColorScheme": true,
-  "workbench.colorTheme": "GitHub Light",
+  "workbench.colorTheme": "GitHub Dark",
   "workbench.preferredLightColorTheme": "GitHub Light",
   "workbench.preferredDarkColorTheme": "GitHub Dark",
   "workbench.iconTheme": "material-icon-theme",
@@ -89,7 +89,8 @@
   "java.configuration.updateBuildConfiguration": "automatic",
 
   // Python
-  "[python]": { "editor.tabSize": 4, "editor.formatOnSave": false },
+  "[python]": { "editor.tabSize": 4, "editor.formatOnSave": true },
+  "python.defaultInterpreterPath": "/usr/local/opt/python/libexec/bin/python",
   "python.showStartPage": false,
   "python.formatting.provider": "black",
   "python.languageServer": "Pylance",
@@ -147,8 +148,7 @@
   ],
   "latex-workshop.latex.recipes": [
     { "name": "Build LaTeX (pdfLaTeX)", "tools": ["pdflatex"] },
-    { "name": "Build LaTeX (XeLaTeX)", "tools": ["xelatex"] },
-    { "name": "Build LaTeX (upLaTeX)", "tools": ["uplatex"] }
+    { "name": "Build LaTeX (XeLaTeX)", "tools": ["xelatex"] }
   ],
   "latex-workshop.latex.tools": [
     {
@@ -165,26 +165,6 @@
       "args": [
         "-shell-escape", "-interaction=nonstopmode",
         "-file-line-error", "-synctex=1", "-xelatex", "%DOC%"
-      ]
-    },
-    {
-      "name": "uplatex",
-      "command": "latexmk",
-      "args": [
-        "-e",
-        "$latex=q/uplatex -kanji=utf8 %O %S/",
-        "-shell-escape", "-interaction=nonstopmode",
-        "-file-line-error", "-synctex=1", 
-        "-e",
-        "$bibtex=q/upbibtex %O %B/",
-        "-e",
-        "$biber=q/biber %O --bblencoding=utf8 -u -U --output_safechars %B/",
-        "-e",
-        "$makeindex=q/upmendex %O -o %D %S/",
-        "-e",
-        "$dvipdf=q/dvipdfmx %O -o %D %S/",
-        "-pdfdvi",
-        "%DOC%"
       ]
     }
   ]
