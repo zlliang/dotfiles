@@ -14,7 +14,7 @@ alias l "ls"
 set -x JAVA_HOME (/usr/libexec/java_home)
 
 # Python
-set -x PATH /usr/local/opt/python@3.8/{bin,libexec/bin} $PATH
+set -x PATH /usr/local/opt/python/libexec/bin $PATH
 set -x VIRTUAL_ENV_DISABLE_PROMPT true
 
 # autojump
