@@ -4,7 +4,7 @@
 {
   // Editor
   "editor.fontLigatures": true,
-  "editor.fontSize": 16,
+  "editor.fontSize": 15,
   "editor.renderLineHighlight": "all",
   "editor.minimap.enabled": false,
   "editor.scrollBeyondLastLine": false,
