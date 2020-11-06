@@ -21,11 +21,11 @@ Here are two [VS Code](https://code.visualstudio.com) setting files: [`settings.
   - [Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh)
   - [Remote - Container](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 - GitHub
-  - [GitHub Issues](https://marketplace.visualstudio.com/items?itemName=ms-vscode.github-issues-prs)
-  - [GitHub Pull Requests](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github)
+  - [GitHub Pull Requests and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github)
 - Miscellaneous
   - [Fish](https://marketplace.visualstudio.com/items?itemName=bmalehorn.vscode-fish)
   - [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
 - Themes
+  - [GitHub Theme](https://marketplace.visualstudio.com/items?itemName=GitHub.github-vscode-theme)
   - [Dracula](https://marketplace.visualstudio.com/items?itemName=dracula-theme.theme-dracula)
   - [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme)

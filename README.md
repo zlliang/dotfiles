@@ -6,8 +6,9 @@ Here are several dotfiles I am using on my macOS, and guides to configure a deve
 
 1. Fish shell: See [`fish/`](./fish/);
 2. VS Code: See [`vscode/`](./vscode/);
-3. Git global configuration files: See [`.gitconfig`](./.gitconfig) and [`.gitignore`](./.gitignore);
-4. Vim settings: See [`.vimrc`](./.vimrc).
+3. Python `pip`: See [`pip/`](./pip/);
+4. Git global configuration files: See [`.gitconfig`](./.gitconfig) and [`.gitignore`](./.gitignore);
+5. Vim settings: See [`.vimrc`](./.vimrc).
 
 To link these configuration files to their suggested locations, run [`hardlink.sh`](./hardlink.sh).
 
