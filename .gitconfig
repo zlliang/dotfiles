@@ -1,17 +1,15 @@
 # Git global configurations
 # Location: ~/.gitconfig
 
-[user]
-  name = Zilong Liang
-  email = zlliang96@outlook.com
+
+[core]
+  editor = code --wait  # Default editor: VS Code
+  excludesfile = ~/.gitignore
 [filter "lfs"]
   clean = git-lfs clean -- %f
   smudge = git-lfs smudge -- %f
   required = true
   process = git-lfs filter-process
-[core]
-  editor = code --wait  # Default editor: VS Code
-  excludesfile = ~/.gitignore
 [alias]
   st = status
   ci = commit
