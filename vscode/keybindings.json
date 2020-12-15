@@ -33,5 +33,9 @@
   {
     "key": "ctrl+shift+c",
     "command": "cmake.configure"
+  },
+  {
+    "key": "ctrl+shift+p",
+    "command": "git-graph.view"
   }
 ]
