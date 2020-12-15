@@ -1,10 +1,11 @@
 # Git global configurations
 # Location: ~/.gitconfig
 
-
 [core]
-  editor = code --wait  # Default editor: VS Code
+  editor = code --wait # Default editor: VS Code
   excludesfile = ~/.gitignore
+[pull]
+  rebase = false #
 [filter "lfs"]
   clean = git-lfs clean -- %f
   smudge = git-lfs smudge -- %f
