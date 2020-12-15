@@ -12,14 +12,13 @@
   "editor.rulers": [80],
 
   // Workbench and window
-  "explorer.sortOrder": "modified",
   "workbench.settings.editor": "json",
   "workbench.settings.useSplitJSON": true,
   "window.restoreFullscreen": false,
 
   // Theme
   "window.autoDetectColorScheme": true,
-  "workbench.colorTheme": "GitHub Dark",
+  "workbench.colorTheme": "GitHub Light",
   "workbench.preferredLightColorTheme": "GitHub Light",
   "workbench.preferredDarkColorTheme": "GitHub Dark",
   "workbench.iconTheme": "material-icon-theme",
@@ -60,13 +59,29 @@
   "editor.suggestSelection": "first",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
 
-  // Git and GitHub
+  // Git
   "git.confirmSync": false,
   "git.autofetch": true,
   "gitlens.codeLens.enabled": false,
   "gitlens.statusBar.enabled": false,
   "gitlens.defaultDateFormat": "YYYY-MM-DD HH:mm",
   "gitlens.defaultDateShortFormat": "YYYY-MM-DD",
+  "gitlens.blame.avatars": false,
+  "gitlens.hovers.avatars": false,
+  "gitlens.views.branches.avatars": false,
+  "gitlens.views.commits.avatars": false,
+  "gitlens.views.contributors.avatars": false,
+  "gitlens.views.fileHistory.avatars": false,
+  "gitlens.views.lineHistory.avatars": false,
+  "gitlens.views.remotes.avatars": false,
+  "gitlens.views.repositories.avatars": false,
+  "gitlens.views.searchAndCompare.avatars": false,
+  "gitlens.views.tags.avatars": false,
+  "git-graph.date.format": "ISO Date & Time",
+  "git-graph.graph.colours": [
+    "#1E88A8", "#D9AB42", "#DB4D6D", "#986DB2", "#91AD70", "#91989F",
+    "#ED784A", "#954A45", "#78C2C4", "#DDD23B", "#EBB471", "#F19483"
+  ],
 
   // Spell checker
   "cSpell.allowCompoundWords": true,
