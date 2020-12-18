@@ -18,7 +18,7 @@
 
   // Theme
   "window.autoDetectColorScheme": true,
-  "workbench.colorTheme": "GitHub Light",
+  "workbench.colorTheme": "GitHub Dark",
   "workbench.preferredLightColorTheme": "GitHub Light",
   "workbench.preferredDarkColorTheme": "GitHub Dark",
   "workbench.iconTheme": "material-icon-theme",
@@ -124,13 +124,10 @@
   "[typescriptreact]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
   "[vue]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
   "vetur.ignoreProjectWarning": true,
+  "vetur.validation.template": false, // For customized ESLint rules
   "npm.packageManager": "yarn",
   "eslint.packageManager": "yarn",
   "prettier.packageManager": "yarn",
-  "eslint.validate": [
-    "javascript", "javascriptreact",
-    "typescript", "typescriptreact", "vue"
-  ],
   "emmet.includeLanguages": {
     "vue-html": "html",
     "javascript": "javascriptreact"
