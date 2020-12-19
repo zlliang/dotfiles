@@ -1,6 +1,9 @@
 # Git global configurations
 # Location: ~/.gitconfig
 
+[user]
+  name = Zilong Liang
+  email = zlliang96@outlook.com
 [core]
   editor = code --wait # Default editor: VS Code
   excludesfile = ~/.gitignore
