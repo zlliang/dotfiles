@@ -4,8 +4,10 @@
 [core]
   editor = code --wait # Default editor: VS Code
   excludesfile = ~/.gitignore
+[credential]
+  helper = osxkeychain
 [pull]
-  rebase = false #
+  rebase = false
 [filter "lfs"]
   clean = git-lfs clean -- %f
   smudge = git-lfs smudge -- %f
