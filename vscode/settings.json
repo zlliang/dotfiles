@@ -18,7 +18,7 @@
 
   // Theme
   "window.autoDetectColorScheme": true,
-  "workbench.colorTheme": "GitHub Light",
+  "workbench.colorTheme": "GitHub Dark",
   "workbench.preferredLightColorTheme": "GitHub Light",
   "workbench.preferredDarkColorTheme": "GitHub Dark",
   "workbench.iconTheme": "material-icon-theme",
@@ -26,9 +26,9 @@
   "material-icon-theme.folders.associations": { "types": "typescript" },
 
   // Font
-  "editor.fontFamily": "IBM Plex Mono",
-  "terminal.integrated.fontFamily": "IBM Plex Mono",
-  "debug.console.fontFamily": "IBM Plex Mono",
+  "editor.fontFamily": "IBM Plex Mono Text",
+  "terminal.integrated.fontFamily": "IBM Plex Mono Text",
+  "debug.console.fontFamily": "IBM Plex Mono Text",
   "editor.fontSize": 15,
   "terminal.integrated.fontSize": 15,
   "markdown.preview.fontSize": 15,
@@ -89,16 +89,11 @@
   // Markdown
   "[markdown]": {
     "editor.wordWrap": "on",
-    "editor.tabSize": 4,
     "editor.defaultFormatter":  "esbenp.prettier-vscode",
     "editor.formatOnSave": true
   },
 
   // Web development
-  "emmet.includeLanguages": {
-    "vue-html": "html",
-    "javascript": "javascriptreact"
-  },
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
@@ -127,12 +122,35 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
   },
+  "[mdx]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "emmet.includeLanguages": {
+    "vue-html": "html", "mdx": "javascriptreact",
+    "javascript": "javascriptreact"
+  },
+  "auto-close-tag.activationOnLanguage": [
+    "javascript", "javascriptreact",
+    "typescript", "typescriptreact",
+    "plaintext", "markdown", "vue", "mdx"
+  ],
   "npm.packageManager": "yarn",
   "eslint.packageManager": "yarn",
   "prettier.packageManager": "yarn",
+  "eslint.validate": [
+    "javascript", "javascriptreact",
+    "typescript", "typescriptreact",
+    "vue", "html"
+  ],
   "editor.codeActionsOnSave": { "source.fixAll.eslint": true },
+  "editor.quickSuggestions": { "strings": true },
+  "javascript.preferences.quoteStyle": "single",
   "vetur.ignoreProjectWarning": true,
   "vetur.validation.template": false, // Always use customized ESLint configs
+  "prettier.tabWidth": 2, "prettier.semi": false,
+  "prettier.singleQuote": true, "prettier.jsxSingleQuote": true,
+  "prettier.trailingComma": "none", "prettier.jsxBracketSameLine": true,
   
   // Python
   "[python]": { "editor.tabSize": 4 },
