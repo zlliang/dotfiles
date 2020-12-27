@@ -131,9 +131,7 @@
     "javascript": "javascriptreact"
   },
   "auto-close-tag.activationOnLanguage": [
-    "javascript", "javascriptreact",
-    "typescript", "typescriptreact",
-    "plaintext", "markdown", "vue", "mdx"
+    "vue", "markdown", "mdx"
   ],
   "npm.packageManager": "yarn",
   "eslint.packageManager": "yarn",
