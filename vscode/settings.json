@@ -18,7 +18,7 @@
 
   // Theme
   "window.autoDetectColorScheme": true,
-  "workbench.colorTheme": "GitHub Dark",
+  "workbench.colorTheme": "GitHub Light",
   "workbench.preferredLightColorTheme": "GitHub Light",
   "workbench.preferredDarkColorTheme": "GitHub Dark",
   "workbench.iconTheme": "material-icon-theme",
@@ -140,8 +140,7 @@
   "prettier.packageManager": "yarn",
   "eslint.validate": [
     "javascript", "javascriptreact",
-    "typescript", "typescriptreact",
-    "vue", "html"
+    "typescript", "typescriptreact", "vue"
   ],
   "editor.codeActionsOnSave": { "source.fixAll.eslint": true },
   "editor.quickSuggestions": { "strings": true },
