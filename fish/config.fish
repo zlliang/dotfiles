@@ -17,6 +17,10 @@ set -x JAVA_HOME (/usr/libexec/java_home)
 set -x PATH /usr/local/opt/python/libexec/bin $PATH
 set -x VIRTUAL_ENV_DISABLE_PROMPT true
 
+# SS Proxy
+set -x http_proxy 127.0.0.1:1087
+set -x https_proxy 127.0.0.1:1087
+
 # autojump
 if test -f /usr/local/share/autojump/autojump.fish
   source /usr/local/share/autojump/autojump.fish
