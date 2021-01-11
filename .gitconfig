@@ -4,6 +4,8 @@
 [user]
   name = Zilong Liang
   email = zlliang96@outlook.com
+[init]
+  defaultBranch = main
 [core]
   editor = code --wait # Default editor: VS Code
   excludesfile = ~/.gitignore

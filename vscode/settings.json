@@ -143,8 +143,10 @@
   "editor.codeActionsOnSave": { "source.fixAll.eslint": true },
   "editor.quickSuggestions": { "strings": true },
   "javascript.preferences.quoteStyle": "single",
+  "typescript.preferences.quoteStyle": "single",
   "vetur.ignoreProjectWarning": true,
   "vetur.validation.template": false, // Always use customized ESLint configs
+  "tailwindCSS.emmetCompletions": true,
   "prettier.tabWidth": 2, "prettier.semi": false,
   "prettier.singleQuote": true, "prettier.jsxSingleQuote": true,
   "prettier.trailingComma": "none", "prettier.jsxBracketSameLine": true,
