@@ -10,6 +10,9 @@ set -x HOMEBREW_BOTTLE_DOMAIN https://mirrors.ustc.edu.cn/homebrew-bottles
 alias ls "exa -lhH --git --time-style='long-iso'"
 alias l "ls"
 
+# Rust
+set -x PATH $HOME/.cargo/bin $PATH
+
 # Java (OpenJDK)
 set -x JAVA_HOME (/usr/libexec/java_home)
 

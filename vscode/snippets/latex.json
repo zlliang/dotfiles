@@ -12,22 +12,6 @@
   // 	],
   // 	"description": "Log output to console"
   // }
-  "parentheses": {
-    "prefix": "\\l()",
-    "body": "\\l($1\\r)"
-  },
-  "brakets": {
-    "prefix": "\\l[]",
-    "body": "\\l[$1\\r]"
-  },
-  "braces": {
-    "prefix": "\\l\\{\\}",
-    "body": "\\l\\{$1\\r\\}"
-  },
-  "angle-brakets": {
-    "prefix": "\\l<>",
-    "body": "\\l<$1\\r>"
-  },
   "figure": {
     "prefix": "figure",
     "body": [

@@ -18,12 +18,15 @@
 
   // Theme
   "window.autoDetectColorScheme": true,
-  "workbench.colorTheme": "GitHub Light",
+  "workbench.colorTheme": "GitHub Dark",
   "workbench.preferredLightColorTheme": "GitHub Light",
   "workbench.preferredDarkColorTheme": "GitHub Dark",
   "workbench.iconTheme": "material-icon-theme",
-  "material-icon-theme.activeIconPack": "none",
+  "material-icon-theme.activeIconPack": "react_redux",
   "material-icon-theme.folders.associations": { "types": "typescript" },
+  "material-icon-theme.files.associations": {
+    "*.jsx": "javascript", "*.tsx": "typescript"
+  },
 
   // Font
   "editor.fontFamily": "IBM Plex Mono Text",
@@ -130,9 +133,7 @@
     "vue-html": "html", "mdx": "javascriptreact",
     "javascript": "javascriptreact"
   },
-  "auto-close-tag.activationOnLanguage": [
-    "vue", "markdown", "mdx"
-  ],
+  "auto-close-tag.activationOnLanguage": ["vue", "markdown", "mdx"],
   "npm.packageManager": "yarn",
   "eslint.packageManager": "yarn",
   "prettier.packageManager": "yarn",
@@ -161,7 +162,11 @@
   // Java
   "[java]": { "editor.formatOnSave": true },
   "java.configuration.updateBuildConfiguration": "automatic",
+  "java.saveActions.organizeImports": true,
 
+  // Rust
+  "[rust]": { "editor.tabSize": 4, "editor.formatOnSave": true },
+  
   // C and C++
   "[c]": { "editor.formatOnSave": true },
   "[cpp]": { "editor.formatOnSave": true },
