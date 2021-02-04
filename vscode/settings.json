@@ -3,7 +3,8 @@
 
 {
   // Editor
-  "editor.fontLigatures": true,
+  "files.defaultLanguage": "${activeEditorLanguage}",
+  "editor.cursorBlinking": "smooth",
   "editor.renderLineHighlight": "all",
   "editor.minimap.enabled": false,
   "editor.scrollBeyondLastLine": false,
@@ -23,7 +24,9 @@
   "workbench.preferredDarkColorTheme": "GitHub Dark",
   "workbench.iconTheme": "material-icon-theme",
   "material-icon-theme.activeIconPack": "react_redux",
-  "material-icon-theme.folders.associations": { "types": "typescript" },
+  "material-icon-theme.folders.associations": {
+    "types": "typescript", "benches": "benchmark"
+  },
   "material-icon-theme.files.associations": {
     "*.jsx": "javascript", "*.tsx": "typescript"
   },
@@ -35,6 +38,7 @@
   "editor.fontSize": 15,
   "terminal.integrated.fontSize": 15,
   "markdown.preview.fontSize": 15,
+  "editor.fontLigatures": true,
 
   // Integrated terminal
   "terminal.integrated.cursorStyle": "line",
@@ -55,10 +59,11 @@
     "**/.project": true, "**/.factorypath": true, "**/.gradle": true,
     "**/.pytest_cache": true, "**/node_modules": true, "**/.cache": true,
     "**/__pycache__/": true, "**/*.pyc": true, "**/.next": true,
-    "**/.venv": true, "**/*.egg-info": true, "**/.github": true
+    "**/.venv": true, "**/*.egg-info": true
   },
 
-  // Visual Studio IntelliCode
+  // Intellisense and Visual Studio IntelliCode
+  "editor.suggest.showStatusBar": true,
   "editor.suggestSelection": "first",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
 
