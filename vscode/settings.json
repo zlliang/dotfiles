@@ -19,7 +19,7 @@
 
   // Theme
   "window.autoDetectColorScheme": true,
-  "workbench.colorTheme": "GitHub Dark",
+  "workbench.colorTheme": "GitHub Light",
   "workbench.preferredLightColorTheme": "GitHub Light",
   "workbench.preferredDarkColorTheme": "GitHub Dark",
   "workbench.iconTheme": "material-icon-theme",
@@ -171,7 +171,12 @@
 
   // Rust
   "[rust]": { "editor.tabSize": 4, "editor.formatOnSave": true },
-  
+  "rust-analyzer.updates.channel": "nightly",
+  "rust-analyzer.updates.askBeforeDownload": false,
+  "rust-analyzer.lens.enable": false,
+  "rust-analyzer.cargo.loadOutDirsFromCheck": true,
+  "rust-analyzer.procMacro.enable": true,
+
   // C and C++
   "[c]": { "editor.formatOnSave": true },
   "[cpp]": { "editor.formatOnSave": true },
