@@ -141,7 +141,6 @@
   "auto-close-tag.activationOnLanguage": ["vue", "markdown", "mdx"],
   "npm.packageManager": "yarn",
   "eslint.packageManager": "yarn",
-  "prettier.packageManager": "yarn",
   "eslint.validate": [
     "javascript", "javascriptreact",
     "typescript", "typescriptreact", "vue"
@@ -174,6 +173,7 @@
   "rust-analyzer.updates.channel": "nightly",
   "rust-analyzer.updates.askBeforeDownload": false,
   "rust-analyzer.lens.enable": false,
+  "rust-analyzer.inlayHints.enable":false,
   "rust-analyzer.cargo.loadOutDirsFromCheck": true,
   "rust-analyzer.procMacro.enable": true,
 
