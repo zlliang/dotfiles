@@ -1,10 +1,10 @@
 # Location: ~/.config/fish/functions/fish_prompt.fish
 
 function fish_prompt -d "Rich fish prompt"
-  set -l exit_status $status
-  set -l time_str (date "+%m-%d %H:%M")
-  set -l git_branch (command git rev-parse --abbrev-ref HEAD 2>/dev/null)
-  set -l pwd_str (prompt_pwd)
+  set exit_status $status
+  set time_str (date "+%m-%d %H:%M")
+  set git_branch (command git rev-parse --abbrev-ref HEAD 2>/dev/null)
+  set pwd_str (prompt_pwd)
   
   # Date, time and working directory
   echo -n \n
@@ -43,8 +43,8 @@ function fish_prompt -d "Rich fish prompt"
 end
 
 function echo_git_status -d "Auxiliary function to print git status"
-  set -l __status (command git status --porcelain 2>/dev/null)
-  if test -z "$__status"
+  set git_status (command git status --porcelain 2>/dev/null)
+  if test -z "$git_status"
     set_color green
     echo "(clean)"
   else
@@ -53,11 +53,8 @@ function echo_git_status -d "Auxiliary function to print git status"
   end
 end
 
-function echo_node -d "Auxiliary function to print Node info"
-  if test -f package.json || test -f ../package.json || test -f ../../package.json ||\
-     test -f ../../../package.json || test -f ../../../../package.json ||\
-     test -f ../../../../../package.json || test -f ../../../../../../package.json ||\
-     test -f ../../../../../../../package.json
+function echo_node -d "Print Node.js info"
+  if file_in_tree package.json
     set_color green
     echo -n [
     echo -n "node:"
@@ -69,7 +66,7 @@ function echo_node -d "Auxiliary function to print Node info"
   end
 end
 
-function echo_venv -d "Auxiliary function to print virtualenv info"
+function echo_venv -d "Print Python virtualenv info"
   if test (echo $PATH | rg ".venv/bin")
     set_color yellow
     echo -n [
@@ -83,8 +80,8 @@ function echo_venv -d "Auxiliary function to print virtualenv info"
   end
 end
 
-function echo_jobs -d "Auxiliary function to print background jobs number"
-  set -l njobs (jobs | wc -l | xargs)
+function echo_jobs -d "Print background jobs number"
+  set njobs (jobs | wc -l | xargs)
   test -n (echo (jobs | grep autojump 2>/dev/null)) && set njobs (math $njobs-1)
   set_color $fish_color_autosuggestion
   if test $njobs -le 0
@@ -94,4 +91,17 @@ function echo_jobs -d "Auxiliary function to print background jobs number"
   else
     echo "[$njobs jobs]"
   end
+end
+
+function file_in_tree -d "Check if a specific file is in the current tree"
+  set filename $argv
+  set dir (pwd)
+  set root "/"
+  while test $dir != $root
+    if test -f $dir/$filename
+      return 0
+    end
+    set dir (dirname $dir)
+  end
+  return 1
 end

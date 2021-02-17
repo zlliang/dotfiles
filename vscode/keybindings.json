@@ -7,6 +7,11 @@
     "command": "workbench.action.toggleSidebarVisibility"
   },
   {
+    "key": "Enter",
+    "command": "rust-analyzer.onEnter",
+    "when": "editorTextFocus && !suggestWidgetVisible && editorLangId == rust"
+  },
+  {
     "key": "ctrl+shift+m",
     "command": "markdown.showPreviewToSide",
     "when": "editorLangId == 'markdown'"
