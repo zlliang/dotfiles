@@ -21,13 +21,13 @@ To link these configuration files to their suggested locations, run [`hardlink.s
    - Install via Homebrew: `brew install fish`;
    - Add `/usr/local/bin/fish` to `/etc/shells`;
    - Set the default shell: `chsh -s /usr/local/bin/fish`;
-   - *Note that* the configuration file of fish is `~/.config/fish/config.fish`;
+   - _Note that_ the configuration file of fish is `~/.config/fish/config.fish`;
 5. Useful command line tools:
    - [`exa`](https://the.exa.website): A modern replacement for `ls`;
    - [`fd`](https://github.com/sharkdp/fd): A simple, fast and user-friendly alternative to `find`;
    - [`bat`](https://github.com/sharkdp/bat): A `cat` clone with wings;
    - [`ripgrep (rg)`](https://github.com/BurntSushi/ripgrep): An algernative to `grep`;
-   - [`autojump (j)`](https://github.com/wting/autojump): A `cd` command that learns;
+   - [`zoxide (z)`](https://github.com/ajeetdsouza/zoxide): A faster way to navigate your filesystem;
 6. Useful Homebrew bottles:
    - Programming languages and tools: `openjdk`, `gradle`, `python`, `poetry`, `node`, `yarn`;
    - C/C++ tools and libraries: `cmake`, `boost`, `fmt`, `eigen`, `spdlog`;

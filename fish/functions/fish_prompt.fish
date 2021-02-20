@@ -82,7 +82,6 @@ end
 
 function echo_jobs -d "Print background jobs number"
   set njobs (jobs | wc -l | xargs)
-  test -n (echo (jobs | grep autojump 2>/dev/null)) && set njobs (math $njobs-1)
   set_color $fish_color_autosuggestion
   if test $njobs -le 0
     return

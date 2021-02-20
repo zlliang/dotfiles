@@ -25,10 +25,11 @@
   "workbench.iconTheme": "material-icon-theme",
   "material-icon-theme.activeIconPack": "react_redux",
   "material-icon-theme.folders.associations": {
-    "types": "typescript", "benches": "benchmark"
+    "types": "typescript", "benches": "benchmark",
   },
   "material-icon-theme.files.associations": {
-    "*.jsx": "javascript", "*.tsx": "typescript"
+    "*.jsx": "javascript", "*.tsx": "typescript",
+    ".graphqlrc": "graphql"
   },
 
   // Font
@@ -56,6 +57,7 @@
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": false,
   "files.defaultLanguage": "${activeEditorLanguage}",
+  "files.associations": { ".graphqlrc": "json" },
   "files.exclude": {
     "**/.git": true, "**/.svn": true, "**/.hg": true,
     "**/CVS": true, "**/.DS_Store": true,
@@ -158,7 +160,8 @@
   "prettier.tabWidth": 2, "prettier.semi": false,
   "prettier.singleQuote": true, "prettier.jsxSingleQuote": true,
   "prettier.trailingComma": "none", "prettier.jsxBracketSameLine": true,
-  
+  "liveServer.settings.donotShowInfoMsg": true,
+
   // Python
   "[python]": { "editor.tabSize": 4 },
   "python.defaultInterpreterPath": "/usr/local/opt/python/libexec/bin/python",
@@ -185,8 +188,6 @@
   "rust-analyzer.procMacro.enable": true,
 
   // C and C++
-  "[c]": { "editor.formatOnSave": true },
-  "[cpp]": { "editor.formatOnSave": true },
   "C_Cpp.configurationWarnings": "Disabled",
   "C_Cpp.default.cppStandard": "c++17",
   "C_Cpp.clang_format_fallbackStyle": "Google",
