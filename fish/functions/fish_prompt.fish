@@ -15,17 +15,23 @@ function fish_prompt -d "Rich fish prompt"
 
   # Git info
   if test -n "$git_branch"
-    set_color cyan
+    set_color blue
     echo -n [
     echo -n git:$git_branch (echo_git_status)
-    set_color cyan
+    set_color blue
     echo -n ] " "
   end
 
   # Node info
   echo_node
 
-  # venv info
+  # Rust info
+  echo_rust
+
+  # Go info
+  echo_golang
+
+  # Python venv info
   echo_venv
 
   # Background jobs
@@ -58,9 +64,29 @@ function echo_node -d "Print Node.js info"
     set_color green
     echo -n [
     echo -n "node:"
+    echo -n (node --version | rg "\d+(\.\d+)+" -o)
+    echo -n ] " "
+    set_color normal
+  end
+end
+
+function echo_rust -d "Print Rust info"
+  if file_in_tree Cargo.toml
+    set_color purple
+    echo -n [
+    echo -n "rust:"
+    echo -n (rustc --version | rg "\d+(\.\d+)+" -o)
+    echo -n ] " "
+    set_color normal
+  end
+end
+
+function echo_golang -d "Print Go info"
+  if file_in_tree go.mod
     set_color cyan
-    echo -n (node --version | sed "s/v//")
-    set_color green
+    echo -n [
+    echo -n "go:"
+    echo -n (go version | rg "\d+(\.\d+)+" -o)
     echo -n ] " "
     set_color normal
   end
@@ -70,11 +96,9 @@ function echo_venv -d "Print Python virtualenv info"
   if test (echo $PATH | rg ".venv/bin")
     set_color yellow
     echo -n [
-    set_color cyan
     echo -n "venv:"
-    set_color yellow
     echo -n "python:"
-    echo -n (python --version | sed "s/Python //")
+    echo -n (python --version | rg "\d+\.\d+\.\d" -o)
     echo -n ] " "
     set_color normal
   end

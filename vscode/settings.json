@@ -19,7 +19,7 @@
 
   // Theme
   "window.autoDetectColorScheme": true,
-  "workbench.colorTheme": "GitHub Light",
+  "workbench.colorTheme": "GitHub Dark",
   "workbench.preferredLightColorTheme": "GitHub Light",
   "workbench.preferredDarkColorTheme": "GitHub Dark",
   "workbench.iconTheme": "material-icon-theme",
@@ -61,7 +61,7 @@
   "files.exclude": {
     "**/.git": true, "**/.svn": true, "**/.hg": true,
     "**/CVS": true, "**/.DS_Store": true,
-    // custom
+    // Custom
     "**/.localized": true, "**/.settings": true, "**/.classpath": true,
     "**/.project": true, "**/.factorypath": true, "**/.gradle": true,
     "**/.pytest_cache": true, "**/node_modules": true, "**/.cache": true,
@@ -143,13 +143,8 @@
     "vue-html": "html", "mdx": "javascriptreact",
     "javascript": "javascriptreact"
   },
-  "auto-close-tag.activationOnLanguage": ["vue", "markdown", "mdx"],
   "npm.packageManager": "yarn",
   "eslint.packageManager": "yarn",
-  "eslint.validate": [
-    "javascript", "javascriptreact",
-    "typescript", "typescriptreact", "vue"
-  ],
   "editor.codeActionsOnSave": { "source.fixAll.eslint": true },
   "editor.quickSuggestions": { "strings": true },
   "javascript.preferences.quoteStyle": "single",
@@ -162,20 +157,8 @@
   "prettier.trailingComma": "none", "prettier.jsxBracketSameLine": true,
   "liveServer.settings.donotShowInfoMsg": true,
 
-  // Python
-  "[python]": { "editor.tabSize": 4 },
-  "python.defaultInterpreterPath": "/usr/local/opt/python/libexec/bin/python",
-  "python.showStartPage": false,
-  "python.formatting.provider": "black",
-  "python.languageServer": "Pylance",
-
-  // Java
-  "[java]": { "editor.formatOnSave": true },
-  "java.configuration.updateBuildConfiguration": "automatic",
-  "java.saveActions.organizeImports": true,
-
   // Rust
-  "[rust]": { 
+  "[rust]": {
     "editor.tabSize": 4,
     "editor.formatOnType": true,
     "editor.formatOnSave": true,
@@ -187,9 +170,25 @@
   "rust-analyzer.cargo.loadOutDirsFromCheck": true,
   "rust-analyzer.procMacro.enable": true,
 
+  // Go
+  "[go]": { "editor.formatOnSave": true },
+
+  // Java
+  "[java]": { "editor.formatOnSave": true },
+  "java.configuration.updateBuildConfiguration": "automatic",
+  "java.saveActions.organizeImports": true,
+
+  // Python
+  "[python]": { "editor.tabSize": 4 },
+  "python.defaultInterpreterPath": "/usr/local/opt/python/libexec/bin/python",
+  "python.showStartPage": false,
+  "python.formatting.provider": "black",
+  "python.languageServer": "Pylance",
+
   // C and C++
-  "C_Cpp.configurationWarnings": "Disabled",
+  "C_Cpp.updateChannel": "Insiders",
   "C_Cpp.default.cppStandard": "c++17",
+  "C_Cpp.configurationWarnings": "Disabled",
   "C_Cpp.clang_format_fallbackStyle": "Google",
   "cmake.configureOnOpen": true,
   "cmake.revealLog": "never",

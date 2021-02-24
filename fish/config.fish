@@ -13,6 +13,11 @@ alias l "ls"
 # Rust
 set -x PATH $HOME/.cargo/bin $PATH
 
+# Go
+set -x GOPATH $HOME/.golang
+set -x GOENV $GOPATH/env
+set -x GOPROXY https://goproxy.cn
+
 # Java (OpenJDK)
 set -x JAVA_HOME (/usr/libexec/java_home)
 
@@ -25,7 +30,7 @@ zoxide init fish | source
 
 # gitignore.io
 function gi -d "gitignore.io: Create useful .gitignore files"
-  curl -sL https://www.gitignore.io/api/$argv
+  curl -sL https://gitignore.io/api/$argv
 end
 
 # git.io
