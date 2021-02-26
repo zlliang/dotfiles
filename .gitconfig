@@ -7,7 +7,7 @@
 [init]
   defaultBranch = main
 [core]
-  editor = code --wait # Default editor: VS Code
+  editor = code --wait # VS Code
   excludesfile = ~/.gitignore
 [credential]
   helper = osxkeychain

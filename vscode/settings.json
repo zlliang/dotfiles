@@ -19,7 +19,7 @@
 
   // Theme
   "window.autoDetectColorScheme": true,
-  "workbench.colorTheme": "GitHub Dark",
+  "workbench.colorTheme": "GitHub Light",
   "workbench.preferredLightColorTheme": "GitHub Light",
   "workbench.preferredDarkColorTheme": "GitHub Dark",
   "workbench.iconTheme": "material-icon-theme",
@@ -186,9 +186,8 @@
   "python.languageServer": "Pylance",
 
   // C and C++
-  "C_Cpp.updateChannel": "Insiders",
-  "C_Cpp.default.cppStandard": "c++17",
   "C_Cpp.configurationWarnings": "Disabled",
+  "C_Cpp.default.cppStandard": "c++17",
   "C_Cpp.clang_format_fallbackStyle": "Google",
   "cmake.configureOnOpen": true,
   "cmake.revealLog": "never",
@@ -214,16 +213,14 @@
   ],
   "latex-workshop.latex.tools": [
     {
-      "name": "pdflatex",
-      "command": "latexmk",
+      "name": "pdflatex", "command": "latexmk",
       "args": [
         "-shell-escape", "-interaction=nonstopmode",
         "-file-line-error", "-synctex=1", "-pdflatex", "%DOC%"
       ]
     },
     {
-      "name": "xelatex",
-      "command": "latexmk",
+      "name": "xelatex", "command": "latexmk",
       "args": [
         "-shell-escape", "-interaction=nonstopmode",
         "-file-line-error", "-synctex=1", "-xelatex", "%DOC%"

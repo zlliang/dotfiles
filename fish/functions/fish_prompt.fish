@@ -72,7 +72,7 @@ end
 
 function echo_rust -d "Print Rust info"
   if file_in_tree Cargo.toml
-    set_color purple
+    set_color yellow
     echo -n [
     echo -n "rust:"
     echo -n (rustc --version | rg "\d+(\.\d+)+" -o)
