@@ -10,6 +10,10 @@ set -x HOMEBREW_BOTTLE_DOMAIN https://mirrors.ustc.edu.cn/homebrew-bottles
 alias ls "exa -lhH --git --time-style='long-iso'"
 alias l "ls"
 
+# HTTP proxy
+set -x http_proxy  http://127.0.0.1:1087
+set -x https_proxy http://127.0.0.1:1087
+
 # Rust
 set -x PATH $HOME/.cargo/bin $PATH
 

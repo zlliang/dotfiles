@@ -48,7 +48,7 @@ function fish_prompt -d "Rich fish prompt"
   set_color normal
 end
 
-function echo_git_status -d "Auxiliary function to print git status"
+function echo_git_status -d "Print git status"
   set git_status (command git status --porcelain 2>/dev/null)
   if test -z "$git_status"
     set_color green

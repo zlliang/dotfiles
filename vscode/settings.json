@@ -4,13 +4,15 @@
 {
   // Editor
   "editor.renderLineHighlight": "all",
-  "editor.minimap.enabled": false,
   "editor.scrollBeyondLastLine": false,
   "editor.suggest.showStatusBar": true,
   "editor.codeLens": false,
   "editor.tabSize": 2,
   "editor.wordWrap": "off",
   "editor.rulers": [80],
+
+  // HTTP proxy
+  "http.proxy": "http://127.0.0.1:1087",
 
   // Workbench and window
   "workbench.settings.editor": "json",
@@ -19,13 +21,13 @@
 
   // Theme
   "window.autoDetectColorScheme": true,
-  "workbench.colorTheme": "GitHub Light",
+  "workbench.colorTheme": "GitHub Dark",
   "workbench.preferredLightColorTheme": "GitHub Light",
   "workbench.preferredDarkColorTheme": "GitHub Dark",
   "workbench.iconTheme": "material-icon-theme",
   "material-icon-theme.activeIconPack": "react_redux",
   "material-icon-theme.folders.associations": {
-    "types": "typescript", "benches": "benchmark",
+    "types": "typescript", "benches": "benchmark"
   },
   "material-icon-theme.files.associations": {
     "*.jsx": "javascript", "*.tsx": "typescript",
@@ -33,15 +35,16 @@
   },
 
   // Font
-  "editor.fontFamily": "IBM Plex Mono Text",
-  "editor.codeLensFontFamily": "IBM Plex Mono Text",
-  "editor.inlineHints.fontFamily": "IBM Plex Mono Text",
-  "terminal.integrated.fontFamily": "IBM Plex Mono Text",
-  "debug.console.fontFamily": "IBM Plex Mono Text",
+  "editor.fontFamily": "Rec Mono Custom",
+  "editor.codeLensFontFamily": "Rec Mono Custom",
+  "editor.inlineHints.fontFamily": "Rec Mono Custom",
+  "terminal.integrated.fontFamily": "Rec Mono Custom",
+  "debug.console.fontFamily": "Rec Mono Custom",
   "markdown.preview.fontFamily": "Inter",
   "editor.fontSize": 15,
   "terminal.integrated.fontSize": 15,
   "markdown.preview.fontSize": 15,
+  "terminal.integrated.fontWeightBold": "normal",
   "editor.fontLigatures": true,
 
   // Integrated terminal
@@ -51,8 +54,7 @@
   "terminal.integrated.lineHeight": 1.25,
 
   // Files
-  "files.autoSave": "afterDelay",
-  "files.autoSaveDelay": 500,
+  "files.autoSave": "onFocusChange",
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": false,
@@ -160,15 +162,16 @@
   // Rust
   "[rust]": {
     "editor.tabSize": 4,
+    "editor.rulers": [100],
     "editor.formatOnType": true,
-    "editor.formatOnSave": true,
+    "editor.formatOnSave": true
   },
-  "rust-analyzer.updates.channel": "nightly",
   "rust-analyzer.updates.askBeforeDownload": false,
+  "rust-analyzer.assist.importMergeBehavior": "last",
+  "rust-analyzer.assist.importPrefix": "by_crate",
+  "rust-analyzer.procMacro.enable": true,
   "rust-analyzer.lens.enable": false,
   "rust-analyzer.inlayHints.enable":false,
-  "rust-analyzer.cargo.loadOutDirsFromCheck": true,
-  "rust-analyzer.procMacro.enable": true,
 
   // Go
   "[go]": { "editor.formatOnSave": true },
