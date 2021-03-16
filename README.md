@@ -30,6 +30,7 @@ To link these configuration files to their suggested locations, run [`hardlink.s
    - [`ripgrep (rg)`](https://github.com/BurntSushi/ripgrep): An algernative to `grep`;
    - [`zoxide (z)`](https://github.com/ajeetdsouza/zoxide): A faster way to navigate your filesystem;
    - [`tokei`](https://github.com/XAMPPRocky/tokei): Count your code, quickly;
+   - [`dust`](https://github.com/bootandy/dust): A more intuitive version of du;
 7. Useful Homebrew bottles:
    - Programming languages and tools: `openjdk`, `gradle`, `go`, `python`, `node`, `yarn`;
    - C/C++ tools and libraries: `cmake`, `boost`, `fmt`, `eigen`, `spdlog`;

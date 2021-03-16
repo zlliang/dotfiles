@@ -9,6 +9,7 @@ set -x HOMEBREW_BOTTLE_DOMAIN https://mirrors.ustc.edu.cn/homebrew-bottles
 # System utilities
 alias ls "exa -lhH --git --time-style='long-iso'"
 alias l "ls"
+alias dust "dust -br"
 
 # HTTP proxy
 set -x http_proxy  http://127.0.0.1:1087

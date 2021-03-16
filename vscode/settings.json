@@ -21,7 +21,7 @@
 
   // Theme
   "window.autoDetectColorScheme": true,
-  "workbench.colorTheme": "GitHub Dark",
+  "workbench.colorTheme": "GitHub Light",
   "workbench.preferredLightColorTheme": "GitHub Light",
   "workbench.preferredDarkColorTheme": "GitHub Dark",
   "workbench.iconTheme": "material-icon-theme",
@@ -229,12 +229,6 @@
         "-shell-escape", "-interaction=nonstopmode",
         "-file-line-error", "-synctex=1", "-xelatex", "%DOC%"
       ]
-    }
-  ],
-  "workbench.editorAssociations": [
-    {
-      "viewType": "jupyter.notebook.ipynb",
-      "filenamePattern": "*.ipynb"
     }
   ]
 }
