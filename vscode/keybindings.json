@@ -3,11 +3,7 @@
 
 [
   {
-    "key": "ctrl+shift+\\",
-    "command": "workbench.action.toggleSidebarVisibility"
-  },
-  {
-    "key": "Enter",
+    "key": "enter",
     "command": "rust-analyzer.onEnter",
     "when": "editorTextFocus && !suggestWidgetVisible && editorLangId == rust"
   },
@@ -25,42 +21,5 @@
     "key": "ctrl+shift+b",
     "command": "latex-workshop.build",
     "when": "editorTextFocus"
-  },
-  {
-    "key": "ctrl+shift+r",
-    "command": "latex-workshop.recipes",
-    "when": "editorTextFocus"
-  },
-  {
-    "key": "ctrl+shift+t",
-    "command": "workbench.action.terminal.toggleTerminal"
-  },
-  {
-    "key": "ctrl+shift+c",
-    "command": "cmake.configure"
-  },
-  {
-    "key": "ctrl+shift+p",
-    "command": "git-graph.view"
-  },
-  {
-    "key": "alt+space",
-    "command": "editor.action.triggerSuggest",
-    "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly"
-  },
-  {
-    "key": "ctrl+space",
-    "command": "-editor.action.triggerSuggest",
-    "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly"
-  },
-  {
-    "key": "alt+space",
-    "command": "toggleSuggestionDetails",
-    "when": "suggestWidgetVisible && textInputFocus"
-  },
-  {
-    "key": "ctrl+space",
-    "command": "-toggleSuggestionDetails",
-    "when": "suggestWidgetVisible && textInputFocus"
   }
 ]
