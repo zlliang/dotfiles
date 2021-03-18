@@ -6,6 +6,7 @@
   "editor.renderLineHighlight": "all",
   "editor.scrollBeyondLastLine": false,
   "editor.suggest.showStatusBar": true,
+  "editor.linkedEditing": true,
   "editor.codeLens": false,
   "editor.tabSize": 2,
   "editor.wordWrap": "off",
@@ -144,6 +145,7 @@
     "vue-html": "html", "mdx": "javascriptreact",
     "javascript": "javascriptreact"
   },
+  "auto-close-tag.activationOnLanguage": ["html", "xml", "vue"],
   "npm.packageManager": "yarn",
   "eslint.packageManager": "yarn",
   "editor.codeActionsOnSave": { "source.fixAll.eslint": true },
@@ -182,6 +184,9 @@
 
   // Python
   "[python]": { "editor.tabSize": 4 },
+  "workbench.editorAssociations": [
+    { "viewType": "jupyter.notebook.ipynb", "filenamePattern": "*.ipynb" }
+  ],
   "python.defaultInterpreterPath": "/usr/local/opt/python/libexec/bin/python",
   "python.showStartPage": false,
   "python.formatting.provider": "black",
