@@ -12,8 +12,11 @@ alias l "ls"
 alias dust "dust -br"
 
 # HTTP proxy
-set -x http_proxy  http://127.0.0.1:1087
-set -x https_proxy http://127.0.0.1:1087
+# set -x http_proxy  http://127.0.0.1:1087
+# set -x https_proxy http://127.0.0.1:1087
+
+# Node
+set -x PATH /usr/local/opt/node@14/bin $PATH
 
 # Rust
 set -x PATH $HOME/.cargo/bin $PATH

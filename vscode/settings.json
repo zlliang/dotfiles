@@ -13,12 +13,13 @@
   "editor.rulers": [80],
 
   // HTTP proxy
-  "http.proxy": "http://127.0.0.1:1087",
+  // "http.proxy": "http://127.0.0.1:1087",
 
   // Workbench and window
   "workbench.settings.editor": "json",
   "workbench.settings.useSplitJSON": true,
   "window.restoreFullscreen": false,
+  "window.dialogStyle": "custom",
 
   // Theme
   "window.autoDetectColorScheme": true,
@@ -26,6 +27,7 @@
   "workbench.preferredLightColorTheme": "GitHub Light",
   "workbench.preferredDarkColorTheme": "GitHub Dark",
   "workbench.iconTheme": "material-icon-theme",
+  "workbench.productIconTheme": "fluent-icons",
   "material-icon-theme.activeIconPack": "react_redux",
   "material-icon-theme.folders.associations": {
     "types": "typescript", "benches": "benchmark"
@@ -36,11 +38,11 @@
   },
 
   // Font
-  "editor.fontFamily": "Rec Mono Custom",
-  "editor.codeLensFontFamily": "Rec Mono Custom",
-  "editor.inlineHints.fontFamily": "Rec Mono Custom",
-  "terminal.integrated.fontFamily": "Rec Mono Custom",
-  "debug.console.fontFamily": "Rec Mono Custom",
+  "editor.fontFamily": "IBM Plex Mono Text",
+  "editor.codeLensFontFamily": "IBM Plex Mono Text",
+  "editor.inlineHints.fontFamily": "IBM Plex Mono Text",
+  "terminal.integrated.fontFamily": "IBM Plex Mono Text",
+  "debug.console.fontFamily": "IBM Plex Mono Text",
   "markdown.preview.fontFamily": "Inter",
   "editor.fontSize": 15,
   "terminal.integrated.fontSize": 15,
@@ -129,6 +131,10 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
   },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
@@ -153,7 +159,9 @@
   "javascript.preferences.quoteStyle": "single",
   "typescript.preferences.quoteStyle": "single",
   "vetur.ignoreProjectWarning": true,
+  "vetur.completion.tagCasing": "initial",
   "vetur.validation.template": false, // Always use customized ESLint configs
+  "volar.tsPlugin": true,
   "tailwindCSS.emmetCompletions": true,
   "prettier.tabWidth": 2, "prettier.semi": false,
   "prettier.singleQuote": true, "prettier.jsxSingleQuote": true,
@@ -170,7 +178,6 @@
   "rust-analyzer.updates.askBeforeDownload": false,
   "rust-analyzer.assist.importMergeBehavior": "last",
   "rust-analyzer.assist.importPrefix": "by_crate",
-  "rust-analyzer.procMacro.enable": true,
   "rust-analyzer.lens.enable": false,
   "rust-analyzer.inlayHints.enable":false,
 
