@@ -23,9 +23,9 @@
 
   // Theme
   "window.autoDetectColorScheme": true,
-  "workbench.colorTheme": "GitHub Light",
-  "workbench.preferredLightColorTheme": "GitHub Light",
-  "workbench.preferredDarkColorTheme": "GitHub Dark",
+  "workbench.colorTheme": "GitHub Dark Default",
+  "workbench.preferredLightColorTheme": "GitHub Light Default",
+  "workbench.preferredDarkColorTheme": "GitHub Dark Default",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.productIconTheme": "fluent-icons",
   "material-icon-theme.activeIconPack": "react_redux",
@@ -50,6 +50,7 @@
   "editor.fontLigatures": true,
 
   // Integrated terminal
+  "terminal.integrated.tabs.enabled": true,
   "terminal.integrated.cursorStyle": "line",
   "terminal.integrated.cursorBlinking": true,
   "terminal.integrated.detectLocale": "off",
@@ -176,13 +177,8 @@
     "editor.formatOnSave": true
   },
   "rust-analyzer.updates.askBeforeDownload": false,
-  "rust-analyzer.assist.importMergeBehavior": "last",
-  "rust-analyzer.assist.importPrefix": "by_crate",
   "rust-analyzer.lens.enable": false,
   "rust-analyzer.inlayHints.enable":false,
-
-  // Go
-  "[go]": { "editor.formatOnSave": true },
 
   // Java
   "[java]": { "editor.formatOnSave": true },
@@ -191,9 +187,7 @@
 
   // Python
   "[python]": { "editor.tabSize": 4 },
-  "workbench.editorAssociations": [
-    { "viewType": "jupyter.notebook.ipynb", "filenamePattern": "*.ipynb" }
-  ],
+  "workbench.editorAssociations": { "*.ipynb": "jupyter.notebook.ipynb" },
   "python.defaultInterpreterPath": "/usr/local/opt/python/libexec/bin/python",
   "python.showStartPage": false,
   "python.formatting.provider": "black",
