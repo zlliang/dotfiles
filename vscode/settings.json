@@ -7,7 +7,6 @@
   "editor.scrollBeyondLastLine": false,
   "editor.suggest.showStatusBar": true,
   "editor.linkedEditing": true,
-  "editor.codeLens": false,
   "editor.tabSize": 2,
   "editor.wordWrap": "off",
   "editor.rulers": [80],
@@ -23,7 +22,7 @@
 
   // Theme
   "window.autoDetectColorScheme": true,
-  "workbench.colorTheme": "GitHub Dark Default",
+  "workbench.colorTheme": "GitHub Light Default",
   "workbench.preferredLightColorTheme": "GitHub Light Default",
   "workbench.preferredDarkColorTheme": "GitHub Dark Default",
   "workbench.iconTheme": "material-icon-theme",
@@ -40,7 +39,7 @@
   // Font
   "editor.fontFamily": "IBM Plex Mono Text",
   "editor.codeLensFontFamily": "IBM Plex Mono Text",
-  "editor.inlineHints.fontFamily": "IBM Plex Mono Text",
+  "editor.inlayHints.fontFamily": "IBM Plex Mono Text",
   "terminal.integrated.fontFamily": "IBM Plex Mono Text",
   "debug.console.fontFamily": "IBM Plex Mono Text",
   "markdown.preview.fontFamily": "Inter",
@@ -157,16 +156,12 @@
   "eslint.packageManager": "yarn",
   "editor.codeActionsOnSave": { "source.fixAll.eslint": true },
   "editor.quickSuggestions": { "strings": true },
-  "javascript.preferences.quoteStyle": "single",
-  "typescript.preferences.quoteStyle": "single",
+  "prettier.semi": false, // Disable JS/TS semicolons
   "vetur.ignoreProjectWarning": true,
   "vetur.completion.tagCasing": "initial",
   "vetur.validation.template": false, // Always use customized ESLint configs
   "volar.tsPlugin": true,
   "tailwindCSS.emmetCompletions": true,
-  "prettier.tabWidth": 2, "prettier.semi": false,
-  "prettier.singleQuote": true, "prettier.jsxSingleQuote": true,
-  "prettier.trailingComma": "none", "prettier.jsxBracketSameLine": true,
   "liveServer.settings.donotShowInfoMsg": true,
 
   // Rust
