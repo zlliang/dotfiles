@@ -29,10 +29,9 @@ To link these configuration files to their suggested locations, run [`hardlink.s
    - [`bat`](https://github.com/sharkdp/bat): A `cat` clone with wings;
    - [`ripgrep (rg)`](https://github.com/BurntSushi/ripgrep): An algernative to `grep`;
    - [`zoxide (z)`](https://github.com/ajeetdsouza/zoxide): A faster way to navigate your filesystem;
-   - [`tokei`](https://github.com/XAMPPRocky/tokei): Count your code, quickly;
-   - [`dust`](https://github.com/bootandy/dust): A more intuitive version of du;
-7. Useful Homebrew bottles:
-   - Programming languages and tools: `openjdk`, `gradle`, `go`, `python`, `node`, `yarn`;
-   - C/C++ tools and libraries: `cmake`, `boost`, `fmt`, `eigen`, `spdlog`;
+7. Use `n` to manage Node.js versions:
+   - `brew install n`;
+   - `n lts` (install the LTS version of Node.js);
+   - `npm install -g yarn`;
 8. Install [MacTeX](http://tug.org/mactex/) for LaTeX typesetting: `brew install --cask mactex-no-gui`;
 9. Install [VS Code](https://code.visualstudio.com) as the code editor;

@@ -12,7 +12,7 @@ async def changeTheme(theme_parts, connection):
         preset = await iterm2.ColorPreset.async_get(connection, "github-light")
 
     # Update the list of all profiles and iterate over them.
-    profiles=await iterm2.PartialProfile.async_query(connection)
+    profiles = await iterm2.PartialProfile.async_query(connection)
     for partial in profiles:
         # Fetch the full profile and then set the color preset in it.
         profile = await partial.async_get_full_profile()
@@ -31,6 +31,5 @@ async def main(connection):
             theme = await mon.async_get()
             parts = theme.split(" ")
             await changeTheme(parts, connection)
-
 
 iterm2.run_forever(main)
