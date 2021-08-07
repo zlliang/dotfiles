@@ -14,8 +14,16 @@ alias l "ls"
 # set -x http_proxy  http://127.0.0.1:1087
 # set -x https_proxy http://127.0.0.1:1087
 
+# Node (Use `n` to manage Node.js versions)
+set -x N_PRESERVE_NPM 1
+
 # Rust
 set -x PATH $HOME/.cargo/bin $PATH
+
+# Go
+set -x GOPATH $HOME/.golang
+set -x GOENV $GOPATH/env
+set -x GOPROXY https://goproxy.cn
 
 # Java (OpenJDK)
 set -x JAVA_HOME (/usr/libexec/java_home)

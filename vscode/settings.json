@@ -73,6 +73,9 @@
     "**/.venv": true, "**/*.egg-info": true
   },
 
+  // Spell checker
+  "cSpell.allowCompoundWords": true,
+
   // Git
   "git.confirmSync": false,
   "git.autofetch": true,
@@ -96,9 +99,6 @@
     "#1E88A8", "#D9AB42", "#DB4D6D", "#986DB2", "#91AD70", "#91989F",
     "#ED784A", "#954A45", "#78C2C4", "#DDD23B", "#EBB471", "#F19483"
   ],
-
-  // Spell checker
-  "cSpell.allowCompoundWords": true,
   
   // Markdown
   "[markdown]": {
@@ -175,6 +175,9 @@
   "rust-analyzer.lens.enable": false,
   "rust-analyzer.inlayHints.enable":false,
 
+  // Go
+  "[go]": { "editor.formatOnSave": true },
+
   // Java
   "[java]": { "editor.formatOnSave": true },
   "java.configuration.updateBuildConfiguration": "automatic",
@@ -231,6 +234,5 @@
         "-file-line-error", "-synctex=1", "-xelatex", "%DOC%"
       ]
     }
-  ],
-  "diffEditor.ignoreTrimWhitespace": false
+  ]
 }
