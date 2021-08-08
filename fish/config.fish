@@ -15,7 +15,10 @@ alias l "ls"
 # set -x https_proxy http://127.0.0.1:1087
 
 # Node (Use `n` to manage Node.js versions)
+set -x N_PREFIX $HOME/.node
+set -x N_NODE_MIRROR https://npm.taobao.org/mirrors/node
 set -x N_PRESERVE_NPM 1
+set -x PATH $HOME/.node/bin $PATH
 
 # Rust
 set -x PATH $HOME/.cargo/bin $PATH
