@@ -23,11 +23,6 @@ set -x PATH $HOME/.node/bin $PATH
 # Rust
 set -x PATH $HOME/.cargo/bin $PATH
 
-# Go
-set -x GOPATH $HOME/.golang
-set -x GOENV $GOPATH/env
-set -x GOPROXY https://goproxy.cn
-
 # Java (OpenJDK)
 set -x JAVA_HOME (/usr/libexec/java_home)
 

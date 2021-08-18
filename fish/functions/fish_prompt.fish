@@ -28,9 +28,6 @@ function fish_prompt -d "Rich fish prompt"
   # Rust info
   echo_rust
 
-  # Go info
-  echo_golang
-
   # Python venv info
   echo_venv
 
@@ -76,17 +73,6 @@ function echo_rust -d "Print Rust info"
     echo -n [
     echo -n "rust:"
     echo -n (rustc --version | rg "\d+(\.\d+)+" -o)
-    echo -n ] " "
-    set_color normal
-  end
-end
-
-function echo_golang -d "Print Go info"
-  if file_in_tree go.mod
-    set_color cyan
-    echo -n [
-    echo -n "go:"
-    echo -n (go version | rg "\d+(\.\d+)+" -o)
     echo -n ] " "
     set_color normal
   end
