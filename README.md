@@ -29,9 +29,9 @@ To link these configuration files to their suggested locations, run [`hardlink.s
    - [`bat`](https://github.com/sharkdp/bat): A `cat` clone with wings;
    - [`ripgrep (rg)`](https://github.com/BurntSushi/ripgrep): An algernative to `grep`;
    - [`zoxide (z)`](https://github.com/ajeetdsouza/zoxide): A faster way to navigate your filesystem;
-7. Use `n` to manage Node.js versions:
-   - `brew install n`;
-   - `n lts` (install the LTS version of Node.js);
-   - `npm install -g yarn`;
+7. Language toolkits:
+   - [`n`](https://github.com/tj/n) for Node.js;
+   - [`rustup`](https://rustup.rs/) for Rust;
+   - [`ghcup`](https://www.haskell.org/ghcup/) for Haskell;
 8. Install [MacTeX](http://tug.org/mactex/) for LaTeX typesetting: `brew install --cask mactex-no-gui`;
 9. Install [VS Code](https://code.visualstudio.com) as the code editor;

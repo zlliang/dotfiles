@@ -30,6 +30,9 @@ set -x JAVA_HOME (/usr/libexec/java_home)
 set -x PATH /usr/local/opt/python/libexec/bin $PATH
 set -x VIRTUAL_ENV_DISABLE_PROMPT true
 
+# Haskell
+set -x PATH $HOME/.ghcup/bin $PATH
+
 # zoxide
 zoxide init fish | source
 
