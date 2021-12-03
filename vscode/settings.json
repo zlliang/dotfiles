@@ -24,7 +24,7 @@
   "workbench.preferredDarkColorTheme": "GitHub Dark Default",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.productIconTheme": "fluent-icons",
-  "material-icon-theme.activeIconPack": "react_redux",
+  "material-icon-theme.activeIconPack": "vue_vuex",
   "material-icon-theme.folders.associations": {
     "types": "typescript", "benches": "benchmark"
   },
@@ -156,7 +156,7 @@
   "vetur.ignoreProjectWarning": true,
   "vetur.completion.tagCasing": "initial",
   "vetur.validation.template": false, // Always use customized ESLint configs
-  "volar.tsPlugin": true,
+  "volar.codeLens.references": false,
   "liveServer.settings.donotShowInfoMsg": true,
 
   // Rust
@@ -189,9 +189,6 @@
   "cmake.statusbar.visibility": "hidden",
   "cmake.configureOnOpen": true,
   "cmake.revealLog": "never",
-
-  // Haskell
-  "[haskell]": { "editor.formatOnSave": true },
 
   // LaTeX
   "[latex]": { "editor.wordWrap": "on" },

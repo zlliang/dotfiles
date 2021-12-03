@@ -8,7 +8,7 @@ function fish_prompt -d "Rich fish prompt"
   
   # Date, time and working directory
   echo -n \n
-  set_color yellow
+  set_color blue
   echo -n $time_str " "
   set_color $fish_color_cwd
   echo -n $pwd_str " "

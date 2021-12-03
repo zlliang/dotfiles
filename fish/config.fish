@@ -16,7 +16,7 @@ alias l "ls"
 
 # Node (Use `n` to manage Node.js versions)
 set -x N_PREFIX $HOME/.node
-set -x N_NODE_MIRROR https://npm.taobao.org/mirrors/node
+set -x N_NODE_MIRROR https://npmmirror.com/mirrors/node
 set -x N_PRESERVE_NPM 1
 set -x PATH $HOME/.node/bin $PATH
 
@@ -29,9 +29,6 @@ set -x JAVA_HOME (/usr/libexec/java_home)
 # Python
 set -x PATH /usr/local/opt/python/libexec/bin $PATH
 set -x VIRTUAL_ENV_DISABLE_PROMPT true
-
-# Haskell
-set -x PATH $HOME/.ghcup/bin $PATH
 
 # zoxide
 zoxide init fish | source
