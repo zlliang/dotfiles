@@ -46,7 +46,6 @@
   "editor.fontLigatures": true,
 
   // Integrated terminal
-  "terminal.integrated.tabs.enabled": true,
   "terminal.integrated.cursorStyle": "line",
   "terminal.integrated.cursorBlinking": true,
   "terminal.integrated.detectLocale": "off",
@@ -191,5 +190,5 @@
         "-file-line-error", "-synctex=1", "-xelatex", "%DOC%"
       ]
     }
-  ],
+  ]
 }
