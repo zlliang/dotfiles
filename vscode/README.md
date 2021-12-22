@@ -11,11 +11,11 @@ Here are [VS Code](https://code.visualstudio.com) setting files. To apply these 
   - [GraphQL](https://marketplace.visualstudio.com/items?itemName=GraphQL.vscode-graphql), [Tailwind CSS](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss), [styled-components](https://marketplace.visualstudio.com/items?itemName=jpoissonnier.vscode-styled-components)
   - [Live Preview](https://marketplace.visualstudio.com/items?itemName=ms-vscode.live-server)
 - Language Supports
-  - [Rust analyzer](https://marketplace.visualstudio.com/items?itemName=matklad.rust-analyzer)
+  - [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=matklad.rust-analyzer)
   - [Java](https://marketplace.visualstudio.com/items?itemName=redhat.java)
   - [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python), [Pylance](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance), [Jupyter](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter)
   - [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools), [CMake](https://marketplace.visualstudio.com/items?itemName=twxs.cmake), [CMake Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools)
-  - [Haskell](https://marketplace.visualstudio.com/items?itemName=haskell.haskell)
+  - [Lua](https://marketplace.visualstudio.com/items?itemName=sumneko.lua)
   - [LaTeX Workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop)
   - [Markdown All in One](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one)
 - Docker and remote development
