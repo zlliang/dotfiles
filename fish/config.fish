@@ -17,7 +17,7 @@ alias l "ls"
 # Node (Use `n` to manage Node.js versions)
 set -x N_PREFIX $HOME/.node
 set -x N_NODE_MIRROR https://npmmirror.com/mirrors/node
-set -x N_PRESERVE_NPM 1
+# set -x N_PRESERVE_NPM 1
 set -x PATH $HOME/.node/bin $PATH
 
 # Rust
@@ -25,6 +25,11 @@ set -x PATH $HOME/.cargo/bin $PATH
 
 # Java (OpenJDK)
 set -x JAVA_HOME (/usr/libexec/java_home)
+
+# Go
+set -x GOPATH $HOME/.golang
+set -x GOENV $GOPATH/env
+set -x GOPROXY https://goproxy.cn
 
 # Python
 set -x PATH /usr/local/opt/python/libexec/bin $PATH

@@ -13,6 +13,7 @@ Here are [VS Code](https://code.visualstudio.com) setting files. To apply these 
 - Language Supports
   - [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=matklad.rust-analyzer)
   - [Java](https://marketplace.visualstudio.com/items?itemName=redhat.java)
+  - [Go](https://marketplace.visualstudio.com/items?itemName=golang.Go)
   - [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python), [Pylance](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance), [Jupyter](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter)
   - [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools), [CMake](https://marketplace.visualstudio.com/items?itemName=twxs.cmake), [CMake Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools)
   - [LaTeX Workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop)
