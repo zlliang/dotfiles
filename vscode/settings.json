@@ -6,6 +6,7 @@
   "editor.renderLineHighlight": "all",
   "editor.scrollBeyondLastLine": false,
   "editor.suggest.showStatusBar": true,
+  "editor.quickSuggestions": { "strings": true },
   "editor.unicodeHighlight.ambiguousCharacters": false,
   "editor.linkedEditing": true,
   "editor.tabSize": 2,
@@ -20,14 +21,14 @@
 
   // Theme
   "window.autoDetectColorScheme": true,
-  "workbench.colorTheme": "GitHub Dark Default",
+  "workbench.colorTheme": "GitHub Light Default",
   "workbench.preferredLightColorTheme": "GitHub Light Default",
   "workbench.preferredDarkColorTheme": "GitHub Dark Default",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.productIconTheme": "fluent-icons",
   "material-icon-theme.activeIconPack": "vue_vuex",
   "material-icon-theme.folders.associations": {
-    "types": "typescript", "benches": "benchmark"
+    "composables": "vue", "benches": "benchmark"
   },
   "material-icon-theme.files.associations": {
     "*.jsx": "javascript", "*.tsx": "typescript",
@@ -69,6 +70,32 @@
     "**/__pycache__/": true, "**/*.pyc": true, "**/.next": true,
     "**/.venv": true, "**/*.egg-info": true
   },
+
+  // File nesting (https://github.com/antfu/vscode-file-nesting-config)
+  // "explorer.experimental.fileNesting.enabled": true,
+  // "explorer.experimental.fileNesting.expand": false,
+  // "explorer.experimental.fileNesting.patterns": {
+  //   ".gitignore": ".gitattributes, .gitmodules, .gitmessage, .mailmap, .git-blame*",
+  //   "*.js": "$(capture).js.map, $(capture).min.js, $(capture).d.ts",
+  //   "*.jsx": "$(capture).js",
+  //   "*.ts": "$(capture).js, $(capture).*.ts",
+  //   "*.tsx": "$(capture).ts",
+  //   "index.d.ts": "*.d.ts",
+  //   "shims.d.ts": "*.d.ts",
+  //   "go.mod": "go.sum",
+  //   ".env": "*.env, .env*, env.d.ts",
+  //   "dockerfile": "dockerfile*, .dockerignore",
+  //   "package.json": ".browserslist*, .circleci*, .codecov, .commitlintrc*, .editorconfig, .eslint*, .flowconfig, .gitlab*, .gitpod*, .huskyrc*, .markdownlint*, .mocha*, .node-version, .nodemon*, .npm*, .nvmrc, .pnpm*, .prettier*, .releaserc*, .sentry*, .stackblitz*, .stylelint*, .tazerc*, .textlintrc*, .travis*, .vscode*, .watchman*, .yamllint*, .yarnrc*, api-extractor.json, appveyor*, ava.config.*, azure-pipelines*, build.config.*, commitlint*, crowdin*, cypress.json, dangerfile.*, gulp*, jasmine.*, jenkins*, jest.config.*, jsconfig.*, karma*, lerna*, lint-staged*, netlify*, nx.*, package-lock.json, playwright.config.*, pnpm*, prettier*, pullapprove*, puppeteer.config.*, renovate*, rollup.config.*, stylelint*, tsconfig.*, tsdoc.*, tslint.*, tsup.config.*, turbo*, vercel*, vetur.config.*, vitest.config.*, webpack.config.*, yarn*",
+  //   "readme.md": "authors, backers.md, changelog*.md, code_of_conduct.md, codeowners, contributing.md, contributors, copying, credits, governance.md, history.md, license*, maintainers, readme*, security.md, sponsors.md",
+  //   "cargo.toml": "cargo.lock, rust-toolchain.toml, rustfmt.toml",
+  //   "gemfile": "gemfile.lock, .ruby-version",
+  //   "vite.config.*": "index.html, *.env, .babelrc, .codecov, .env*, .mocha*, api-extractor.json, ava.config.*, babel.config.*, cypress.json, env.d.ts, jasmine.*, jest.config.*, jsconfig.*, karma*, playwright.config.*, postcss.config.*, puppeteer.config.*, svgo.config.*, tailwind.config.*, tsconfig.*, tsdoc.*, unocss.config.*, vitest.config.*, webpack.config.*, windi.config.*",
+  //   "vue.config.*": "*.env, .babelrc, .codecov, .env*, .mocha*, api-extractor.json, ava.config.*, babel.config.*, cypress.json, env.d.ts, jasmine.*, jest.config.*, jsconfig.*, karma*, playwright.config.*, postcss.config.*, puppeteer.config.*, svgo.config.*, tailwind.config.*, tsconfig.*, tsdoc.*, unocss.config.*, vitest.config.*, webpack.config.*, windi.config.*",
+  //   "nuxt.config.*": "*.env, .babelrc, .codecov, .env*, .mocha*, api-extractor.json, ava.config.*, babel.config.*, cypress.json, env.d.ts, jasmine.*, jest.config.*, jsconfig.*, karma*, playwright.config.*, postcss.config.*, puppeteer.config.*, svgo.config.*, tailwind.config.*, tsconfig.*, tsdoc.*, unocss.config.*, vitest.config.*, webpack.config.*, windi.config.*",
+  //   "next.config.*": "*.env, .babelrc, .codecov, .env*, .mocha*, api-extractor.json, ava.config.*, babel.config.*, cypress.json, env.d.ts, jasmine.*, jest.config.*, jsconfig.*, karma*, playwright.config.*, postcss.config.*, puppeteer.config.*, svgo.config.*, tailwind.config.*, tsconfig.*, tsdoc.*, unocss.config.*, vitest.config.*, webpack.config.*, windi.config.*",
+  //   "svelte.config.*": "*.env, .babelrc, .codecov, .env*, .mocha*, api-extractor.json, ava.config.*, babel.config.*, cypress.json, env.d.ts, jasmine.*, jest.config.*, jsconfig.*, karma*, playwright.config.*, postcss.config.*, puppeteer.config.*, svgo.config.*, tailwind.config.*, tsconfig.*, tsdoc.*, unocss.config.*, vitest.config.*, webpack.config.*, windi.config.*",
+  //   "remix.config.*": "remix.*, *.env, .babelrc, .codecov, .env*, .mocha*, api-extractor.json, ava.config.*, babel.config.*, cypress.json, env.d.ts, jasmine.*, jest.config.*, jsconfig.*, karma*, playwright.config.*, postcss.config.*, puppeteer.config.*, svgo.config.*, tailwind.config.*, tsconfig.*, tsdoc.*, unocss.config.*, vitest.config.*, webpack.config.*, windi.config.*"
+  // },
 
   // Spell checker
   "cSpell.allowCompoundWords": true,
@@ -118,11 +145,14 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "emmet.includeLanguages": {
-    "vue-html": "html", "mdx": "javascriptreact",
-    "javascript": "javascriptreact"
+    "vue-html": "html", "django-html": "html",
+    "javascript": "javascriptreact", "postcss": "css",
   },
+  "html.autoCreateQuotes": false,
   "editor.codeActionsOnSave": { "source.fixAll.eslint": true },
   "prettier.semi": false, // Disable JS/TS semicolons
+  "auto-close-tag.disableOnLanguage": ["javascript", "typescript"],
+  "css.lint.unknownAtRules": "ignore",
   "vetur.ignoreProjectWarning": true,
   "vetur.completion.tagCasing": "initial",
   "vetur.validation.template": false, // Always use customized ESLint configs
@@ -136,7 +166,6 @@
     "editor.formatOnType": true,
     "editor.formatOnSave": true
   },
-  "rust-analyzer.updates.askBeforeDownload": false,
   "rust-analyzer.lens.enable": false,
   "rust-analyzer.inlayHints.enable":false,
 
@@ -145,9 +174,16 @@
   "java.configuration.updateBuildConfiguration": "automatic",
   "java.saveActions.organizeImports": true,
 
+  // Go
+  "go.toolsManagement.autoUpdate": true,
+
   // Python
-  "[python]": { "editor.tabSize": 4 },
+  "[python]": {
+    "editor.tabSize": 4,
+    "editor.formatOnSave": true,
+  },
   "python.formatting.provider": "black",
+  "notebook.markup.fontSize": 14,
 
   // C and C++
   "[c][cpp]": { "editor.formatOnSave": true },

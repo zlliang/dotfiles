@@ -8,6 +8,7 @@ set -x HOMEBREW_BOTTLE_DOMAIN https://mirrors.tuna.tsinghua.edu.cn/homebrew-bott
 
 # System utilities
 alias ls "exa -lhH --git --time-style='long-iso'"
+alias la "ls -al"
 alias l "ls"
 
 # HTTP proxy
@@ -32,8 +33,17 @@ set -x GOENV $GOPATH/env
 set -x GOPROXY https://goproxy.cn
 
 # Python
-set -x PATH /usr/local/opt/python/libexec/bin $PATH
+set -x PATH /usr/local/opt/python@3.10/bin $PATH
+set -x PATH /usr/local/opt/python@3.10/libexec/bin $PATH
+set -x PATH $HOME/Library/Python/3.10/bin $PATH  # Poetry
 set -x VIRTUAL_ENV_DISABLE_PROMPT true
+
+# bat
+if test [(defaults read -g AppleInterfaceStyle 2> /dev/null)]
+  set -x BAT_THEME ""
+else
+  set -x BAT_THEME "GitHub"
+end
 
 # zoxide
 zoxide init fish | source
@@ -42,3 +52,6 @@ zoxide init fish | source
 function gi -d "gitignore.io: Create useful .gitignore files"
   curl -sL https://gitignore.io/api/$argv
 end
+
+# Job related
+set -x PATH $HOME/tencent/workspace/bin $PATH
