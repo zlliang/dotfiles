@@ -29,6 +29,7 @@ To link these configuration files to their suggested locations, run [`hardlink.s
    - [`bat`](https://github.com/sharkdp/bat): A `cat` clone with wings;
    - [`ripgrep (rg)`](https://github.com/BurntSushi/ripgrep): An algernative to `grep`;
    - [`zoxide (z)`](https://github.com/ajeetdsouza/zoxide): A faster way to navigate your filesystem;
+   - [`delta`](https://github.com/dandavison/delta): A syntax-highlighting pager for git, diff, and grep output;
 7. Language toolkits:
    - [`n`](https://github.com/tj/n) for Node.js;
    - [`rustup`](https://rustup.rs/) for Rust;
