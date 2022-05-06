@@ -6,6 +6,7 @@
   "editor.renderLineHighlight": "all",
   "editor.scrollBeyondLastLine": false,
   "editor.suggest.showStatusBar": true,
+  "editor.bracketPairColorization.enabled": false,
   "editor.quickSuggestions": { "strings": true },
   "editor.unicodeHighlight.ambiguousCharacters": false,
   "editor.linkedEditing": true,
