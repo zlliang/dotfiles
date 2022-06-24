@@ -14,29 +14,29 @@ alias l "ls"
 # HTTP proxy
 # set -x http_proxy  http://127.0.0.1:1087
 # set -x https_proxy http://127.0.0.1:1087
+# set -x all_proxy   http://127.0.0.1:1087
 
 # Node (Use `n` to manage Node.js versions)
 set -x N_PREFIX $HOME/.node
 set -x N_NODE_MIRROR https://npmmirror.com/mirrors/node
-# set -x N_PRESERVE_NPM 1
 set -x PATH $HOME/.node/bin $PATH
 
 # Rust
-set -x PATH $HOME/.cargo/bin $PATH
+# set -x PATH $HOME/.cargo/bin $PATH
 
 # Java (OpenJDK)
-set -x JAVA_HOME (/usr/libexec/java_home)
+# set -x JAVA_HOME (/usr/libexec/java_home)
 
 # Go
-set -x GOPATH $HOME/.golang
-set -x GOENV $GOPATH/env
-set -x GOPROXY https://goproxy.cn
+# set -x GOPATH $HOME/.golang
+# set -x GOENV $GOPATH/env
+# set -x GOPROXY https://goproxy.cn
 
 # Python
-set -x PATH /usr/local/opt/python@3.10/bin $PATH
-set -x PATH /usr/local/opt/python@3.10/libexec/bin $PATH
-set -x PATH $HOME/Library/Python/3.10/bin $PATH  # Poetry
-set -x VIRTUAL_ENV_DISABLE_PROMPT true
+# set -x PATH /usr/local/opt/python@3.10/bin $PATH
+# set -x PATH /usr/local/opt/python@3.10/libexec/bin $PATH
+# set -x PATH $HOME/Library/Python/3.10/bin $PATH  # Poetry
+# set -x VIRTUAL_ENV_DISABLE_PROMPT true
 
 # bat
 if test [(defaults read -g AppleInterfaceStyle 2> /dev/null)]

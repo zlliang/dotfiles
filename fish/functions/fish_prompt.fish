@@ -26,13 +26,13 @@ function fish_prompt -d "Rich fish prompt"
   echo_node
 
   # Rust info
-  echo_rust
+  # echo_rust
 
   # Go info
-  echo_golang
+  # echo_golang
 
   # Python venv info
-  echo_venv
+  # echo_venv
 
   # Background jobs
   echo -n (echo_jobs)
