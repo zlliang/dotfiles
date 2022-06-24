@@ -17,7 +17,7 @@ if test ! -d ~/Library/Application\ Support/Code/User/snippets; then
   mkdir -p ~/Library/Application\ Support/Code/User/snippets
 fi
 
-ln -vf .gitignore .gitconfig .vimrc ~
+ln -vf .gitignore .gitconfig .vimrc .npmrc ~
 ln -vf fish/config.fish ~/.config/fish
 ln -vf fish/functions/*.fish ~/.config/fish/functions
 ln -vf iterm/dark-mode.py ~/Library/Application\ Support/iTerm2/Scripts/AutoLaunch
