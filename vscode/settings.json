@@ -22,7 +22,7 @@
 
   // Theme
   "window.autoDetectColorScheme": true,
-  "workbench.colorTheme": "GitHub Dark Default",
+  "workbench.colorTheme": "GitHub Light Default",
   "workbench.preferredLightColorTheme": "GitHub Light Default",
   "workbench.preferredDarkColorTheme": "GitHub Dark Default",
   "workbench.iconTheme": "material-icon-theme",
@@ -49,6 +49,10 @@
   "editor.fontLigatures": true,
 
   // Integrated terminal
+  "terminal.integrated.profiles.osx": {
+    "fish": { "path": "/opt/homebrew/bin/fish", "args": ["-l"] }
+  },
+  "terminal.integrated.defaultProfile.osx": "fish",
   "terminal.integrated.cursorStyle": "line",
   "terminal.integrated.cursorBlinking": true,
   "terminal.integrated.detectLocale": "off",

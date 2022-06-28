@@ -4,17 +4,20 @@
 # Environment variables
 set -x LANG en_US.UTF-8
 set -x SSH_KEY_PATH $HOME/.ssh/rsa_id
+
+# Homebrew
+set -x HOMEBREW_PREFIX /opt/homebrew
+set -x HOMEBREW_CELLAR /opt/homebrew/Cellar
+set -x HOMEBREW_REPOSITORY /opt/homebrew
 set -x HOMEBREW_BOTTLE_DOMAIN https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
+set -x PATH /opt/homebrew/bin /opt/homebrew/sbin $PATH
+set -x MANPATH /opt/homebrew/share/man $MANPATH
+set -x INFOPATH /opt/homebrew/share/info $INFOPATH
 
 # System utilities
 alias ls "exa -lhH --git --time-style='long-iso'"
 alias la "ls -al"
 alias l "ls"
-
-# HTTP proxy
-# set -x http_proxy  http://127.0.0.1:1087
-# set -x https_proxy http://127.0.0.1:1087
-# set -x all_proxy   http://127.0.0.1:1087
 
 # Node (Use `n` to manage Node.js versions)
 set -x N_PREFIX $HOME/.node
