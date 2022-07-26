@@ -30,7 +30,7 @@ Here are [VS Code](https://code.visualstudio.com) setting files. To apply these 
 - Miscellaneous
   - [Fish](https://marketplace.visualstudio.com/items?itemName=bmalehorn.vscode-fish)
   - [Better TOML](https://marketplace.visualstudio.com/items?itemName=bungcip.better-toml)
-  - [Better Comments](https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments)
+  - [Todo Tree](https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.todo-tree)
   - [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
   - [EditorConfig](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)
 - Themes
