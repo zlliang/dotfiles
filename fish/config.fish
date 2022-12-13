@@ -11,8 +11,8 @@ set -x HOMEBREW_CELLAR /opt/homebrew/Cellar
 set -x HOMEBREW_REPOSITORY /opt/homebrew
 set -x HOMEBREW_BOTTLE_DOMAIN https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
 set -x PATH /opt/homebrew/bin /opt/homebrew/sbin $PATH
-set -x MANPATH /opt/homebrew/share/man $MANPATH
-set -x INFOPATH /opt/homebrew/share/info $INFOPATH
+# set -x MANPATH /opt/homebrew/share/man $MANPATH
+# set -x INFOPATH /opt/homebrew/share/info $INFOPATH
 
 # System utilities
 alias ls "exa -lhH --git --time-style='long-iso'"
@@ -31,9 +31,9 @@ set -x PATH $HOME/.node/bin $PATH
 # set -x JAVA_HOME (/usr/libexec/java_home)
 
 # Go
-# set -x GOPATH $HOME/.golang
-# set -x GOENV $GOPATH/env
-# set -x GOPROXY https://goproxy.cn
+set -x GOPATH $HOME/.golang
+set -x GOENV $GOPATH/env
+set -x PATH $GOPATH/bin $PATH
 
 # Python
 # set -x PATH /usr/local/opt/python@3.10/bin $PATH

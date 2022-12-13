@@ -29,7 +29,7 @@ function fish_prompt -d "Rich fish prompt"
   # echo_rust
 
   # Go info
-  # echo_golang
+  echo_golang
 
   # Python venv info
   # echo_venv
@@ -49,7 +49,7 @@ function fish_prompt -d "Rich fish prompt"
 end
 
 function echo_git_status -d "Print git status"
-  set git_status (command git status --porcelain 2>/dev/null)
+  set git_status (command git status -uno --porcelain 2>/dev/null)
   if test -z "$git_status"
     set_color green
     echo "(clean)"

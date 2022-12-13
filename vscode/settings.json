@@ -64,6 +64,9 @@
   "terminal.integrated.lineHeight": 1.25,
 
   // Remote development
+  "terminal.integrated.profiles.linux": {
+    "fish": { "path": "fish", "args": ["-l"] }
+  },
   "terminal.integrated.defaultProfile.linux": "fish",
 
   // Files
@@ -125,7 +128,7 @@
   },
 
   // Web development
-  "[html][css][json]": {
+  "[html][css][less][json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
   },
@@ -135,6 +138,9 @@
   },
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[astro]": {
+    "editor.formatOnSave": true
   },
   "emmet.includeLanguages": {
     "vue-html": "html", "django-html": "html", "postcss": "css"
@@ -217,5 +223,5 @@
         "-file-line-error", "-synctex=1", "-xelatex", "%DOC%"
       ]
     }
-  ]
+  ],
 }
