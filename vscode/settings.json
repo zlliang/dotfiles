@@ -176,9 +176,9 @@
   // Python
   "[python]": {
     "editor.tabSize": 4,
-    "editor.formatOnSave": true
+    // "editor.formatOnSave": true
   },
-  "python.formatting.provider": "black",
+  // "python.formatting.provider": "black",
   "notebook.markup.fontSize": 14,
 
   // C and C++
@@ -223,5 +223,5 @@
         "-file-line-error", "-synctex=1", "-xelatex", "%DOC%"
       ]
     }
-  ],
+  ]
 }

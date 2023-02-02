@@ -32,7 +32,7 @@ function fish_prompt -d "Rich fish prompt"
   echo_golang
 
   # Python venv info
-  # echo_venv
+  echo_venv
 
   # Background jobs
   echo -n (echo_jobs)
@@ -93,7 +93,7 @@ function echo_golang -d "Print Go info"
 end
 
 function echo_venv -d "Print Python virtualenv info"
-  if test (echo $PATH | rg ".venv/bin")
+  if test (echo $PATH | rg "virtualenvs")
     set_color yellow
     echo -n [
     echo -n "venv:"

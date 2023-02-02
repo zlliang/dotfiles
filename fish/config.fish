@@ -4,6 +4,7 @@
 # Environment variables
 set -x LANG en_US.UTF-8
 set -x SSH_KEY_PATH $HOME/.ssh/rsa_id
+set -x PATH $HOME/.local/bin $PATH
 
 # Homebrew
 set -x HOMEBREW_PREFIX /opt/homebrew
@@ -36,10 +37,8 @@ set -x GOENV $GOPATH/env
 set -x PATH $GOPATH/bin $PATH
 
 # Python
-# set -x PATH /usr/local/opt/python@3.10/bin $PATH
-# set -x PATH /usr/local/opt/python@3.10/libexec/bin $PATH
-# set -x PATH $HOME/Library/Python/3.10/bin $PATH  # Poetry
-# set -x VIRTUAL_ENV_DISABLE_PROMPT true
+set -x PATH /opt/homebrew/opt/python@3.10/libexec/bin $PATH
+set -x VIRTUAL_ENV_DISABLE_PROMPT true
 
 # bat
 if test [(defaults read -g AppleInterfaceStyle 2> /dev/null)]
