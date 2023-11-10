@@ -22,11 +22,11 @@ function fish_prompt -d "Rich fish prompt"
     echo -n ] " "
   end
 
-  # Node info
-  echo_node
+  # JS info
+  echo_js
 
   # Rust info
-  # echo_rust
+  echo_rust
 
   # Go info
   echo_golang
@@ -59,7 +59,7 @@ function echo_git_status -d "Print git status"
   end
 end
 
-function echo_node -d "Print Node.js info"
+function echo_js -d "Print JavaScript runtimes info"
   if file_in_tree package.json
     set_color green
     echo -n [
@@ -67,6 +67,15 @@ function echo_node -d "Print Node.js info"
     echo -n (node --version | rg "\d+(\.\d+)+" -o)
     echo -n ] " "
     set_color normal
+
+    if file_in_tree bun.lockb
+      set_color yellow
+      echo -n [
+      echo -n "bun:"
+      echo -n (bun --version | rg "\d+(\.\d+)+" -o)
+      echo -n ] " "
+      set_color normal
+    end
   end
 end
 

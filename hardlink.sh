@@ -18,7 +18,7 @@ if test ! -d ~/Library/Application\ Support/Code/User/snippets; then
 fi
 
 ln -vf .gitignore .gitconfig .vimrc .npmrc ~
-ln -vf fish/config.fish ~/.config/fish
+ln -vf fish/*.fish ~/.config/fish
 ln -vf fish/functions/*.fish ~/.config/fish/functions
 ln -vf iterm/dark-mode.py ~/Library/Application\ Support/iTerm2/Scripts/AutoLaunch
 ln -vf vscode/*.json ~/Library/Application\ Support/Code/User

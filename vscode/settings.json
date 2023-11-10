@@ -15,10 +15,13 @@
   "editor.rulers": [80],
 
   // Workbench and window
+  "workbench.productIconTheme": "fluent-icons",
   "workbench.settings.editor": "json",
   "workbench.settings.useSplitJSON": true,
   "window.restoreFullscreen": false,
   "window.dialogStyle": "custom",
+  "window.commandCenter": false,
+  "extensions.ignoreRecommendations": true,
 
   // Theme
   "window.autoDetectColorScheme": true,
@@ -26,19 +29,16 @@
   "workbench.preferredLightColorTheme": "GitHub Light Default",
   "workbench.preferredDarkColorTheme": "GitHub Dark Default",
   "workbench.iconTheme": "material-icon-theme",
-  "workbench.productIconTheme": "fluent-icons",
   "material-icon-theme.activeIconPack": "vue_vuex",
   "material-icon-theme.folders.associations": {
-    "composables": "vue", "benches": "benchmark"
+    "composables": "vue", ".vitepress": "vue", "benches": "benchmark",
   },
   "material-icon-theme.files.associations": {
     "*.jsx": "javascript", "*.tsx": "typescript",
     ".graphqlrc": "graphql", "*.nu": "console",
     // For Vue projects
-    "tsconfig.web.json": "tsconfig",
-    "tsconfig.node.json": "tsconfig",
-    "tsconfig.config.json": "tsconfig",
-    "tsconfig.vitest.json": "tsconfig"
+    "tsconfig.vue-app.json": "tsconfig",
+    "tsconfig.node-library.json": "tsconfig",
   },
 
   // Font
@@ -75,7 +75,6 @@
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": false,
   "files.defaultLanguage": "${activeEditorLanguage}",
-  "files.associations": { ".graphqlrc": "json" },
   "files.exclude": {
     "**/.git": true, "**/.svn": true, "**/.hg": true,
     "**/CVS": true, "**/.DS_Store": true,
@@ -94,6 +93,9 @@
   "git.confirmSync": false,
   "git.autofetch": true,
   "git.mergeEditor": true,
+  "git.openRepositoryInParentFolders": "always",
+  "git.ignoreMissingGitWarning": true,
+  "diffEditor.diffAlgorithm": "advanced",
   "diffEditor.renderSideBySide": false,
   "gitlens.codeLens.enabled": false,
   "gitlens.statusBar.enabled": false,
@@ -101,8 +103,11 @@
   "gitlens.defaultDateShortFormat": "YYYY-MM-DD",
   "gitlens.blame.avatars": false,
   "gitlens.hovers.avatars": false,
+  "gitlens.graph.avatars": false,
   "gitlens.views.branches.avatars": false,
   "gitlens.views.commits.avatars": false,
+  "gitlens.views.commitDetails.avatars": false,
+  "gitlens.views.repositories.avatars": false,
   "gitlens.views.contributors.avatars": false,
   "gitlens.views.fileHistory.avatars": false,
   "gitlens.views.lineHistory.avatars": false,
@@ -110,12 +115,18 @@
   "gitlens.views.repositories.avatars": false,
   "gitlens.views.searchAndCompare.avatars": false,
   "gitlens.views.tags.avatars": false,
-  "git-graph.date.format": "ISO Date & Time",
-  "git-graph.graph.colours": [
-    "#1E88A8", "#D9AB42", "#DB4D6D", "#986DB2", "#91AD70", "#91989F",
-    "#ED784A", "#954A45", "#78C2C4", "#DDD23B", "#EBB471", "#F19483"
-  ],
+  "gitlens.views.worktrees.avatars": false,
 
+  // GitHub Copilot
+  "editor.inlineSuggest.enabled": true,
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": true,
+    "markdown": true,
+    "scminput": false,
+    "yaml": true
+  },
+  
   // Todo tree
   "todo-tree.general.tags": [ "HACK", "FIXME", "TODO", "XXX", "[ ]", "[x]"],
   
@@ -123,47 +134,46 @@
   "[markdown][mdx]": {
     "editor.tabSize": 4,
     "editor.wordWrap": "on",
-    "editor.defaultFormatter":  "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
+  },
+
+  // Makefile
+  "[makefile]": {
+    "editor.insertSpaces": false,
+    "editor.tabSize": 2,
   },
 
   // Web development
-  "[html][css][less][json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
   },
-  "[javascript][javascriptreact][typescript][typescriptreact][vue]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
-  },
-  "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[astro]": {
-    "editor.formatOnSave": true
+  "[vue]": {
+    "editor.codeLens": false,
   },
   "emmet.includeLanguages": {
     "vue-html": "html", "django-html": "html", "postcss": "css"
   },
   "html.autoCreateQuotes": false,
+  "auto-close-tag.activationOnLanguage": ["markdown", "mdx", "vue"],
   "editor.codeActionsOnSave": { "source.fixAll.eslint": true },
-  "prettier.semi": false, // Disable JS/TS semicolons
   "vetur.ignoreProjectWarning": true,
   "vetur.completion.tagCasing": "initial",
   "vetur.validation.template": false, // Always use customized ESLint configs
-  "volar.codeLens.references": false,
-  "volar.icon.preview": false,
-  "volar.icon.splitEditors": false,
+  "vitest.exclude": [
+    "**/node_modules/**",
+    "**/dist/**",
+    "**/{e2e,cypress}/**",
+    "**/.{idea,git,cache,output,temp}/**"
+  ],
 
   // Rust
   "[rust]": {
     "editor.tabSize": 4,
     "editor.rulers": [100],
     "editor.formatOnType": true,
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "editor.codeLens": false,
+    "editor.inlayHints.enabled": false,
   },
-  "rust-analyzer.lens.enable": false,
-  "rust-analyzer.inlayHints.enable":false,
 
   // Java
   "[java]": { "editor.formatOnSave": true },
@@ -172,17 +182,24 @@
 
   // Go
   "go.toolsManagement.autoUpdate": true,
+  "gopls": {
+    "ui.semanticTokens": true,
+    // "ui.navigation.importShortcut": "Definition", // Avoid jumping to pkg.go.dev
+  },
 
   // Python
   "[python]": {
     "editor.tabSize": 4,
+    "editor.formatOnType": true,
     // "editor.formatOnSave": true
   },
   // "python.formatting.provider": "black",
   "notebook.markup.fontSize": 14,
 
   // C and C++
-  "[c][cpp]": { "editor.formatOnSave": true },
+  // "[c][cpp]": {
+  //   "editor.formatOnSave": true 
+  // },
   "C_Cpp.configurationWarnings": "Disabled",
   "C_Cpp.default.cppStandard": "c++17",
   "C_Cpp.clang_format_fallbackStyle": "Google",
