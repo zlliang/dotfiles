@@ -32,7 +32,7 @@ set -x PATH $HOME/.node/bin $PATH
 
 # Node - pnpm
 set -x PNPM_HOME $HOME/Library/pnpm
-set -x PATH $PNPM_HOME $PATH
+# set -x PATH $PNPM_HOME $PATH
 
 # Rust
 set -x PATH $HOME/.cargo/bin $PATH
