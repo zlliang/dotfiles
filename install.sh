@@ -3,7 +3,18 @@
 
 # Install utilities for remote environments
 if command -v apt-get; then
-  apt-get -y update && apt-get -y install exa ripgrep
+  # Eza
+  sudo apt update -y
+  sudo apt install -y gpg wget
+  sudo mkdir -p /etc/apt/keyrings
+  wget -qO- https://raw.githubusercontent.com/eza-community/eza/main/deb.asc | sudo gpg --dearmor -o /etc/apt/keyrings/gierens.gpg
+  echo "deb [signed-by=/etc/apt/keyrings/gierens.gpg] http://deb.gierens.de stable main" | sudo tee /etc/apt/sources.list.d/gierens.list
+  sudo chmod 644 /etc/apt/keyrings/gierens.gpg /etc/apt/sources.list.d/gierens.list
+  sudo apt install -y eza
+
+  # Ripgrep
+  curl -LO https://github.com/BurntSushi/ripgrep/releases/download/13.0.0/ripgrep_13.0.0_amd64.deb
+  sudo dpkg -i ripgrep_13.0.0_amd64.deb
 fi
 
 if test ! -d $HOME/.config/fish; then

@@ -23,7 +23,7 @@ if test (uname) = Darwin
 end
 
 # System utilities
-alias ls "exa -lhH --git --time-style='long-iso'"
+alias ls "eza -lhH --git --time-style='long-iso'"
 alias la "ls -al"
 alias l "ls"
 

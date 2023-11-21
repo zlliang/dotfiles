@@ -24,7 +24,7 @@ To link these configuration files to their suggested locations, run [`hardlink.s
    - Set the default shell: `chsh -s /usr/local/bin/fish`;
    - _Note that_ the configuration file of fish is `~/.config/fish/config.fish`;
 6. Useful command line tools:
-   - [`exa`](https://the.exa.website): A modern replacement for `ls`;
+   - [`eza`](https://github.com/eza-community/eza): A modern, maintained replacement for `ls`;
    - [`fd`](https://github.com/sharkdp/fd): A simple, fast and user-friendly alternative to `find`;
    - [`bat`](https://github.com/sharkdp/bat): A `cat` clone with wings;
    - [`ripgrep (rg)`](https://github.com/BurntSushi/ripgrep): An algernative to `grep`;
