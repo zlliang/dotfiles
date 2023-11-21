@@ -31,43 +31,33 @@
   "workbench.iconTheme": "material-icon-theme",
   "material-icon-theme.activeIconPack": "vue_vuex",
   "material-icon-theme.folders.associations": {
-    "composables": "vue", ".vitepress": "vue", "benches": "benchmark",
+    "composables": "vue", ".vitepress": "vue", "benches": "benchmark"
   },
   "material-icon-theme.files.associations": {
     "*.jsx": "javascript", "*.tsx": "typescript",
-    ".graphqlrc": "graphql", "*.nu": "console",
-    // For Vue projects
-    "tsconfig.vue-app.json": "tsconfig",
-    "tsconfig.node-library.json": "tsconfig",
+    ".graphqlrc": "graphql", "*.nu": "console"
   },
 
   // Font
-  "editor.fontFamily": "IBM Plex Mono Text",
-  "editor.codeLensFontFamily": "IBM Plex Mono Text",
-  "editor.inlayHints.fontFamily": "IBM Plex Mono Text",
-  "terminal.integrated.fontFamily": "IBM Plex Mono Text",
-  "debug.console.fontFamily": "IBM Plex Mono Text",
+  "editor.fontFamily": "Monaspace Neon",
+  "editor.codeLensFontFamily": "Monaspace Neon",
+  "editor.inlayHints.fontFamily": "Monaspace Neon",
+  "terminal.integrated.fontFamily": "Monaspace Neon",
+  "debug.console.fontFamily": "Monaspace Neon",
   "markdown.preview.fontFamily": "Inter",
   "editor.fontSize": 15,
   "terminal.integrated.fontSize": 15,
   "markdown.preview.fontSize": 15,
-  "editor.fontLigatures": true,
+  "editor.fontLigatures": false,
 
   // Integrated terminal
-  "terminal.integrated.profiles.osx": {
-    "fish": { "path": "/opt/homebrew/bin/fish", "args": ["-l"] }
-  },
   "terminal.integrated.defaultProfile.osx": "fish",
+  "terminal.integrated.defaultProfile.linux": "fish",
   "terminal.integrated.cursorStyle": "line",
   "terminal.integrated.cursorBlinking": true,
   "terminal.integrated.detectLocale": "off",
-  "terminal.integrated.lineHeight": 1.25,
-
-  // Remote development
-  "terminal.integrated.profiles.linux": {
-    "fish": { "path": "fish", "args": ["-l"] }
-  },
-  "terminal.integrated.defaultProfile.linux": "fish",
+  "terminal.integrated.lineHeight": 1.4,
+  "terminal.integrated.shellIntegration.decorationsEnabled": "never",
 
   // Files
   "files.autoSave": "onFocusChange",
@@ -112,7 +102,6 @@
   "gitlens.views.fileHistory.avatars": false,
   "gitlens.views.lineHistory.avatars": false,
   "gitlens.views.remotes.avatars": false,
-  "gitlens.views.repositories.avatars": false,
   "gitlens.views.searchAndCompare.avatars": false,
   "gitlens.views.tags.avatars": false,
   "gitlens.views.worktrees.avatars": false,
@@ -133,13 +122,13 @@
   // Markdown
   "[markdown][mdx]": {
     "editor.tabSize": 4,
-    "editor.wordWrap": "on",
+    "editor.wordWrap": "on"
   },
 
   // Makefile
   "[makefile]": {
     "editor.insertSpaces": false,
-    "editor.tabSize": 2,
+    "editor.tabSize": 2
   },
 
   // Web development
@@ -147,13 +136,14 @@
     "editor.defaultFormatter": "vscode.json-language-features"
   },
   "[vue]": {
-    "editor.codeLens": false,
+    "editor.codeLens": false
   },
   "emmet.includeLanguages": {
     "vue-html": "html", "django-html": "html", "postcss": "css"
   },
   "html.autoCreateQuotes": false,
   "auto-close-tag.activationOnLanguage": ["markdown", "mdx", "vue"],
+  "eslint.experimental.useFlatConfig": true,
   "editor.codeActionsOnSave": { "source.fixAll.eslint": true },
   "vetur.ignoreProjectWarning": true,
   "vetur.completion.tagCasing": "initial",
@@ -172,7 +162,7 @@
     "editor.formatOnType": true,
     "editor.formatOnSave": true,
     "editor.codeLens": false,
-    "editor.inlayHints.enabled": false,
+    "editor.inlayHints.enabled": false
   },
 
   // Java
@@ -183,23 +173,16 @@
   // Go
   "go.toolsManagement.autoUpdate": true,
   "gopls": {
-    "ui.semanticTokens": true,
-    // "ui.navigation.importShortcut": "Definition", // Avoid jumping to pkg.go.dev
+    "ui.semanticTokens": true
   },
 
   // Python
   "[python]": {
-    "editor.tabSize": 4,
-    "editor.formatOnType": true,
-    // "editor.formatOnSave": true
+    "editor.tabSize": 4
   },
-  // "python.formatting.provider": "black",
   "notebook.markup.fontSize": 14,
 
   // C and C++
-  // "[c][cpp]": {
-  //   "editor.formatOnSave": true 
-  // },
   "C_Cpp.configurationWarnings": "Disabled",
   "C_Cpp.default.cppStandard": "c++17",
   "C_Cpp.clang_format_fallbackStyle": "Google",

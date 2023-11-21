@@ -1,5 +1,5 @@
 # Fish shell settings
-# Location: ~/.config/fish/config.fish
+# Location: $HOME/.config/fish/config.fish
 
 # Environment variables
 set -x LANG en_US.UTF-8
@@ -12,13 +12,15 @@ if test -f $__fish_config_dir/secret.fish
 end
 
 # Homebrew
-set -x HOMEBREW_PREFIX /opt/homebrew
-set -x HOMEBREW_CELLAR /opt/homebrew/Cellar
-set -x HOMEBREW_REPOSITORY /opt/homebrew
-set -x HOMEBREW_BOTTLE_DOMAIN https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
-set -x PATH /opt/homebrew/bin /opt/homebrew/sbin $PATH
-# set -x MANPATH /opt/homebrew/share/man $MANPATH
-# set -x INFOPATH /opt/homebrew/share/info $INFOPATH
+if test (uname) = Darwin
+  set -x HOMEBREW_PREFIX /opt/homebrew
+  set -x HOMEBREW_CELLAR /opt/homebrew/Cellar
+  set -x HOMEBREW_REPOSITORY /opt/homebrew
+  set -x HOMEBREW_BOTTLE_DOMAIN https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
+  set -x PATH /opt/homebrew/bin /opt/homebrew/sbin $PATH
+  # set -x MANPATH /opt/homebrew/share/man $MANPATH
+  # set -x INFOPATH /opt/homebrew/share/info $INFOPATH
+end
 
 # System utilities
 alias ls "exa -lhH --git --time-style='long-iso'"
@@ -32,7 +34,7 @@ set -x PATH $HOME/.node/bin $PATH
 
 # Node - pnpm
 set -x PNPM_HOME $HOME/Library/pnpm
-# set -x PATH $PNPM_HOME $PATH
+set -x PATH $PNPM_HOME $PATH
 
 # Rust
 set -x PATH $HOME/.cargo/bin $PATH
@@ -53,14 +55,18 @@ set -x VIRTUAL_ENV_DISABLE_PROMPT true
 set -x PATH $HOME/.docker/bin $PATH
 
 # bat
-if test [(defaults read -g AppleInterfaceStyle 2> /dev/null)]
-  set -x BAT_THEME ""
-else
-  set -x BAT_THEME "GitHub"
+if command -q defaults
+  if test [(defaults read -g AppleInterfaceStyle 2> /dev/null)] # Dark mode
+    set -x BAT_THEME ""
+  else # Light mode
+    set -x BAT_THEME "GitHub"
+  end
 end
 
 # zoxide
-zoxide init fish | source
+if command -q zoxide
+  zoxide init fish | source
+end
 
 # gitignore.io
 function gi -d "gitignore.io: Create useful .gitignore files"

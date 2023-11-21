@@ -1,4 +1,4 @@
-# Location: ~/.config/fish/functions/fish_prompt.fish
+# Location: $HOME/.config/fish/functions/fish_prompt.fish
 
 function fish_prompt -d "Rich fish prompt"
   set exit_status $status
