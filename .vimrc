@@ -1,5 +1,5 @@
 " Vim setting file
-" Location: ~/.vimrc
+" Location: $HOME/.vimrc
 
 syntax enable
 

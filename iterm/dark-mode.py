@@ -1,5 +1,5 @@
 # Automatic dark mode switching for iTerm2
-# Location: ~/Library/Application\ Support/iTerm2/Scripts/AutoLaunch
+# Location: $HOME/Library/Application\ Support/iTerm2/Scripts/AutoLaunch
 
 import asyncio
 import iterm2

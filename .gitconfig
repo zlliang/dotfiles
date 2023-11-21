@@ -1,5 +1,5 @@
 # Git global configurations
-# Location: ~/.gitconfig
+# Location: $HOME/.gitconfig
 
 [user]
   name = Zilong Liang

@@ -36,13 +36,13 @@ if test $(uname) = Darwin; then
   if test ! -d $HOME/Library/Application\ Support/Code/User; then
     mkdir -p $HOME/Library/Application\ Support/Code/User
   fi
-  if test ! -d $HOME/Library/Application\ Support/Code/User/snippets; then
-    mkdir -p $HOME/Library/Application\ Support/Code/User/snippets
-  fi
+  # if test ! -d $HOME/Library/Application\ Support/Code/User/snippets; then
+  #   mkdir -p $HOME/Library/Application\ Support/Code/User/snippets
+  # fi
 
   ln -vf iterm/dark-mode.py $HOME/Library/Application\ Support/iTerm2/Scripts/AutoLaunch
   ln -vf vscode/*.json $HOME/Library/Application\ Support/Code/User
-  ln -vf vscode/snippets/*.json $HOME/Library/Application\ Support/Code/User/snippets
+  # ln -vf vscode/snippets/*.json $HOME/Library/Application\ Support/Code/User/snippets
 else
   cp .gitignore .gitconfig .vimrc .npmrc $HOME
   cp fish/*.fish $HOME/.config/fish
