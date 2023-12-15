@@ -7,8 +7,7 @@ Here are several dotfiles I am using on my macOS, and guides to configure a deve
 1. Fish shell: See [`fish/`](./fish/);
 2. iTerm2: See [`iterm/`](./iterm);
 3. VS Code: See [`vscode/`](./vscode/);
-4. Git global configuration files: See [`.gitconfig`](./.gitconfig) and [`.gitignore`](./.gitignore);
-5. Vim settings: See [`.vimrc`](./.vimrc).
+4. Git global configuration files: See [`.gitconfig`](./.gitconfig) and [`.gitignore`](./.gitignore).
 
 To link these configuration files to their suggested locations, run [`hardlink.sh`](./hardlink.sh).
 
@@ -29,9 +28,9 @@ To link these configuration files to their suggested locations, run [`hardlink.s
    - [`bat`](https://github.com/sharkdp/bat): A `cat` clone with wings;
    - [`ripgrep (rg)`](https://github.com/BurntSushi/ripgrep): An algernative to `grep`;
    - [`zoxide (z)`](https://github.com/ajeetdsouza/zoxide): A faster way to navigate your filesystem;
-   - [`delta`](https://github.com/dandavison/delta): A syntax-highlighting pager for git, diff, and grep output;
 7. Language toolkits:
    - [`n`](https://github.com/tj/n) for Node.js;
    - [`rustup`](https://rustup.rs/) for Rust;
+   - [`rbenv`](https://github.com/rbenv/rbenv) for Ruby;
 8. Install [MacTeX](http://tug.org/mactex/) for LaTeX typesetting: `brew install --cask mactex-no-gui`;
-9. Install [VS Code](https://code.visualstudio.com) as the code editor;
+9. Install [VS Code](https://code.visualstudio.com) as the code editor.

@@ -2,64 +2,67 @@
 # Location: $HOME/.config/fish/config.fish
 
 # Environment variables
-set -x LANG en_US.UTF-8
-set -x SSH_KEY_PATH $HOME/.ssh/rsa_id
-set -x PATH $HOME/.local/bin $PATH
-
-# Secret
-if test -f $__fish_config_dir/secret.fish
-  source $__fish_config_dir/secret.fish
-end
+set -gx LC_ALL C
+set -gx SSH_KEY_PATH $HOME/.ssh/rsa_id
+set -gx PATH $HOME/.local/bin $PATH
 
 # Homebrew
 if test (uname) = Darwin
-  set -x HOMEBREW_PREFIX /opt/homebrew
-  set -x HOMEBREW_CELLAR /opt/homebrew/Cellar
-  set -x HOMEBREW_REPOSITORY /opt/homebrew
-  set -x HOMEBREW_BOTTLE_DOMAIN https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
-  set -x PATH /opt/homebrew/bin /opt/homebrew/sbin $PATH
-  # set -x MANPATH /opt/homebrew/share/man $MANPATH
-  # set -x INFOPATH /opt/homebrew/share/info $INFOPATH
+  set -gx HOMEBREW_PREFIX /opt/homebrew
+  set -gx HOMEBREW_CELLAR /opt/homebrew/Cellar
+  set -gx HOMEBREW_REPOSITORY /opt/homebrew
+  set -gx HOMEBREW_BOTTLE_DOMAIN https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
+  set -gx PATH /opt/homebrew/bin /opt/homebrew/sbin $PATH
 end
 
 # System utilities
-alias ls "eza -lhH --git --time-style='long-iso'"
-alias la "ls -al"
-alias l "ls"
+if command -q eza
+  alias ls "eza -lhH --git --time-style='long-iso'"
+  alias la "ls -al"
+  alias l "ls"
+end
 
-# Node (Use `n` to manage Node.js versions)
-set -x N_PREFIX $HOME/.node
-set -x N_NODE_MIRROR https://npmmirror.com/mirrors/node
-set -x PATH $HOME/.node/bin $PATH
+# Node
+# Use `n` to manage Node.js versions. See https://github.com/tj/n.
+set -gx N_PREFIX $HOME/.node
+set -gx N_NODE_MIRROR https://npmmirror.com/mirrors/node
+set -gx PATH $HOME/.node/bin $PATH
 
-# Node - pnpm
-set -x PNPM_HOME $HOME/Library/pnpm
-set -x PATH $PNPM_HOME $PATH
+# Node pnpm
+set -gx PNPM_HOME $HOME/Library/pnpm
+set -gx PATH $PNPM_HOME $PATH
 
 # Rust
-set -x PATH $HOME/.cargo/bin $PATH
+set -gx PATH $HOME/.cargo/bin $PATH
 
 # Java (OpenJDK)
-# set -x JAVA_HOME (/usr/libexec/java_home)
+# set -gx JAVA_HOME (/usr/libexec/java_home)
 
 # Go
-set -x GOPATH $HOME/.golang
-set -x GOENV $GOPATH/env
-set -x PATH $GOPATH/bin $PATH
+set -gx GOPATH $HOME/.golang
+set -gx GOENV $GOPATH/env
+set -gx PATH $GOPATH/bin $PATH
 
 # Python
-set -x PATH /opt/homebrew/opt/python@3.11/libexec/bin $PATH
-set -x VIRTUAL_ENV_DISABLE_PROMPT true
+set -gx PATH /opt/homebrew/opt/python/libexec/bin $PATH
+set -gx VIRTUAL_ENV_DISABLE_PROMPT true
+
+# Ruby
+# Use`rbenv` to manage Ruby versions. See https://github.com/rbenv/rbenv.
+rbenv init - fish | source
 
 # Docker
-set -x PATH $HOME/.docker/bin $PATH
+set -gx PATH $HOME/.docker/bin $PATH
 
 # bat
-if command -q defaults
-  if test [(defaults read -g AppleInterfaceStyle 2> /dev/null)] # Dark mode
-    set -x BAT_THEME ""
-  else # Light mode
-    set -x BAT_THEME "GitHub"
+if command -q bat
+  alias cat "bat"
+  if command -q defaults
+    if test [(defaults read -g AppleInterfaceStyle 2> /dev/null)] # Dark mode
+      set -gx BAT_THEME "default"
+    else # Light mode
+      set -gx BAT_THEME "GitHub"
+    end
   end
 end
 
@@ -75,8 +78,10 @@ end
 
 # Set proxy
 function set-proxy -d "Set web proxy"
-  export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890
+  set -gx https_proxy "http://127.0.0.1:7890"
+  set -gx http_proxy "http://127.0.0.1:7890"
+  set -gx all_proxy "socks5://127.0.0.1:7890"
 end
 
-# Working related
-set -x PATH $HOME/tencent/workspace/bin $PATH
+# Work at Tencent
+set -gx PATH $HOME/tencent/workspace/bin $PATH

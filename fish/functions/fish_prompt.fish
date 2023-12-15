@@ -1,10 +1,10 @@
 # Location: $HOME/.config/fish/functions/fish_prompt.fish
 
-function fish_prompt -d "Rich fish prompt"
-  set exit_status $status
-  set time_str (date "+%m-%d %H:%M")
-  set git_branch (command git rev-parse --abbrev-ref HEAD 2>/dev/null)
-  set pwd_str (prompt_pwd)
+function fish_prompt
+  set -l exit_status $status
+  set -l time_str (date "+%m-%d %H:%M")
+  set -l git_branch (command git rev-parse --abbrev-ref HEAD 2>/dev/null)
+  set -l pwd_str (prompt_pwd)
   
   # Date, time and working directory
   echo -n \n
@@ -14,7 +14,7 @@ function fish_prompt -d "Rich fish prompt"
   echo -n $pwd_str " "
 
   # Git info
-  if test -n "$git_branch"
+  if command -q git; and test -n "$git_branch"
     set_color blue
     echo -n [
     echo -n git:$git_branch (echo_git_status)
@@ -34,6 +34,9 @@ function fish_prompt -d "Rich fish prompt"
   # Python venv info
   echo_venv
 
+  # Ruby info
+  echo_ruby
+
   # Background jobs
   echo -n (echo_jobs)
 
@@ -48,8 +51,13 @@ function fish_prompt -d "Rich fish prompt"
   set_color normal
 end
 
-function echo_git_status -d "Print git status"
-  set git_status (command git status -uno --porcelain 2>/dev/null)
+function extract_version_number
+  read -l str
+  echo $str | grep -Eo "\d+(\.\d+)+"
+end
+
+function echo_git_status
+  set -l git_status (command git status -uno --porcelain 2>/dev/null)
   if test -z "$git_status"
     set_color green
     echo "(clean)"
@@ -59,62 +67,73 @@ function echo_git_status -d "Print git status"
   end
 end
 
-function echo_js -d "Print JavaScript runtimes info"
-  if file_in_tree package.json
+function echo_js
+  if file_in_tree package.json; and command -q node
     set_color green
     echo -n [
     echo -n "node:"
-    echo -n (node --version | rg "\d+(\.\d+)+" -o)
+    echo -n (node --version | extract_version_number)
     echo -n ] " "
     set_color normal
+  end
 
-    if file_in_tree bun.lockb
-      set_color yellow
-      echo -n [
-      echo -n "bun:"
-      echo -n (bun --version | rg "\d+(\.\d+)+" -o)
-      echo -n ] " "
-      set_color normal
-    end
+  if file_in_tree package.json; and file_in_tree bun.lockb; and command -q bun
+    set_color yellow
+    echo -n [
+    echo -n "bun:"
+    echo -n (bun --version | extract_version_number)
+    echo -n ] " "
+    set_color normal
   end
 end
 
-function echo_rust -d "Print Rust info"
-  if file_in_tree Cargo.toml
+function echo_rust
+  if file_in_tree Cargo.toml; and command -q rustc
     set_color yellow
     echo -n [
     echo -n "rust:"
-    echo -n (rustc --version | rg "\d+(\.\d+)+" -o)
+    echo -n (rustc --version | extract_version_number)
     echo -n ] " "
     set_color normal
   end
 end
 
-function echo_golang -d "Print Go info"
-  if file_in_tree go.mod
+function echo_golang
+  if file_in_tree go.mod; and command -q go
     set_color cyan
     echo -n [
     echo -n "go:"
-    echo -n (go version | rg "\d+(\.\d+)+" -o)
+    echo -n (go version | extract_version_number)
     echo -n ] " "
     set_color normal
   end
 end
 
-function echo_venv -d "Print Python virtualenv info"
-  if test (echo $PATH | rg "virtualenvs")
+function echo_venv
+  if test (echo $PATH | grep "virtualenvs"); and command -q python
     set_color yellow
     echo -n [
     echo -n "venv:"
     echo -n "python:"
-    echo -n (python --version | rg "\d+\.\d+\.\d" -o)
+    echo -n (python --version | extract_version_number)
     echo -n ] " "
     set_color normal
   end
 end
 
-function echo_jobs -d "Print background jobs number"
-  set njobs (jobs | wc -l | xargs)
+function echo_ruby
+  if file_in_tree Gemfile; or file_in_tree .ruby-version; and command -q ruby
+    set_color red
+    echo -n [
+    echo -n "ruby:"
+    echo -n (ruby --version | extract_version_number)
+    echo -n ] " "
+    set_color normal
+  end
+end
+
+function echo_jobs
+  set -l njobs (jobs | wc -l | xargs)
   set_color $fish_color_autosuggestion
   if test $njobs -le 0
     return
@@ -126,9 +145,9 @@ function echo_jobs -d "Print background jobs number"
 end
 
 function file_in_tree -d "Check if a specific file is in the current tree"
-  set filename $argv
-  set dir (pwd)
-  set root "/"
+  set -l filename $argv
+  set -l dir (pwd)
+  set -l root "/"
   while test $dir != $root
     if test -f $dir/$filename
       return 0
