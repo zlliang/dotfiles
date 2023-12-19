@@ -6,6 +6,16 @@ set -gx LC_ALL C
 set -gx SSH_KEY_PATH $HOME/.ssh/rsa_id
 set -gx PATH $HOME/.local/bin $PATH
 
+# Set cursor style to `line` internally
+# 1 -> blinking block
+# 2 -> solid block
+# 3 -> blinking underscore
+# 4 -> solid underscore
+# 5 -> blinking vertical bar
+# 6 -> solid vertical bar
+echo -ne "\e[5 q"
+function postexec --on-event fish_postexec; echo -ne "\e[5 q"; end
+
 # Homebrew
 if test (uname) = Darwin
   set -gx HOMEBREW_PREFIX /opt/homebrew
@@ -22,34 +32,45 @@ if command -q eza
   alias l "ls"
 end
 
+# VS Code
+# Enable key-repeating for Vim plugin. See https://marketplace.visualstudio.com/items?itemName=vscodevim.vim.
+if test (uname) = Darwin
+  defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+  # defaults delete -g ApplePressAndHoldEnabled # If necessary, reset global default
+end
+
 # Node
 # Use `n` to manage Node.js versions. See https://github.com/tj/n.
 set -gx N_PREFIX $HOME/.node
 set -gx N_NODE_MIRROR https://npmmirror.com/mirrors/node
 set -gx PATH $HOME/.node/bin $PATH
-
-# Node pnpm
+# Use `pnpm` as package manager. See https://pnpm.io/.
 set -gx PNPM_HOME $HOME/Library/pnpm
 set -gx PATH $PNPM_HOME $PATH
-
-# Rust
-set -gx PATH $HOME/.cargo/bin $PATH
-
-# Java (OpenJDK)
-# set -gx JAVA_HOME (/usr/libexec/java_home)
 
 # Go
 set -gx GOPATH $HOME/.golang
 set -gx GOENV $GOPATH/env
 set -gx PATH $GOPATH/bin $PATH
 
+# Rust
+set -gx PATH $HOME/.cargo/bin $PATH
+
 # Python
-set -gx PATH /opt/homebrew/opt/python/libexec/bin $PATH
+# Use `pyenv` to manage Python versions. See https://github.com/pyenv/pyenv.
+pyenv init - fish | source
 set -gx VIRTUAL_ENV_DISABLE_PROMPT true
+# Use `poetry` to manage Python dependencies. See https://python-poetry.org/.
+set -gx POETRY_HOME $HOME/.poetry
+set -gx PATH $POETRY_HOME/bin $PATH
+set -gx POETRY_VIRTUALENVS_PREFER_ACTIVE_PYTHON true
 
 # Ruby
-# Use`rbenv` to manage Ruby versions. See https://github.com/rbenv/rbenv.
+# Use `rbenv` to manage Ruby versions. See https://github.com/rbenv/rbenv.
 rbenv init - fish | source
+
+# Java (OpenJDK)
+# set -gx JAVA_HOME (/usr/libexec/java_home)
 
 # Docker
 set -gx PATH $HOME/.docker/bin $PATH

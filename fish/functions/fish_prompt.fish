@@ -2,16 +2,14 @@
 
 function fish_prompt
   set -l exit_status $status
-  set -l time_str (date "+%m-%d %H:%M")
   set -l git_branch (command git rev-parse --abbrev-ref HEAD 2>/dev/null)
   set -l pwd_str (prompt_pwd)
   
   # Date, time and working directory
   echo -n \n
-  set_color blue
-  echo -n $time_str " "
-  set_color $fish_color_cwd
+  set_color --bold $fish_color_cwd
   echo -n $pwd_str " "
+  set_color normal
 
   # Git info
   if command -q git; and test -n "$git_branch"
@@ -25,11 +23,11 @@ function fish_prompt
   # JS info
   echo_js
 
-  # Rust info
-  echo_rust
-
   # Go info
   echo_golang
+
+  # Rust info
+  echo_rust
 
   # Python venv info
   echo_venv
@@ -87,17 +85,6 @@ function echo_js
   end
 end
 
-function echo_rust
-  if file_in_tree Cargo.toml; and command -q rustc
-    set_color yellow
-    echo -n [
-    echo -n "rust:"
-    echo -n (rustc --version | extract_version_number)
-    echo -n ] " "
-    set_color normal
-  end
-end
-
 function echo_golang
   if file_in_tree go.mod; and command -q go
     set_color cyan
@@ -109,14 +96,24 @@ function echo_golang
   end
 end
 
+function echo_rust
+  if file_in_tree Cargo.toml; and command -q rustc
+    set_color yellow
+    echo -n [
+    echo -n "rust:"
+    echo -n (rustc --version | extract_version_number)
+    echo -n ] " "
+    set_color normal
+  end
+end
+
 function echo_venv
   if test (echo $PATH | grep "virtualenvs"); and command -q python
     set_color yellow
     echo -n [
-    echo -n "venv:"
     echo -n "python:"
     echo -n (python --version | extract_version_number)
-    echo -n ] " "
+    echo -n " (venv)"] " "
     set_color normal
   end
 end
