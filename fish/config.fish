@@ -2,7 +2,7 @@
 # Location: $HOME/.config/fish/config.fish
 
 # Environment variables
-set -gx LC_ALL C
+set -gx LC_ALL en_US.UTF-8
 set -gx SSH_KEY_PATH $HOME/.ssh/rsa_id
 set -gx PATH $HOME/.local/bin $PATH
 
