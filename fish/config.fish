@@ -40,12 +40,10 @@ if test (uname) = Darwin
 end
 
 # Node
-# Use `n` to manage Node.js versions. See https://github.com/tj/n.
-set -gx N_PREFIX $HOME/.node
-set -gx N_NODE_MIRROR https://npmmirror.com/mirrors/node
-set -gx PATH $HOME/.node/bin $PATH
+# Use `nodenv` to manage Node.js versions. See https://github.com/nodenv/nodenv.
+nodenv init - fish | source
 # Use `pnpm` as package manager. See https://pnpm.io/.
-set -gx PNPM_HOME $HOME/Library/pnpm
+set -gx PNPM_HOME $HOME/.pnpm
 set -gx PATH $PNPM_HOME $PATH
 
 # Go

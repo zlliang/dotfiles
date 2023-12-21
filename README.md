@@ -27,8 +27,8 @@ To copy these configuration files to their appropriate locations, run [`install.
    - [`ripgrep (rg)`](https://github.com/BurntSushi/ripgrep): An algernative to `grep`;
    - [`zoxide (z)`](https://github.com/ajeetdsouza/zoxide): A faster way to navigate your filesystem;
 6. Language toolkits:
-   - [`n`](https://github.com/tj/n) for Node.js;
    - [`rustup`](https://rustup.rs/) for Rust;
+   - [`nodenv`](https://github.com/nodenv/nodenv) for Node.js;
    - [`rbenv`](https://github.com/rbenv/rbenv) for Ruby;
    - [`pyenv`](https://github.com/pyenv/pyenv) for Python;
 7. Install [MacTeX](http://tug.org/mactex/) for LaTeX typesetting: `brew install --cask mactex-no-gui`;
