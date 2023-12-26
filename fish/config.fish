@@ -41,10 +41,12 @@ end
 
 # Node
 # Use `nodenv` to manage Node.js versions. See https://github.com/nodenv/nodenv.
-nodenv init - fish | source
-# Use `pnpm` as package manager. See https://pnpm.io/.
-set -gx PNPM_HOME $HOME/.pnpm
-set -gx PATH $PNPM_HOME $PATH
+if command -q nodenv
+  nodenv init - fish | source
+  # Use `pnpm` as package manager. See https://pnpm.io/.
+  set -gx PNPM_HOME $HOME/.pnpm
+  set -gx PATH $PNPM_HOME $PATH
+end
 
 # Go
 set -gx GOPATH $HOME/.golang
@@ -56,16 +58,20 @@ set -gx PATH $HOME/.cargo/bin $PATH
 
 # Python
 # Use `pyenv` to manage Python versions. See https://github.com/pyenv/pyenv.
-pyenv init - fish | source
-set -gx VIRTUAL_ENV_DISABLE_PROMPT true
-# Use `poetry` to manage Python dependencies. See https://python-poetry.org/.
-set -gx POETRY_HOME $HOME/.poetry
-set -gx PATH $POETRY_HOME/bin $PATH
-set -gx POETRY_VIRTUALENVS_PREFER_ACTIVE_PYTHON true
+if command -q pyenv
+  pyenv init - fish | source
+  set -gx VIRTUAL_ENV_DISABLE_PROMPT true
+  # Use `poetry` to manage Python dependencies. See https://python-poetry.org/.
+  set -gx POETRY_HOME $HOME/.poetry
+  set -gx PATH $POETRY_HOME/bin $PATH
+  set -gx POETRY_VIRTUALENVS_PREFER_ACTIVE_PYTHON true
+end
 
 # Ruby
 # Use `rbenv` to manage Ruby versions. See https://github.com/rbenv/rbenv.
-rbenv init - fish | source
+if command -q rbenv
+  rbenv init - fish | source
+end
 
 # Java (OpenJDK)
 # set -gx JAVA_HOME (/usr/libexec/java_home)
