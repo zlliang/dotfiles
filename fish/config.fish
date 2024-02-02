@@ -48,13 +48,13 @@ if command -q nodenv
   set -gx PATH $PNPM_HOME $PATH
 end
 
+# Rust
+set -gx PATH $HOME/.cargo/bin $PATH
+
 # Go
 set -gx GOPATH $HOME/.golang
 set -gx GOENV $GOPATH/env
 set -gx PATH $GOPATH/bin $PATH
-
-# Rust
-set -gx PATH $HOME/.cargo/bin $PATH
 
 # Python
 # Use `pyenv` to manage Python versions. See https://github.com/pyenv/pyenv.
@@ -67,11 +67,11 @@ if command -q pyenv
   set -gx POETRY_VIRTUALENVS_PREFER_ACTIVE_PYTHON true
 end
 
-# Ruby
-# Use `rbenv` to manage Ruby versions. See https://github.com/rbenv/rbenv.
-if command -q rbenv
-  rbenv init - fish | source
-end
+# # Ruby
+# # Use `rbenv` to manage Ruby versions. See https://github.com/rbenv/rbenv.
+# if command -q rbenv
+#   rbenv init - fish | source
+# end
 
 # Java (OpenJDK)
 # set -gx JAVA_HOME (/usr/libexec/java_home)

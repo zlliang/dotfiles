@@ -23,17 +23,17 @@ function fish_prompt
   # JS info
   echo_js
 
-  # Go info
-  echo_golang
-
   # Rust info
   echo_rust
+
+  # Go info
+  echo_golang
 
   # Python venv info
   echo_venv
 
-  # Ruby info
-  echo_ruby
+  # # Ruby info
+  # echo_ruby
 
   # Background jobs
   echo -n (echo_jobs)
@@ -51,7 +51,7 @@ end
 
 function extract_version_number
   read -l str
-  echo $str | grep -Eo "\d+(\.\d+)+"
+  echo $str | rg -o "\d+(\.\d+)+"
 end
 
 function echo_git_status
@@ -85,23 +85,23 @@ function echo_js
   end
 end
 
-function echo_golang
-  if file_in_tree go.mod; and command -q go
-    set_color cyan
-    echo -n [
-    echo -n "go:"
-    echo -n (go version | extract_version_number)
-    echo -n ] " "
-    set_color normal
-  end
-end
-
 function echo_rust
   if file_in_tree Cargo.toml; and command -q rustc
     set_color yellow
     echo -n [
     echo -n "rust:"
     echo -n (rustc --version | extract_version_number)
+    echo -n ] " "
+    set_color normal
+  end
+end
+
+function echo_golang
+  if file_in_tree go.mod; and command -q go
+    set_color cyan
+    echo -n [
+    echo -n "go:"
+    echo -n (go version | extract_version_number)
     echo -n ] " "
     set_color normal
   end
@@ -118,16 +118,16 @@ function echo_venv
   end
 end
 
-function echo_ruby
-  if file_in_tree Gemfile; or file_in_tree .ruby-version; and command -q ruby
-    set_color red
-    echo -n [
-    echo -n "ruby:"
-    echo -n (ruby --version | extract_version_number)
-    echo -n ] " "
-    set_color normal
-  end
-end
+# function echo_ruby
+#   if file_in_tree Gemfile; or file_in_tree .ruby-version; and command -q ruby
+#     set_color red
+#     echo -n [
+#     echo -n "ruby:"
+#     echo -n (ruby --version | extract_version_number)
+#     echo -n ] " "
+#     set_color normal
+#   end
+# end
 
 function echo_jobs
   set -l njobs (jobs | wc -l | xargs)
