@@ -27,7 +27,7 @@ end
 
 # System utilities
 if command -q eza
-  alias ls "eza -lhH --git --time-style='long-iso'"
+  alias ls "eza -lhH --no-quotes --git --time-style='long-iso'"
   alias la "ls -al"
   alias l "ls"
 end
