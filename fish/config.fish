@@ -97,16 +97,13 @@ if command -q zoxide
 end
 
 # gitignore.io
-function gi -d "gitignore.io: Create useful .gitignore files"
-  curl -sL https://gitignore.io/api/$argv
+function gi -d "Create .gitignore files"
+  curl -sL https://www.toptal.com/developers/gitignore/api/$argv
 end
 
 # Set proxy
 function set-proxy -d "Set web proxy"
-  set -gx https_proxy "http://127.0.0.1:7890"
-  set -gx http_proxy "http://127.0.0.1:7890"
-  set -gx all_proxy "socks5://127.0.0.1:7890"
+  set -gx https_proxy "http://127.0.0.1:6152"
+  set -gx http_proxy "http://127.0.0.1:6152"
+  set -gx all_proxy "socks5://127.0.0.1:6153"
 end
-
-# Work at Tencent
-set -gx PATH $HOME/tencent/workspace/bin $PATH
