@@ -67,12 +67,6 @@ if command -q pyenv
   set -gx POETRY_VIRTUALENVS_PREFER_ACTIVE_PYTHON true
 end
 
-# # Ruby
-# # Use `rbenv` to manage Ruby versions. See https://github.com/rbenv/rbenv.
-# if command -q rbenv
-#   rbenv init - fish | source
-# end
-
 # Java (OpenJDK)
 # set -gx JAVA_HOME (/usr/libexec/java_home)
 

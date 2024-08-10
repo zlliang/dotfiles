@@ -5,8 +5,7 @@ Here are several dotfiles I am using on my macOS, and guides to configure a deve
 ## Configuration files
 
 1. Fish shell: See [`fish/`](./fish/)
-2. VS Code: See [`vscode/`](./vscode/)
-3. Git global configuration files: See [`.gitconfig`](./.gitconfig) and [`.gitignore`](./.gitignore)
+2. Git global configuration files: See [`.gitconfig`](./.gitconfig) and [`.gitignore`](./.gitignore)
 
 To copy these configuration files to their appropriate locations, run [`install.sh`](./install.sh)
 

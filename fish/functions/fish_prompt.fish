@@ -32,9 +32,6 @@ function fish_prompt
   # Python venv info
   echo_venv
 
-  # # Ruby info
-  # echo_ruby
-
   # Background jobs
   echo -n (echo_jobs)
 
@@ -117,17 +114,6 @@ function echo_venv
     set_color normal
   end
 end
-
-# function echo_ruby
-#   if file_in_tree Gemfile; or file_in_tree .ruby-version; and command -q ruby
-#     set_color red
-#     echo -n [
-#     echo -n "ruby:"
-#     echo -n (ruby --version | extract_version_number)
-#     echo -n ] " "
-#     set_color normal
-#   end
-# end
 
 function echo_jobs
   set -l njobs (jobs | wc -l | xargs)
