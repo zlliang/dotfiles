@@ -16,8 +16,8 @@ To copy these configuration files to their appropriate locations, run [`install.
 3. Install [Git](https://git-scm.com) and [Git-LFS](https://git-lfs.github.com) (via Homebrew)
 4. Set [Fish](https://fishshell.com) as the default shell:
    - Install via Homebrew: `brew install fish`
-   - Add `/usr/local/bin/fish` to `/etc/shells`
-   - Set the default shell: `chsh -s /usr/local/bin/fish`;
+   - Add `/opt/homebrew/bin/fish` to `/etc/shells`
+   - Set the default shell: `chsh -s /opt/homebrew/bin/fish`;
    - _Note that_ the configuration file of fish is `~/.config/fish/config.fish`
 5. Useful command line tools:
    - [`eza`](https://github.com/eza-community/eza): A modern, maintained replacement for `ls`
@@ -29,7 +29,6 @@ To copy these configuration files to their appropriate locations, run [`install.
    - [`nodenv`](https://github.com/nodenv/nodenv) for Node.js
    - [`rustup`](https://rustup.rs/) for Rust
    - [`pyenv`](https://github.com/pyenv/pyenv) for Python
-   <!-- - [`rbenv`](https://github.com/rbenv/rbenv) for Ruby; -->
 7. Install [VS Code](https://code.visualstudio.com) as the code editor
 8. Great utility apps
    - [Hidden Bar](https://github.com/dwarvesf/hidden) (`brew install hiddenbar`)
