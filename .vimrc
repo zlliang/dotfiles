@@ -47,7 +47,6 @@ endif
 
 set number
 set ruler
-set timeoutlen=0
 
 " Cursor style settings
 " 1 -> blinking block
