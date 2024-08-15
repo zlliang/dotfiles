@@ -70,9 +70,6 @@ end
 # Java (OpenJDK)
 # set -gx JAVA_HOME (/usr/libexec/java_home)
 
-# Docker
-set -gx PATH $HOME/.docker/bin $PATH
-
 # bat
 if command -q bat
   alias cat "bat"
@@ -95,9 +92,12 @@ function gi -d "Create .gitignore files"
   curl -sL https://www.toptal.com/developers/gitignore/api/$argv
 end
 
-# Set proxy
-function set-proxy -d "Set web proxy"
+# Surge proxy
+function proxy -d "Surge proxy"
   set -gx https_proxy "http://127.0.0.1:6152"
   set -gx http_proxy "http://127.0.0.1:6152"
   set -gx all_proxy "socks5://127.0.0.1:6153"
 end
+
+# Workspace path
+set -gx PATH $HOME/Workspace/shared/bin $PATH
