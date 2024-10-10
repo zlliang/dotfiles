@@ -47,6 +47,8 @@ if command -q nodenv
   set -gx PNPM_HOME $HOME/.pnpm
   set -gx PATH $PNPM_HOME $PATH
 end
+# Prevent corepack from updating the `packageManager` field
+set -gx COREPACK_ENABLE_AUTO_PIN 0
 
 # Rust
 set -gx PATH $HOME/.cargo/bin $PATH
