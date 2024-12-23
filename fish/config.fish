@@ -51,12 +51,16 @@ end
 set -gx COREPACK_ENABLE_AUTO_PIN 0
 
 # Rust
-set -gx PATH $HOME/.cargo/bin $PATH
+if command -q cargo
+  set -gx PATH $HOME/.cargo/bin $PATH
+end
 
 # Go
-set -gx GOPATH $HOME/.golang
-set -gx GOENV $GOPATH/env
-set -gx PATH $GOPATH/bin $PATH
+if command -q go
+  set -gx GOPATH $HOME/.golang
+  set -gx GOENV $GOPATH/env
+  set -gx PATH $GOPATH/bin $PATH
+end
 
 # Python
 # Use `pyenv` to manage Python versions. See https://github.com/pyenv/pyenv.
