@@ -29,11 +29,13 @@ To copy these configuration files to their appropriate locations, run [`install.
    - [`nodenv`](https://github.com/nodenv/nodenv) for Node.js
    - [`rustup`](https://rustup.rs/) for Rust
    - [`pyenv`](https://github.com/pyenv/pyenv) for Python
+   - [`rbenv`](https://github.com/rbenv/rbenv) for Ruby
 7. Install [VS Code](https://code.visualstudio.com) as the code editor
 8. Great utility apps
    - [Hidden Bar](https://github.com/dwarvesf/hidden) (`brew install hiddenbar`)
    - [Scroll Reverser](https://pilotmoon.com/scrollreverser/) (`brew install scroll-reverser`)
    - [IINA](https://iina.io/) (`brew install iina`)
+   - [Keka](https://keka.io/) (`brew install keka`)
    - [Surge](https://nssurge.com/)
 9. Great apps for development
    - [Proxyman](https://proxyman.io/) (`brew install proxyman`)
