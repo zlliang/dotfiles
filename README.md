@@ -9,7 +9,7 @@ Here are several dotfiles I am using on my macOS, and guides to configure a deve
 
 To copy these configuration files to their appropriate locations, run [`install.sh`](./install.sh)
 
-## Guide to configure a macOS
+## Guide to configure a new Mac
 
 1. Install _Xcode Command Line Tools_: run `xcode-select --install`
 2. Install [Homebrew](https://brew.sh)
@@ -26,10 +26,13 @@ To copy these configuration files to their appropriate locations, run [`install.
    - [`ripgrep (rg)`](https://github.com/BurntSushi/ripgrep): An algernative to `grep`
    - [`zoxide (z)`](https://github.com/ajeetdsouza/zoxide): A faster way to navigate your filesystem;
 6. Language toolkits:
-   - [`nodenv`](https://github.com/nodenv/nodenv) for Node.js
+   - [`nodenv`](https://github.com/nodenv/nodenv) for [Node.js](https://nodejs.org)
+   - [`go`](https://go.dev) (`brew install go`)
+   <!--
    - [`rustup`](https://rustup.rs/) for Rust
    - [`pyenv`](https://github.com/pyenv/pyenv) for Python
    - [`rbenv`](https://github.com/rbenv/rbenv) for Ruby
+   -->
 7. Install [VS Code](https://code.visualstudio.com) as the code editor
 8. Great utility apps
    - [Hidden Bar](https://github.com/dwarvesf/hidden) (`brew install hiddenbar`)
@@ -37,7 +40,8 @@ To copy these configuration files to their appropriate locations, run [`install.
    - [IINA](https://iina.io/) (`brew install iina`)
    - [Keka](https://keka.io/) (`brew install keka`)
    - [Surge](https://nssurge.com/)
+   - [Replaceicon](https://replacicon.app/)
 9. Great apps for development
    - [Proxyman](https://proxyman.io/) (`brew install proxyman`)
    - [Orbstack](https://orbstack.dev/) (`brew install orbstack`)
-   - [Postman](https://postman.com/) (`brew install postman`)
+   - [Postman](https://postman.com/) (`brew install postman`) or [HTTPie](https://httpie.io/) (`brew install httpie`)

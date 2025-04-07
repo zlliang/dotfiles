@@ -50,11 +50,6 @@ end
 # Prevent corepack from updating the `packageManager` field
 set -gx COREPACK_ENABLE_AUTO_PIN 0
 
-# Rust
-if command -q cargo
-  set -gx PATH $HOME/.cargo/bin $PATH
-end
-
 # Go
 if command -q go
   set -gx GOPATH $HOME/.golang
@@ -62,25 +57,30 @@ if command -q go
   set -gx PATH $GOPATH/bin $PATH
 end
 
-# Python
-# Use `pyenv` to manage Python versions. See https://github.com/pyenv/pyenv.
-if command -q pyenv
-  pyenv init - fish | source
-  set -gx VIRTUAL_ENV_DISABLE_PROMPT true
-  # Use `poetry` to manage Python dependencies. See https://python-poetry.org/.
-  set -gx POETRY_HOME $HOME/.poetry
-  set -gx PATH $POETRY_HOME/bin $PATH
-  set -gx POETRY_VIRTUALENVS_PREFER_ACTIVE_PYTHON true
-end
+# # Rust
+# if command -q cargo
+#   set -gx PATH $HOME/.cargo/bin $PATH
+# end
 
-# Ruby
-# Use `rbenv` to manage Ruby versions. See https://github.com/rbenv/rbenv.
-if command -q rbenv
-  rbenv init - fish | source
-end
+# # Python
+# # Use `pyenv` to manage Python versions. See https://github.com/pyenv/pyenv.
+# if command -q pyenv
+#   pyenv init - fish | source
+#   set -gx VIRTUAL_ENV_DISABLE_PROMPT true
+#   # Use `poetry` to manage Python dependencies. See https://python-poetry.org/.
+#   set -gx POETRY_HOME $HOME/.poetry
+#   set -gx PATH $POETRY_HOME/bin $PATH
+#   set -gx POETRY_VIRTUALENVS_PREFER_ACTIVE_PYTHON true
+# end
 
-# Java (OpenJDK)
-# set -gx JAVA_HOME (/usr/libexec/java_home)
+# # Ruby
+# # Use `rbenv` to manage Ruby versions. See https://github.com/rbenv/rbenv.
+# if command -q rbenv
+#   rbenv init - fish | source
+# end
+
+# # Java (OpenJDK)
+# # set -gx JAVA_HOME (/usr/libexec/java_home)
 
 # bat
 if command -q bat
