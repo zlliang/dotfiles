@@ -17,15 +17,18 @@ To copy these configuration files to their appropriate locations, run [`install.
 4. Set [Fish](https://fishshell.com) as the default shell:
    - Install via Homebrew: `brew install fish`
    - Add `/opt/homebrew/bin/fish` to `/etc/shells`
-   - Set the default shell: `chsh -s /opt/homebrew/bin/fish`;
+   - Set the default shell: `chsh -s /opt/homebrew/bin/fish`
    - _Note that_ the configuration file of fish is `~/.config/fish/config.fish`
-5. Useful command line tools:
+5. Must-have command line tools:
    - [`eza`](https://github.com/eza-community/eza): A modern, maintained replacement for `ls`
    - [`fd`](https://github.com/sharkdp/fd): A simple, fast and user-friendly alternative to `find`
    - [`bat`](https://github.com/sharkdp/bat): A `cat` clone with wings
-   - [`ripgrep (rg)`](https://github.com/BurntSushi/ripgrep): An algernative to `grep`
-   - [`zoxide (z)`](https://github.com/ajeetdsouza/zoxide): A faster way to navigate your filesystem;
-6. Language toolkits:
+   - [`ripgrep (rg)`](https://github.com/BurntSushi/ripgrep): An alternative to `grep`
+   - [`zoxide (z)`](https://github.com/ajeetdsouza/zoxide): A faster way to navigate your filesystem
+6. Great command line utilities:
+   - [`tokei`](https://github.com/XAMPPRocky/tokei): Code counter
+   - [`dust`](https://github.com/bootandy/dust): A more intuitive version of `du`
+7. Language toolkits:
    - [`nodenv`](https://github.com/nodenv/nodenv) for [Node.js](https://nodejs.org)
    - [`go`](https://go.dev) (`brew install go`)
    <!--
@@ -33,15 +36,15 @@ To copy these configuration files to their appropriate locations, run [`install.
    - [`pyenv`](https://github.com/pyenv/pyenv) for Python
    - [`rbenv`](https://github.com/rbenv/rbenv) for Ruby
    -->
-7. Install [VS Code](https://code.visualstudio.com) as the code editor
-8. Great utility apps
+8. Install [VS Code](https://code.visualstudio.com) as the code editor
+9. Great utility apps:
    - [Hidden Bar](https://github.com/dwarvesf/hidden) (`brew install hiddenbar`)
    - [Scroll Reverser](https://pilotmoon.com/scrollreverser/) (`brew install scroll-reverser`)
    - [IINA](https://iina.io/) (`brew install iina`)
    - [Keka](https://keka.io/) (`brew install keka`)
    - [Surge](https://nssurge.com/)
    - [Replaceicon](https://replacicon.app/)
-9. Great apps for development
-   - [Proxyman](https://proxyman.io/) (`brew install proxyman`)
-   - [Orbstack](https://orbstack.dev/) (`brew install orbstack`)
-   - [Postman](https://postman.com/) (`brew install postman`) or [HTTPie](https://httpie.io/) (`brew install httpie`)
+10. Great apps for development
+    - [Proxyman](https://proxyman.io/) (`brew install proxyman`)
+    - [Orbstack](https://orbstack.dev/) (`brew install orbstack`)
+    - [Postman](https://postman.com/) (`brew install postman`) or [HTTPie](https://httpie.io/) (`brew install httpie`)
