@@ -67,10 +67,6 @@ end
 # if command -q pyenv
 #   pyenv init - fish | source
 #   set -gx VIRTUAL_ENV_DISABLE_PROMPT true
-#   # Use `poetry` to manage Python dependencies. See https://python-poetry.org/.
-#   set -gx POETRY_HOME $HOME/.poetry
-#   set -gx PATH $POETRY_HOME/bin $PATH
-#   set -gx POETRY_VIRTUALENVS_PREFER_ACTIVE_PYTHON true
 # end
 
 # # Ruby
