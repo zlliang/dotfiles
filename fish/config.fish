@@ -57,23 +57,13 @@ if command -q go
   set -gx PATH $GOPATH/bin $PATH
 end
 
-# # Rust
-# if command -q cargo
-#   set -gx PATH $HOME/.cargo/bin $PATH
-# end
+# Rust
+if command -q cargo
+  set -gx PATH $HOME/.cargo/bin $PATH
+end
 
-# # Python
-# # Use `pyenv` to manage Python versions. See https://github.com/pyenv/pyenv.
-# if command -q pyenv
-#   pyenv init - fish | source
-#   set -gx VIRTUAL_ENV_DISABLE_PROMPT true
-# end
-
-# # Ruby
-# # Use `rbenv` to manage Ruby versions. See https://github.com/rbenv/rbenv.
-# if command -q rbenv
-#   rbenv init - fish | source
-# end
+# Python
+set -gx VIRTUAL_ENV_DISABLE_PROMPT true
 
 # # Java (OpenJDK)
 # # set -gx JAVA_HOME (/usr/libexec/java_home)
