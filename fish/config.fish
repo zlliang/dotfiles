@@ -1,10 +1,11 @@
 # Fish shell settings
 # Location: $HOME/.config/fish/config.fish
 
-# Environment variables
+# Environment variables and general settings
 set -gx LC_ALL en_US.UTF-8
 set -gx SSH_KEY_PATH $HOME/.ssh/rsa_id
 set -gx PATH $HOME/.local/bin $PATH
+stty -echoctl
 
 # Set cursor style to `line` internally
 # 1 -> blinking block
@@ -64,9 +65,6 @@ end
 
 # Python
 set -gx VIRTUAL_ENV_DISABLE_PROMPT true
-
-# # Java (OpenJDK)
-# # set -gx JAVA_HOME (/usr/libexec/java_home)
 
 # bat
 if command -q bat
