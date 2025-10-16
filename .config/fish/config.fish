@@ -64,6 +64,11 @@ if command -q cargo
 end
 
 # Python
+# Use `pyenv` to manage Python versions. See https://github.com/pyenv/pyenv.
+if command -q pyenv
+  pyenv init - fish | source
+end
+# Suppress default virtual env prompt
 set -gx VIRTUAL_ENV_DISABLE_PROMPT true
 
 # bat
