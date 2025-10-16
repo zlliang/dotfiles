@@ -9,7 +9,7 @@ cp .config/fish/*.fish $HOME/.config/fish
 cp .config/fish/functions/*.fish $HOME/.config/fish/functions
 
 mkdir -p $HOME/.config/ghostty
-cp ./config/ghostty/config $HOME/.config/ghostty
+cp .config/ghostty/config $HOME/.config/ghostty
 
 # mkdir -p $HOME/.codex
 # cp .codex/AGENTS.md $HOME/.codex
