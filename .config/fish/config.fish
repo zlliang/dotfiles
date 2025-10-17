@@ -40,6 +40,9 @@ if test (uname) = Darwin
   # defaults delete -g ApplePressAndHoldEnabled # If necessary, reset global default
 end
 
+# Claude Code
+set -gx DISABLE_AUTOUPDATER 1
+
 # Node
 # Use `nodenv` to manage Node.js versions. See https://github.com/nodenv/nodenv.
 if command -q nodenv
