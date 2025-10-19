@@ -1,133 +1,115 @@
 # Location: $HOME/.config/fish/functions/fish_prompt.fish
 
 function fish_prompt
-  set -l exit_status $status
-  set -l git_branch (command git rev-parse --abbrev-ref HEAD 2>/dev/null)
-  set -l pwd_str (prompt_pwd)
-  
-  # Date, time and working directory
-  echo -n \n
-  set_color --bold $fish_color_cwd
-  echo -n $pwd_str " "
-  set_color normal
+  set -l pwd_seg (string join '' (set_color $fish_color_cwd --bold) (prompt_pwd) (set_color normal) ' ')
+  set -l git_seg (__prompt_git)
+  set -l js_seg (__prompt_js)
+  set -l golang_seg (__prompt_golang)
+  set -l rust_seg (__prompt_rust)
+  set -l venv_seg (__prompt_venv)
+  set -l jobs_seg (__prompt_jobs)
+  set -l host_seg (__prompt_host)
+  set -l arrow_seg (__prompt_arrow)
 
-  # Git info
-  if command -q git; and test -n "$git_branch"
-    set_color blue
-    echo -n [
-    echo -n git:$git_branch (echo_git_status)
-    set_color blue
-    echo -n ] " "
-  end
-
-  # JS info
-  echo_js
-
-  # Go info
-  echo_golang
-
-  # Rust info
-  echo_rust
-
-  # Python venv info
-  echo_venv
-
-  # Background jobs
-  echo -n (echo_jobs)
-
-  # User prompt
-  echo -n \n
-  set_color blue
-  test -n "$SSH_CONNECTION" && echo -n "$USER"@(prompt_hostname) ""
-  set_color green
-  test $exit_status != 0 && set_color red
-  set_color --bold
-  echo -n "> "
-  set_color normal
+  printf '\n%s' (string join '' $pwd_seg $git_seg $js_seg $golang_seg $rust_seg $venv_seg $jobs_seg)
+  printf '\n%s' (string join '' $host_seg $arrow_seg)
 end
 
-function extract_version_number
-  read -l str
-  echo $str | rg -o "\d+(\.\d+)+"
-end
-
-function echo_git_status
-  set -l git_status (command git status -uno --porcelain 2>/dev/null)
-  if test -z "$git_status"
-    set_color green
-    echo "(clean)"
-  else
-    set_color red
-    echo "(dirty)"
-  end
-end
-
-function echo_js
-  if file_in_tree package.json; and command -q node
-    set_color green
-    echo -n [
-    echo -n "node:"
-    echo -n (node --version | extract_version_number)
-    echo -n ] " "
-    set_color normal
-  end
-
-  if file_in_tree package.json; and file_in_tree bun.lockb; and command -q bun
-    set_color yellow
-    echo -n [
-    echo -n "bun:"
-    echo -n (bun --version | extract_version_number)
-    echo -n ] " "
-    set_color normal
-  end
-end
-
-function echo_golang
-  if file_in_tree go.mod; and command -q go
-    set_color cyan
-    echo -n [
-    echo -n "go:"
-    echo -n (go version | extract_version_number)
-    echo -n ] " "
-    set_color normal
-  end
-end
-
-function echo_rust
-  if file_in_tree Cargo.toml; and command -q rustc
-    set_color yellow
-    echo -n [
-    echo -n "rust:"
-    echo -n (rustc --version | extract_version_number)
-    echo -n ] " "
-    set_color normal
-  end
-end
-
-function echo_venv
-  if test (echo $PATH | grep "venv"); and command -q python
-    set_color yellow
-    echo -n [
-    echo -n "python:"
-    echo -n (python --version | extract_version_number)
-    echo -n " (venv)"] " "
-    set_color normal
-  end
-end
-
-function echo_jobs
-  set -l njobs (jobs | wc -l | xargs)
-  set_color $fish_color_autosuggestion
-  if test $njobs -le 0
+function __prompt_git
+  if type -q git; else
     return
-  else if test $njobs = 1
-    echo "[$njobs job]"
-  else
-    echo "[$njobs jobs]"
+  end
+
+  set -l is_git (command git rev-parse --is-inside-work-tree 2>/dev/null)
+  if string match -q true $is_git; else
+    return
+  end
+
+  set -l git_branch (command git rev-parse --abbrev-ref HEAD 2>/dev/null)
+  if test -n $git_branch; else
+    return
+  end
+
+  set -l dirty 0
+  command git diff --quiet --ignore-submodules HEAD -- 2>/dev/null
+  or set dirty 1
+  command git diff --cached --quiet 2>/dev/null
+  or set dirty 1
+
+  set -l state (string join '' (set_color green) '(clean)' (set_color normal))
+  if test $dirty -eq 1
+    set state (string join '' (set_color red) '(dirty)' (set_color normal))
+  end
+
+  string join '' (set_color blue) '[git:' $git_branch ' ' $state (set_color blue) ']' (set_color normal) ' '
+end
+
+function __prompt_js
+  set -l node ''
+  if __file_in_tree package.json; and type -q node
+    set node (string join '' (set_color green) '[node:' (node --version | __version_number) ']' (set_color normal) ' ')
+  end
+
+  set -l bun ''
+  if __file_in_tree package.json; and __file_in_tree bun.lock; and type -q bun
+    set bun (string join '' (set_color yellow) '[bun:' (bun --version | __version_number) ']' (set_color normal) ' ')
+  end
+  
+  string join '' $node $bun
+end
+
+function __prompt_golang
+  set -l golang ''
+  if __file_in_tree go.mod; and type -q go
+    set golang (string join '' (set_color cyan) '[go:' (go version | __version_number) ']' (set_color normal) ' ')
+  end
+
+  string join '' $golang
+end
+
+function __prompt_rust
+  set -l rust ''
+  if __file_in_tree Cargo.toml; and type -q rustc
+    set rust (string join '' (set_color yellow) '[rust:' (rustc --version | __version_number) ']' (set_color normal) ' ')
+  end
+
+  string join '' $rust
+end
+
+function __prompt_venv
+  set -l venv ''
+  if set -q VIRTUAL_ENV; and type -q python
+    set venv (string join '' (set_color yellow) '[python:' (python --version | __version_number) ' (venv)]' (set_color normal) ' ')
+  end
+
+  string join '' $venv
+end
+
+function __prompt_jobs
+  set -l n (jobs | count)
+  if test $n -eq 0
+    return
+  end
+
+  echo -n (string join '' (set_color $fish_color_autosuggestion) (if test $n -eq 1; echo "[1 job] "; else; echo "[$n jobs] "; end) (set_color normal) ' ')
+end
+
+function __prompt_host
+  if set -q SSH_CONNECTION
+    string join '' (set_color blue) $USER'@'(prompt_hostname) (set_color normal)
   end
 end
 
-function file_in_tree -d "Check if a specific file is in the current tree"
+function __prompt_arrow
+  string join '' (if test $status -eq 0; echo (set_color green --bold); else; echo (set_color red --bold); end) '> ' (set_color normal)
+end
+
+function __version_number
+  read -l s
+  string match -r '[0-9]+\.[0-9]+\.[0-9]+(?:-[0-9A-Za-z.-]+)?(?:\+[0-9A-Za-z.-]+)?' -- $s
+end
+
+function __file_in_tree -d "Check if a specific file is in the current tree"
   set -l filename $argv
   set -l dir (pwd)
   set -l root "/"
