@@ -4,6 +4,7 @@
 # Environment variables and general settings
 set -gx LANG en_US.UTF-8
 set -gx SSH_KEY_PATH $HOME/.ssh/rsa_id
+set -gx EDITOR "code --wait"
 fish_add_path -g $HOME/.local/bin
 fish_add_path -g $HOME/Workspace/shared/bin
 stty -echoctl # Disable `^C` display when pressing Ctrl+C
