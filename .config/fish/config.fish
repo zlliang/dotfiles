@@ -55,6 +55,9 @@ if string match -q Darwin (uname)
   # defaults delete -g ApplePressAndHoldEnabled # If necessary, reset global default
 end
 
+# OpenCode
+fish_add_path $HOME/.opencode/bin
+
 # Node
 # Use `nodenv` to manage Node.js versions. See https://github.com/nodenv/nodenv.
 if command -q nodenv
