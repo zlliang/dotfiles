@@ -1,21 +1,21 @@
 # Dotfiles 🌚
 
-Here are several dotfiles I am using on my macOS, and guides to configure a development environment.
+Personal dotfiles and development environment configuration guide for macOS.
 
 ## Configuration files
 
-These files mirror the typical layout of configuration files in the `$HOME` directory. To copy them to their appropriate locations, run [`install.sh`](./install.sh)
+These files mirror the typical layout of configuration files in the `$HOME` directory. To copy them to their appropriate locations, run [`install.sh`](./install.sh).
 
 ## Guide to configure a new Mac
 
 1. Install _Xcode Command Line Tools_: run `xcode-select --install`
 2. Install [Homebrew](https://brew.sh)
-3. Install [Git](https://git-scm.com) and [Git-LFS](https://git-lfs.github.com) (via Homebrew)
+3. Install [Git](https://git-scm.com) and [Git-LFS](https://git-lfs.github.com) (`brew install git git-lfs`)
 4. Set [Fish](https://fishshell.com) as the default shell:
    - Install via Homebrew: `brew install fish`
    - Add `/opt/homebrew/bin/fish` to `/etc/shells`
    - Set the default shell: `chsh -s /opt/homebrew/bin/fish`
-   - _Note that_ the configuration file of fish is `~/.config/fish/config.fish`
+   - Note: Fish configuration file is located at `~/.config/fish/config.fish`
 5. Programming language toolkits:
    - JavaScript: [`nodenv`](https://github.com/nodenv/nodenv) for [Node.js](https://nodejs.org), and [`bun`](https://bun.sh) (`brew install oven-sh/bun/bun`)
    - Python: [`pyenv`](https://github.com/pyenv/pyenv)
@@ -33,7 +33,7 @@ These files mirror the typical layout of configuration files in the `$HOME` dire
       - [`tokei`](https://github.com/XAMPPRocky/tokei): Code counter
       - [`dust`](https://github.com/bootandy/dust): A more intuitive version of `du`
       - [`btop`](https://github.com/aristocratos/btop): A terminal monitor of system resources
-      - [`fastfetch`](https://github.com/fastfetch-cli/fastfetch): A neofetch like system information tool.
+      - [`fastfetch`](https://github.com/fastfetch-cli/fastfetch): A neofetch-like system information tool
 7. Desktop apps:
    - Essential:
       - [VS Code](https://code.visualstudio.com): The code editor
@@ -47,4 +47,3 @@ These files mirror the typical layout of configuration files in the `$HOME` dire
       - [Proxyman](https://proxyman.io/) (`brew install proxyman`)
       - [Orbstack](https://orbstack.dev/) (`brew install orbstack`)
       - [Postman](https://postman.com/) (`brew install postman`) or [HTTPie](https://httpie.io/) (`brew install httpie`)
-    
