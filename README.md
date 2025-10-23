@@ -4,10 +4,7 @@ Here are several dotfiles I am using on my macOS, and guides to configure a deve
 
 ## Configuration files
 
-1. Fish shell: See [`fish/`](./fish/)
-2. Git global configuration files: See [`.gitconfig`](./.gitconfig) and [`.gitignore`](./.gitignore)
-
-To copy these configuration files to their appropriate locations, run [`install.sh`](./install.sh)
+These files mirror the typical layout of configuration files in the `$HOME` directory. To copy them to their appropriate locations, run [`install.sh`](./install.sh)
 
 ## Guide to configure a new Mac
 
@@ -20,13 +17,11 @@ To copy these configuration files to their appropriate locations, run [`install.
    - Set the default shell: `chsh -s /opt/homebrew/bin/fish`
    - _Note that_ the configuration file of fish is `~/.config/fish/config.fish`
 5. Programming language toolkits:
-   - [`nodenv`](https://github.com/nodenv/nodenv) for [Node.js](https://nodejs.org)
-   - [`go`](https://go.dev) (`brew install go`)
-   <!--
-   - [`rustup`](https://rustup.rs/) for Rust
-   - [`pyenv`](https://github.com/pyenv/pyenv) for Python
-   - [`rbenv`](https://github.com/rbenv/rbenv) for Ruby
-   -->
+   - JavaScript: [`nodenv`](https://github.com/nodenv/nodenv) for [Node.js](https://nodejs.org), and [`bun`](https://bun.sh) (`brew install oven-sh/bun/bun`)
+   - Python: [`pyenv`](https://github.com/pyenv/pyenv)
+   - Go: [`go`](https://go.dev) (`brew install go`)
+   <!-- - Rust: [`rustup`](https://rustup.rs/) -->
+   - Zig: [`zig`](https://ziglang.org) (`brew install zig`)
 6. Command line tools:
    - Essential:
       - [`eza`](https://github.com/eza-community/eza): A modern, maintained replacement for `ls`
@@ -37,6 +32,8 @@ To copy these configuration files to their appropriate locations, run [`install.
    - Good to have:
       - [`tokei`](https://github.com/XAMPPRocky/tokei): Code counter
       - [`dust`](https://github.com/bootandy/dust): A more intuitive version of `du`
+      - [`btop`](https://github.com/aristocratos/btop): A terminal monitor of system resources
+      - [`fastfetch`](https://github.com/fastfetch-cli/fastfetch): A neofetch like system information tool.
 7. Desktop apps:
    - Essential:
       - [VS Code](https://code.visualstudio.com): The code editor
