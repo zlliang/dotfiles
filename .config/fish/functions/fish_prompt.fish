@@ -64,7 +64,7 @@ function __prompt_python
   if type -q python
     if set -q VIRTUAL_ENV
       set python (string join '' (set_color yellow) '[python:' (python --version | __version_number) ' (venv)]' (set_color normal) ' ')
-    else __file_in_tree pyproject.toml
+    else if __file_in_tree pyproject.toml
       set python (string join '' (set_color yellow) '[python:' (python --version | __version_number) ']' (set_color normal) ' ')
     end
   end
