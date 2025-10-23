@@ -4,14 +4,15 @@ function fish_prompt
   set -l pwd_seg (string join '' (set_color $fish_color_cwd --bold) (prompt_pwd) (set_color normal) ' ')
   set -l git_seg (__prompt_git)
   set -l js_seg (__prompt_js)
+  set -l python_seg (__prompt_python)
   set -l golang_seg (__prompt_golang)
   set -l rust_seg (__prompt_rust)
-  set -l venv_seg (__prompt_venv)
+  set -l zig_seg (__prompt_zig)
   set -l jobs_seg (__prompt_jobs)
   set -l host_seg (__prompt_host)
   set -l arrow_seg (__prompt_arrow)
 
-  printf '\n%s' (string join '' $pwd_seg $git_seg $js_seg $golang_seg $rust_seg $venv_seg $jobs_seg)
+  printf '\n%s' (string join '' $pwd_seg $git_seg $js_seg $python_seg $golang_seg $rust_seg $zig_seg $jobs_seg)
   printf '\n%s' (string join '' $host_seg $arrow_seg)
 end
 
@@ -46,21 +47,34 @@ end
 
 function __prompt_js
   set -l node ''
-  if __file_in_tree package.json; and type -q node
+  if type -q node; and __file_in_tree package.json
     set node (string join '' (set_color green) '[node:' (node --version | __version_number) ']' (set_color normal) ' ')
   end
 
   set -l bun ''
-  if __file_in_tree package.json; and __file_in_tree bun.lock; and type -q bun
+  if type -q bun; and __file_in_tree package.json; and __file_in_tree bun.lock
     set bun (string join '' (set_color yellow) '[bun:' (bun --version | __version_number) ']' (set_color normal) ' ')
   end
   
   string join '' $node $bun
 end
 
+function __prompt_python
+  set -l python ''
+  if type -q python
+    if set -q VIRTUAL_ENV
+      set python (string join '' (set_color yellow) '[python:' (python --version | __version_number) ' (venv)]' (set_color normal) ' ')
+    else __file_in_tree pyproject.toml
+      set python (string join '' (set_color yellow) '[python:' (python --version | __version_number) ']' (set_color normal) ' ')
+    end
+  end
+
+  string join '' $python
+end
+
 function __prompt_golang
   set -l golang ''
-  if __file_in_tree go.mod; and type -q go
+  if type -q go; and __file_in_tree go.mod
     set golang (string join '' (set_color cyan) '[go:' (go version | __version_number) ']' (set_color normal) ' ')
   end
 
@@ -69,20 +83,20 @@ end
 
 function __prompt_rust
   set -l rust ''
-  if __file_in_tree Cargo.toml; and type -q rustc
+  if type -q rustc; and __file_in_tree Cargo.toml
     set rust (string join '' (set_color yellow) '[rust:' (rustc --version | __version_number) ']' (set_color normal) ' ')
   end
 
   string join '' $rust
 end
 
-function __prompt_venv
-  set -l venv ''
-  if set -q VIRTUAL_ENV; and type -q python
-    set venv (string join '' (set_color yellow) '[python:' (python --version | __version_number) ' (venv)]' (set_color normal) ' ')
+function __prompt_zig
+  set -l zig ''
+  if type -q zig; and __file_in_tree build.zig
+    set zig (string join '' (set_color yellow) '[zig:' (zig version | __version_number) ']' (set_color normal) ' ')
   end
 
-  string join '' $venv
+  string join '' $zig
 end
 
 function __prompt_jobs
