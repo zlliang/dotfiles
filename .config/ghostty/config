@@ -19,7 +19,7 @@ window-theme = auto
 macos-titlebar-style = tabs
 
 window-width = 140
-window-height = 36
+window-height = 32
 window-padding-x = 12
 window-padding-y = 8
 window-padding-balance = true
