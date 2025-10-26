@@ -17,6 +17,6 @@ adjust-cursor-thickness = 200%
 
 window-width = 140
 window-height = 36
-window-padding-x = 8
+window-padding-x = 14, 12
 window-theme = auto
 macos-titlebar-style = tabs
