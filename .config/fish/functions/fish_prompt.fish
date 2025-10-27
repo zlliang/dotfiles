@@ -17,32 +17,21 @@ function fish_prompt
 end
 
 function __prompt_git
-  if type -q git; else
-    return
-  end
+  type -q git; or return
+  git rev-parse --is-inside-work-tree >/dev/null 2>&1; or return
 
-  set -l is_git (command git rev-parse --is-inside-work-tree 2>/dev/null)
-  if string match -q true $is_git; else
-    return
-  end
-
-  set -l git_branch (command git rev-parse --abbrev-ref HEAD 2>/dev/null)
-  if test -n $git_branch; else
-    return
-  end
+  set -l ref (git symbolic-ref --quiet --short HEAD 2>/dev/null; or git describe --exact-match --tags HEAD 2>/dev/null; or git rev-parse --short HEAD 2>/dev/null)
 
   set -l dirty 0
-  command git diff --quiet --ignore-submodules HEAD -- 2>/dev/null
-  or set dirty 1
-  command git diff --cached --quiet 2>/dev/null
-  or set dirty 1
+  git diff --no-ext-diff --quiet --ignore-submodules -- 2>/dev/null; or set dirty 1
+  git diff --no-ext-diff --cached --quiet --ignore-submodules -- 2>/dev/null; or set dirty 1
+  set -l untracked (git ls-files --others --exclude-standard --directory --no-empty-directory 2>/dev/null)
+  test -n "$untracked"; and set dirty 1
 
   set -l state (string join '' (set_color green) '(clean)' (set_color normal))
-  if test $dirty -eq 1
-    set state (string join '' (set_color red) '(dirty)' (set_color normal))
-  end
+  test $dirty -eq 1; and set state (string join '' (set_color red) '(dirty)' (set_color normal))
 
-  string join '' (set_color blue) '[git:' $git_branch ' ' $state (set_color blue) ']' (set_color normal) ' '
+  string join '' (set_color blue) '[git:' $ref ' ' $state (set_color blue) ']' (set_color normal) ' '
 end
 
 function __prompt_js
