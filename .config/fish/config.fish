@@ -93,13 +93,3 @@ set -gx VIRTUAL_ENV_DISABLE_PROMPT true
 function gi -d "Create .gitignore files"
   curl -sL https://www.toptal.com/developers/gitignore/api/$argv
 end
-
-# Surge proxy
-function proxy -d "Surge proxy"
-  set -gx https_proxy "http://127.0.0.1:6152"
-  set -gx http_proxy "http://127.0.0.1:6152"
-  set -gx all_proxy "socks5://127.0.0.1:6153"
-end
-if functions -q proxy
-  proxy
-end
