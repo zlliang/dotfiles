@@ -73,11 +73,6 @@ if type -q go
   fish_add_path -g "$GOPATH/bin"
 end
 
-# Rust
-if type -q cargo
-  fish_add_path -g "$HOME/.cargo/bin"
-end
-
 # Python
 # Use `pyenv` to manage Python versions. See https://github.com/pyenv/pyenv.
 if type -q pyenv
@@ -85,6 +80,11 @@ if type -q pyenv
 end
 # Suppress default virtual env prompt
 set -gx VIRTUAL_ENV_DISABLE_PROMPT "true"
+
+# Rust
+if type -q cargo
+  fish_add_path -g "$HOME/.cargo/bin"
+end
 
 # gitignore.io
 function gi -d "Create .gitignore files"
