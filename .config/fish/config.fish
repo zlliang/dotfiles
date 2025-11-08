@@ -56,35 +56,15 @@ if string match -q Darwin (uname)
 end
 
 # Node
-# Use `nodenv` to manage Node.js versions. See https://github.com/nodenv/nodenv.
-if type -q nodenv
-  nodenv init - fish | source
-  # Use `pnpm` as package manager. See https://pnpm.io/.
-  set -gx PNPM_HOME "$HOME/.pnpm"
-  fish_add_path -g "$PNPM_HOME"
-end
+# Use `pnpm` as package manager. See https://pnpm.io/.
+set -gx PNPM_HOME "$HOME/.pnpm"
+fish_add_path -g "$PNPM_HOME"
 # Prevent corepack from updating the `packageManager` field
 set -gx COREPACK_ENABLE_AUTO_PIN 0
 
-# Go
-if type -q go
-  set -gx GOPATH "$HOME/.golang"
-  set -gx GOENV "$GOPATH/env"
-  fish_add_path -g "$GOPATH/bin"
-end
-
 # Python
-# Use `pyenv` to manage Python versions. See https://github.com/pyenv/pyenv.
-if type -q pyenv
-  pyenv init - fish | source
-end
 # Suppress default virtual env prompt
 set -gx VIRTUAL_ENV_DISABLE_PROMPT "true"
-
-# Rust
-if type -q cargo
-  fish_add_path -g "$HOME/.cargo/bin"
-end
 
 # gitignore.io
 function gi -d "Create .gitignore files"
