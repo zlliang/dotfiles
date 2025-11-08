@@ -55,7 +55,7 @@ if string match -q Darwin (uname)
   # defaults delete -g ApplePressAndHoldEnabled # If necessary, reset global default
 end
 
-# Node
+# JavaScript
 # Use `nodenv` to manage Node.js versions. See https://github.com/nodenv/nodenv.
 if type -q nodenv
   nodenv init - fish | source
@@ -69,6 +69,11 @@ set -gx COREPACK_ENABLE_AUTO_PIN 0
 # Python
 # Suppress default virtual env prompt
 set -gx VIRTUAL_ENV_DISABLE_PROMPT "true"
+
+# Zig
+# Use `zvm` to manage Zig versions. See https://github.com/tristanisham/zvm.
+set -gx ZVM_INSTALL "$HOME/.zvm/self"
+fish_add_path -g "$HOME/.zvm/bin" "$ZVM_INSTALL"
 
 # gitignore.io
 function gi -d "Create .gitignore files"
