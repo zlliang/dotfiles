@@ -56,6 +56,10 @@ if string match -q Darwin (uname)
 end
 
 # Node
+# Use `nodenv` to manage Node.js versions. See https://github.com/nodenv/nodenv.
+if type -q nodenv
+  nodenv init - fish | source
+end
 # Use `pnpm` as package manager. See https://pnpm.io/.
 set -gx PNPM_HOME "$HOME/.pnpm"
 fish_add_path -g "$PNPM_HOME"
