@@ -74,8 +74,3 @@ set -gx VIRTUAL_ENV_DISABLE_PROMPT "true"
 # Use `zvm` to manage Zig versions. See https://github.com/tristanisham/zvm.
 set -gx ZVM_INSTALL "$HOME/.zvm/self"
 fish_add_path -g "$HOME/.zvm/bin" "$ZVM_INSTALL"
-
-# gitignore.io
-function gi -d "Create .gitignore files"
-  curl -sL https://www.toptal.com/developers/gitignore/api/$argv
-end
