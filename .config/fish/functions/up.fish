@@ -19,12 +19,4 @@ function up -d "Update all developer tools"
     zvm upgrade
     zvm i --zls master
   end
-
-  if type -q amp
-    set_color --bold yellow
-    echo "======== Updating: Amp ========"
-    set_color normal
-
-    amp update
-  end
 end
