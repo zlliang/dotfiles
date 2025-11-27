@@ -4,6 +4,13 @@
 [user]
   name = Zilong Liang
   email = zlliang96@outlook.com
+  signingKey = ~/.ssh/id_ed25519.pub
+
+[gpg]
+  format = ssh
+
+[commit]
+  gpgSign = true
 
 [init]
   defaultBranch = main
@@ -15,8 +22,8 @@
 [credential]
   helper = osxkeychain
 
-[pull]
-  rebase = false
+[fetch]
+  prune = true
 
 [filter "lfs"]
   clean = git-lfs clean -- %f
@@ -31,4 +38,4 @@
   br = branch
   unstage = reset HEAD --
   last = log -1 HEAD
-  lg = log --color --graph --decorate --all --pretty --oneline
+  lg = log --color --graph --decorate --all --oneline
