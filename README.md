@@ -8,19 +8,19 @@ These files mirror the typical layout of configuration files in the `$HOME` dire
 
 ## Guide to configure a new Mac
 
-1. Install _Xcode Command Line Tools_: run `xcode-select --install`
+1. Install [Xcode](https://developer.apple.com/xcode/) or _Xcode Command Line Tools_: run `xcode-select --install`
+   - This will install the necessary tools for building and running software on macOS, including [Git](https://git-scm.com)
 2. Install [Homebrew](https://brew.sh)
-3. Install [Git](https://git-scm.com) and [Git-LFS](https://git-lfs.github.com) (`brew install git git-lfs`)
-4. Set [Fish](https://fishshell.com) as the default shell:
+3. Set [Fish](https://fishshell.com) as the default shell:
    - Install via Homebrew: `brew install fish`
    - Add `/opt/homebrew/bin/fish` to `/etc/shells`
    - Set the default shell: `chsh -s /opt/homebrew/bin/fish`
    - Note: fish configuration file is located at `~/.config/fish/config.fish`
-5. Programming language toolkits:
+4. Programming language toolkits:
    - JavaScript: [`nodenv`](https://github.com/nodenv/nodenv) for [Node.js](https://nodejs.org), and [`bun`](https://bun.com)
    - Python: [`uv`](https://docs.astral.sh/uv/)
    - [Zig](https://ziglang.org): [`zvm`](https://github.com/tristanisham/zvm)
-6. Command line tools:
+5. Command line tools:
    - Essential:
       - [`eza`](https://github.com/eza-community/eza): a modern, maintained replacement for `ls`
       - [`fd`](https://github.com/sharkdp/fd): a simple, fast and user-friendly alternative to `find`
@@ -33,7 +33,7 @@ These files mirror the typical layout of configuration files in the `$HOME` dire
       - [`btop`](https://github.com/aristocratos/btop): a terminal monitor of system resources
       - [`fastfetch`](https://github.com/fastfetch-cli/fastfetch): a neofetch-like system information tool
       - [`hyperfine`](https://github.com/sharkdp/hyperfine): a command-line benchmarking tool
-7. Desktop apps:
+6. Desktop apps:
    - Essential:
       - [VS Code](https://code.visualstudio.com): the code editor
       - [Hidden Bar](https://github.com/dwarvesf/hidden) (`brew install hiddenbar`)
