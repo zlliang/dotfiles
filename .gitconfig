@@ -29,7 +29,7 @@
   rebase = true
 
 [push]
-  setupRemote = true
+  autoSetupRemote = true
 
 [alias]
   st = status
