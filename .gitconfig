@@ -25,6 +25,9 @@
 [fetch]
   prune = true
 
+[pull]
+  rebase = true
+
 [push]
   setupRemote = true
 
