@@ -10,3 +10,5 @@ cp .config/fish/functions/*.fish $HOME/.config/fish/functions
 
 mkdir -p $HOME/.config/ghostty
 cp .config/ghostty/config $HOME/.config/ghostty
+
+cp .config/AGENTS.md $HOME/.config
