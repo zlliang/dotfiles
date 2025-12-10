@@ -1,0 +1,14 @@
+{
+  "amp.permissions": [
+    { "tool": "Bash", "action": "ask", "matches": { "cmd": ["*rm*-rf*", "*rm*-r*--force*", "*rm*--force*-r*", "*rmdir*", "*shred*"] } },
+    { "tool": "Bash", "action": "ask", "matches": { "cmd": ["*find*-exec*", "*find*-delete*", "*xargs*rm*"] } },
+    { "tool": "Bash", "action": "ask", "matches": { "cmd": ["sudo*", "su *", "doas*"] } },
+    { "tool": "Bash", "action": "ask", "matches": { "cmd": ["*chmod*777*", "*chmod*-R*", "*chown*", "*chgrp*"] } },
+    { "tool": "Bash", "action": "ask", "matches": { "cmd": ["*git*push*--force*", "*git*push*-f*", "*git*reset*--hard*", "*git*clean*-fd*", "*git*checkout*--force*"] } },
+    { "tool": "Bash", "action": "ask", "matches": { "cmd": ["*launchctl*", "*systemctl*", "*service*start*", "*service*stop*"] } },
+    { "tool": "Bash", "action": "ask", "matches": { "cmd": ["*curl*|*sh*", "*curl*|*bash*", "*wget*|*sh*", "*wget*|*bash*"] } },
+    { "tool": "Bash", "action": "ask", "matches": { "cmd": ["*diskutil*", "*dd*", "*mkfs*", "*fdisk*"] } },
+    { "tool": "Bash", "action": "ask", "matches": { "cmd": ["*brew*install*", "*brew*uninstall*", "*npm*install*-g*", "*pip*install*"] } },
+    { "tool": "*", "action": "allow", "matches": {} }
+  ]
+}

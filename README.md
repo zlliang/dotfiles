@@ -46,3 +46,4 @@ These files mirror the typical layout of configuration files in the `$HOME` dire
       - [Proxyman](https://proxyman.io/) (`brew install proxyman`)
       - [Orbstack](https://orbstack.dev/) (`brew install orbstack`)
       - [Postman](https://postman.com/) (`brew install postman`) or [HTTPie](https://httpie.io/) (`brew install httpie`)
+7. Coding agent: currently I'm using [Amp](https://ampcode.com/), and my profile can be found [here](https://ampcode.com/@zlliang)

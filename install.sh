@@ -11,4 +11,6 @@ cp .config/fish/functions/*.fish $HOME/.config/fish/functions
 mkdir -p $HOME/.config/ghostty
 cp .config/ghostty/config $HOME/.config/ghostty
 
-cp .config/AGENTS.md $HOME/.config
+mkdir -p $HOME/.config/amp
+cp .config/amp/AGENTS.md $HOME/.config/amp
+cp .config/amp/settings.json $HOME/.config/amp
