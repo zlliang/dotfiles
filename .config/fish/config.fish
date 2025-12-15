@@ -30,9 +30,9 @@ end
 
 # System utilities
 if type -q eza
-  alias ls "eza -lhH --no-quotes --git --time-style='long-iso'"
-  alias la "ls -al"
-  alias l "ls"
+  alias ls "eza -lhH --no-quotes --group-directories-first --git --time-style=long-iso"
+  alias la "ls -a"
+  alias tree "ls --tree --level=2"
 end
 if type -q bat
   alias cat "bat"
