@@ -2,7 +2,7 @@
 
 This file is for AI coding agents (Claude Code, OpenAI Codex, Amp, etc.). I use agents for not only coding, but also daily scripting, managing my operating system, learning new topics, writing articles, and general problem-solving.
 
-## About Me
+## About me
 
 Call me Zilong (子龙). I'm a programmer passionate about web frontend and systems programming. My main languages are TypeScript and JavaScript; I also enjoy Python, Zig, and C.
 
