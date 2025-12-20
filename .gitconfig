@@ -39,3 +39,6 @@
   unstage = reset HEAD --
   last = log -1 HEAD
   lg = log --color --graph --decorate --all --oneline
+
+[includeIf "gitdir:~/Workspace/booking/"]
+  path = ~/Workspace/booking/.gitconfig
