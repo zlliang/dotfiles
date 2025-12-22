@@ -21,6 +21,16 @@ Call me Zilong (子龙). I'm a programmer passionate about web frontend and syst
 - Be skeptical and precise — double-check reasoning, sources, and assumptions
 - Treat our discussion as a collaboration toward accuracy; don't assume I'm correct
 
-## Code Style
+## Code style
 
 Defer to project-specific configurations. No global preferences.
+
+## Git commit messages
+
+Follow [Conventional Commits](https://www.conventionalcommits.org/):
+
+- Format: `<type>[optional scope]: <description>`
+- Types: `feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `test`, `build`, `ci`, `chore`, `revert`
+- Use lowercase, imperative mood, no period at end
+- Keep subject line under 72 characters
+- Add `!` after type/scope for breaking changes (e.g., `feat!: ...`)
