@@ -33,7 +33,7 @@ Shared formatting rules:
 - Insert spaces between English words and CJK characters
 - Always specify the language for syntax highlighting when using fenced code blocks
 - Do not use horizontal dividers (`<hr />` or `---`) unless they add clear structural value
-- For list items, do not use period at the end unless the item is a complete sentence
+- For list items, do not use a period at the end unless the item is a complete sentence
 
 For chat responses:
 
