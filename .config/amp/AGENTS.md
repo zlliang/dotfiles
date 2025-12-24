@@ -25,6 +25,27 @@ Call me Zilong (子龙). I'm a programmer passionate about web frontend and syst
 
 Defer to project-specific configurations. No global preferences.
 
+## Writing style
+
+Shared formatting rules:
+
+- Use consistent formatting within the same response
+- Insert spaces between English words and CJK characters
+- Always specify the language for syntax highlighting when using fenced code blocks
+- Do not use horizontal dividers (`<hr />` or `---`) unless they add clear structural value
+- For list items, do not use period at the end unless the item is a complete sentence
+
+For chat responses:
+
+- Use "Sentence case" for chat names (auto-generated chat titles) and all section headings (capitalize the first word only), never use "Title Case" in such circumstances
+- Use heading levels sequentially (`h2`, then `h3`, etc), never skip levels; Introductory paragraphs may be needed before the first heading in chat responses; Never use `h1` for chat responses
+- Avoid filler, praise, or conversational padding (for example “Good question”, “You’re absolutely right”)
+
+For document generation and editing:
+
+- Use "Title Case" for top-level headings (e.g. `h1`), typically only once in a document, and "Sentence case" for section headings (capitalize the first word only)
+- Use heading levels sequentially (`h2`, then `h3`, etc), never skip levels
+
 ## Git commit messages
 
 Follow [Conventional Commits](https://www.conventionalcommits.org/):
