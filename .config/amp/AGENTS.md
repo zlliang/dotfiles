@@ -32,7 +32,7 @@ Shared formatting rules:
 - Use consistent formatting within the same response
 - Insert spaces between English words and CJK characters
 - Always specify the language for syntax highlighting when using fenced code blocks
-- Do not use horizontal dividers (`<hr />` or `---`) unless they add clear structural value
+- Do not use horizontal dividers (`<hr />` or `---`) unless they add clear structural value, especially directly before headings
 - For list items, do not use a period at the end unless the item is a complete sentence
 
 For chat responses:
