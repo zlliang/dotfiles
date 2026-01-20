@@ -6,7 +6,6 @@ set -gx LANG "en_US.UTF-8"
 set -gx SSH_KEY_PATH "$HOME/.ssh/rsa_id"
 set -gx EDITOR "code --wait"
 fish_add_path -g "$HOME/.local/bin"
-fish_add_path -g "$HOME/Workspace/shared/bin"
 stty -echoctl 2>/dev/null # Disable `^C` display when pressing Ctrl+C
 
 # Set cursor style to `line` internally
@@ -74,3 +73,8 @@ set -gx VIRTUAL_ENV_DISABLE_PROMPT "true"
 # Use `zvm` to manage Zig versions. See https://github.com/tristanisham/zvm.
 set -gx ZVM_INSTALL "$HOME/.zvm/self"
 fish_add_path -g "$HOME/.zvm/bin" "$ZVM_INSTALL"
+
+# Workspace-specific
+set -gx WORKSPACE "$HOME/Workspace"
+fish_add_path -g "$WORKSPACE/.local/bin"
+source "$WORKSPACE/.config/fish/config.fish"
