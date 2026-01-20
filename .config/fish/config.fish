@@ -75,6 +75,8 @@ set -gx ZVM_INSTALL "$HOME/.zvm/self"
 fish_add_path -g "$HOME/.zvm/bin" "$ZVM_INSTALL"
 
 # Workspace-specific
-set -gx WORKSPACE "$HOME/Workspace"
-fish_add_path -g "$WORKSPACE/.local/bin"
-source "$WORKSPACE/.config/fish/config.fish"
+if test -d "$HOME/Workspace"
+  set -gx WORKSPACE "$HOME/Workspace"
+  fish_add_path -g "$WORKSPACE/.local/bin"
+  test -f "$WORKSPACE/.config/fish/config.fish"; and source "$WORKSPACE/.config/fish/config.fish"
+end
