@@ -36,6 +36,7 @@ These files mirror the typical layout of configuration files in the `$HOME` dire
 6. Desktop apps:
    - Essential:
       - [VS Code](https://code.visualstudio.com): the code editor
+      - [Mole](https://github.com/tw93/Mole): Deep clean and optimize your Mac
       - [Hidden Bar](https://github.com/dwarvesf/hidden) (`brew install hiddenbar`)
       - [Scroll Reverser](https://pilotmoon.com/scrollreverser/) (`brew install scroll-reverser`)
       - [IINA](https://iina.io/) (`brew install iina`)
