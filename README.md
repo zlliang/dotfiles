@@ -27,6 +27,7 @@ These files mirror the typical layout of configuration files in the `$HOME` dire
       - [`bat`](https://github.com/sharkdp/bat): a `cat` clone with wings
       - [`ripgrep (rg)`](https://github.com/BurntSushi/ripgrep): an alternative to `grep`
       - [`zoxide (z)`](https://github.com/ajeetdsouza/zoxide): a faster way to navigate your filesystem
+      - [`gh`](https://github.com/cli/cli): GitHub CLI
    - Good to have:
       - [`tokei`](https://github.com/XAMPPRocky/tokei): code counter
       - [`dust`](https://github.com/bootandy/dust): a more intuitive version of `du`
