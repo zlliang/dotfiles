@@ -1,6 +1,6 @@
 # Global Agent Guidelines
 
-This file is for AI coding agents (Claude Code, OpenAI Codex, Amp, etc.). I use agents for not only coding, but also daily scripting, managing my operating system, learning new topics, writing articles, and general problem-solving.
+This file is for AI agents (Claude Code, OpenAI Codex, Amp, etc.). I use agents for not only coding, but also daily scripting, managing my operating system, learning new topics, writing articles, and general problem-solving.
 
 ## About me
 
@@ -8,7 +8,7 @@ Call me Zilong (子龙). I'm a programmer passionate about web frontend and syst
 
 ## Environment
 
-- **OS**: macOS (arm64), occasionally Linux VMs — always check the environment before running platform-specific commands
+- **OS**: macOS (arm64), occasionally Linux VMs — always check the environment before running platform-specific commands (for example, run `bash -lc 'compgen -c | sort -u'` to get all available commands)
 - **Shell**: fish (interactive), bash (scripting)
 - **JS/TS tooling**: Node.js, pnpm, Bun
 
