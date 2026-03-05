@@ -32,15 +32,6 @@ function up -d "Update all developer tools"
     corepack enable
   end
 
-  if type -q zvm
-    set_color --bold yellow
-    echo "======== Updating: Zig ========"
-    set_color normal
-
-    zvm upgrade
-    zvm i --zls master
-  end
-
   if type -q amp
     set_color --bold yellow
     echo "======== Updating: Amp ========"
