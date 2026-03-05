@@ -32,6 +32,15 @@ function up -d "Update all developer tools"
     corepack enable
   end
 
+  if type -q uv
+    set_color --bold yellow
+    echo "======== Updating: Python (with uv) ========"
+    set_color normal
+
+    uv python install --default
+    uv python upgrade
+  end
+
   if type -q amp
     set_color --bold yellow
     echo "======== Updating: Amp ========"
