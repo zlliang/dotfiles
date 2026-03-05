@@ -2,13 +2,19 @@
 
 function fish_prompt
   set -l pwd_seg (string join "" (set_color $fish_color_cwd --bold) (prompt_pwd) (set_color normal) " ")
+  set -l venv_seg (__prompt_venv)
   set -l git_seg (__prompt_git)
   set -l jobs_seg (__prompt_jobs)
   set -l host_seg (__prompt_host)
   set -l arrow_seg (__prompt_arrow)
 
-  printf "\n%s" (string join "" $pwd_seg $git_seg $jobs_seg)
+  printf "\n%s" (string join "" $pwd_seg $venv_seg $git_seg $jobs_seg)
   printf "\n%s" (string join "" $host_seg $arrow_seg)
+end
+
+function __prompt_venv
+  set -q VIRTUAL_ENV; or return
+  echo -n (string join "" (set_color yellow) "(venv)" (set_color normal) " ")
 end
 
 function __prompt_git
