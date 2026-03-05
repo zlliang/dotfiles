@@ -69,10 +69,12 @@ set -gx COREPACK_ENABLE_AUTO_PIN 0
 # Suppress default virtual env prompt
 set -gx VIRTUAL_ENV_DISABLE_PROMPT "true"
 
-# Zig
-# Use `zvm` to manage Zig versions. See https://github.com/tristanisham/zvm.
-set -gx ZVM_INSTALL "$HOME/.zvm/self"
-fish_add_path -g "$HOME/.zvm/bin" "$ZVM_INSTALL"
+# Go
+if type -q go
+  set -gx GOPATH "$HOME/.golang"
+  set -gx GOENV "$GOPATH/env"
+  fish_add_path -g "$GOPATH/bin"
+end
 
 # Workspace-specific
 if test -d "$HOME/Workspace"

@@ -19,7 +19,7 @@ These files mirror the typical layout of configuration files in the `$HOME` dire
 4. Programming language toolkits:
    - JavaScript: [`nodenv`](https://github.com/nodenv/nodenv) for [Node.js](https://nodejs.org), and [`bun`](https://bun.com)
    - Python: [`uv`](https://docs.astral.sh/uv/)
-   - [Zig](https://ziglang.org): [`zvm`](https://github.com/tristanisham/zvm)
+   - [Go](https://go.dev): `brew install go`
 5. Command line tools:
    - Essential:
       - [`eza`](https://github.com/eza-community/eza): a modern, maintained replacement for `ls`

@@ -4,7 +4,7 @@ This file is for AI agents (Claude Code, OpenAI Codex, Amp, etc.). I use agents 
 
 ## About me
 
-Call me Zilong (子龙). I'm a programmer passionate about web frontend and systems programming. My main languages are TypeScript and JavaScript; I also enjoy Python, Zig, and C.
+Call me Zilong (子龙). I'm a programmer passionate about web frontend and systems programming. My main languages are TypeScript and JavaScript; I also enjoy Python, Go, and C.
 
 ## Environment
 
