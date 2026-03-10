@@ -14,7 +14,6 @@ cp .config/ghostty/config $HOME/.config/ghostty
 mkdir -p $HOME/.config/amp
 cp .config/amp/AGENTS.md $HOME/.config/amp
 cp .config/amp/settings.json $HOME/.config/amp
-rm -rf $HOME/.config/amp/skills && cp -R .config/amp/skills $HOME/.config/amp
 
 mkdir -p $HOME/.codex
-cp .codex/config.toml $HOME/.codex
+cp .codex/config.toml .codex/AGENTS.md $HOME/.codex
