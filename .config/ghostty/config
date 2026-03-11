@@ -5,11 +5,11 @@
 theme = light:GitHub Light Default,dark:GitHub Dark Default
 
 font-family = "Monaspace Neon Var"
-font-size = 14
+font-size = 13
 font-thicken = true
 font-thicken-strength = 3
 
-adjust-cell-height = 25%
+adjust-cell-height = 24%
 
 cursor-style = bar
 adjust-cursor-thickness = 200%
