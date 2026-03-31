@@ -1,0 +1,4 @@
+interface:
+  display_name: "Cowsay"
+  short_description: "Generate simple cowsay ASCII replies"
+  default_prompt: "Use $cowsay to present this message as a cowsay-style ASCII response."

@@ -17,3 +17,6 @@ cp .config/amp/settings.json $HOME/.config/amp
 
 mkdir -p $HOME/.codex
 cp .codex/config.toml .codex/AGENTS.md $HOME/.codex
+
+rm -rf $HOME/.agents && mkdir -p $HOME/.agents
+cp -Rf .agents/. $HOME/.agents

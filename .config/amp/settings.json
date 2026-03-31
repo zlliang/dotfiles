@@ -1,5 +1,8 @@
 {
   "amp.permissions": [
     { "tool": "*", "action": "allow", "matches": {} }
-  ]
+  ],
+  "amp.skills.path": "~/.agents/skills",
+  "amp.git.commit.coauthor.enabled": true,
+  "amp.git.commit.ampThread.enabled": false
 }
