@@ -49,6 +49,6 @@ These files mirror the typical layout of configuration files in the `$HOME` dire
       - [Orbstack](https://orbstack.dev/) (`brew install orbstack`)
       - [Postman](https://postman.com/) (`brew install postman`) or [HTTPie](https://httpie.io/) (`brew install httpie`)
 7. Coding agents:
-   - [Codex](https://openai.com/codex) is my primary coding agent; I use it via the CLI, the VS Code extension, and the standalone app, through my ChatGPT Plus subscription
-   - [Amp](https://ampcode.com/) is a secondary tool I use, and my profile can be found [here](https://ampcode.com/@zlliang)
+   - [Amp](https://ampcode.com/) is my primary coding agent, and my profile can be found [here](https://ampcode.com/@zlliang)
+   - [Codex](https://openai.com/codex) is a secondary tool I use, via the CLI, the VS Code extension, and the standalone app, through my ChatGPT Plus subscription
    - I also use [Claude Code](https://claude.com/product/claude-code) and [Cursor](https://cursor.com/) on my work laptop
