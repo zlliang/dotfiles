@@ -15,14 +15,16 @@ stty -echoctl 2>/dev/null # Disable `^C` display when pressing Ctrl+C
 echo -ne "\e[5 q"
 function postexec --on-event fish_postexec; echo -ne "\e[5 q"; end
 
+{{- if eq .chezmoi.os "darwin" }}
+
 # Homebrew
-if string match -q Darwin (uname)
-  set -gx HOMEBREW_PREFIX "/opt/homebrew"
-  set -gx HOMEBREW_CELLAR "/opt/homebrew/Cellar"
-  set -gx HOMEBREW_REPOSITORY "/opt/homebrew"
-  set -gx HOMEBREW_BOTTLE_DOMAIN "https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
-  fish_add_path -g "/opt/homebrew/bin" "/opt/homebrew/sbin"
-end
+set -gx HOMEBREW_PREFIX "/opt/homebrew"
+set -gx HOMEBREW_CELLAR "/opt/homebrew/Cellar"
+set -gx HOMEBREW_REPOSITORY "/opt/homebrew"
+set -gx HOMEBREW_BOTTLE_DOMAIN "https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
+fish_add_path -g "/opt/homebrew/bin" "/opt/homebrew/sbin"
+
+{{- end }}
 
 # System utilities
 if type -q eza
@@ -32,24 +34,26 @@ if type -q eza
 end
 if type -q bat
   alias cat "bat"
-  if string match -q Darwin (uname)
-      if defaults read -g AppleInterfaceStyle >/dev/null 2>&1
-          set -gx BAT_THEME "default"
-      else
-          set -gx BAT_THEME "GitHub"
-      end
+{{- if eq .chezmoi.os "darwin" }}
+  if defaults read -g AppleInterfaceStyle >/dev/null 2>&1
+    set -gx BAT_THEME "default"
+  else
+    set -gx BAT_THEME "GitHub"
   end
+{{- end }}
 end
 if type -q zoxide
     zoxide init fish | source
 end
 
+{{- if eq .chezmoi.os "darwin" }}
+
 # VS Code
 # Enable key-repeating for Vim plugin. See https://marketplace.visualstudio.com/items?itemName=vscodevim.vim.
-if string match -q Darwin (uname)
-  defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
-  # defaults delete -g ApplePressAndHoldEnabled # If necessary, reset global default
-end
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+# defaults delete -g ApplePressAndHoldEnabled # If necessary, reset global default
+
+{{- end }}
 
 # JavaScript
 # Use `nodenv` to manage Node.js versions. See https://github.com/nodenv/nodenv.
