@@ -1,5 +1,3 @@
-# Location: $HOME/.config/fish/functions/fish_prompt.fish
-
 function fish_prompt
   set -l pwd_seg (string join "" (set_color $fish_color_cwd --bold) (prompt_pwd) (set_color normal) " ")
   set -l venv_seg (__prompt_venv)

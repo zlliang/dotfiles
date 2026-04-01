@@ -1,6 +1,3 @@
-# Git global configurations
-# Location: $HOME/.gitconfig
-
 [user]
   name = Zilong Liang
   email = zlliang96@outlook.com

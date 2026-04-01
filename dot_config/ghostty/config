@@ -1,7 +1,3 @@
-# Ghostty configurations
-# Location: $HOME/.config/ghostty/config
-# Reference: https://ghostty.org/docs/config
-
 theme = light:GitHub Light Default,dark:GitHub Dark Default
 
 font-family = "Monaspace Neon Var"

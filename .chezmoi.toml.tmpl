@@ -1,0 +1,9 @@
+{{- $machine := "personal" -}}
+{{- if eq .chezmoi.hostname "REDACTED_HOSTNAME" -}}
+{{-   $machine = "work" -}}
+{{- end -}}
+
+sourceDir = "~/Workspace/github/zlliang/dotfiles"
+
+[data]
+    machine = {{ $machine | quote }}

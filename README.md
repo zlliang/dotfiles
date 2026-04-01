@@ -4,7 +4,24 @@ Personal dotfiles and development environment configuration guide for macOS.
 
 ## Configuration files
 
-These files mirror the typical layout of configuration files in the `$HOME` directory. To copy them to their appropriate locations, run [`install.sh`](./install.sh).
+This repo is managed by [chezmoi](https://www.chezmoi.io/). To set up on a new machine:
+
+```bash
+brew install chezmoi
+chezmoi init --apply https://github.com/zlliang/dotfiles.git
+```
+
+I use `~/Workspace/github/zlliang/dotfiles` as the source directory, so for me:
+
+```bash
+chezmoi init -S ~/Workspace/github/zlliang/dotfiles --apply https://github.com/zlliang/dotfiles.git
+```
+
+Or if already initialized, just apply the latest changes:
+
+```bash
+chezmoi apply
+```
 
 ## Guide to configure a new Mac
 

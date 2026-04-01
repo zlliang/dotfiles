@@ -1,5 +1,3 @@
-# Location: $HOME/.config/fish/functions/up.fish
-
 function up -d "Update all developer tools"
   if type -q brew
     set_color --bold yellow
