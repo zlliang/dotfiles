@@ -46,15 +46,6 @@ if type -q zoxide
     zoxide init fish | source
 end
 
-{{- if eq .chezmoi.os "darwin" }}
-
-# VS Code
-# Enable key-repeating for Vim plugin. See https://marketplace.visualstudio.com/items?itemName=vscodevim.vim.
-defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
-# defaults delete -g ApplePressAndHoldEnabled # If necessary, reset global default
-
-{{- end }}
-
 # JavaScript
 # Use `nodenv` to manage Node.js versions. See https://github.com/nodenv/nodenv.
 if type -q nodenv
