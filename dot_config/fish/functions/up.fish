@@ -1,4 +1,12 @@
 function up -d "Update all developer tools"
+  if type -q chezmoi
+    set_color --bold yellow
+    echo "======== Updating: Dotfiles ========"
+    set_color normal
+
+    chezmoi update --force
+  end
+
   if type -q brew
     set_color --bold yellow
     echo "======== Updating: Homebrew ========"
