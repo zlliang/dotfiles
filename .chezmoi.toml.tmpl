@@ -1,9 +1,11 @@
-{{- $machine := "personal" -}}
-{{- if eq .chezmoi.hostname "REDACTED_HOSTNAME" -}}
-{{-   $machine = "work" -}}
+{{- $machine := promptStringOnce . "machine" "Machine type (personal/work)" "personal" -}}
+{{- $workEmail := "" -}}
+{{- if eq $machine "work" -}}
+{{-   $workEmail = promptStringOnce . "workEmail" "Work email address" -}}
 {{- end -}}
 
 sourceDir = "~/Workspace/github/zlliang/dotfiles"
 
 [data]
 machine = {{ $machine | quote }}
+workEmail = {{ $workEmail | quote }}
