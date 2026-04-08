@@ -1,3 +1,3 @@
-function gi -d "Create .gitignore files"
+function gitignore -d "Create .gitignore files"
   curl -sL https://www.toptal.com/developers/gitignore/api/$argv
 end

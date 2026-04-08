@@ -1,4 +1,4 @@
-function up -d "Update all developer tools"
+function update -d "Update all developer tools"
   if type -q chezmoi
     set_color --bold yellow
     echo "======== Updating: Dotfiles ========"
