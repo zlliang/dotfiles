@@ -9,5 +9,5 @@ function bklogin -d "Log in to Booking.com"
     echo "======== Running bk auth:login ========"
     set_color normal
 
-    bk auth:login
+    bk auth:login --skip-okta-auth
 end
