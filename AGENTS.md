@@ -54,3 +54,7 @@ Prefixes are order-sensitive and can be combined (e.g. `private_dot_ssh` → `~/
 | `.chezmoiignore.tmpl` | Template listing files chezmoi should ignore |
 | `.chezmoiscripts/` | Scripts chezmoi runs during apply |
 | `.chezmoitemplates/` | Reusable template fragments included by other `.tmpl` files |
+
+## Agent workflow
+
+- Always run `chezmoi apply` and verify the latest changes after updating dotfiles
