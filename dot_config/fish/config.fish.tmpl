@@ -78,4 +78,17 @@ if type -q bk
   bk completion fish | source
 end
 
+# Daily reminder to run bklogin
+set -l _bklogin_marker "$TMPDIR/.bklogin-"(date +%Y-%m-%d)
+if not test -f "$_bklogin_marker"
+  touch "$_bklogin_marker"
+  function __bklogin_reminder --on-event fish_prompt
+    echo
+    set_color --bold yellow
+    echo "[!] Remember to run `bklogin`"
+    set_color normal
+    functions -e __bklogin_reminder
+  end
+end
+
 {{- end }}
