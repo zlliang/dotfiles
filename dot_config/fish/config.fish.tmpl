@@ -78,6 +78,11 @@ if type -q bk
   bk completion fish | source
 end
 
+# Google Cloud SDK
+if test -f $HOME/.local/share/google-cloud-sdk/path.fish.inc
+  source $HOME/.local/share/google-cloud-sdk/path.fish.inc
+end
+
 # Daily reminder to run bklogin
 set -l _bklogin_marker "$TMPDIR/.bklogin-"(date +%Y-%m-%d)
 if not test -f "$_bklogin_marker"
