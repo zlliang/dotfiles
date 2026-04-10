@@ -1,6 +1,6 @@
 # Global Agent Guidelines
 
-This file is for AI agents (Amp, Codex, etc.). I use agents for not only coding, but also daily scripting, managing my operating system, learning new topics, writing articles, and general problem-solving.
+This file is for AI agents (Amp, Codex, Claude Code, etc.). I use agents for not only coding, but also daily scripting, managing my operating system, learning new topics, writing articles, and general problem-solving.
 
 ## About me
 
@@ -8,9 +8,13 @@ Call me Zilong (子龙). I'm a programmer passionate about web frontend and syst
 
 ## Environment
 
-- **OS**: macOS (arm64), occasionally Linux VMs — always check the environment before running platform-specific commands (for example, run `bash -lc 'compgen -c | sort -u'` to get all available commands)
-- **Shell**: fish (interactive), bash (scripting)
-- **JS/TS tooling**: Node.js, pnpm, Bun
+- OS: macOS (arm64), occasionally Linux VMs — always check the environment before running platform-specific commands (for example, run `bash -lc 'compgen -c | sort -u'` to get all available commands)
+- Shell: fish (interactive), bash (scripting)
+- Tooling:
+    - System utilities: Homebrew, ripgrep, fd, etc.
+    - Main code editor: VS Code
+    - JS/TS: Node.js, Bun, pnpm
+    - Python: uv
 
 ## Communication
 
@@ -23,7 +27,20 @@ Call me Zilong (子龙). I'm a programmer passionate about web frontend and syst
 
 ## Code style
 
-Defer to project-specific configurations. No global preferences.
+Defer to project-specific configurations (linters, formatters, conventions). The principles below apply universally.
+
+Thinking principles:
+
+- Occam's razor: Do not multiply entities beyond necessity. Prefer the simplest solution that works — no speculative abstractions, no premature generalization
+- First principles: Deconstruct complex problems into their most fundamental truths; Reason up from there instead of borrowing assumptions
+- Explicit over implicit: Make intent visible; Avoid magic, hidden coupling, or behavior that requires reading distant code to understand
+
+Coding principles:
+
+- Readability over cleverness; No dead code
+- Small, focused functions and modules with clear responsibilities
+- Match the existing style of the project; When in doubt, follow the surrounding code
+- Keep techniques in *Refactoring: Improving the Design of Existing Code* in mind
 
 ## Writing style
 
