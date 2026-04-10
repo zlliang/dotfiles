@@ -68,4 +68,4 @@ chezmoi apply
 7. Coding agents:
    - [Amp](https://ampcode.com/) is my primary coding agent, and my profile can be found [here](https://ampcode.com/@zlliang)
    - [Codex](https://openai.com/codex) is a secondary tool I use, via the CLI, the VS Code extension, and the standalone app, through my ChatGPT Plus subscription
-   - I also use [Claude Code](https://claude.com/product/claude-code) and [Cursor](https://cursor.com/) on my work laptop
+   - I also use [Claude Code](https://claude.com/product/claude-code) on my work laptop
