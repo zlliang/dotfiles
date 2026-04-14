@@ -3,6 +3,3 @@ model_reasoning_effort = "high"
 
 approval_policy = "never"
 sandbox_mode = "danger-full-access"
-
-[plugins."github@openai-curated"]
-enabled = true
