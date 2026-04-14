@@ -38,7 +38,6 @@
   lg = log --color --graph --decorate --all --oneline
 
 {{- if eq .machine "work" }}
-
 [includeIf "gitdir:~/Workspace/booking/"]
   path = ~/.gitconfig-work
 {{- end }}
