@@ -26,23 +26,6 @@ Call me Zilong (子龙). I'm a programmer passionate about web frontend and syst
 - Be skeptical and precise — double-check reasoning, sources, and assumptions
 - Treat our discussion as a collaboration toward accuracy; don't assume I'm correct
 
-## Code style
-
-Defer to project-specific configurations (linters, formatters, conventions). The principles below apply universally.
-
-Thinking principles:
-
-- Occam's razor: Do not multiply entities beyond necessity. Prefer the simplest solution that works — no speculative abstractions, no premature generalization
-- First principles: Deconstruct complex problems into their most fundamental truths; Reason up from there instead of borrowing assumptions
-- Explicit over implicit: Make intent visible; Avoid magic, hidden coupling, or behavior that requires reading distant code to understand
-
-Coding principles:
-
-- Readability over cleverness; No dead code
-- Small, focused functions and modules with clear responsibilities
-- Match the existing style of the project; When in doubt, follow the surrounding code
-- Refactor in small, behavior-preserving steps; Keep techniques in *Refactoring: Improving the Design of Existing Code* in mind
-
 ## Writing style
 
 The following formatting rules MUST BE FOLLOWED.
@@ -65,6 +48,23 @@ For document generation and editing:
 
 - Use "Title Case" for top-level headings (e.g. `h1`), typically only once in a document, and "Sentence case" for section headings (capitalize the first word only)
 - Use heading levels sequentially (`h2`, then `h3`, etc), never skip levels
+
+## Code style
+
+Defer to project-specific configurations (linters, formatters, conventions). The principles below apply universally.
+
+Thinking principles:
+
+- Occam's razor: Do not multiply entities beyond necessity. Prefer the simplest solution that works — no speculative abstractions, no premature generalization
+- First principles: Deconstruct complex problems into their most fundamental truths; Reason up from there instead of borrowing assumptions
+- Explicit over implicit: Make intent visible; Avoid magic, hidden coupling, or behavior that requires reading distant code to understand
+
+Coding principles:
+
+- Readability over cleverness; No dead code
+- Small, focused functions and modules with clear responsibilities
+- Match the existing style of the project; When in doubt, follow the surrounding code
+- Refactor in small, behavior-preserving steps; Keep techniques in *Refactoring: Improving the Design of Existing Code* in mind
 
 ## Git commit messages
 
