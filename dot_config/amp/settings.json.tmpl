@@ -1,4 +1,15 @@
 {
+{{- if eq .machine "work" }}
+  "amp.mcpServers": {
+    "Toolbox-Preview": {
+      "command": "bk",
+      "args": [
+        "genai:mcp:toolbox",
+        "--enable-preview"
+      ]
+    }
+  },
+{{- end }}
   "amp.permissions": [
     { "tool": "*", "action": "allow", "matches": {} }
   ],

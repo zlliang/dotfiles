@@ -34,13 +34,13 @@ if type -q eza
 end
 if type -q bat
   alias cat "bat"
-  {{- if eq .chezmoi.os "darwin" }}
+{{- if eq .chezmoi.os "darwin" }}
   if defaults read -g AppleInterfaceStyle >/dev/null 2>&1
     set -gx BAT_THEME "default"
   else
     set -gx BAT_THEME "GitHub"
   end
-  {{- end }}
+{{- end }}
 end
 if type -q zoxide
     zoxide init fish | source
