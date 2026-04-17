@@ -68,9 +68,15 @@ if type -q go
   fish_add_path -g "$GOPATH/bin"
 end
 
-# Codex
+# Coding agents
+if type -q amp
+  alias amp "amp --dangerously-allow-all"
+end
 if type -q codex
-  alias codex "codex --yolo"
+  alias codex "codex --dangerously-bypass-approvals-and-sandbox"
+end
+if type -q claude
+  alias claude "claude --dangerously-skip-permissions"
 end
 
 {{- if eq .machine "work" }}
