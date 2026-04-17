@@ -87,6 +87,7 @@ set -gx COREPACK_NPM_REGISTRY "https://jfrog.booking.com/artifactory/api/npm/npm
 set -gx COREPACK_INTEGRITY_KEYS "0"
 if type -q bk
   bk completion fish | source
+  set -gx BK_AUTH_SSO_TIMEOUT 600000
 end
 
 # Google Cloud SDK
