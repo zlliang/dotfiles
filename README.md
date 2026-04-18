@@ -68,4 +68,4 @@ chezmoi apply
 7. Coding agents:
    - [Amp](https://ampcode.com/): my primary coding agent ([profile](https://ampcode.com/@zlliang))
    - [Codex](https://openai.com/codex): CLI, VS Code extension, and standalone app, via ChatGPT Plus
-   - [Claude Code](https://claude.com/product/claude-code): CLI and VS Code extension, via my company's API Gateway (work laptop) and [OpenRouter](https://openrouter.ai/) (personal laptop)
+   - [Claude Code](https://claude.com/product/claude-code): CLI and VS Code extension, via my company's AI Gateway (work laptop) and [Vercel AI Gateway](https://vercel.com/ai-gateway) (personal laptop)
