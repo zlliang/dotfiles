@@ -76,7 +76,7 @@ if type -q codex
   alias codex "codex --dangerously-bypass-approvals-and-sandbox"
 end
 if type -q claude
-  alias claude "claude --dangerously-skip-permissions"
+  alias claude "echo && command claude --dangerously-skip-permissions"
 end
 
 {{- if eq .machine "work" }}
