@@ -67,5 +67,5 @@ chezmoi apply
       - [Postman](https://postman.com/) (`brew install postman`) or [HTTPie](https://httpie.io/) (`brew install httpie`)
 7. Coding agents:
    - [Amp](https://ampcode.com/): my primary coding agent ([profile](https://ampcode.com/@zlliang))
-   - [Codex](https://openai.com/codex): CLI, VS Code extension, and standalone app, via ChatGPT Plus
-   - [Claude Code](https://claude.com/product/claude-code): CLI and VS Code extension, via my company's AI Gateway (work laptop) and [Vercel AI Gateway](https://vercel.com/ai-gateway) (personal laptop)
+   - [Codex](https://openai.com/codex): CLI and standalone app, via ChatGPT Plus
+   - [Claude Code](https://claude.com/product/claude-code): CLI only, via my company's API gateway (work laptop) and [Vercel AI Gateway](https://vercel.com/ai-gateway) (personal laptop)
