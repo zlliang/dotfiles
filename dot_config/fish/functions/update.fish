@@ -38,6 +38,14 @@ function update -d "Update all developer tools"
     corepack enable
   end
 
+  if type -q pnpm
+    set_color --bold yellow
+    echo "======== Updating: pnpm global packages ========"
+    set_color normal
+
+    pnpm update -g --latest --approve-scripts
+  end
+
   if type -q uv
     set_color --bold yellow
     echo "======== Updating: Python (with uv) ========"
