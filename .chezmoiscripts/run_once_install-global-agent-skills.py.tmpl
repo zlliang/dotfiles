@@ -12,11 +12,8 @@ def run(cmd: list[str]) -> None:
 
 
 def installSkills(repo: str, skills: list[str]) -> None:
-    run([
-        "npx", "skills", "add", repo,
-        "--skill", *skills, "-g", "-y",
-        "-a", "amp", "codex", "claude-code",
-    ])
+    agents = ["amp", "codex", "claude-code"]
+    run(["npx", "skills", "add", repo, "--skill", *skills, "-g", "-y", "-a", *agents])
 
 
 def installBrew(packages: list[str]) -> None:
@@ -32,3 +29,17 @@ installBrew(["gh"])
 
 installSkills("vercel-labs/agent-browser", ["agent-browser"])
 installPnpm(["agent-browser"])
+
+{{ if eq .machine "work" -}}
+installSkills("googleworkspace/cli", [
+    "gws-shared", "gws-admin-reports",
+    "gws-calendar", "gws-calendar-agenda", "gws-calendar-insert",
+    "gws-drive", "gws-drive-upload",
+    "gws-docs", "gws-docs-write",
+    "gws-gmail", "gws-gmail-forward", "gws-gmail-read", "gws-gmail-reply", "gws-gmail-reply-all", "gws-gmail-send", "gws-gmail-triage", "gws-gmail-watch",
+    "gws-sheets", "gws-sheets-append", "gws-sheets-read",
+    "gws-slides",
+    "gws-forms",
+])
+installBrew(["googleworkspace-cli"])
+{{ end -}}
