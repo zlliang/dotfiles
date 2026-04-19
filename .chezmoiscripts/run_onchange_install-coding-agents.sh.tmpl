@@ -1,0 +1,11 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+
+# Amp
+curl -fsSL https://ampcode.com/install.sh | bash
+
+# Claude Code
+curl -fsSL https://claude.ai/install.sh | bash
+
+# Codex CLI and standalone app are managed by Homebrew (see install-brew-packages)
+{{- end -}}
