@@ -43,7 +43,7 @@ function update -d "Update all developer tools"
     echo "======== Updating: pnpm global packages ========"
     set_color normal
 
-    pnpm update -g --latest --approve-scripts
+    pnpm update -g --latest --dangerously-allow-all-builds
   end
 
   if type -q uv
