@@ -19,7 +19,7 @@ Personal dotfiles and development environment for macOS, managed by [chezmoi](ht
     chezmoi init -S ~/Workspace/github/zlliang/dotfiles --apply https://github.com/zlliang/dotfiles.git
     ```
 
-    This automatically runs `brew bundle` to install all packages below.
+    This automatically installs Homebrew packages listed below, installs coding agents, and applies configuration for all tools.
 
 4. Set [Fish](https://fishshell.com) as default shell:
 
@@ -44,18 +44,18 @@ Personal dotfiles and development environment for macOS, managed by [chezmoi](ht
 - **System utilities:** [chezmoi](https://www.chezmoi.io/), [Mole](https://github.com/tw93/Mole)
 - **Desktop apps:** [Ghostty](https://ghostty.org), [Hidden Bar](https://github.com/dwarvesf/hidden), [IINA](https://iina.io/), [Keka](https://keka.io/), [OrbStack](https://orbstack.dev/), [Postman](https://postman.com/)
 
+### Coding agents
+
+- **[Amp](https://ampcode.com/)**: my primary coding agent ([profile](https://ampcode.com/@zlliang))
+- **[Codex](https://openai.com/codex)**: CLI and standalone app, via ChatGPT Plus
+- **[Claude Code](https://claude.com/product/claude-code)**: CLI only, via my company's API gateway (work laptop) and [Vercel AI Gateway](https://vercel.com/ai-gateway) (personal laptop)
+
 ### Configuration
 
 - **Fish**: shell config and custom functions (`~/.config/fish/`)
 - **Git**: conditional personal/work identity (`~/.gitconfig`)
 - **Ghostty**: terminal config (`~/.config/ghostty/`)
 - **Amp / Codex / Claude Code**: coding agent configs and global skills
-
-### Coding agents
-
-- **[Amp](https://ampcode.com/)**: my primary coding agent ([profile](https://ampcode.com/@zlliang))
-- **[Codex](https://openai.com/codex)**: CLI and standalone app, via ChatGPT Plus
-- **[Claude Code](https://claude.com/product/claude-code)**: CLI only, via my company's API gateway (work laptop) and [Vercel AI Gateway](https://vercel.com/ai-gateway) (personal laptop)
 
 ## Structure
 
