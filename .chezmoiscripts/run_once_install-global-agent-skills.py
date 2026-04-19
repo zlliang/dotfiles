@@ -18,8 +18,10 @@ def installSkills(repo: str, skills: list[str]) -> None:
         "-a", "amp", "codex", "claude-code",
     ])
 
+
 def installBrew(packages: list[str]) -> None:
     run(["brew", "install", *packages])
+
 
 def installPnpm(packages: list[str]) -> None:
     run(["pnpm", "add", "-g", *packages, "--dangerously-allow-all-builds"])
