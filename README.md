@@ -1,71 +1,62 @@
 # Dotfiles 🌚
 
-Personal dotfiles and development environment configuration guide for macOS.
+Personal dotfiles and development environment for macOS, managed by [chezmoi](https://www.chezmoi.io/).
 
-## Configuration files
+## Quick start
 
-This repo is managed by [chezmoi](https://www.chezmoi.io/). To set up on a new machine:
-
-```bash
-brew install chezmoi
-chezmoi init --apply https://github.com/zlliang/dotfiles.git
-```
-
-I use `~/Workspace/github/zlliang/dotfiles` as the source directory, so for me:
-
-```bash
-chezmoi init -S ~/Workspace/github/zlliang/dotfiles --apply https://github.com/zlliang/dotfiles.git
-```
-
-Or if already initialized, just apply the latest changes:
-
-```bash
-chezmoi apply
-```
-
-## Guide to configure a new Mac
-
-1. Install [Xcode](https://developer.apple.com/xcode/) or _Xcode Command Line Tools_: run `xcode-select --install`
-   - This will install the necessary tools for building and running software on macOS, including [Git](https://git-scm.com)
+1. Install [Xcode Command Line Tools](https://developer.apple.com/xcode/): `xcode-select --install`
 2. Install [Homebrew](https://brew.sh)
-3. Set [Fish](https://fishshell.com) as the default shell:
-   - Install via Homebrew: `brew install fish`
-   - Add `/opt/homebrew/bin/fish` to `/etc/shells`
-   - Set the default shell: `chsh -s /opt/homebrew/bin/fish`
-   - Note: fish configuration file is located at `~/.config/fish/config.fish`
-4. Programming language toolkits:
-   - JavaScript: [`nodenv`](https://github.com/nodenv/nodenv) for [Node.js](https://nodejs.org), and [`bun`](https://bun.com)
-   - Python: [`uv`](https://docs.astral.sh/uv/)
-   - [Go](https://go.dev): `brew install go`
-5. Command line tools:
-   - Essential:
-      - [`eza`](https://github.com/eza-community/eza): a modern, maintained replacement for `ls`
-      - [`fd`](https://github.com/sharkdp/fd): a simple, fast and user-friendly alternative to `find`
-      - [`bat`](https://github.com/sharkdp/bat): a `cat` clone with wings
-      - [`ripgrep (rg)`](https://github.com/BurntSushi/ripgrep): an alternative to `grep`
-      - [`zoxide (z)`](https://github.com/ajeetdsouza/zoxide): a faster way to navigate your filesystem
-      - [`gh`](https://github.com/cli/cli): GitHub CLI
-   - Good to have:
-      - [`tokei`](https://github.com/XAMPPRocky/tokei): code counter
-      - [`dust`](https://github.com/bootandy/dust): a more intuitive version of `du`
-      - [`btop`](https://github.com/aristocratos/btop): a terminal monitor of system resources
-      - [`fastfetch`](https://github.com/fastfetch-cli/fastfetch): a neofetch-like system information tool
-      - [`hyperfine`](https://github.com/sharkdp/hyperfine): a command-line benchmarking tool
-6. Desktop apps:
-   - Essential:
-      - [VS Code](https://code.visualstudio.com): the code editor
-      - [Mole](https://github.com/tw93/Mole): Deep clean and optimize your Mac
-      - [Hidden Bar](https://github.com/dwarvesf/hidden) (`brew install hiddenbar`)
-      - [Scroll Reverser](https://pilotmoon.com/scrollreverser/) (`brew install scroll-reverser`)
-      - [IINA](https://iina.io/) (`brew install iina`)
-      - [Keka](https://keka.io/) (`brew install keka`)
-      - [Surge](https://nssurge.com/)
-      - [Replaceicon](https://replacicon.app/)
-   - Good to have:
-      - [Proxyman](https://proxyman.io/) (`brew install proxyman`)
-      - [Orbstack](https://orbstack.dev/) (`brew install orbstack`)
-      - [Postman](https://postman.com/) (`brew install postman`) or [HTTPie](https://httpie.io/) (`brew install httpie`)
-7. Coding agents:
-   - [Amp](https://ampcode.com/): my primary coding agent ([profile](https://ampcode.com/@zlliang))
-   - [Codex](https://openai.com/codex): CLI and standalone app, via ChatGPT Plus
-   - [Claude Code](https://claude.com/product/claude-code): CLI only, via my company's API gateway (work laptop) and [Vercel AI Gateway](https://vercel.com/ai-gateway) (personal laptop)
+3. Bootstrap everything:
+
+    ```bash
+    brew install chezmoi
+    chezmoi init --apply https://github.com/zlliang/dotfiles.git
+    ```
+
+    I use `~/Workspace/github/zlliang/dotfiles` as the source directory, so for me:
+
+    ```bash
+    chezmoi init -S ~/Workspace/github/zlliang/dotfiles --apply https://github.com/zlliang/dotfiles.git
+    ```
+
+    This automatically runs `brew bundle` to install all packages below.
+
+4. Set [Fish](https://fishshell.com) as default shell:
+
+   ```bash
+   echo /opt/homebrew/bin/fish | sudo tee -a /etc/shells
+   chsh -s /opt/homebrew/bin/fish
+   ```
+
+5. After initialized, just update the latest changes regularly:
+
+    ```bash
+    chezmoi update
+    ```
+
+## What's included
+
+### Homebrew packages
+
+- **Shell:** [fish](https://fishshell.com)
+- **Dev toolkits:** [nodenv](https://github.com/nodenv/nodenv), [bun](https://bun.sh), [uv](https://docs.astral.sh/uv/), [go](https://go.dev)
+- **CLI tools:** [bat](https://github.com/sharkdp/bat), [eza](https://github.com/eza-community/eza), [fd](https://github.com/sharkdp/fd), [ripgrep](https://github.com/BurntSushi/ripgrep), [zoxide](https://github.com/ajeetdsouza/zoxide), [gh](https://github.com/cli/cli), [fastfetch](https://github.com/fastfetch-cli/fastfetch), [hyperfine](https://github.com/sharkdp/hyperfine)
+- **System utilities:** [chezmoi](https://www.chezmoi.io/), [Mole](https://github.com/tw93/Mole)
+- **Desktop apps:** [Ghostty](https://ghostty.org), [Hidden Bar](https://github.com/dwarvesf/hidden), [IINA](https://iina.io/), [Keka](https://keka.io/), [OrbStack](https://orbstack.dev/), [Postman](https://postman.com/)
+
+### Configuration
+
+- **Fish**: shell config and custom functions (`~/.config/fish/`)
+- **Git**: conditional personal/work identity (`~/.gitconfig`)
+- **Ghostty**: terminal config (`~/.config/ghostty/`)
+- **Amp / Codex / Claude Code**: coding agent configs and global skills
+
+### Coding agents
+
+- **[Amp](https://ampcode.com/)**: my primary coding agent ([profile](https://ampcode.com/@zlliang))
+- **[Codex](https://openai.com/codex)**: CLI and standalone app, via ChatGPT Plus
+- **[Claude Code](https://claude.com/product/claude-code)**: CLI only, via my company's API gateway (work laptop) and [Vercel AI Gateway](https://vercel.com/ai-gateway) (personal laptop)
+
+## Structure
+
+This is a chezmoi source directory. Files use chezmoi naming conventions (`dot_`, `.tmpl`, `run_onchange_`, etc.) and are applied to `~` via `chezmoi apply`.

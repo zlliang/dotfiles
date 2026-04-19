@@ -1,0 +1,41 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+
+brew bundle --no-lock --file=/dev/stdin <<EOF
+# Shell
+brew "fish"
+
+# Dev toolkits
+brew "nodenv"
+brew "oven-sh/bun/bun"
+brew "uv"
+brew "go"
+
+# CLI tools
+brew "bat"
+brew "eza"
+brew "fd"
+brew "ripgrep"
+brew "zoxide"
+brew "gh"
+brew "fastfetch"
+brew "hyperfine"
+
+# System utilities
+brew "chezmoi"
+brew "mole"
+{{ if eq .machine "work" -}}
+brew "googleworkspace-cli"
+{{ end -}}
+
+# Desktop apps
+cask "ghostty"
+cask "hiddenbar"
+cask "iina"
+cask "keka"
+cask "orbstack"
+cask "postman"
+cask "codex"
+cask "codex-app"
+EOF
+{{ end -}}
