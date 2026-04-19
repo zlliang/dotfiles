@@ -1,7 +1,9 @@
-{{- if eq .chezmoi.os "darwin" -}}
 #!/bin/bash
 
-# Enable key-repeating for VS Code Vim plugin.
-# See https://marketplace.visualstudio.com/items?itemName=vscodevim.vim.
+{{- if eq .chezmoi.os "darwin" }}
+
+# Enable key-repeating for VS Code Vim plugin
+# See https://marketplace.visualstudio.com/items?itemName=vscodevim.vim
 defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
-{{- end -}}
+
+{{- end }}

@@ -1,0 +1,23 @@
+{
+  {{- if eq .machine "work" }}
+  "apiKeyHelper": "bk auth:issue-token || (bk auth:login --skip-okta-auth > /dev/null 2>&1 && bk auth:issue-token)",
+  {{- end }}
+  "env": {
+    {{- if eq .machine "work" }}
+    "ANTHROPIC_BASE_URL": "https://gen-ai.prod.booking.com/anthropic/claude_code/",
+    "ANTHROPIC_DEFAULT_OPUS_MODEL": "ml-asset:static-model/claude-opus-4-6",
+    "ANTHROPIC_DEFAULT_SONNET_MODEL": "ml-asset:static-model/claude-sonnet-4-6",
+    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "ml-asset:static-model/claude-haiku-4-5",
+    {{- else }}
+    "ANTHROPIC_BASE_URL": "https://ai-gateway.vercel.sh",
+    "ANTHROPIC_AUTH_TOKEN": "{{ .anthropicAuthToken }}",
+    {{- end }}
+    "CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS": "1",
+    "CLAUDE_CODE_IDE_SKIP_AUTO_INSTALL": "1",
+    "IS_DEMO": "1"
+  },
+  "model": "opus[1m]",
+  "effortLevel": "high",
+  "permissions": { "defaultMode": "bypassPermissions" },
+  "skipDangerousModePermissionPrompt": true
+}

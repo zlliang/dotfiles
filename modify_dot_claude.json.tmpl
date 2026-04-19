@@ -1,0 +1,41 @@
+#!/usr/bin/env -S uv run --quiet --script
+"""chezmoi modify_ script for ~/.claude.json
+
+Merges managed fields into the existing file without clobbering
+runtime state that Claude Code writes (numStartups, tipsHistory, etc.).
+"""
+# /// script
+# ///
+
+import json
+import os
+import sys
+
+existing = sys.stdin.read().strip()
+data = json.loads(existing) if existing else {}
+
+# Sync theme
+data["theme"] = "auto"
+
+# Sync top-level mcpServers
+{{- if eq .machine "work" }}
+data["mcpServers"] = {
+    "Toolbox-Preview": {
+        "type": "stdio",
+        "command": "bk",
+        "args": ["genai:mcp:toolbox", "--enable-preview"],
+        "env": {"MCP_TIMEOUT": "30000"},
+    }
+}
+{{- else }}
+data["mcpServers"] = {}
+{{- end }}
+
+# Ensure projects.<home>.hasTrustDialogAccepted is true
+home = os.path.expanduser("~")
+projects = data.setdefault("projects", {})
+home_project = projects.setdefault(home, {})
+home_project["hasTrustDialogAccepted"] = True
+
+json.dump(data, sys.stdout, indent=2)
+sys.stdout.write("\n")

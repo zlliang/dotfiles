@@ -1,7 +1,10 @@
 {{- $machine := promptStringOnce . "machine" "Machine type (personal/work)" "personal" -}}
 {{- $workEmail := "" -}}
+{{- $anthropicAuthToken := "" -}}
 {{- if eq $machine "work" -}}
 {{-   $workEmail = promptStringOnce . "workEmail" "Work email address" -}}
+{{- else -}}
+{{-   $anthropicAuthToken = promptStringOnce . "anthropicAuthToken" "Anthropic auth token" -}}
 {{- end -}}
 
 sourceDir = "~/Workspace/github/zlliang/dotfiles"
@@ -9,3 +12,4 @@ sourceDir = "~/Workspace/github/zlliang/dotfiles"
 [data]
 machine = {{ $machine | quote }}
 workEmail = {{ $workEmail | quote }}
+anthropicAuthToken = {{ $anthropicAuthToken | quote }}

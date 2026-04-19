@@ -1,0 +1,16 @@
+{
+  "amp.git.commit.coauthor.enabled": false,
+  "amp.git.commit.ampThread.enabled": false,
+  "amp.skills.path": "~/.agents/skills",
+  "amp.skills.disableClaudeCodeSkills": true,
+  {{- if eq .machine "work" }}
+  "amp.mcpServers": {
+    "Toolbox-Preview": {
+      "command": "bk",
+      "args": ["genai:mcp:toolbox", "--enable-preview"]
+    }
+  }
+  {{- else }}
+  "amp.mcpServers": {}
+  {{- end }}
+}
