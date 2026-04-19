@@ -17,11 +17,18 @@ def installSkills(repo: str, skills: list[str]) -> None:
 
 
 def installBrew(packages: list[str]) -> None:
-    run(["brew", "install", *packages])
+    installed = subprocess.run(["brew", "list", "--formula", "-1"],capture_output=True, text=True).stdout.splitlines()
+    missing = [p for p in packages if p not in installed]
+    if missing:
+        run(["brew", "install", *missing])
 
 
 def installPnpm(packages: list[str]) -> None:
-    run(["pnpm", "add", "-g", *packages, "--dangerously-allow-all-builds"])
+    installed = subprocess.run(["pnpm", "list", "-g", "--depth=0", "--parseable"], capture_output=True, text=True).stdout.splitlines()
+    installedNames = {line.rsplit("/", 1)[-1] for line in installed if line}
+    missing = [p for p in packages if p not in installedNames]
+    if missing:
+        run(["pnpm", "add", "-g", *missing, "--dangerously-allow-all-builds"])
 
 
 installSkills("github/awesome-copilot", ["gh-cli", "git-commit"])
@@ -29,6 +36,7 @@ installBrew(["gh"])
 
 installSkills("vercel-labs/agent-browser", ["agent-browser"])
 installPnpm(["agent-browser"])
+run(["agent-browser", "install"])
 
 {{ if eq .machine "work" -}}
 installSkills("googleworkspace/cli", [
