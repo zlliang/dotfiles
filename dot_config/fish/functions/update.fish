@@ -70,4 +70,10 @@ function update -d "Update all developer tools"
 
     command claude update
   end
+
+  set_color --bold yellow
+  echo "======== Updating: Global agent skills ========"
+  set_color normal
+
+  npx skills update -g
 end
