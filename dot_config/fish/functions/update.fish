@@ -62,4 +62,12 @@ function update -d "Update all developer tools"
 
     amp update
   end
+
+  if type -q claude
+    set_color --bold yellow
+    echo "======== Updating: Claude Code ========"
+    set_color normal
+
+    command claude update
+  end
 end
