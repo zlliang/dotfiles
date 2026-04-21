@@ -11,9 +11,9 @@ def run(cmd: list[str]) -> None:
     subprocess.run(cmd, check=True)
 
 
-def installSkills(repo: str, skills: list[str]) -> None:
+def installSkills(repo: str, skills: list[str] | None = None) -> None:
     agents = ["amp", "codex", "claude-code"]
-    run(["npx", "skills", "add", repo, "--skill", *skills, "-g", "-y", "-a", *agents])
+    run(["npx", "skills", "add", repo, *(["--skill", *skills] if skills else []), "-g", "-y", "-a", *agents])
 
 
 def installBrew(packages: list[str]) -> None:
@@ -31,7 +31,9 @@ def installPnpm(packages: list[str]) -> None:
         run(["pnpm", "add", "-g", *missing, "--dangerously-allow-all-builds"])
 
 
-installSkills("github/awesome-copilot", ["gh-cli", "git-commit"])
+installSkills("zlliang/skills", ["git-commit"])
+
+installSkills("github/awesome-copilot", ["gh-cli"])
 installBrew(["gh"])
 
 installSkills("vercel-labs/agent-browser", ["agent-browser"])
