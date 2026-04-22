@@ -83,6 +83,18 @@ name = "update-agent-skills"
 description = "Update global agent skills"
 run = ["npx skills update -g"]
 
+[[tasks]]
+name = "pull-repos"
+description = "Pull latest changes for all personal repos"
+run = ["""
+for dir in ~/Workspace/github/zlliang/*/; do
+  if [ -d "$dir/.git" ]; then
+    echo "Pulling $(basename "$dir")..."
+    git -C "$dir" pull --ff-only || true
+  fi
+done
+"""]
+
 {{- if eq .machine "work" }}
 
 [[tasks]]
