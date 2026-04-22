@@ -1,0 +1,105 @@
+shell = ["bash", "-c"]
+
+[[tasks]]
+name = "update"
+description = "Update all developer tools"
+steps = [
+  "update-dotfiles",
+  "update-homebrew",
+  "update-node",
+  "update-pnpm",
+  "update-python",
+  "update-amp",
+  "update-claude",
+  "update-agent-skills",
+]
+
+[[tasks]]
+name = "update-dotfiles"
+description = "Update dotfiles"
+check = "chezmoi"
+run = ["chezmoi update --force"]
+
+[[tasks]]
+name = "update-homebrew"
+description = "Update Homebrew packages"
+check = "brew"
+run = [
+  "brew update",
+  "brew upgrade",
+  "brew cleanup",
+]
+
+[[tasks]]
+name = "update-node"
+description = "Update Node.js (LTS) via nodenv"
+check = "nodenv"
+run = ["""
+set -e
+node_index=$(curl -fsSL https://nodejs.org/dist/index.tab)
+latest_lts=$(printf '%s\n' "$node_index" | awk 'NR > 1 && $10 != "-" {gsub(/^v/, "", $1); print $1; exit}')
+if [ -z "$latest_lts" ]; then
+  echo "Failed to resolve latest LTS Node.js version"
+  exit 1
+fi
+echo "Installing Node.js $latest_lts via nodenv..."
+nodenv install -s "$latest_lts"
+echo "Setting global Node.js version to $latest_lts..."
+nodenv global "$latest_lts"
+nodenv rehash
+echo "Enabling corepack..."
+corepack enable
+"""]
+
+[[tasks]]
+name = "update-pnpm"
+description = "Update pnpm global packages"
+check = "pnpm"
+run = ["pnpm update -g --latest --dangerously-allow-all-builds"]
+
+[[tasks]]
+name = "update-python"
+description = "Update Python (with uv)"
+check = "uv"
+run = [
+  "uv python install --default",
+  "uv python upgrade",
+]
+
+[[tasks]]
+name = "update-amp"
+description = "Update Amp"
+check = "amp"
+run = ["amp update"]
+
+[[tasks]]
+name = "update-claude"
+description = "Update Claude Code"
+check = "claude"
+run = ["claude update"]
+
+[[tasks]]
+name = "update-agent-skills"
+description = "Update global agent skills"
+run = ["npx skills update -g"]
+
+{{- if eq .machine "work" }}
+
+[[tasks]]
+name = "bklogin"
+description = "Log in to Booking.com"
+steps = ["bklogin-ssh", "bklogin-auth"]
+
+[[tasks]]
+name = "bklogin-ssh"
+description = "SSH to Booking.com"
+interactive = true
+run = ["ssh -A ssh.booking.com"]
+
+[[tasks]]
+name = "bklogin-auth"
+description = "Authenticate with bk CLI"
+interactive = true
+run = ["bk auth:login --skip-okta-auth"]
+
+{{- end }}

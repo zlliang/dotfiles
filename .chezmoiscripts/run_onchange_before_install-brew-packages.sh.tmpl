@@ -20,13 +20,14 @@ brew "zoxide"
 brew "gh"
 brew "fastfetch"
 brew "hyperfine"
+{{ if eq .machine "work" -}}
+brew "googleworkspace-cli"
+{{ end -}}
 
 # System utilities
 brew "chezmoi"
 brew "mole"
-{{ if eq .machine "work" -}}
-brew "googleworkspace-cli"
-{{ end -}}
+brew "zlliang/tap/chore"
 
 # Desktop apps
 cask "ghostty"
