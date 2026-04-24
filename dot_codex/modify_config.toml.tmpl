@@ -17,7 +17,7 @@ existing = sys.stdin.read().strip()
 data = tomlkit.loads(existing) if existing else tomlkit.document()
 
 # Sync shared configs
-data["model"] = "gpt-5.4"
+data["model"] = "gpt-5.5"
 data["model_reasoning_effort"] = "high"
 
 # Use tomlkit.table() instead of plain dict to render as [sections], not inline tables
@@ -25,6 +25,13 @@ features = data.setdefault("features", tomlkit.table())
 features["memories"] = True
 if "features" not in data:
     data["features"] = features
+
+plugins = data.setdefault("plugins", tomlkit.table())
+for name in ("computer-use@openai-bundled", "browser-use@openai-bundled"):
+    plug = plugins.setdefault(name, tomlkit.table())
+    plug["enabled"] = True
+    if name not in plugins:
+        plugins[name] = plug
 
 # Sync work-specific MCP servers
 {{- if eq .machine "work" }}
