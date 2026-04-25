@@ -18,7 +18,7 @@ data = tomlkit.loads(existing) if existing else tomlkit.document()
 
 # Sync shared configs
 data["model"] = "gpt-5.5"
-data["model_reasoning_effort"] = "high"
+data["model_reasoning_effort"] = "medium"
 
 # Use tomlkit.table() instead of plain dict to render as [sections], not inline tables
 features = data.setdefault("features", tomlkit.table())
