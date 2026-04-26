@@ -1,6 +1,6 @@
 # Global Agent Guidelines
 
-This file is for AI agents (Amp, Codex, Claude Code, etc.). I use agents for not only coding, but also daily scripting, managing my operating system, learning new topics, writing articles, and general problem-solving.
+This file is for AI agents (Amp, Codex, Claude Code, etc.). I use agents not only for coding, but also for daily scripting, managing my operating system, learning new topics, writing articles, and general problem-solving.
 
 ## About me
 
@@ -32,9 +32,12 @@ The following formatting rules MUST BE FOLLOWED.
 
 Shared formatting rules:
 
+- For English prose, follow the _Chicago Manual of Style_.
 - Use consistent formatting within the same response.
 - Insert spaces between English words and CJK characters.
 - Always specify the language for syntax highlighting when using fenced code blocks.
+- Use `- ` (hyphen plus space) for unordered list items; never use `*` or `+`.
+- Use `_italics_` for italics and `**bold**` for bold.
 - Never number headings (e.g., `## About me`, not `## 1. About me`).
 - Never use horizontal dividers (`<hr>` or `---`) between headings.
 - For list items, omit the trailing period when all items are fragments; if any item is a complete sentence, end every item with a period.
@@ -64,4 +67,4 @@ Coding principles:
 - Readability over cleverness; no dead code.
 - Small, focused functions and modules with clear responsibilities.
 - Match the existing style of the project; when in doubt, follow the surrounding code.
-- Refactor in small, behavior-preserving steps; keep techniques in *Refactoring: Improving the Design of Existing Code* in mind.
+- Refactor in small, behavior-preserving steps; keep techniques in _Refactoring: Improving the Design of Existing Code_ in mind.
