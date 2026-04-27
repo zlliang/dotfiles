@@ -5,7 +5,7 @@
   "env": {
     {{- if eq .machine "work" }}
     "ANTHROPIC_BASE_URL": "https://gen-ai.prod.booking.com/anthropic/claude_code/",
-    "ANTHROPIC_DEFAULT_OPUS_MODEL": "ml-asset:static-model/claude-opus-4-6",
+    "ANTHROPIC_DEFAULT_OPUS_MODEL": "ml-asset:static-model/claude_opus_latest",
     "ANTHROPIC_DEFAULT_SONNET_MODEL": "ml-asset:static-model/claude-sonnet-4-6",
     "ANTHROPIC_DEFAULT_HAIKU_MODEL": "ml-asset:static-model/claude-haiku-4-5",
     {{- else }}
