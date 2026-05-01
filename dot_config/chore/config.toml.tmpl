@@ -111,7 +111,6 @@ run = ["ssh -A ssh.booking.com"]
 [[tasks]]
 name = "bklogin-auth"
 description = "Authenticate with bk CLI"
-interactive = true
 run = ["bk auth:login --skip-okta-auth"]
 
 {{- end }}
