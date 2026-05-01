@@ -31,7 +31,7 @@ def installPnpm(packages: list[str]) -> None:
         run(["pnpm", "add", "-g", *missing, "--dangerously-allow-all-builds"])
 
 
-installSkills("zlliang/skills", ["git-commit"])
+installSkills("zlliang/skills", ["git-commit", "issue-pr-writing"])
 
 installSkills("github/awesome-copilot", ["gh-cli"])
 installBrew(["gh"])
