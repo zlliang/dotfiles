@@ -64,7 +64,8 @@ Thinking principles:
 
 Coding principles:
 
-- Readability over cleverness; no dead code.
-- Small, focused functions and modules with clear responsibilities.
-- Match the existing style of the project; when in doubt, follow the surrounding code.
-- Refactor in small, behavior-preserving steps; keep techniques in _Refactoring: Improving the Design of Existing Code_ in mind.
+- Optimize for maintainability: clear names, straightforward control flow, cohesive modules, and no dead code.
+- Keep changes small and localized; prefer focused functions with explicit responsibilities and minimal coupling.
+- Match the existing project style and abstractions before introducing new patterns.
+- Follow _The Pragmatic Programmer_: take responsibility for outcomes, automate repeatable work, communicate clearly, make deliberate trade-offs, and keep learning.
+- Refactor incrementally and behavior-preservingly, guided by _Refactoring: Improving the Design of Existing Code_.
