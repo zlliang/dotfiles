@@ -26,7 +26,14 @@ features["memories"] = True
 if "features" not in data:
     data["features"] = features
 
-allowed_plugins = ("computer-use@openai-bundled", "browser-use@openai-bundled", "chrome@openai-bundled")
+allowed_plugins = (
+    "computer-use@openai-bundled",
+    "browser@openai-bundled",
+    "chrome@openai-bundled",
+    "documents@openai-primary-runtime",
+    "spreadsheets@openai-primary-runtime",
+    "presentations@openai-primary-runtime"
+)
 plugins = data.setdefault("plugins", tomlkit.table())
 for name in list(plugins):
     if name not in allowed_plugins:
