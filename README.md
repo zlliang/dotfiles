@@ -46,9 +46,9 @@ Personal dotfiles and development environment for macOS, managed by [chezmoi](ht
 
 ### Coding agents
 
-- **[Amp](https://ampcode.com/)**: my primary coding agent ([profile](https://ampcode.com/@zlliang))
-- **[Codex](https://openai.com/codex)**: CLI and standalone app, via ChatGPT Plus
-- **[Claude Code](https://claude.com/product/claude-code)**: CLI only, via my company's API gateway (work laptop) and [Vercel AI Gateway](https://vercel.com/ai-gateway) (personal laptop)
+- **[Amp](https://ampcode.com/)**: CLI; my primary coding agent ([profile](https://ampcode.com/@zlliang))
+- **[Codex](https://openai.com/codex)**: macOS app, via ChatGPT Plus
+- **[Claude Code](https://claude.com/product/claude-code)**: CLI, via my company's API gateway (work laptop) and [Vercel AI Gateway](https://vercel.com/ai-gateway) (personal laptop)
 
 ### Configuration
 
