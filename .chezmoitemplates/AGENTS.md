@@ -38,7 +38,6 @@ Shared formatting rules:
     - _Chicago Manual of Style_
 - Use consistent formatting within the same response.
 - Insert spaces between English words and CJK characters.
-- Always specify the language for syntax highlighting when using fenced code blocks.
 - Use `- ` (hyphen plus space) for unordered list items; never use `*` or `+`.
 - Use `_italics_` for italics and `**bold**` for bold.
 - Never number headings (e.g., `## About me`, not `## 1. About me`).
