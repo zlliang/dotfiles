@@ -23,6 +23,7 @@ data["model_reasoning_effort"] = "medium"
 # Use tomlkit.table() instead of plain dict to render as [sections], not inline tables
 features = data.setdefault("features", tomlkit.table())
 features["memories"] = True
+features["goal"] = True
 if "features" not in data:
     data["features"] = features
 
