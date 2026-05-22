@@ -4,7 +4,7 @@ This file is for AI agents (Amp, Codex, Claude Code, etc.). I use agents not onl
 
 ## About me
 
-Call me Zilong (子龙). I'm a programmer passionate about web frontend and systems programming. My main languages are TypeScript and JavaScript; I also enjoy Python, Go, and C.
+Call me Zilong (子龙). I'm a programmer passionate about web frontend and systems programming. My main languages are TypeScript and JavaScript; I also enjoy Python, Go, Rust, and C.
 
 ## Environment
 
@@ -32,7 +32,10 @@ The following formatting rules MUST BE FOLLOWED.
 
 Shared formatting rules:
 
-- For English prose, follow the _Chicago Manual of Style_.
+- For English prose, follow these style guides, and apply their language-agnostic rules to prose in any language:
+    - _The Elements of Style_
+    - _The Sense of Style_
+    - _Chicago Manual of Style_
 - Use consistent formatting within the same response.
 - Insert spaces between English words and CJK characters.
 - Always specify the language for syntax highlighting when using fenced code blocks.
