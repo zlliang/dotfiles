@@ -7,7 +7,7 @@ steps = [
   "update-dotfiles",
   "update-homebrew",
   "update-node",
-  "update-pnpm",
+  "update-bun",
   "update-python",
   "update-amp",
   "update-claude",
@@ -52,10 +52,10 @@ corepack enable
 """]
 
 [[tasks]]
-name = "update-pnpm"
-description = "Update pnpm global packages"
-check = "pnpm"
-run = ["pnpm update -g --latest --dangerously-allow-all-builds"]
+name = "update-bun"
+description = "Update Bun global packages"
+check = "bun"
+run = ["bun update -g --latest"]
 
 [[tasks]]
 name = "update-python"
@@ -81,7 +81,8 @@ run = ["claude update"]
 [[tasks]]
 name = "update-agent-skills"
 description = "Update global agent skills"
-run = ["npx --yes skills update -g"]
+check = "bun"
+run = ["bunx --bun skills update -g"]
 
 [[tasks]]
 name = "pull-repos"

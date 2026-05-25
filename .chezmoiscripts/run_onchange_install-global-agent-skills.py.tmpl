@@ -23,21 +23,28 @@ def installBrew(packages: list[str]) -> None:
         run(["brew", "install", *missing])
 
 
-def installPnpm(packages: list[str]) -> None:
-    installed = subprocess.run(["pnpm", "list", "-g", "--depth=0", "--parseable"], capture_output=True, text=True).stdout.splitlines()
-    installedNames = {line.rsplit("/", 1)[-1] for line in installed if line}
+def bunPackageName(line: str) -> str | None:
+    name = line.strip().removeprefix("├── ").removeprefix("└── ").split(" ", 1)[0]
+    if not name or name.startswith("/"):
+        return None
+    if name.startswith("@"):
+        return name.rsplit("@", 1)[0]
+    return name.split("@", 1)[0]
+
+
+def installBun(packages: list[str]) -> None:
+    installed = subprocess.run(["bun", "list", "-g"], capture_output=True, text=True).stdout.splitlines()
+    installedNames = {name for line in installed if (name := bunPackageName(line))}
     missing = [p for p in packages if p not in installedNames]
     if missing:
-        run(["pnpm", "add", "-g", *missing, "--dangerously-allow-all-builds"])
+        run(["bun", "add", "-g", "--ignore-scripts", *missing])
 
 
-installSkills("zlliang/skills", ["git-commit", "issue-pr-writing"])
-
-installSkills("github/awesome-copilot", ["gh-cli"])
+installSkills("zlliang/skills", ["gh-cli", "git-commit", "issue-pr-writing"])
 installBrew(["gh"])
 
 installSkills("vercel-labs/agent-browser", ["agent-browser"])
-installPnpm(["agent-browser"])
+installBun(["agent-browser"])
 run(["agent-browser", "install"])
 
 {{ if eq .machine "work" -}}
