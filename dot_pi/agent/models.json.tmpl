@@ -4,7 +4,7 @@
     "booking-genai": {
       "baseUrl": "https://gen-ai.prod.booking.com/anthropic/claude_code/",
       "api": "anthropic-messages",
-      "apiKey": "!bkt --ttl=1m -- (bk auth:issue-token || (bk auth:login --skip-okta-auth > /dev/null 2>&1 && bk auth:issue-token))",
+      "apiKey": "!bkt --ttl=1m -- bash -c 'bk auth:issue-token || { bk auth:login --skip-okta-auth >/dev/null 2>&1 && bk auth:issue-token; }'",
       "models": [
         {
           "id": "ml-asset:static-model/claude-opus-4-7",
