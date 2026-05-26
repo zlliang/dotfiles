@@ -1,6 +1,6 @@
 # Global Agent Guidelines
 
-This file is for AI agents (Amp, Codex, Claude Code, etc.). I use agents not only for coding, but also for daily scripting, managing my operating system, learning new topics, writing articles, and general problem-solving.
+This file is for AI agents (Amp, Pi, Codex, etc.). I use agents not only for coding, but also for daily scripting, managing my operating system, learning new topics, writing articles, and general problem-solving.
 
 ## About me
 
@@ -15,6 +15,7 @@ Call me Zilong (子龙). I'm a programmer passionate about web frontend and syst
     - Main code editor: VS Code
     - JS/TS: Node.js, Bun, pnpm
     - Python: uv
+- **MCP**: Coding agents usually do not have MCP servers configured directly. Instead, MCP servers are managed with [MCPorter](https://github.com/openclaw/mcporter). When external tools or platforms are needed, such as web fetch, web search, GitLab, Sourcegraph, etc., check MCPorter first for available tools when no built-in tool is available. Load the `mcporter` skill for usage instructions.
 
 ## Communication
 

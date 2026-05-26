@@ -12,7 +12,7 @@ def run(cmd: list[str]) -> None:
 
 
 def installSkills(repo: str, skills: list[str] | None = None) -> None:
-    agents = ["amp", "codex", "claude-code"]
+    agents = ["codex"]  # Only `~/.agents/skills`
     run(["npx", "skills", "add", repo, *(["--skill", *skills] if skills else []), "-g", "-y", "-a", *agents])
 
 
@@ -46,6 +46,9 @@ installBrew(["gh"])
 installSkills("vercel-labs/agent-browser", ["agent-browser"])
 installBun(["agent-browser"])
 run(["agent-browser", "install"])
+
+installSkills("steipete/clawdis", ["mcporter"])
+installBun(["mcporter"])
 
 {{ if eq .machine "work" -}}
 installSkills("googleworkspace/cli", [

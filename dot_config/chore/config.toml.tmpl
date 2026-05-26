@@ -10,7 +10,7 @@ steps = [
   "update-bun",
   "update-python",
   "update-amp",
-  "update-claude",
+  "update-pi",
   "update-agent-skills",
 ]
 
@@ -73,10 +73,10 @@ check = "amp"
 run = ["amp update"]
 
 [[tasks]]
-name = "update-claude"
-description = "Update Claude Code"
-check = "claude"
-run = ["claude update"]
+name = "update-pi"
+description = "Update Pi and its packages"
+check = "pi"
+run = ["pi update"]
 
 [[tasks]]
 name = "update-agent-skills"
