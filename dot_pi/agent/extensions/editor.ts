@@ -5,18 +5,27 @@ import type { Model } from "@earendil-works/pi-ai";
 import type { ExtensionContext, ExtensionAPI, KeybindingsManager } from "@earendil-works/pi-coding-agent";
 import type { TUI, EditorTheme } from "@earendil-works/pi-tui";
 
-const SPINNER_FRAMES = ["⠋", "⠙", "⠚", "⠞", "⠖", "⠦", "⠴", "⠲", "⠳", "⠓"];
-const SPINNER_INTERVAL = 100;
+const SPINNER_FRAMES = ["○○○○", "●○○○", "○●○○", "○○●○", "○○○●", "●●○○", "●○●○", "●○○●", "○●●○", "○●○●", "○○●●", "●●●○", "●●○●", "●○●●", "○●●●", "●●●●"];
+const SPINNER_MIN_INTERVAL = 100;
+const SPINNER_MAX_INTERVAL = 200;
 
 function formatModel(model: Model<any> | undefined, thinkingLevel: string): string {
 	return model ? `${model.provider} • ${model.id} • ${thinkingLevel}` : "no-model";
 }
 
+function randomSpinnerFrame(): string {
+	return SPINNER_FRAMES[Math.floor(Math.random() * SPINNER_FRAMES.length)];
+}
+
+function randomSpinnerInterval(): number {
+	return SPINNER_MIN_INTERVAL + Math.floor(Math.random() * (SPINNER_MAX_INTERVAL - SPINNER_MIN_INTERVAL + 1));
+}
+
 class EditorState {
 	private tui: TUI | undefined;
 	private working: boolean = false;
-	private spinnerFrame: number = 0;
-	private spinnerTimer: ReturnType<typeof setInterval> | undefined;
+	private spinnerText: string = randomSpinnerFrame();
+	private spinnerTimer: ReturnType<typeof setTimeout> | undefined;
 
 	setTUI(tui: TUI): void {
 		this.tui = tui;
@@ -27,7 +36,7 @@ class EditorState {
 	}
 
 	getSpinnerText(): string {
-		return SPINNER_FRAMES[this.spinnerFrame];
+		return this.spinnerText;
 	}
 
 	dispose(): void {
@@ -39,19 +48,29 @@ class EditorState {
 		this.stopSpinner();
 
 		this.working = true;
-		this.spinnerTimer = setInterval(() => {
-			this.spinnerFrame = (this.spinnerFrame + 1) % SPINNER_FRAMES.length;
-			this.requestRender();
-		}, SPINNER_INTERVAL);
+		this.spinnerText = randomSpinnerFrame();
 
 		this.requestRender();
+		this.scheduleSpinnerTick();
+	}
+
+	private scheduleSpinnerTick(): void {
+		if (!this.working) return;
+
+		this.spinnerTimer = setTimeout(() => {
+			if (!this.working) return;
+			this.spinnerText = randomSpinnerFrame();
+
+			this.requestRender();
+			this.scheduleSpinnerTick();
+		}, randomSpinnerInterval());
 	}
 
 	stopSpinner(): void {
 		this.working = false;
-		this.spinnerFrame = 0;
+
 		if (this.spinnerTimer) {
-			clearInterval(this.spinnerTimer);
+			clearTimeout(this.spinnerTimer);
 			this.spinnerTimer = undefined;
 		}
 
@@ -92,7 +111,7 @@ class Editor extends CustomEditor {
 
 		const theme = this.ctx.ui.theme;
 
-		const left = this.editorState.isWorking() ? ` ${theme.fg("accent", this.editorState.getSpinnerText())} ` : "";
+		const left = this.editorState.isWorking() ? ` ${theme.fg("success", this.editorState.getSpinnerText())} ` : "";
 		const right = theme.fg("dim", ` ${formatModel(this.ctx.model, this.pi.getThinkingLevel())} `);
 
 		const contentWidth = width - 2;
