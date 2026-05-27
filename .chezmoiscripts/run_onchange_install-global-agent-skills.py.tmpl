@@ -40,7 +40,12 @@ def installBun(packages: list[str]) -> None:
         run(["bun", "add", "-g", "--ignore-scripts", *missing])
 
 
-installSkills("zlliang/skills", ["gh-cli", "git-commit", "issue-pr-writing"])
+installSkills("zlliang/skills", [
+    "gh-cli",
+    "git-commit",
+    "issue-pr-writing",
+    "web-access"
+])
 installBrew(["gh"])
 
 installSkills("vercel-labs/agent-browser", ["agent-browser"])
