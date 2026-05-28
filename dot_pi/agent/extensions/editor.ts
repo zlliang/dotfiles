@@ -6,8 +6,8 @@ import type { ExtensionContext, ExtensionAPI, KeybindingsManager } from "@earend
 import type { TUI, EditorTheme } from "@earendil-works/pi-tui";
 
 const SPINNER_FRAMES = ["○○○○", "●○○○", "○●○○", "○○●○", "○○○●", "●●○○", "●○●○", "●○○●", "○●●○", "○●○●", "○○●●", "●●●○", "●●○●", "●○●●", "○●●●", "●●●●"];
-const SPINNER_MIN_INTERVAL = 100;
-const SPINNER_MAX_INTERVAL = 200;
+const SPINNER_MIN_INTERVAL_MS = 100;
+const SPINNER_MAX_INTERVAL_MS = 200;
 
 function formatModel(model: Model<any> | undefined, thinkingLevel: string): string {
 	return model ? `${model.provider} • ${model.id} • ${thinkingLevel}` : "no-model";
@@ -18,7 +18,7 @@ function randomSpinnerFrame(): string {
 }
 
 function randomSpinnerInterval(): number {
-	return SPINNER_MIN_INTERVAL + Math.floor(Math.random() * (SPINNER_MAX_INTERVAL - SPINNER_MIN_INTERVAL + 1));
+	return SPINNER_MIN_INTERVAL_MS + Math.floor(Math.random() * (SPINNER_MAX_INTERVAL_MS - SPINNER_MIN_INTERVAL_MS + 1));
 }
 
 class EditorState {
