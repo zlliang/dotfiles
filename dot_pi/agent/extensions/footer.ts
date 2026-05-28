@@ -1,49 +1,26 @@
 import { isAbsolute, relative, resolve, sep } from "node:path";
 import { truncateToWidth, visibleWidth } from "@earendil-works/pi-tui";
 
+import { UsageConsumer } from "./utils/usage";
+
 import type { ExtensionContext, ExtensionAPI, ReadonlyFooterDataProvider, Theme } from "@earendil-works/pi-coding-agent";
 import type { Component } from "@earendil-works/pi-tui";
+import type { UsageSnapshotEvent } from "./constants/events";
 
 // Some of the following logic is adapted from Pi's default footer implementation:
 // https://github.com/earendil-works/pi/blob/main/packages/coding-agent/src/modes/interactive/components/footer.ts
-
-/** Replace newlines, tabs, carriage returns with space, then collapse multiple spaces */
-function sanitizeStatusText(text: string): string {
-	return text
-		.replace(/[\r\n\t]/g, " ")
-		.replace(/ +/g, " ")
-		.trim();
-}
-
-function formatTokens(count: number): string {
-	if (count < 1_000) return count.toString();
-	if (count < 10_000) return `${(count / 1_000).toFixed(1)}K`;
-	if (count < 1_000_000) return `${Math.round(count / 1_000)}K`;
-	if (count < 10_000_000) return `${(count / 1_000_000).toFixed(1)}M`;
-	return `${Math.round(count / 1_000_000)}M`;
-}
-
-function formatCwd(cwd: string, home?: string): string {
-	if (!home) return cwd;
-
-	const resolvedCwd = resolve(cwd);
-	const resolvedHome = resolve(home);
-	const relativeToHome = relative(resolvedHome, resolvedCwd);
-	const isInsideHome = relativeToHome === "" || (relativeToHome !== ".." && !relativeToHome.startsWith(`..${sep}`) && !isAbsolute(relativeToHome));
-	if (!isInsideHome) return cwd;
-
-	return relativeToHome === "" ? "~" : `~${sep}${relativeToHome}`;
-}
 
 class FooterComponent implements Component {
 	private ctx: ExtensionContext;
 	private theme: Theme;
 	private footerData: ReadonlyFooterDataProvider;
+	private getUsageSnapshot: () => UsageSnapshotEvent | undefined;
 
-	constructor(ctx: ExtensionContext, theme: Theme, footerData: ReadonlyFooterDataProvider) {
+	constructor(ctx: ExtensionContext, theme: Theme, footerData: ReadonlyFooterDataProvider, getUsageSnapshot: () => UsageSnapshotEvent | undefined) {
 		this.ctx = ctx;
 		this.theme = theme;
 		this.footerData = footerData;
+		this.getUsageSnapshot = getUsageSnapshot;
 	}
 
 	invalidate(): void {
@@ -94,12 +71,9 @@ class FooterComponent implements Component {
 
 	private getCost(): string {
 		const usingSubscription = this.ctx.model ? this.ctx.modelRegistry.isUsingOAuth(this.ctx.model) : false;
-		const totalCost = this.ctx.sessionManager.getEntries().reduce((cost, entry) => {
-			if (!(entry.type === "message" && entry.message.role === "assistant")) return cost;
-			return cost + entry.message.usage.cost.total;
-		}, 0);
+		const totalCost = this.getUsageSnapshot()?.total.cost.total ?? 0;
 
-		return this.theme.fg("dim", `$${totalCost.toFixed(3)}${usingSubscription ? " (sub)" : ""}`);
+		return this.theme.fg("dim", `$${totalCost.toFixed(2)}${usingSubscription ? " (sub)" : ""}`);
 	}
 
 	private getContextUsage(): string {
@@ -133,10 +107,46 @@ class FooterComponent implements Component {
 	}
 }
 
+/** Replace newlines, tabs, carriage returns with space, then collapse multiple spaces */
+function sanitizeStatusText(text: string): string {
+	return text
+		.replace(/[\r\n\t]/g, " ")
+		.replace(/ +/g, " ")
+		.trim();
+}
+
+function formatTokens(count: number): string {
+	if (count < 1_000) return count.toString();
+	if (count < 10_000) return `${(count / 1_000).toFixed(1)}K`;
+	if (count < 1_000_000) return `${Math.round(count / 1_000)}K`;
+	if (count < 10_000_000) return `${(count / 1_000_000).toFixed(1)}M`;
+	return `${Math.round(count / 1_000_000)}M`;
+}
+
+function formatCwd(cwd: string, home?: string): string {
+	if (!home) return cwd;
+
+	const resolvedCwd = resolve(cwd);
+	const resolvedHome = resolve(home);
+	const relativeToHome = relative(resolvedHome, resolvedCwd);
+	const isInsideHome = relativeToHome === "" || (relativeToHome !== ".." && !relativeToHome.startsWith(`..${sep}`) && !isAbsolute(relativeToHome));
+	if (!isInsideHome) return cwd;
+
+	return relativeToHome === "" ? "~" : `~${sep}${relativeToHome}`;
+}
+
 export default function (pi: ExtensionAPI) {
+	const usageConsumer = new UsageConsumer(pi);
+
 	pi.on("session_start", (_event, ctx) => {
+		usageConsumer.subscribe();
+
 		if (!ctx.hasUI) return;
 
-		ctx.ui.setFooter((_tui, theme, footerData) => new FooterComponent(ctx, theme, footerData));
+		ctx.ui.setFooter((_tui, theme, footerData) => new FooterComponent(ctx, theme, footerData, () => usageConsumer.snapshot));
+	});
+
+	pi.on("session_shutdown", () => {
+		usageConsumer.unsubscribe();
 	});
 }

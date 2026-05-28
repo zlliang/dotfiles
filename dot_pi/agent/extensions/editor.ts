@@ -9,10 +9,6 @@ const SPINNER_FRAMES = ["○○○○", "●○○○", "○●○○", "○○�
 const SPINNER_MIN_INTERVAL_MS = 120;
 const SPINNER_MAX_INTERVAL_MS = 240;
 
-function formatModel(model: Model<any> | undefined, thinkingLevel: string): string {
-	return model ? `${model.provider} • ${model.id} • ${thinkingLevel}` : "no-model";
-}
-
 class Spinner {
 	private tui: TUI | undefined;
 	private working: boolean = false;
@@ -136,6 +132,10 @@ class Editor extends CustomEditor {
 	private wrapTopBorder(text: string): string {
 		return `${this.borderColor("─")}${text}${this.borderColor("─")}`
 	}
+}
+
+function formatModel(model: Model<any> | undefined, thinkingLevel: string): string {
+	return model ? `${model.provider} • ${model.id} • ${thinkingLevel}` : "no-model";
 }
 
 export default function (pi: ExtensionAPI) {
