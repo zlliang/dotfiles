@@ -11,6 +11,7 @@ steps = [
   "update-python",
   "update-amp",
   "update-pi",
+  "update-pi-extensions-workspace",
   "update-agent-skills",
 ]
 
@@ -77,6 +78,15 @@ name = "update-pi"
 description = "Update Pi and its packages"
 check = "pi"
 run = ["pi update"]
+
+[[tasks]]
+name = "update-pi-extensions-workspace"
+description = "Update Pi extensions workspace"
+check = "npm"
+run = ["""
+cd ~/.pi/agent/extensions
+npm update
+"""]
 
 [[tasks]]
 name = "update-agent-skills"

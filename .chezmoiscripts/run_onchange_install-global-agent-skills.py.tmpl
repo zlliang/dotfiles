@@ -1,14 +1,19 @@
-#!/usr/bin/env -S uv run --quiet --script
-"""chezmoi script for installing global agent skills."""
-# /// script
-# ///
+#!/usr/bin/env python3
 
+import shutil
 import subprocess
+from pathlib import Path
 
 
 def run(cmd: list[str]) -> None:
     print(f"$ {' '.join(cmd)}")
     subprocess.run(cmd, check=True)
+
+
+def resetAgentsDirectory() -> None:
+    agentsDir = Path.home() / ".agents"
+    print(f"Removing {agentsDir}")
+    shutil.rmtree(agentsDir, ignore_errors=True)
 
 
 def installSkills(repo: str, skills: list[str] | None = None) -> None:
@@ -39,6 +44,8 @@ def installBun(packages: list[str]) -> None:
     if missing:
         run(["bun", "add", "-g", "--ignore-scripts", *missing])
 
+
+resetAgentsDirectory()
 
 installSkills("zlliang/skills", [
     "gh-cli",
