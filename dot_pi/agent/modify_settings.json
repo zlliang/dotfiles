@@ -17,6 +17,9 @@ settings["theme"] = existing.get("theme") or "light"
 # Packages
 settings["packages"] = ["npm:pi-system-theme", "git:github.com/zlliang/pi-spark"]
 
+# Terminal
+settings["terminal"] = {"clearOnShrink": True}
+
 # Model
 for key in ["defaultProvider", "defaultModel", "defaultThinkingLevel"]:
     if key in existing:
