@@ -1,7 +1,0 @@
-{
-  "recap": {
-    "provider": "openai-codex",
-    "model": "gpt-5.4-mini",
-    "thinkingLevel": "off"
-  }
-}

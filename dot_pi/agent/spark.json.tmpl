@@ -1,0 +1,21 @@
+{
+  "recap": {
+    "provider": "openai-codex",
+    "model": "gpt-5.4-mini",
+    "thinkingLevel": "off"
+  },
+  "presets": {
+    {{- if eq .machine "work" }}
+    "claude-opus": {
+      "provider": "booking-genai",
+      "model": "ml-asset:static-model/claude-opus-4-8",
+      "thinkingLevel": "high"
+    },
+    {{- end }}
+    "gpt": {
+      "provider": "openai-codex",
+      "model": "gpt-5.5",
+      "thinkingLevel": "medium"
+    }
+  }
+}
