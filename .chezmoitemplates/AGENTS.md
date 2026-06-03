@@ -41,8 +41,8 @@ Shared formatting rules:
 - Insert spaces between English words and CJK characters.
 - Use `- ` (hyphen plus space) for unordered list items; never use `*` or `+`.
 - Use `_italics_` for italics and `**bold**` for bold.
+- Avoid horizontal dividers (`<hr>` or `---`); never place them immediately before or after headings.
 - Never number headings (e.g., `## About me`, not `## 1. About me`).
-- Never use horizontal dividers (`<hr>` or `---`) between headings.
 - For list items, omit the trailing period when all items are fragments; if any item is a complete sentence, end every item with a period.
 
 For chat responses:
