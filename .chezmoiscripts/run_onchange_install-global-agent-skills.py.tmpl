@@ -18,7 +18,7 @@ def resetAgentsDirectory() -> None:
 
 def installSkills(repo: str, skills: list[str] | None = None) -> None:
     agents = ["codex"]  # Only `~/.agents/skills`
-    run(["npx", "skills", "add", repo, *(["--skill", *skills] if skills else []), "-g", "-y", "-a", *agents])
+    run(["npx", "-y", "skills", "add", repo, *(["--skill", *skills] if skills else []), "-g", "-y", "-a", *agents])
 
 
 def installBrew(packages: list[str]) -> None:
