@@ -1,6 +1,7 @@
 theme = light:GitHub Light Default,dark:GitHub Dark Default
 
 font-family = "Monaspace Neon Var"
+font-family = "PingFang SC"
 font-size = 13
 font-thicken = true
 font-thicken-strength = 3
