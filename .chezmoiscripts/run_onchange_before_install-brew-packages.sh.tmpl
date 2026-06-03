@@ -1,4 +1,3 @@
-{{- if eq .chezmoi.os "darwin" -}}
 #!/bin/bash
 
 brew bundle --file=/dev/stdin <<EOF
@@ -20,9 +19,9 @@ brew "zoxide"
 brew "gh"
 brew "fastfetch"
 brew "hyperfine"
-{{ if eq .machine "work" -}}
+{{- if eq .machine "work" }}
 brew "googleworkspace-cli"
-{{ end -}}
+{{- end }}
 
 # System utilities
 brew "chezmoi"
@@ -38,4 +37,3 @@ cask "keka"
 cask "orbstack"
 cask "postman"
 EOF
-{{- end -}}

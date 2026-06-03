@@ -50,8 +50,7 @@ resetAgentsDirectory()
 installSkills("zlliang/skills", [
     "gh-cli",
     "git-commit",
-    "issue-pr-writing",
-    "web-access"
+    "issue-writing"
 ])
 installBrew(["gh"])
 
@@ -62,7 +61,7 @@ run(["agent-browser", "install"])
 installSkills("steipete/clawdis", ["mcporter"])
 installBun(["mcporter"])
 
-{{ if eq .machine "work" -}}
+{{- if eq .machine "work" }}
 installSkills("googleworkspace/cli", [
     "gws-shared", "gws-admin-reports",
     "gws-calendar", "gws-calendar-agenda", "gws-calendar-insert",
@@ -73,4 +72,4 @@ installSkills("googleworkspace/cli", [
     "gws-slides",
     "gws-forms",
 ])
-{{ end -}}
+{{- end }}
