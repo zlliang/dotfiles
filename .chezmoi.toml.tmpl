@@ -1,7 +1,9 @@
 {{- $machine := promptStringOnce . "machine" "Machine type (personal/work)" "personal" }}
 {{- $workEmail := "" }}
+{{- $gitlabNamespace := "" }}
 {{- if eq $machine "work" }}
 {{-   $workEmail = promptStringOnce . "workEmail" "Work email address" }}
+{{-   $gitlabNamespace = promptStringOnce . "gitlabNamespace" "GitLab namespace" }}
 {{- end -}}
 
 sourceDir = "~/Workspace/github/zlliang/dotfiles"
@@ -9,3 +11,4 @@ sourceDir = "~/Workspace/github/zlliang/dotfiles"
 [data]
 machine = {{ $machine | quote }}
 workEmail = {{ $workEmail | quote }}
+gitlabNamespace = {{ $gitlabNamespace | quote }}

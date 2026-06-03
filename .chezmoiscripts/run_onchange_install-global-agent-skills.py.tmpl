@@ -47,11 +47,7 @@ def installBun(packages: list[str]) -> None:
 
 resetAgentsDirectory()
 
-installSkills("zlliang/skills", [
-    "gh-cli",
-    "git-commit",
-    "issue-writing"
-])
+installSkills("zlliang/skills")
 installBrew(["gh"])
 
 installSkills("vercel-labs/agent-browser", ["agent-browser"])
@@ -62,6 +58,8 @@ installSkills("steipete/clawdis", ["mcporter"])
 installBun(["mcporter"])
 
 {{- if eq .machine "work" }}
+installSkills("git@gitlab.com:{{ .gitlabNamespace }}/skills")
+
 installSkills("googleworkspace/cli", [
     "gws-shared", "gws-admin-reports",
     "gws-calendar", "gws-calendar-agenda", "gws-calendar-insert",
