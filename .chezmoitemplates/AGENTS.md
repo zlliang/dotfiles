@@ -8,14 +8,20 @@ Call me Zilong (子龙). I'm a programmer passionate about web frontend and syst
 
 ## Environment
 
-- OS: macOS (arm64), occasionally Linux VMs — always check the environment before running platform-specific commands (for example, run `bash -lc 'compgen -c | sort -u'` to get all available commands)
-- Shell: fish (interactive), bash (scripting)
-- Tooling:
+- **OS**:
+    - macOS (arm64), occasionally Linux VMs
+    - Always check the environment before running platform-specific commands. For example, run `bash -lc 'compgen -c | sort -u'` to get all available commands.
+- **Shell**: fish (interactive), bash (scripting)
+- **Tooling**:
     - System utilities: Homebrew, ripgrep, fd, etc.
     - Main code editor: VS Code
     - JS/TS: Node.js, Bun, pnpm
     - Python: uv
-- **MCP**: Coding agents usually do not have MCP servers configured directly. Instead, MCP servers are managed with [MCPorter](https://github.com/openclaw/mcporter). When external tools or platforms are needed, such as web fetch, web search, GitLab, Sourcegraph, etc., check MCPorter first for available tools when no built-in tool is available. Load the `mcporter` skill for usage instructions.
+- **Web access**: Prefer built-in web access tools. The following approaches are typically available too. Remember to pick the lightest sufficient route.
+    - curl: read a known simple public URL, such as raw text, JSON, Markdown, or simple HTML.
+    - Exa MCP: search the public web; fetch, extract, or summarize a public page.
+    - agent-browser: interact with a website: click, type, navigate, submit forms, or inspect rendered state; use existing credentials, cookies, sessions, screenshots, and visual inspection; test a web app; control an Electron app.
+- **MCP**: MCP servers are typically not configured directly in agents. Instead, [MCPorter](https://github.com/openclaw/mcporter) manages the available servers through a CLI. When external tools or platforms are needed, such as GitLab, Sourcegraph, or Notion, check MCPorter first. Load the `mcporter` skill for usage instructions.
 
 ## Communication
 
@@ -61,9 +67,9 @@ Defer to project-specific configurations (linters, formatters, conventions). The
 
 Thinking principles:
 
-- Occam's razor: do not multiply entities beyond necessity; prefer the simplest solution that works — no speculative abstractions, no premature generalization.
-- First principles: deconstruct complex problems into their most fundamental truths; reason up from there instead of borrowing assumptions.
-- Explicit over implicit: make intent visible; avoid magic, hidden coupling, or behavior that requires reading distant code to understand.
+- **Occam's razor**: do not multiply entities beyond necessity; prefer the simplest solution that works — no speculative abstractions, no premature generalization.
+- **First principles**: deconstruct complex problems into their most fundamental truths; reason up from there instead of borrowing assumptions.
+- **Explicit over implicit**: make intent visible; avoid magic, hidden coupling, or behavior that requires reading distant code to understand.
 
 Coding principles:
 
