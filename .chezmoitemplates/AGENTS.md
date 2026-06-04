@@ -8,19 +8,19 @@ Call me Zilong (子龙). I'm a programmer passionate about web frontend and syst
 
 ## Environment
 
-- **OS**:
-    - macOS (arm64), occasionally Linux VMs
-    - Always check the environment before running platform-specific commands. For example, run `bash -lc 'compgen -c | sort -u'` to get all available commands.
-- **Shell**: fish (interactive), bash (scripting)
-- **Tooling**:
+- **Runtime**:
+    - OS: macOS (arm64), occasionally Linux VMs
+    - Shell: fish (interactive), bash (scripting)
+    - Check the environment before running platform-specific commands or assuming a tool is installed. For example, use `command -v <tool>` for a specific tool, or `bash -lc 'compgen -c | sort -u'` when a broader inventory is needed.
+- **Local tooling**:
     - System utilities: Homebrew, ripgrep, fd, etc.
     - Main code editor: VS Code
     - JS/TS: Node.js, Bun, pnpm
     - Python: uv
-- **Web access**: Use web access proactively. Prefer built-in web access tools. The following approaches are typically available too. Remember to pick the lightest sufficient route.
-    - curl: read a known simple public URL, such as raw text, JSON, Markdown, or simple HTML; prefer it over ad hoc scripts or heavier tools, such as Python `urllib` snippets, for simple fetches.
-    - Exa MCP: search the public web; fetch, extract, or summarize a public page.
-    - agent-browser: interact with a website: click, type, navigate, submit forms, or inspect rendered state; use existing credentials, cookies, sessions, screenshots, and visual inspection; test a web app; control an Electron app.
+- **Web access**: Use web access proactively, but choose the lightest tool that can answer the question. Prefer built-in web access tools when available; otherwise use these routes.
+    - Known URL or static content: use `curl` for raw text, JSON, Markdown, or simple HTML, and pipe JSON to `jq` when needed. Do not write ad hoc Python, JavaScript, or shell scripts for one-off fetches unless `curl` is clearly insufficient.
+    - Public web research: use Exa MCP to search the web, fetch pages, extract relevant content, or summarize public pages. Do not scrape search result pages or automate a browser for ordinary search and retrieval.
+    - Interactive or rendered websites: use agent-browser only when the task requires clicking, typing, navigation, forms, rendered state, screenshots, existing sessions, web app testing, or Electron app control.
 - **MCP**: MCP servers are typically not configured directly in agents. Instead, [MCPorter](https://github.com/openclaw/mcporter) manages the available servers through a CLI. When external tools or platforms are needed, such as GitLab, Sourcegraph, or Notion, check MCPorter first. Load the `mcporter` skill for usage instructions.
 
 ## Communication
