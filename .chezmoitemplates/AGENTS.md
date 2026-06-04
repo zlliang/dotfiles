@@ -18,7 +18,7 @@ Call me Zilong (子龙). I'm a programmer passionate about web frontend and syst
     - JS/TS: Node.js, Bun, pnpm
     - Python: uv
 - **Web access**: Use web access proactively. Prefer built-in web access tools. The following approaches are typically available too. Remember to pick the lightest sufficient route.
-    - curl: read a known simple public URL, such as raw text, JSON, Markdown, or simple HTML.
+    - curl: read a known simple public URL, such as raw text, JSON, Markdown, or simple HTML; prefer it over ad hoc scripts or heavier tools, such as Python `urllib` snippets, for simple fetches.
     - Exa MCP: search the public web; fetch, extract, or summarize a public page.
     - agent-browser: interact with a website: click, type, navigate, submit forms, or inspect rendered state; use existing credentials, cookies, sessions, screenshots, and visual inspection; test a web app; control an Electron app.
 - **MCP**: MCP servers are typically not configured directly in agents. Instead, [MCPorter](https://github.com/openclaw/mcporter) manages the available servers through a CLI. When external tools or platforms are needed, such as GitLab, Sourcegraph, or Notion, check MCPorter first. Load the `mcporter` skill for usage instructions.
