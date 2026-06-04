@@ -61,13 +61,11 @@ installBun(["mcporter"])
 installSkills("git@gitlab.com:{{ .gitlabNamespace }}/skills")
 
 installSkills("googleworkspace/cli", [
-    "gws-shared", "gws-admin-reports",
-    "gws-calendar", "gws-calendar-agenda", "gws-calendar-insert",
-    "gws-drive", "gws-drive-upload",
-    "gws-docs", "gws-docs-write",
-    "gws-gmail", "gws-gmail-forward", "gws-gmail-read", "gws-gmail-reply", "gws-gmail-reply-all", "gws-gmail-send", "gws-gmail-triage", "gws-gmail-watch",
-    "gws-sheets", "gws-sheets-append", "gws-sheets-read",
-    "gws-slides",
-    "gws-forms",
+    "gws-shared",
+    "gws-calendar",
+    "gws-drive",
+    "gws-docs",
+    "gws-gmail",
+    "gws-sheets",
 ])
 {{- end }}
