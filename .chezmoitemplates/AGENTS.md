@@ -11,7 +11,8 @@ Call me Zilong (子龙). I'm a programmer passionate about web frontend and syst
 - **Runtime:**
     - OS: macOS (arm64), occasionally Linux VMs
     - Shell: fish (interactive), bash (scripting)
-    - Check the environment before running platform-specific commands or assuming a tool is installed. For example, use `command -v <tool>` for a specific tool, or `bash -lc 'compgen -c | sort -u'` when a broader inventory is needed.
+    - Check the environment before running platform-specific commands or assuming a tool is installed.
+    - Ask for approval before installing global software, commands, or dependencies. One-off tool invocations, such as `npx` and `uvx`, are fine.
 - **Local tooling:**
     - System utilities: Homebrew, ripgrep, fd, etc.
     - Main code editor: VS Code
