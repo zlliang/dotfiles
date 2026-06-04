@@ -1,0 +1,20 @@
+#!/usr/bin/env -S uv run --script
+#
+# /// script
+# dependencies = ["pyyaml"]
+# ///
+
+import sys
+
+import yaml
+
+models = {
+    "embed": "hf:Qwen/Qwen3-Embedding-0.6B-GGUF/Qwen3-Embedding-0.6B-Q8_0.gguf",
+    "generate": "hf:tobil/qmd-query-expansion-1.7B-gguf/qmd-query-expansion-1.7B-q4_k_m.gguf",
+    "rerank": "hf:ggml-org/Qwen3-Reranker-0.6B-Q8_0-GGUF/qwen3-reranker-0.6b-q8_0.gguf",
+}
+
+existing = yaml.safe_load(sys.stdin.read()) or {}
+existing["models"] = models
+
+yaml.safe_dump(existing, sys.stdout, allow_unicode=True, sort_keys=False)
