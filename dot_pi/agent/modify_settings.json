@@ -20,6 +20,9 @@ settings["packages"] = ["npm:pi-system-theme", "npm:pi-spark"]
 # Terminal
 settings["terminal"] = {"clearOnShrink": True}
 
+# Markdown
+settings["markdown"] = {"codeBlockIndent": ""}
+
 # Model
 for key in ["defaultProvider", "defaultModel", "defaultThinkingLevel"]:
     if key in existing:
