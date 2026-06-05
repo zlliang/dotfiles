@@ -13,6 +13,7 @@ steps = [
   "update-pi",
   "update-pi-extensions-workspace",
   "update-agent-skills",
+  "update-qmd",
 ]
 
 [[tasks]]
@@ -93,6 +94,15 @@ name = "update-agent-skills"
 description = "Update global agent skills"
 check = "npm"
 run = ["npx -y skills update -g"]
+
+[[tasks]]
+name = "update-qmd"
+description = "Update QMD collections and generate vector embeddings"
+check = "qmd"
+run = [
+  "qmd update",
+  "qmd embed",
+]
 
 [[tasks]]
 name = "pull-repos"
