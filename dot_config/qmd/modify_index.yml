@@ -1,12 +1,12 @@
 #!/usr/bin/env -S uv run --script
 #
 # /// script
-# dependencies = ["pyyaml"]
+# dependencies = ["ruamel.yaml"]
 # ///
 
 import sys
 
-import yaml
+from ruamel.yaml import YAML
 
 models = {
     "embed": "hf:Qwen/Qwen3-Embedding-0.6B-GGUF/Qwen3-Embedding-0.6B-Q8_0.gguf",
@@ -14,7 +14,11 @@ models = {
     "rerank": "hf:ggml-org/Qwen3-Reranker-0.6B-Q8_0-GGUF/qwen3-reranker-0.6b-q8_0.gguf",
 }
 
-existing = yaml.safe_load(sys.stdin.read()) or {}
+yaml = YAML()
+yaml.preserve_quotes = True
+yaml.width = 4096
+
+existing = yaml.load(sys.stdin.read()) or {}
 existing["models"] = models
 
-yaml.safe_dump(existing, sys.stdout, allow_unicode=True, sort_keys=False)
+yaml.dump(existing, sys.stdout)
