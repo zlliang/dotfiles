@@ -17,9 +17,6 @@ settings["theme"] = existing.get("theme") or "light"
 # Packages
 settings["packages"] = ["npm:pi-system-theme", "npm:pi-spark"]
 
-# Terminal
-settings["terminal"] = {"clearOnShrink": True}
-
 # Markdown
 settings["markdown"] = {"codeBlockIndent": ""}
 
