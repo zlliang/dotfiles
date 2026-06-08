@@ -21,12 +21,27 @@
       "provider": "booking-genai",
       "model": "ml-asset:static-model/claude-opus-4-8",
       "thinkingLevel": "high"
+    },
+    "claude-sonnet": {
+      "provider": "booking-genai",
+      "model": "ml-asset:static-model/claude-sonnet-4-6",
+      "thinkingLevel": "high"
     }
     {{- else }}
     "gpt": {
       "provider": "openai-codex",
       "model": "gpt-5.5",
       "thinkingLevel": "medium"
+    },
+    "claude-opus": {
+      "provider": "vercel-ai-gateway",
+      "model": "anthropic/claude-opus-4.8",
+      "thinkingLevel": "high"
+    },
+    "claude-sonnet": {
+      "provider": "vercel-ai-gateway",
+      "model": "anthropic/claude-sonnet-4.6",
+      "thinkingLevel": "high"
     },
     "deepseek": {
       "provider": "deepseek",
