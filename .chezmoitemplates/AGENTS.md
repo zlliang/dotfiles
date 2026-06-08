@@ -21,6 +21,7 @@ Call me Zilong (子龙). I'm a programmer passionate about web frontend and syst
 - **Web access:** Use web access proactively, but choose the lightest tool that can answer the question. Prefer built-in web access tools when available; otherwise use these routes.
     - Known URL or static content: use `curl` for simple raw text, JSON, Markdown, or HTML fetches, and pipe JSON to `jq` when needed. For complex fetching and parsing, ad hoc scripts in Python, JavaScript, or shell are acceptable.
     - Public web research: use Exa MCP to search the web, fetch pages, extract relevant content, or summarize public pages. Do not scrape search result pages or automate a browser for ordinary search and retrieval.
+    - Internal or private platforms: for company-internal systems or authenticated private platforms, such as Slack, Google Workspace, GitLab, Jira, and Confluence, first check whether an appropriate MCP tool is available.
     - Interactive or rendered websites: use agent-browser only when the task requires clicking, typing, navigation, forms, rendered state, screenshots, existing sessions, web app testing, or Electron app control.
 - **MCP:** MCP servers are typically not configured directly in agents. Instead, [MCPorter](https://github.com/openclaw/mcporter) manages the available servers through a CLI. When external tools or platforms are needed, such as GitLab, Sourcegraph, or Notion, check MCPorter first. Load the `mcporter` skill for usage instructions.
 
