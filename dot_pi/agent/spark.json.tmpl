@@ -12,27 +12,17 @@
   },
   "presets": {
     {{- if eq .machine "work" }}
-    "gpt": {
-      "provider": "openai-codex",
-      "model": "gpt-5.5",
-      "thinkingLevel": "medium"
-    },
     "claude-opus": {
       "provider": "booking-genai",
       "model": "ml-asset:static-model/claude-opus-4-8",
       "thinkingLevel": "high"
     },
-    "claude-sonnet": {
-      "provider": "booking-genai",
-      "model": "ml-asset:static-model/claude-sonnet-4-6",
-      "thinkingLevel": "high"
-    }
-    {{- else }}
     "gpt": {
       "provider": "openai-codex",
       "model": "gpt-5.5",
       "thinkingLevel": "medium"
-    },
+    }
+    {{- else }}
     "claude-fable": {
       "provider": "vercel-ai-gateway",
       "model": "anthropic/claude-fable-5",
@@ -43,9 +33,14 @@
       "model": "anthropic/claude-opus-4.8",
       "thinkingLevel": "high"
     },
-    "claude-sonnet": {
-      "provider": "vercel-ai-gateway",
-      "model": "anthropic/claude-sonnet-4.6",
+    "gpt": {
+      "provider": "openai-codex",
+      "model": "gpt-5.5",
+      "thinkingLevel": "medium"
+    },
+    "kimi": {
+      "provider": "fireworks",
+      "model": "accounts/fireworks/models/kimi-k2p6",
       "thinkingLevel": "high"
     },
     "deepseek": {
