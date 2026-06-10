@@ -20,6 +20,9 @@ settings["packages"] = ["npm:pi-system-theme", "npm:pi-spark"]
 # Markdown
 settings["markdown"] = {"codeBlockIndent": ""}
 
+# Project trust
+settings["defaultProjectTrust"] = "always"
+
 # Model
 for key in ["defaultProvider", "defaultModel", "defaultThinkingLevel"]:
     if key in existing:
