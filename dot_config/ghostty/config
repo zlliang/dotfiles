@@ -6,6 +6,7 @@ font-size = 13
 font-thicken = true
 font-thicken-strength = 3
 
+adjust-box-thickness = 1
 adjust-cell-height = 24%
 
 cursor-style = bar
