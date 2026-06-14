@@ -1,6 +1,6 @@
 {
+  {{- if eq .machine "work" }}
   "mcpServers": {
-    {{- if eq .machine "work" }}
     "booking-genai-toolbox": {
       "type": "stdio",
       "command": "bk",
@@ -8,11 +8,10 @@
       "env": {
         "MCP_TIMEOUT": "30000"
       }
-    },
-    {{- end }}
-    "exa": {
-      "url": "https://mcp.exa.ai/mcp"
     }
   },
+  {{- else }}
+  "mcpServers": {},
+  {{- end }}
   "imports": []
 }
