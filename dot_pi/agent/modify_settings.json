@@ -15,7 +15,7 @@ if "lastChangelogVersion" in existing:
 settings["theme"] = existing.get("theme") or "light"
 
 # Packages
-settings["packages"] = ["npm:pi-spark", "npm:pi-system-theme"]
+settings["packages"] = ["npm:pi-system-theme", "git:github.com/zlliang/pi-spark"]
 
 # Markdown
 settings["markdown"] = {"codeBlockIndent": ""}
