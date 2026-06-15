@@ -57,9 +57,6 @@ run(["agent-browser", "install"])
 installSkills("steipete/clawdis", ["mcporter"])
 installBun(["mcporter"])
 
-installSkills("tobi/qmd", ["qmd"])
-installBun(["@tobilu/qmd"])
-
 {{- if eq .machine "work" }}
 installSkills("git@gitlab.com:{{ .gitlabNamespace }}/skills")
 
