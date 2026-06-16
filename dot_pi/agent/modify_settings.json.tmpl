@@ -34,5 +34,8 @@ for key in ["defaultProvider", "defaultModel", "defaultThinkingLevel"]:
     if key in existing:
         settings[key] = existing[key]
 
+# Custom
+settings["booking-genai"] = {"showCost": ["week", "month"]}
+
 json.dump(settings, sys.stdout, indent=2, ensure_ascii=False)
 sys.stdout.write("\n")
