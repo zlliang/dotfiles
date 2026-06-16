@@ -34,8 +34,12 @@ for key in ["defaultProvider", "defaultModel", "defaultThinkingLevel"]:
     if key in existing:
         settings[key] = existing[key]
 
-# Custom
+{{- if eq .machine "work" }}
+
+# Work-specific
 settings["booking-genai"] = {"showCost": "week"}
+
+{{- end }}
 
 json.dump(settings, sys.stdout, indent=2, ensure_ascii=False)
 sys.stdout.write("\n")
