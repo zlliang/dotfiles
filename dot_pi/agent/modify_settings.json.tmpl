@@ -37,7 +37,7 @@ for key in ["defaultProvider", "defaultModel", "defaultThinkingLevel"]:
 {{- if eq .machine "work" }}
 
 # Work-specific
-settings["booking-genai"] = {"showCost": "week"}
+settings["booking-genai"] = {"showCost": ["day", "week"]}
 
 {{- end }}
 
