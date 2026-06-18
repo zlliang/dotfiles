@@ -80,7 +80,7 @@ description = "Update pnpm global packages"
 check = "pnpm"
 run = [
   "corepack prepare pnpm@latest --activate",
-  "pnpm update -g --latest",
+  "pnpm update -g --ignore-scripts --latest",
 ]
 
 [[tasks]]
