@@ -52,9 +52,9 @@ end
 if type -q nodenv
   nodenv init - fish | source
 end
-set -gx PNPM_HOME "$HOME/.pnpm"
 set -gx COREPACK_ENABLE_AUTO_PIN 0
-fish_add_path -g "$HOME/.bun/bin"
+set -gx PNPM_HOME "$HOME/.pnpm"
+fish_add_path -g "$PNPM_HOME/bin"
 
 # Python
 # Suppress default virtual env prompt

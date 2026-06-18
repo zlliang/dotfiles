@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import json
 import shutil
 import subprocess
 from pathlib import Path
@@ -28,21 +29,14 @@ def installBrew(packages: list[str]) -> None:
         run(["brew", "install", *missing])
 
 
-def bunPackageName(line: str) -> str | None:
-    name = line.strip().removeprefix("├── ").removeprefix("└── ").split(" ", 1)[0]
-    if not name or name.startswith("/"):
-        return None
-    if name.startswith("@"):
-        return name.rsplit("@", 1)[0]
-    return name.split("@", 1)[0]
-
-
-def installBun(packages: list[str]) -> None:
-    installed = subprocess.run(["bun", "list", "-g"], capture_output=True, text=True).stdout.splitlines()
-    installedNames = {name for line in installed if (name := bunPackageName(line))}
-    missing = [p for p in packages if p not in installedNames]
+def installPnpm(packages: list[str]) -> None:
+    output = subprocess.run(["pnpm", "list", "-g", "--json"], capture_output=True, text=True).stdout
+    installed: set[str] = set()
+    for entry in json.loads(output or "[]"):
+        installed.update(entry.get("dependencies", {}).keys())
+    missing = [p for p in packages if p not in installed]
     if missing:
-        run(["bun", "add", "-g", "--ignore-scripts", *missing])
+        run(["pnpm", "add", "-g", "--ignore-scripts", *missing])
 
 
 resetAgentsDirectory()
@@ -51,11 +45,11 @@ installSkills("zlliang/skills")
 installBrew(["gh"])
 
 installSkills("vercel-labs/agent-browser", ["agent-browser"])
-installBun(["agent-browser"])
+installPnpm(["agent-browser"])
 run(["agent-browser", "install"])
 
 installSkills("steipete/clawdis", ["mcporter"])
-installBun(["mcporter"])
+installPnpm(["mcporter"])
 
 {{- if eq .machine "work" }}
 installSkills("git@gitlab.com:{{ .gitlabNamespace }}/skills")

@@ -16,7 +16,7 @@ Call me Zilong (子龙). I'm a programmer passionate about web frontend and syst
 - **Local tooling:**
     - System utilities: Homebrew, ripgrep, fd, etc.
     - Main code editor: VS Code
-    - JS/TS: Node.js, Bun, pnpm
+    - JS/TS: Node.js, pnpm, Bun
     - Python: uv
 - **MCP:** MCP servers are typically not configured directly in agents. Instead, [MCPorter](https://github.com/openclaw/mcporter) manages the available servers through a CLI. When external tools or authenticated platforms are needed, such as Slack, GitLab, Jira, Confluence, and Sourcegraph, check MCPorter first. Load the `mcporter` skill for usage instructions.
 

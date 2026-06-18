@@ -38,9 +38,21 @@ check = "nodenv"
 run = ["""
 set -e
 node_index=$(curl -fsSL https://nodejs.org/dist/index.tab)
-latest_lts=$(printf '%s\n' "$node_index" | awk 'NR > 1 && $10 != "-" {gsub(/^v/, "", $1); print $1; exit}')
+lts_versions=$(printf '%s\n' "$node_index" | awk 'NR > 1 && $10 != "-" {gsub(/^v/, "", $1); print $1}')
+if [ -z "$lts_versions" ]; then
+  echo "Failed to resolve LTS Node.js versions"
+  exit 1
+fi
+available=$(nodenv install -l | sed 's/^[[:space:]]*//' | grep -E '^[0-9]+\\.[0-9]+\\.[0-9]+$')
+latest_lts=""
+for v in $lts_versions; do
+  if printf '%s\n' "$available" | grep -qx "$v"; then
+    latest_lts="$v"
+    break
+  fi
+done
 if [ -z "$latest_lts" ]; then
-  echo "Failed to resolve latest LTS Node.js version"
+  echo "No installable LTS Node.js version found via nodenv"
   exit 1
 fi
 echo "Installing Node.js $latest_lts via nodenv..."
@@ -48,15 +60,28 @@ nodenv install -s "$latest_lts"
 echo "Setting global Node.js version to $latest_lts..."
 nodenv global "$latest_lts"
 nodenv rehash
+major="${latest_lts%%.*}"
+for installed in $(nodenv versions --bare); do
+  case "$installed" in
+    "$latest_lts") ;;
+    "$major".*)
+      echo "Removing old Node.js $installed..."
+      nodenv uninstall -f "$installed"
+      ;;
+  esac
+done
 echo "Enabling corepack..."
 corepack enable
 """]
 
 [[tasks]]
-name = "update-bun"
-description = "Update Bun global packages"
-check = "bun"
-run = ["bun update -g --latest"]
+name = "update-pnpm"
+description = "Update pnpm global packages"
+check = "pnpm"
+run = [
+  "corepack prepare pnpm@latest --activate",
+  "pnpm update -g --latest",
+]
 
 [[tasks]]
 name = "update-python"

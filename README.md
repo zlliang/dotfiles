@@ -48,14 +48,13 @@ Personal dotfiles and development environment for macOS, managed by [chezmoi](ht
 
 - [Amp](https://ampcode.com/)
 - [Pi](https://pi.dev/)
-- [Codex](https://openai.com/codex)
 
 ### Configuration
 
 - **Fish**: shell config and custom functions (`~/.config/fish/`)
 - **Git**: conditional personal/work identity (`~/.gitconfig`)
 - **Ghostty**: terminal config (`~/.config/ghostty/`)
-- **Amp / Codex / Claude Code**: coding agent configs and global skills
+- **Amp & Pi**: coding agent configs and global skills
 
 ## Structure
 
