@@ -12,14 +12,13 @@ if "lastChangelogVersion" in existing:
     settings["lastChangelogVersion"] = existing["lastChangelogVersion"]
 
 # Theme
-settings["theme"] = existing.get("theme") or "light"
+settings["theme"] = "light/dark"
 
 # Packages
 settings["packages"] = [
     {{- if eq .machine "work" }}
     "ssh://git@gitlab.com/{{ .gitlabNamespace }}/pi-booking-genai",
     {{- end }}
-    "npm:pi-system-theme",
     "git:github.com/zlliang/pi-spark",
 ]
 
