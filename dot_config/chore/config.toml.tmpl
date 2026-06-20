@@ -7,7 +7,7 @@ steps = [
   "update-dotfiles",
   "update-homebrew",
   "update-node",
-  "update-pnpm",
+  "update-bun",
   "update-python",
   "update-amp",
   "update-pi",
@@ -72,16 +72,14 @@ for installed in $(nodenv versions --bare); do
 done
 echo "Enabling corepack..."
 corepack enable
+corepack prepare pnpm@latest --activate
 """]
 
 [[tasks]]
-name = "update-pnpm"
-description = "Update pnpm global packages"
-check = "pnpm"
-run = [
-  "corepack prepare pnpm@latest --activate",
-  "pnpm update -g --ignore-scripts --latest",
-]
+name = "update-bun"
+description = "Update Bun global packages"
+check = "bun"
+run = ["bun update -g --ignore-scripts --latest"]
 
 [[tasks]]
 name = "update-python"
