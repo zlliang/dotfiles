@@ -8,10 +8,17 @@
       "env": {
         "MCP_TIMEOUT": "30000"
       }
+    },
+    "exa": {
+      "url": "https://mcp.exa.ai/mcp"
     }
   },
   {{- else }}
-  "mcpServers": {},
+  "mcpServers": {
+    "exa": {
+      "url": "https://mcp.exa.ai/mcp"
+    }
+  },
   {{- end }}
   "imports": []
 }

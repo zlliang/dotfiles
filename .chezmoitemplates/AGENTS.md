@@ -8,17 +8,24 @@ Call me Zilong (子龙). I'm a programmer passionate about web frontend and syst
 
 ## Environment
 
-- **Runtime:**
-    - OS: macOS (arm64), occasionally Linux VMs
-    - Shell: fish (interactive), bash (scripting)
-    - Check the environment before running platform-specific commands or assuming a tool is installed.
-    - Ask for approval before installing global software, commands, or dependencies. One-off tool invocations, such as `npx` and `uvx`, are fine.
-- **Local tooling:**
-    - System utilities: Homebrew, ripgrep, fd, etc.
-    - Main code editor: VS Code
-    - JS/TS: Node.js, Bun, pnpm
-    - Python: uv
-- **MCP:** MCP servers are typically not configured directly in agents. Instead, [MCPorter](https://github.com/openclaw/mcporter) manages the available servers through a CLI. When external tools or authenticated platforms are needed, such as Slack, GitLab, Jira, Confluence, and Sourcegraph, check MCPorter first. Load the `mcporter` skill for usage instructions.
+- OS: macOS (arm64), occasionally Linux VMs
+- Shell: fish (interactive), bash (scripting)
+- Main code editor: VS Code
+- System utilities: Homebrew, ripgrep, fd, etc.
+
+Check the environment before running platform-specific commands or assuming a tool is installed. Ask for approval before installing global software, commands, or dependencies. One-off tool invocations, such as `npx` and `uvx`, are fine.
+
+## MCP
+
+[MCP](https://modelcontextprotocol.io/) (Model Context Protocol) is an open-source standard for connecting AI applications to external systems. For me, MCP servers are typically not configured directly in agents. Instead, [MCPorter](https://github.com/openclaw/mcporter) manages the available servers through a CLI. When external tools or authenticated platforms are needed, check MCPorter first. Load the `mcporter` skill for usage instructions.
+
+## Web access
+
+Use web access proactively, but choose the lightest tool that can answer the question. Prefer built-in web access tools when available; otherwise use the following routes.
+
+- Known URL or static content: use `curl` for simple raw text, JSON, Markdown, or HTML fetches, and pipe JSON to `jq` when needed. For complex fetching and parsing, ad hoc scripts are acceptable.
+- Public web research: use Exa MCP to search the web, fetch pages, extract relevant content, or summarize public pages. Do not scrape search result pages or automate a browser for ordinary search and retrieval.
+- Interactive or rendered websites: use agent-browser when the task requires clicking, typing, navigation, forms, rendered state, screenshots, existing sessions, web app testing, or Electron app control.
 
 ## Communication
 
