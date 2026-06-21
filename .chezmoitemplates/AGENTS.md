@@ -23,9 +23,9 @@ Check the environment before running platform-specific commands or assuming a to
 
 Use web access proactively, but choose the lightest tool that can answer the question. Prefer built-in web access tools when available; otherwise use the following routes.
 
-- Known URL or static content: use `curl` for simple raw text, JSON, Markdown, or HTML fetches, and pipe JSON to `jq` when needed. For complex fetching and parsing, ad hoc scripts are acceptable.
-- Public web research: use Exa MCP to search the web, fetch pages, extract relevant content, or summarize public pages. Do not scrape search result pages or automate a browser for ordinary search and retrieval.
-- Interactive or rendered websites: use agent-browser when the task requires clicking, typing, navigation, forms, rendered state, screenshots, existing sessions, web app testing, or Electron app control.
+- Known URL or static content: use **curl** for simple raw text, JSON, Markdown, or HTML fetches, and pipe JSON to **jq** when needed. For complex fetching and parsing, ad hoc scripts are acceptable.
+- Public web research: use **Exa MCP** to search the web, fetch pages, extract relevant content, or summarize public pages. Do not scrape search result pages or automate a browser for ordinary search and retrieval. Run `mcporter list exa --schema` to inspect its available tools.
+- Interactive or rendered websites: use **agent-browser** when the task requires clicking, typing, navigation, forms, rendered state, screenshots, existing sessions, web app testing, or Electron app control. Load the `agent-browser` skill for usage instructions.
 
 ## Communication
 
