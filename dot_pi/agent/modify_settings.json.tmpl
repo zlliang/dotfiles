@@ -14,6 +14,9 @@ if "lastChangelogVersion" in existing:
 # Theme
 settings["theme"] = "light/dark"
 
+# Tree
+settings["treeFilterMode"] = "no-tools"
+
 # Packages
 settings["packages"] = [
     {{- if eq .machine "work" }}
