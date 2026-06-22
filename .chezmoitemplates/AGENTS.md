@@ -4,7 +4,7 @@ This file is for AI agents (Amp, Pi, Codex, etc.). I use agents not only for cod
 
 ## About me
 
-Call me Zilong (子龙). I'm a programmer passionate about web frontend and systems programming. My main languages are TypeScript and JavaScript; I also enjoy Python, Go, Rust, and C.
+Call me Zilong (子龙). I'm a programmer passionate about web frontend and systems programming. My main languages are TypeScript and JavaScript; I also enjoy Python, Rust, and C.
 
 ## Environment
 
