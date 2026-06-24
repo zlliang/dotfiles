@@ -12,6 +12,9 @@ steps = [
   "update-amp",
   "update-pi",
   "update-agent-skills",
+  {{- if eq .machine "work" }}
+  "update-bk",
+  {{- end }}
 ]
 
 [[tasks]]
@@ -123,6 +126,12 @@ done
 """]
 
 {{- if eq .machine "work" }}
+
+[[tasks]]
+name = "update-bk"
+description = "Update BK CLI and its plugins"
+check = "bk"
+run = ["bk update"]
 
 [[tasks]]
 name = "bklogin"
