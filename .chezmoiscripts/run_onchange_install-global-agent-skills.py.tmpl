@@ -10,10 +10,10 @@ def run(cmd: list[str]) -> None:
     subprocess.run(cmd, check=True)
 
 
-def resetAgentsDirectory() -> None:
-    agentsDir = Path.home() / ".agents"
-    print(f"Removing {agentsDir}")
-    shutil.rmtree(agentsDir, ignore_errors=True)
+def resetAgentsDirectories(dirs: list[Path]) -> None:
+    for d in dirs:
+        print(f"Removing {d}")
+        shutil.rmtree(d, ignore_errors=True)
 
 
 def installSkills(repo: str, skills: list[str] | None = None) -> None:
@@ -45,7 +45,10 @@ def installBun(packages: list[str]) -> None:
         run(["bun", "add", "-g", "--ignore-scripts", *missing])
 
 
-resetAgentsDirectory()
+resetAgentsDirectories([
+    Path.home() / ".agents",
+    Path.home() / ".pi" / "agent" / "skills",
+])
 
 installSkills("zlliang/skills", [
     "gh-cli",
