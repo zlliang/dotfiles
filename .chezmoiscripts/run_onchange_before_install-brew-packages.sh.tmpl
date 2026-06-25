@@ -10,15 +10,16 @@ brew "oven-sh/bun/bun"
 brew "uv"
 
 # CLI tools
+brew "gh"
 brew "bat"
 brew "eza"
 brew "fd"
 brew "ripgrep"
 brew "zoxide"
-brew "gh"
 brew "fastfetch"
 brew "hyperfine"
 {{- if eq .machine "work" }}
+brew "glab"
 brew "googleworkspace-cli"
 {{- end }}
 

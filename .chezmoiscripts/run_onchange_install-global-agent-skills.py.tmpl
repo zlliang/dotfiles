@@ -66,7 +66,12 @@ installBun(["mcporter"])
 {{- if eq .machine "work" }}
 installSkills("git@gitlab.com:{{ .gitlabNamespace }}/skills", [
     "internal-research",
-    "writing-work-messages"
+    "writing-work-messages",
+])
+
+installSkills("https://gitlab.com/gitlab-org/ai/skills", [
+    "glab",
+    "glab-glql",
 ])
 
 installSkills("googleworkspace/cli", [
