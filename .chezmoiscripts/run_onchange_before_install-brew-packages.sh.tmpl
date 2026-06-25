@@ -10,7 +10,6 @@ brew "oven-sh/bun/bun"
 brew "uv"
 
 # CLI tools
-brew "gh"
 brew "bat"
 brew "eza"
 brew "fd"
@@ -18,10 +17,6 @@ brew "ripgrep"
 brew "zoxide"
 brew "fastfetch"
 brew "hyperfine"
-{{- if eq .machine "work" }}
-brew "glab"
-brew "googleworkspace-cli"
-{{- end }}
 
 # System utilities
 brew "chezmoi"
@@ -34,4 +29,7 @@ cask "ghostty"
 cask "hiddenbar"
 cask "keka"
 cask "orbstack"
+{{- if eq .machine "work" }}
+cask "1password"
+{{- end }}
 EOF

@@ -67,12 +67,18 @@ installBun(["mcporter"])
 installSkills("git@gitlab.com:{{ .gitlabNamespace }}/skills", [
     "internal-research",
     "writing-work-messages",
+    "sourcegraph-cli",
 ])
+installBrew(["sourcegraph/src-cli/src-cli"])
 
 installSkills("https://gitlab.com/gitlab-org/ai/skills", [
     "glab",
     "glab-glql",
 ])
+installBrew(["glab"])
+
+# installSkills("gleanwork/glean-cli", ["glean-cli"])
+# installBrew(["gleanwork/tap/glean-cli"])
 
 installSkills("googleworkspace/cli", [
     "gws-shared",
@@ -82,4 +88,5 @@ installSkills("googleworkspace/cli", [
     "gws-gmail",
     "gws-sheets",
 ])
+installBrew(["googleworkspace-cli"])
 {{- end }}

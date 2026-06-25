@@ -72,6 +72,9 @@ if type -q bk
   set -gx BK_AUTH_SSO_TIMEOUT 600000
 end
 
+# Sourcegraph CLI
+set -gx SRC_ENDPOINT "https://sourcegraph.booking.com"
+
 # Google Cloud SDK
 if test -f $HOME/.local/share/google-cloud-sdk/path.fish.inc
   source $HOME/.local/share/google-cloud-sdk/path.fish.inc
