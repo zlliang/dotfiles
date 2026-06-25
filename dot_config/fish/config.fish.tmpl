@@ -52,6 +52,7 @@ end
 if type -q nodenv
   nodenv init - fish | source
 end
+set -gx NODE_OPTIONS "--no-warnings"
 set -gx NODE_TLS_REJECT_UNAUTHORIZED 0
 set -gx COREPACK_ENABLE_AUTO_PIN 0
 set -gx PNPM_HOME "$HOME/.pnpm"
