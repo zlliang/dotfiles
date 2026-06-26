@@ -53,18 +53,18 @@ resetAgentsDirectories([
 installSkills("zlliang/skills", [
     "gh-cli",
     "git-commit",
+    "mcporter",
     "writing-issues-and-prs",
 ])
 installBrew(["gh"])
+installBun(["mcporter"])
 
 installSkills("vercel-labs/agent-browser", ["agent-browser"])
 installBun(["agent-browser"])
 
-installSkills("steipete/clawdis", ["mcporter"])
-installBun(["mcporter"])
-
 {{- if eq .machine "work" }}
 installSkills("git@gitlab.com:{{ .gitlabNamespace }}/skills", [
+    "k8s-at-booking-com",
     "sourcegraph-cli",
     "working-at-booking-com",
     "writing-work-messages",
