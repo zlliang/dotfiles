@@ -53,7 +53,7 @@ resetAgentsDirectories([
 installSkills("zlliang/skills", [
     "gh-cli",
     "git-commit",
-    "issue-writing",
+    "writing-issues-and-prs",
 ])
 installBrew(["gh"])
 
@@ -65,9 +65,9 @@ installBun(["mcporter"])
 
 {{- if eq .machine "work" }}
 installSkills("git@gitlab.com:{{ .gitlabNamespace }}/skills", [
-    "internal-research",
-    "writing-work-messages",
     "sourcegraph-cli",
+    "working-at-booking-com",
+    "writing-work-messages",
 ])
 installBrew(["sourcegraph/src-cli/src-cli"])
 
@@ -77,16 +77,14 @@ installSkills("https://gitlab.com/gitlab-org/ai/skills", [
 ])
 installBrew(["glab"])
 
-# installSkills("gleanwork/glean-cli", ["glean-cli"])
-# installBrew(["gleanwork/tap/glean-cli"])
-
 installSkills("googleworkspace/cli", [
     "gws-shared",
+    "gws-gmail",
     "gws-calendar",
     "gws-drive",
     "gws-docs",
-    "gws-gmail",
     "gws-sheets",
+    "gws-slides",
 ])
 installBrew(["googleworkspace-cli"])
 {{- end }}
