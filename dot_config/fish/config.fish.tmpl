@@ -52,6 +52,10 @@ end
 if type -q nodenv
   nodenv init - fish | source
 end
+{{- if eq .machine "work" }}
+set -gx COREPACK_NPM_REGISTRY "https://mirrors.tencent.com/npm"
+set -gx COREPACK_INTEGRITY_KEYS "0"
+{{- end }}
 set -gx NODE_OPTIONS "--no-warnings"
 set -gx NODE_TLS_REJECT_UNAUTHORIZED 0
 set -gx COREPACK_ENABLE_AUTO_PIN 0
@@ -64,9 +68,13 @@ set -gx VIRTUAL_ENV_DISABLE_PROMPT "true"
 
 {{- if eq .machine "work" }}
 
-# Work-specific
-set -gx COREPACK_NPM_REGISTRY "https://mirrors.tencent.com/npm"
-set -gx COREPACK_INTEGRITY_KEYS "0"
+# Identity
+set -gx USER_NAME "$USER"
+set -gx WORK_EMAIL "{{ .workEmail }}"
+set -gx TEAM_NAME "{{ .teamName }}"
+set -gx TEAM_ID "{{ .teamId }}"
+
+# BK CLI
 if type -q bk
   bk completion fish | source
   set -gx BK_AUTH_SSO_TIMEOUT 600000
