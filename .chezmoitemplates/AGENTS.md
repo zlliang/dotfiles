@@ -29,7 +29,7 @@ Use web access proactively, but choose the lightest tool that can answer the que
 
 ## Structural code search
 
-**`ast-grep`** is installed: a fast, polyglot tool for structural code search, linting, and rewriting. For any search that depends on syntax or code structure, prefer it over text-only tools like ripgrep. Run `ast-grep --lang <language> -p '<pattern>'`, or load the `ast-grep` skill for details.
+**`ast-grep`** (`sg`) is installed: a fast, polyglot tool for structural code search, linting, and rewriting. For any search that depends on syntax or code structure, prefer it over text-only tools like ripgrep. Run `sg --lang <language> -p '<pattern>'`, or load the `ast-grep` skill for details.
 
 ## Communication
 
