@@ -29,7 +29,17 @@ Use web access proactively, but choose the lightest tool that can answer the que
 
 ## Structural code search and rewriting
 
-**ast-grep** (invoke as **`sg`**, the shorthand like `rg` for ripgrep) is installed for AST-based outlining, search, linting, and rewriting. Reach for it actively whenever a task depends on code structure rather than raw text, and prefer it over text-only tools for such cases. Load the `ast-grep` skill for usage.
+**ast-grep** (invoke as **`sg`**, the shorthand like `rg` for ripgrep) is installed for AST-based outlining, search, linting, and rewriting. Prefer ast-grep over text-only tools like `rg` whenever a task depends on code structure rather than raw text — outlining, finding code by AST pattern, filtering a name down to a syntactic role, or structural rewrites.
+
+These commands cover lightweight tasks without loading the skill:
+
+- `sg outline <file-or-dir>` — syntax-aware table of contents; run before reading a large file
+- `sg run -p '<pattern>' <path>` — structural search; patterns are real code with meta variables (`$VAR` one node, `$$$ARGS` zero or more, `$_` non-capturing)
+- `sg run -p '<pattern>' -r '<fix>' <path>` — preview a rewrite as a diff; add `-i` (interactive) or `-U` (apply all)
+- Add `--debug-query=ast` when a pattern won't match, or `--json | jq …` for scriptable output
+- Language is inferred from extensions; add `-l <lang>` to specify explicitly
+
+Load the `ast-grep` skill for detailed usage instructions.
 
 ## Communication
 
