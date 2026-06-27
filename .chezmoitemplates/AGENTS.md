@@ -27,9 +27,9 @@ Use web access proactively, but choose the lightest tool that can answer the que
 - Public web research: use **Exa MCP** to search the web, fetch pages, extract relevant content, or summarize public pages. It returns clean text content. Do not scrape search result pages or automate a browser for ordinary search and retrieval. Run `mcporter list exa --schema` to inspect its available tools.
 - Interactive or rendered websites: use **agent-browser** when the task requires clicking, typing, navigation, forms, rendered state, screenshots, existing sessions, web app testing, or Electron app control. Load the `agent-browser` skill for usage instructions.
 
-## Structural code search
+## Structural code search and rewriting
 
-**`ast-grep`** (`sg`) is installed: a fast, polyglot tool for structural code search, linting, and rewriting. For any search that depends on syntax or code structure, prefer it over text-only tools like ripgrep. Run `sg --lang <language> -p '<pattern>'`, or load the `ast-grep` skill for details.
+**ast-grep** (invoke as **`sg`**, the shorthand like `rg` for ripgrep) is installed for AST-based outlining, search, linting, and rewriting. Reach for it actively whenever a task depends on code structure rather than raw text, and prefer it over text-only tools for such cases. Load the `ast-grep` skill for usage.
 
 ## Communication
 
