@@ -4,93 +4,10 @@
     "exa": {
       "url": "https://mcp.exa.ai/mcp"
     },
-    "glean": {
+    "booking-toolbox": {
       "type": "stdio",
       "command": "bk",
-      "args": ["genai:mcp:toolbox"],
-      "allowedTools": [
-        "glean_chat",
-        "glean_read_document",
-        "glean_search"
-      ]
-    },
-    "slack": {
-      "type": "stdio",
-      "command": "bk",
-      "args": ["genai:mcp:toolbox"],
-      "allowedTools": [
-        "slack_search_public",
-        "slack_search_public_and_private",
-        "slack_search_channels",
-        "slack_search_users",
-        "slack_read_channel",
-        "slack_read_thread",
-        "slack_read_canvas",
-        "slack_read_user_profile",
-        "slack_send_message_draft"
-      ]
-    },
-    "atlassian": {
-      "url": "https://mcp.atlassian.com/v1/mcp/authv2"
-    },
-    "grafana": {
-      "type": "stdio",
-      "command": "bk",
-      "args": ["genai:mcp:toolbox"],
-      "allowedTools": [
-        "grafana_alerting_manage_routing",
-        "grafana_alerting_manage_rules",
-        "grafana_generate_deeplink",
-        "grafana_get_annotation_tags",
-        "grafana_get_annotations",
-        "grafana_get_dashboard_by_uid",
-        "grafana_get_dashboard_panel_queries",
-        "grafana_get_dashboard_property",
-        "grafana_get_dashboard_summary",
-        "grafana_get_datasource",
-        "grafana_get_panel_image",
-        "grafana_list_cloudwatch_dimensions",
-        "grafana_list_cloudwatch_metrics",
-        "grafana_list_cloudwatch_namespaces",
-        "grafana_list_datasources",
-        "grafana_list_graphite_metrics",
-        "grafana_list_graphite_tags",
-        "grafana_list_loki_label_names",
-        "grafana_list_loki_label_values",
-        "grafana_list_prometheus_label_names",
-        "grafana_list_prometheus_label_values",
-        "grafana_list_prometheus_metric_metadata",
-        "grafana_list_prometheus_metric_names",
-        "grafana_list_pyroscope_label_names",
-        "grafana_list_pyroscope_label_values",
-        "grafana_list_pyroscope_profile_types",
-        "grafana_query_cloudwatch",
-        "grafana_query_elasticsearch",
-        "grafana_query_graphite",
-        "grafana_query_graphite_density",
-        "grafana_query_loki_logs",
-        "grafana_query_loki_patterns",
-        "grafana_query_loki_stats",
-        "grafana_query_prometheus",
-        "grafana_query_prometheus_histogram",
-        "grafana_query_pyroscope",
-        "grafana_run_panel_query",
-        "grafana_search_dashboards",
-        "grafana_search_folders",
-        "grafana_tempo_docs-traceql",
-        "grafana_tempo_get-attribute-names",
-        "grafana_tempo_get-attribute-values",
-        "grafana_tempo_get-trace",
-        "grafana_tempo_traceql-metrics-instant",
-        "grafana_tempo_traceql-metrics-range",
-        "grafana_tempo_traceql-search"
-      ]
-    },
-    "feature-flags": {
-      "url": "https://context-mcp.prod.booking.com/featureapi/mcp"
-    },
-    "flog": {
-      "url": "https://context-mcp.prod.booking.com/flog/mcp"
+      "args": ["genai:mcp:toolbox"]
     }
   },
   {{- else }}
