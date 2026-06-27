@@ -62,6 +62,9 @@ installBun(["mcporter"])
 installSkills("vercel-labs/agent-browser", ["agent-browser"])
 installBun(["agent-browser"])
 
+installSkills("ast-grep/agent-skill", ["ast-grep"])
+installBrew(["ast-grep"])
+
 {{- if eq .machine "work" }}
 installSkills("git@gitlab.com:{{ .gitlabNamespace }}/skills", [
     "k8s-at-booking-com",
