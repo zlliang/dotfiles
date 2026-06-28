@@ -15,19 +15,19 @@ Call me Zilong (子龙). I'm a programmer passionate about web frontend and syst
 
 Check the environment before running platform-specific commands or assuming a tool is installed. Ask for approval before installing global software, commands, or dependencies. One-off tool invocations, such as `npx` and `uvx`, are fine.
 
-## MCP
+### MCP
 
 [MCP](https://modelcontextprotocol.io/) (Model Context Protocol) is an open-source standard for connecting AI applications to external systems. For me, MCP servers are typically not configured directly in agents. Instead, [MCPorter](https://github.com/openclaw/mcporter) manages the available servers through a CLI. When external tools or authenticated platforms are needed, check MCPorter first. Load the `mcporter` skill for usage instructions.
 
-## Web access
+### Web access
 
 Use web access proactively, but choose the lightest tool that can answer the question. Prefer built-in web access tools when available; otherwise use the following routes.
 
 - Known URL or static content: use **curl** for simple fetches, and pipe JSON to **jq** when needed. For complex fetching and parsing, ad hoc scripts are acceptable.
-- Public web research: use **Exa MCP** to search the web, fetch pages, extract relevant content, or summarize public pages. It returns clean text content. Do not scrape search result pages or automate a browser for ordinary search and retrieval. Run `mcporter list exa --schema` to inspect its available tools.
+- Public web research: use **Exa MCP** to search the web, fetch pages, extract relevant content, or summarize public pages. It returns clean text content. Do not scrape search result pages or automate a browser for ordinary search and retrieval. Read `~/.mcporter/definitions/exa.d.ts` to inspect its available tools.
 - Interactive or rendered websites: use **agent-browser** when the task requires clicking, typing, navigation, forms, rendered state, screenshots, existing sessions, web app testing, or Electron app control. Load the `agent-browser` skill for usage instructions.
 
-## Structural code search and rewriting
+### Structural code search and rewriting
 
 **ast-grep** (invoke as **`sg`**, the shorthand like `rg` for ripgrep) is installed for AST-based outlining, search, linting, and rewriting. Prefer ast-grep over text-only tools like `rg` whenever a task depends on code structure rather than raw text — outlining, finding code by AST pattern, filtering a name down to a syntactic role, or structural rewrites.
 
