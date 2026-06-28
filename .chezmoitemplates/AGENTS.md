@@ -4,7 +4,7 @@ Defaults for every AI agent session (Amp, Pi, Codex, etc.). I use agents not onl
 
 ## About me
 
-Call me Zilong (子龙). I'm a software engineer passionate about web development, systems programming, and AI engineering. My main languages are TypeScript and JavaScript; I also enjoy Python, Rust, and C.
+Call me Zilong (子龙). I'm a software engineer passionate about the web, computer systems, and AI. My main languages are TypeScript and JavaScript; I also enjoy Python, Rust, and C.
 
 ## Environment and tools
 
