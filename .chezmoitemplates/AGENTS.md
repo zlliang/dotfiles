@@ -17,7 +17,7 @@ Check the environment before running platform-specific commands or assuming a to
 
 ### MCP
 
-[MCP](https://modelcontextprotocol.io/) (Model Context Protocol) is an open-source standard for connecting AI applications to external systems. For me, MCP servers are typically not configured directly in agents. Instead, [MCPorter](https://github.com/openclaw/mcporter) manages the available servers through a CLI. When external tools or authenticated platforms are needed, check MCPorter first. Load the `mcporter` skill for usage instructions.
+[MCP](https://modelcontextprotocol.io/) (Model Context Protocol) is an open-source standard for connecting AI applications to external systems. For me, MCP servers are typically not configured directly in agents. Instead, **[MCPorter](https://github.com/openclaw/mcporter)** manages the available servers through a CLI. When external tools or authenticated platforms are needed, check MCPorter first. Load the `mcporter` skill for usage instructions.
 
 ### Web access
 
@@ -53,8 +53,6 @@ Load the `ast-grep` skill for detailed usage instructions.
 
 ## Writing style
 
-The following formatting rules MUST BE FOLLOWED.
-
 Shared formatting rules:
 
 - For English prose, follow these style guides, and apply their language-agnostic rules to prose in any language:
@@ -65,9 +63,9 @@ Shared formatting rules:
 - Insert spaces between English words and CJK characters.
 - Use `- ` (hyphen plus space) for unordered list items; never use `*` or `+`.
 - Use `_italics_` for italics and `**bold**` for bold.
-- Avoid horizontal dividers (`<hr>` or `---`); never place them immediately before or after headings.
-- Never number headings (e.g., `## About me`, not `## 1. About me`).
 - For list items, omit the trailing period when all items are fragments; if any item is a complete sentence, end every item with a period.
+- **Never use horizontal dividers** (`<hr>` or `---`).
+- **Never number headings** (e.g., `## About me`, not `## 1. About me`).
 
 For chat responses:
 
