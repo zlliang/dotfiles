@@ -22,7 +22,7 @@ def installSkills(repo: str, skills: list[str] | None = None) -> None:
 
 
 def installBrew(packages: list[str]) -> None:
-    installed = subprocess.run(["brew", "list", "--formula", "-1"],capture_output=True, text=True).stdout.splitlines()
+    installed = subprocess.run(["brew", "leaves"],capture_output=True, text=True).stdout.splitlines()
     missing = [p for p in packages if p not in installed]
     if missing:
         run(["brew", "install", *missing])
