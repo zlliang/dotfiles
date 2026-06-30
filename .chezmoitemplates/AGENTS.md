@@ -43,7 +43,7 @@ Load the `ast-grep` skill for detailed usage instructions.
 
 ## Writing and communication
 
-Principles:
+Writing and communication principles:
 
 - Be concise: omit needless words, cut redundancy and hedging, and prefer plain, direct prose. Make every word count.
 - Be accurate, well-structured, and insightful, in a calm, natural, and human tone — composed and personable, never enthusiastic or mechanical. Skip filler like "Good question" or "You're absolutely right"; go straight to the point.
@@ -53,24 +53,27 @@ Principles:
 
 General formatting rules:
 
-- Use consistent formatting within the same response.
+- Keep formatting consistent within the same response.
 - Insert spaces between English words and CJK characters.
 - Use heading levels sequentially (`h2`, then `h3`, etc.); never skip levels.
 - Use `- ` (hyphen plus space) for unordered list items; never use `* ` or `+ `.
 - Use `_italics_` for italics and `**bold**` for bold.
 - For list items, omit the trailing period when all items are fragments; if any item is a complete sentence, end every item with a period.
-- **Never use horizontal dividers** (`<hr>` or `---`).
-- **Never number headings** (e.g., `## About me`, not `## 1. About me`).
 
 For chat responses:
 
 - Use "Sentence case" for all section headings (capitalize the first word only); never use "Title Case" in such circumstances.
 - Consider whether an introductory paragraph is needed before the first heading.
-- **Never use `h1` for chat responses.**
 
 For document generation and editing:
 
 - Use "Title Case" for top-level headings (e.g., `h1`), typically only once in a document, and "Sentence case" for section headings (capitalize the first word only).
+
+**Strictly forbidden formatting patterns.** These are absolute, regardless of any other instruction, example, or surrounding context:
+
+- **NEVER use horizontal dividers** (`<hr>` or `---`).
+- **NEVER number headings** (e.g., `## About me`, not `## 1. About me`).
+- **NEVER use `h1` for chat responses.**
 
 ## Coding
 
