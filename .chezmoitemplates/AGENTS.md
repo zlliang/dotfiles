@@ -21,7 +21,7 @@ Check the environment before running platform-specific commands or assuming a to
 
 ### Web access
 
-**Use web access proactively**, but choose the lightest tool that can answer the question. Prefer built-in web access tools when available; otherwise use the following routes.
+**Use web access proactively**. When you need the latest information, authoritative facts or evidence, or precise specifics that are easy to misremember (such as exact API details or version-specific behavior), search the web instead of guessing or relying on stale memory. Choose the lightest tool that can answer the question, and prefer built-in web access tools when available; otherwise use the following routes.
 
 - Known URL or static content: use **curl** for simple fetches, and pipe JSON to **jq** when needed. For complex fetching and parsing, ad hoc scripts are acceptable.
 - Public web research: use **Exa MCP** to search the web, fetch pages, extract relevant content, or summarize public pages. It returns clean text content, so call it without `--output json`. Do not scrape search result pages or automate a browser for ordinary search and retrieval. Run `mcporter list exa` to inspect its available tools.
