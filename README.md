@@ -13,10 +13,10 @@ Personal dotfiles and development environment for macOS, managed by [chezmoi](ht
     chezmoi init --apply https://github.com/zlliang/dotfiles.git
     ```
 
-    I use `~/Workspace/github/zlliang/dotfiles` as the source directory, so for me:
+    I use `~/workspace/github/zlliang/dotfiles` as the source directory, so for me:
 
     ```bash
-    chezmoi init -S ~/Workspace/github/zlliang/dotfiles --apply https://github.com/zlliang/dotfiles.git
+    chezmoi init -S ~/workspace/github/zlliang/dotfiles --apply https://github.com/zlliang/dotfiles.git
     ```
 
     This automatically installs Homebrew packages listed below, installs coding agents, and applies configuration for all tools.

@@ -1,9 +1,9 @@
 # Environment variables and general settings
 set -gx LANG "en_US.UTF-8"
 set -gx SSH_KEY_PATH "$HOME/.ssh/rsa_id"
-set -gx EDITOR "code --wait"
+set -gx EDITOR {{ ternary "code --wait" "vim" (eq .chezmoi.os "darwin") | quote }}
 fish_add_path -g "$HOME/.local/bin"
-stty -echoctl 2>/dev/null # Disable `^C` display when pressing Ctrl+C
+stty -echoctl 2>/dev/null   # Disable `^C` display when pressing Ctrl+C
 
 # Set cursor style to `line` internally
 # 1 -> blinking block

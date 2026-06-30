@@ -13,7 +13,7 @@
   defaultBranch = main
 
 [core]
-  editor = code --wait # VS Code
+  editor = {{ ternary "code --wait" "vim" (eq .chezmoi.os "darwin") }}
   excludesfile = ~/.gitignore
 
 [credential]
@@ -39,7 +39,7 @@
 
 {{- if eq .machine "work" }}
 
-[includeIf "gitdir:~/Workspace/booking/"]
+[includeIf "gitdir:~/workspace/booking/"]
   path = ~/.gitconfig-work
 
 {{- end }}

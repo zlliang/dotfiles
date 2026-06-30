@@ -117,7 +117,7 @@ run = ["npx -y skills update -g"]
 name = "pull-repos"
 description = "Pull latest changes for all personal repos"
 run = ["""
-for dir in ~/Workspace/github/zlliang/*/; do
+for dir in ~/workspace/github/zlliang/*/; do
   if [ -d "$dir/.git" ]; then
     echo "Pulling $(basename "$dir")..."
     git -C "$dir" pull --ff-only || true
