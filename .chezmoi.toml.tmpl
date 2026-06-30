@@ -1,20 +1,16 @@
-{{- $machine := promptStringOnce . "machine" "Machine type (personal/work)" "personal" }}
-{{- $workEmail := "" }}
-{{- $teamName := "" }}
-{{- $teamId := "" }}
-{{- $gitlabNamespace := "" }}
-{{- if eq $machine "work" }}
-{{-   $workEmail = promptStringOnce . "workEmail" "Work email address" }}
-{{-   $teamName = promptStringOnce . "teamName" "Team name" }}
-{{-   $teamId = promptStringOnce . "teamId" "Team ID" }}
-{{-   $gitlabNamespace = promptStringOnce . "gitlabNamespace" "GitLab namespace" }}
-{{- end -}}
+{{- $machine := promptStringOnce . "machine" "Machine type (personal/work)" "personal" -}}
 
 sourceDir = "~/Workspace/github/zlliang/dotfiles"
 
 [data]
 machine = {{ $machine | quote }}
-workEmail = {{ $workEmail | quote }}
-teamName = {{ $teamName | quote }}
-teamId = {{ $teamId | quote }}
-gitlabNamespace = {{ $gitlabNamespace | quote }}
+
+{{- if eq $machine "work" }}
+
+[data.work]
+email = {{ promptStringOnce . "work.email" "Work email address" | quote }}
+teamName = {{ promptStringOnce . "work.teamName" "Team name" | quote }}
+teamId = {{ promptStringOnce . "work.teamId" "Team ID" | quote }}
+gitlabNamespace = {{ promptStringOnce . "work.gitlabNamespace" "GitLab namespace" | quote }}
+
+{{- end }}

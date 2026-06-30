@@ -65,7 +65,7 @@ installSkills("vercel-labs/agent-browser", ["agent-browser"])
 installBun(["agent-browser"])
 
 {{- if eq .machine "work" }}
-installSkills("git@gitlab.com:{{ .gitlabNamespace }}/skills", [
+installSkills("git@gitlab.com:{{ .work.gitlabNamespace }}/personal/zilong.liang/skills", [
     "k8s-at-booking-com",
     "sourcegraph-cli",
     "working-at-booking-com",

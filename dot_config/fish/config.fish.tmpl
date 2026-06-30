@@ -70,9 +70,9 @@ set -gx VIRTUAL_ENV_DISABLE_PROMPT "true"
 
 # Identity
 set -gx USER_NAME "$USER"
-set -gx WORK_EMAIL "{{ .workEmail }}"
-set -gx TEAM_NAME "{{ .teamName }}"
-set -gx TEAM_ID "{{ .teamId }}"
+set -gx WORK_EMAIL "{{ .work.email }}"
+set -gx TEAM_NAME "{{ .work.teamName }}"
+set -gx TEAM_ID "{{ .work.teamId }}"
 
 # BK CLI
 if type -q bk
