@@ -77,12 +77,6 @@ set -gx WORK_EMAIL "{{ .work.email }}"
 set -gx TEAM_NAME "{{ .work.teamName }}"
 set -gx TEAM_ID "{{ .work.teamId }}"
 
-# BK CLI
-if type -q bk
-  bk completion fish | source
-  set -gx BK_AUTH_SSO_TIMEOUT 600000
-end
-
 # Sourcegraph CLI
 set -gx SRC_ENDPOINT "{{ .work.sourcegraphSite }}"
 
@@ -95,5 +89,14 @@ set -gx ATLASSIAN_API_TOKEN "{{ .work.atlassianApiToken }}"
 if test -f $HOME/.local/share/google-cloud-sdk/path.fish.inc
   source $HOME/.local/share/google-cloud-sdk/path.fish.inc
 end
+
+# BK CLI
+if type -q bk
+  bk completion fish | source
+  set -gx BK_AUTH_SSO_TIMEOUT 600000
+end
+
+# Booking Pages
+fish_add_path -g "$HOME/.bpages/bin"
 
 {{- end }}

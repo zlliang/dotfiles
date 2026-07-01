@@ -18,7 +18,7 @@ def resetAgentsDirectories(dirs: list[Path]) -> None:
 
 def installSkills(repo: str, skills: list[str] | None = None) -> None:
     agents = ["amp", "pi"]
-    run(["npx", "-y", "skills", "add", repo, *(["--skill", *skills] if skills else []), "-g", "-y", "-a", *agents])
+    run(["npx", "-y", "skills", "add", repo, *(["--skill", *skills] if skills else []), "--full-depth", "-g", "-y", "-a", *agents])
 
 
 def installBrew(packages: list[str]) -> None:
@@ -60,7 +60,9 @@ installSkills("zlliang/skills", [
 installBrew(["gh"])
 installBun(["mcporter"])
 
-installSkills("vercel-labs/agent-browser", ["agent-browser"])
+installSkills("vercel-labs/agent-browser", [
+    "agent-browser"
+])
 installBun(["agent-browser"])
 
 {{- if eq .machine "work" }}
@@ -92,4 +94,8 @@ installSkills("googleworkspace/cli", [
     "gws-slides",
 ])
 installBrew(["googleworkspace-cli"])
+
+installSkills("git@gitlab.com:{{ .work.gitlabNamespace }}/genai-eng/coding-agent-tools", [
+    "bpages"
+])
 {{- end }}
