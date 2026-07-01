@@ -84,7 +84,12 @@ if type -q bk
 end
 
 # Sourcegraph CLI
-set -gx SRC_ENDPOINT "https://sourcegraph.booking.com"
+set -gx SRC_ENDPOINT "{{ .work.sourcegraphSite }}"
+
+# Atlassian REST API
+set -gx ATLASSIAN_EMAIL "$WORK_EMAIL"
+set -gx ATLASSIAN_SITE "{{ .work.atlassianSite }}"
+set -gx ATLASSIAN_API_TOKEN "{{ .work.atlassianApiToken }}"
 
 # Google Cloud SDK
 if test -f $HOME/.local/share/google-cloud-sdk/path.fish.inc

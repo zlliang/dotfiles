@@ -12,5 +12,8 @@ email = {{ promptStringOnce . "work.email" "Work email address" | quote }}
 teamName = {{ promptStringOnce . "work.teamName" "Team name" | quote }}
 teamId = {{ promptStringOnce . "work.teamId" "Team ID" | quote }}
 gitlabNamespace = {{ promptStringOnce . "work.gitlabNamespace" "GitLab namespace" | quote }}
+sourcegraphSite = {{ promptStringOnce . "work.sourcegraphSite" "Sourcegraph site" | quote }}
+atlassianSite = {{ promptStringOnce . "work.atlassianSite" "Atlassian site" | quote }}
+atlassianApiToken = {{ promptStringOnce . "work.atlassianApiToken" "Atlassian API token" | quote }}
 
 {{- end }}
