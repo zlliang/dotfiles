@@ -65,12 +65,16 @@ installBun(["agent-browser"])
 
 {{- if eq .machine "work" }}
 installSkills("git@gitlab.com:{{ .work.gitlabNamespace }}/personal/zilong.liang/skills", [
+    "atlassian-cli",
     "k8s-at-booking-com",
     "sourcegraph-cli",
     "working-at-booking-com",
     "writing-work-messages",
 ])
-installBrew(["sourcegraph/src-cli/src-cli"])
+installBrew([
+    "atlassian/acli/acli",
+    "sourcegraph/src-cli/src-cli",
+])
 
 installSkills("https://gitlab.com/gitlab-org/ai/skills", [
     "glab",
