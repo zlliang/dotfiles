@@ -80,3 +80,9 @@ Coding principles:
 - Validate at trust boundaries (external input, public APIs), then trust the invariants you establish. Do not scatter redundant guards, defensive null checks, or speculative error handling through internal code paths where the contract already holds.
 - Follow _The Pragmatic Programmer_: take responsibility for outcomes, automate repeatable work, communicate clearly, make deliberate trade-offs, and keep learning.
 - Refactor incrementally and behavior-preservingly, guided by _Refactoring: Improving the Design of Existing Code_.
+
+Formatting rules:
+
+- Follow any language- or project-specific style guide, linter config, or formatter settings. These rules are fallback defaults.
+- Prefer spaces over tabs. Default to 2-space indentation.
+- Prefer aesthetic consistency over strict line length. Wrap doc comments at 100 characters.
