@@ -6,6 +6,11 @@
       "model": "claude-opus-4-8",
       "thinkingLevel": "high"
     },
+    "claude-sonnet": {
+      "provider": "booking-genai",
+      "model": "claude-sonnet-4-6",
+      "thinkingLevel": "high"
+    },
     "gpt": {
       "provider": "openai-codex",
       "model": "gpt-5.5",
@@ -17,14 +22,14 @@
       "thinkingLevel": "xhigh"
     }
     {{- else }}
-    "gpt": {
-      "provider": "openai-codex",
-      "model": "gpt-5.5",
-      "thinkingLevel": "high"
-    },
     "claude-sonnet": {
       "provider": "vercel-ai-gateway",
       "model": "anthropic/claude-sonnet-5",
+      "thinkingLevel": "high"
+    },
+    "gpt": {
+      "provider": "openai-codex",
+      "model": "gpt-5.5",
       "thinkingLevel": "high"
     },
     "glm": {
