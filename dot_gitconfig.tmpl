@@ -40,7 +40,7 @@
 {{- if eq .machine "work" }}
 
 [url "git@gitlab.com:{{ .work.gitlabNamespace }}"]
-	insteadOf = https://gitlab.com/{{ .work.gitlabNamespace }}
+  insteadOf = https://gitlab.com/{{ .work.gitlabNamespace }}
 
 [includeIf "gitdir:~/workspace/booking/"]
   path = ~/.gitconfig-work
