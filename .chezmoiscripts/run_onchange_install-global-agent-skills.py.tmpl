@@ -66,7 +66,7 @@ installSkills("vercel-labs/agent-browser", [
 installBun(["agent-browser"])
 
 {{- if eq .machine "work" }}
-installSkills("git@gitlab.com:{{ .work.gitlabNamespace }}/personal/zilong.liang/skills", [
+installSkills("https://gitlab.com/{{ .work.gitlabNamespace }}/personal/zilong.liang/skills", [
     "atlassian-cli",
     "k8s-at-booking-com",
     "sourcegraph-cli",
@@ -95,7 +95,5 @@ installSkills("googleworkspace/cli", [
 ])
 installBrew(["googleworkspace-cli"])
 
-installSkills("git@gitlab.com:{{ .work.gitlabNamespace }}/genai-eng/coding-agent-tools", [
-    "bpages"
-])
+installSkills("https://gitlab.com/{{ .work.gitlabNamespace }}/genai-eng/coding-agent-tools/-/tree/main/common/skills/bpages")
 {{- end }}
