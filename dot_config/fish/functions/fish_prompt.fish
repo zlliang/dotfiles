@@ -1,10 +1,11 @@
 function fish_prompt
+  set -l last_status $status
   set -l pwd_seg (string join "" (set_color $fish_color_cwd --bold) (prompt_pwd) (set_color normal) " ")
   set -l venv_seg (__prompt_venv)
   set -l git_seg (__prompt_git)
   set -l jobs_seg (__prompt_jobs)
   set -l host_seg (__prompt_host)
-  set -l arrow_seg (__prompt_arrow)
+  set -l arrow_seg (__prompt_arrow $last_status)
 
   printf "\n%s" (string join "" $pwd_seg $venv_seg $git_seg $jobs_seg)
   printf "\n%s" (string join "" $host_seg $arrow_seg)
@@ -34,5 +35,6 @@ function __prompt_host
 end
 
 function __prompt_arrow
-  string join "" (if test $status -eq 0; echo (set_color green --bold); else; echo (set_color red --bold); end) "> " (set_color normal)
+  set -l last_status $argv[1]
+  string join "" (if test $last_status -eq 0; echo (set_color green --bold); else; echo (set_color red --bold); end) "> " (set_color normal)
 end
