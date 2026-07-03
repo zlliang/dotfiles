@@ -1,6 +1,5 @@
 # Environment variables and general settings
 set -gx LANG "en_US.UTF-8"
-set -gx SSH_KEY_PATH "$HOME/.ssh/rsa_id"
 set -gx EDITOR {{ ternary "code --wait" "vim" (eq .chezmoi.os "darwin") | quote }}
 fish_add_path -g "$HOME/.local/bin"
 
@@ -21,12 +20,8 @@ end
 {{- if eq .chezmoi.os "darwin" }}
 
 # Homebrew
-set -gx HOMEBREW_PREFIX "/opt/homebrew"
-set -gx HOMEBREW_CELLAR "/opt/homebrew/Cellar"
-set -gx HOMEBREW_REPOSITORY "/opt/homebrew"
-set -gx HOMEBREW_BOTTLE_DOMAIN "https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
+/opt/homebrew/bin/brew shellenv | source
 set -gx HOMEBREW_NO_ENV_HINTS 1
-fish_add_path -g "/opt/homebrew/bin" "/opt/homebrew/sbin"
 
 {{- end }}
 
