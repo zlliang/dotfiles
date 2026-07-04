@@ -8,7 +8,7 @@
     },
     "claude-sonnet": {
       "provider": "booking-genai",
-      "model": "claude-sonnet-4-6",
+      "model": "claude-sonnet-5",
       "thinkingLevel": "high"
     },
     "gpt": {
@@ -22,6 +22,11 @@
       "thinkingLevel": "xhigh"
     }
     {{- else }}
+    "claude-opus": {
+      "provider": "vercel-ai-gateway",
+      "model": "anthropic/claude-opus-4.8",
+      "thinkingLevel": "high"
+    },
     "claude-sonnet": {
       "provider": "vercel-ai-gateway",
       "model": "anthropic/claude-sonnet-5",
