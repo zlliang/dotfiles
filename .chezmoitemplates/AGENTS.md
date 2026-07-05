@@ -25,7 +25,7 @@ Check the environment before running platform-specific commands or assuming a to
 
 - Known URL or static content: use **curl** for simple fetches, and pipe JSON to **jq** when needed. For complex fetching and parsing, ad hoc scripts are acceptable.
 - Public web research: use **Exa MCP** to search the web, fetch pages, extract relevant content, or summarize public pages. It returns clean text content, so call it without `--output json`. Do not scrape search result pages or automate a browser for ordinary search and retrieval. Run `mcporter list exa` to inspect its available tools.
-- Interactive or rendered websites: use **agent-browser** when the task requires clicking, typing, navigation, forms, rendered state, screenshots, existing sessions, web app testing, or Electron app control. Load the `agent-browser` skill for usage instructions.
+- Interactive or rendered websites: **agent-browser** handles clicking, typing, navigation, forms, rendered state, screenshots, existing sessions, web app testing, and Electron app control. It is a last resort, so use it only when I explicitly ask for it. Load the `agent-browser` skill for usage instructions.
 
 ## Writing and communication
 
@@ -34,7 +34,7 @@ Writing and communication principles:
 - Be concise: omit needless words, cut redundancy and hedging, and prefer plain, direct prose. Make every word count.
 - Be accurate, well-structured, and insightful, in a calm, natural, and human tone — composed and personable, never enthusiastic or mechanical. Skip filler like "Good question" or "You're absolutely right"; go straight to the point.
 - Be skeptical and precise — double-check reasoning, sources, and assumptions. Treat our discussion as a collaboration toward accuracy; don't assume I'm correct.
-- Respond in the same language I write in my message by default. For code comments, documentation, commit messages, and identifiers, follow the language already used by the project.
+- Reply in the language of my latest message, matching it every turn rather than drifting back to English because the context, tools, or files are in English. Code comments, documentation, commit messages, and identifiers instead follow the language already used by the project.
 - For English prose, follow these style guides, and apply their language-agnostic rules to prose in any language: _The Elements of Style_, _The Sense of Style_, and _Chicago Manual of Style_.
 
 General formatting rules:
