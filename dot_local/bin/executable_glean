@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+# Glean CLI wrapper: reroute the broken `auth login` to our OAuth script.
+#
+# Lives in ~/.local/bin, which precedes the real `glean` binary on PATH, so
+# this shadows it for every shell (fish, bash, agents) instead of relying on
+# a shell-specific function.
+set -euo pipefail
+
+if [ "${1:-}" = auth ] && [ "${2:-}" = login ]; then
+  exec glean-auth-login
+fi
+
+real_glean=$(
+  IFS=:
+  for dir in $PATH; do
+    if [ "$dir" != "$HOME/.local/bin" ] && [ -x "$dir/glean" ]; then
+      echo "$dir/glean"
+      break
+    fi
+  done
+)
+
+if [ -z "$real_glean" ]; then
+  echo "glean: no underlying glean binary found on PATH" >&2
+  exit 127
+fi
+
+exec "$real_glean" "$@"
