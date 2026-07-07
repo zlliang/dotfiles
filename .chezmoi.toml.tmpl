@@ -15,5 +15,7 @@ gitlabNamespace = {{ promptStringOnce . "work.gitlabNamespace" "GitLab namespace
 sourcegraphSite = {{ promptStringOnce . "work.sourcegraphSite" "Sourcegraph site" | quote }}
 atlassianSite = {{ promptStringOnce . "work.atlassianSite" "Atlassian site" | quote }}
 atlassianApiToken = {{ promptStringOnce . "work.atlassianApiToken" "Atlassian API token" | quote }}
+gleanServerUrl = {{ promptStringOnce . "work.gleanServerUrl" "Glean server URL" | quote }}
+gleanClientId = {{ promptStringOnce . "work.gleanClientId" "Glean OAuth client ID" | quote }}
 
 {{- end }}

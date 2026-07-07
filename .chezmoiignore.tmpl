@@ -4,6 +4,8 @@ LICENSE
 
 {{- if ne .machine "work" }}
 .gitconfig-work
+.config/fish/functions/glean.fish
+.local/bin/glean-auth-login
 {{- end }}
 
 {{- if ne .chezmoi.os "darwin" }}

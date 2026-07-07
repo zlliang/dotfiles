@@ -1,0 +1,221 @@
+#!/usr/bin/env -S uv run --script
+# /// script
+# requires-python = ">=3.11"
+# dependencies = ["httpx", "rich"]
+# ///
+"""Authenticate the Glean CLI via browser OAuth (PKCE) and write its token files.
+
+At Booking.com the CLI's own `glean auth login` is broken org-side: its dedicated
+Okta app was rotated and dynamic client registration is disabled. As a workaround
+we reuse Booking's public Glean OAuth client (PKCE, no secret — the same one the
+Glean MCP uses) and write the CLI's token files directly. Idempotent — safe to
+re-run whenever auth stops working.
+
+Reference: https://bpages.booking.com/6g5K/glean-cli-setup
+"""
+
+import base64
+import hashlib
+import http.server
+import json
+import secrets
+import subprocess
+import sys
+import time
+import urllib.parse
+import webbrowser
+from pathlib import Path
+
+import httpx
+from rich.console import Console
+
+console = Console()
+err = Console(stderr=True)
+
+SERVER_URL = "{{ .work.gleanServerUrl }}"
+CLIENT_ID = "{{ .work.gleanClientId }}"
+REDIRECT = "http://localhost:8080/oauth/callback"
+SCOPE = "openid email profile offline_access"
+PORT = 8080
+
+
+def step(msg: str) -> None:
+    console.print(f"▸ {msg}")
+
+
+def done(msg: str) -> None:
+    console.print(f"[green]✓[/] {msg}")
+
+
+def die(msg: str) -> None:
+    err.print(f"[red]✗[/] {msg}")
+    sys.exit(1)
+
+
+def jwt_claims(token: str) -> dict:
+    payload = token.split(".")[1]
+    payload += "=" * (-len(payload) % 4)
+    return json.loads(base64.urlsafe_b64decode(payload))
+
+
+def wait_for_callback(auth_url: str, state: str) -> str:
+    result: dict[str, str] = {}
+
+    class Handler(http.server.BaseHTTPRequestHandler):
+        def log_message(self, format: str, *args: object) -> None:
+            pass
+
+        def do_GET(self):
+            query = urllib.parse.urlparse(self.path).query
+            result.update({k: v[0] for k, v in urllib.parse.parse_qs(query).items()})
+            self.send_response(200)
+            self.send_header("Content-Type", "text/html")
+            self.end_headers()
+            self.wfile.write(b"Glean CLI authenticated. You can close this tab.")
+
+    try:
+        server = http.server.HTTPServer(("127.0.0.1", PORT), Handler)
+    except OSError:
+        die(f"Port {PORT} is in use — free it and re-run.")
+
+    step(
+        "Signing in through Okta via your browser... if it doesn't open, visit this "
+        "URL directly:"
+    )
+    console.print(auth_url, markup=False, style="cyan", soft_wrap=True)
+    webbrowser.open(auth_url)
+
+    deadline = time.time() + 180
+    while "code" not in result and "error" not in result and time.time() < deadline:
+        server.timeout = max(1, deadline - time.time())
+        server.handle_request()
+
+    if result.get("error"):
+        die(f"Okta returned {result['error']}: {result.get('error_description', '')}")
+    if not result.get("code"):
+        die("Timed out waiting for sign-in.")
+    if result.get("state") != state:
+        die("State mismatch (possible CSRF) — aborting.")
+    return result["code"]
+
+
+def main() -> None:
+    console.print(
+        "[bold]Glean CLI login for Booking.com:[/] [dim]`glean auth login` is broken"
+        "org-side; reusing the public Okta client (PKCE).[/]"
+    )
+
+    step("Discovering Okta endpoints")
+    with httpx.Client(timeout=20, follow_redirects=True) as client:
+        meta = (
+            client.get(f"{SERVER_URL}/.well-known/oauth-protected-resource")
+            .raise_for_status()
+            .json()
+        )
+        issuer = meta["authorization_servers"][0].rstrip("/")
+        oidc = (
+            client.get(f"{issuer}/.well-known/openid-configuration")
+            .raise_for_status()
+            .json()
+        )
+
+    verifier = base64.urlsafe_b64encode(secrets.token_bytes(64)).rstrip(b"=").decode()
+    challenge = (
+        base64.urlsafe_b64encode(hashlib.sha256(verifier.encode()).digest())
+        .rstrip(b"=")
+        .decode()
+    )
+    state = secrets.token_urlsafe(16)
+    auth_url = (
+        oidc["authorization_endpoint"]
+        + "?"
+        + urllib.parse.urlencode(
+            {
+                "client_id": CLIENT_ID,
+                "response_type": "code",
+                "scope": SCOPE,
+                "redirect_uri": REDIRECT,
+                "state": state,
+                "nonce": secrets.token_urlsafe(16),
+                "code_challenge": challenge,
+                "code_challenge_method": "S256",
+            }
+        )
+    )
+
+    code = wait_for_callback(auth_url, state)
+
+    with httpx.Client(timeout=20) as client:
+        resp = client.post(
+            oidc["token_endpoint"],
+            data={
+                "grant_type": "authorization_code",
+                "code": code,
+                "redirect_uri": REDIRECT,
+                "client_id": CLIENT_ID,
+                "code_verifier": verifier,
+            },
+        )
+    if resp.is_error:
+        die(f"Token exchange failed: {resp.text}")
+    token = resp.json()
+
+    claims = jwt_claims(token["access_token"])
+    expiry = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime(claims["exp"]))
+
+    # ~/.glean/config.json holds only the server URL.
+    glean_dir = Path.home() / ".glean"
+    glean_dir.mkdir(mode=0o700, exist_ok=True)
+    config = glean_dir / "config.json"
+    config.write_text(json.dumps({"server_url": SERVER_URL}, indent=2))
+    config.chmod(0o600)
+
+    # Tokens live in files under ~/.local/state/glean-cli/<sha256(host)[:8]>/.
+    host = (
+        SERVER_URL.strip()
+        .lower()
+        .removeprefix("https://")
+        .removeprefix("http://")
+        .rstrip("/")
+    )
+    key = hashlib.sha256(host.encode()).digest()[:8].hex()
+    state_dir = Path.home() / ".local/state/glean-cli" / key
+    state_dir.mkdir(mode=0o700, parents=True, exist_ok=True)
+
+    for name, obj in {
+        "tokens.json": {
+            "access_token": token["access_token"],
+            "refresh_token": token.get("refresh_token", ""),
+            "expiry": expiry,
+            "email": claims.get("sub", ""),
+            "token_type": "Bearer",
+            "token_endpoint": oidc["token_endpoint"],
+        },
+        "client.json": {"client_id": CLIENT_ID},
+    }.items():
+        path = state_dir / name
+        path.write_text(json.dumps(obj, indent=2))
+        path.chmod(0o600)
+
+    step(
+        "Storing credentials in ~/.glean/config.json and "
+        f"~/.local/state/glean-cli/{key}/"
+    )
+
+    step("Verifying access")
+    ok = (
+        subprocess.run(
+            ["glean", "search", "test", "--page-size", "1"],
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+        ).returncode
+        == 0
+    )
+    if not ok:
+        die("Verification failed. Re-run this script.")
+
+    done(f"Signed in as {claims.get('sub', '?')} — Glean CLI is ready")
+
+
+if __name__ == "__main__":
+    main()
