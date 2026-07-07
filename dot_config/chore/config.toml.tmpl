@@ -110,8 +110,8 @@ run = [
 [[tasks]]
 name = "update-agent-skills"
 description = "Update global agent skills"
-check = "npm"
-run = ["npx -y skills update -g -y"]
+check = "setup-global-agent-skills"
+run = ["setup-global-agent-skills"]
 
 [[tasks]]
 name = "pull-repos"
