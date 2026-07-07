@@ -1,13 +1,31 @@
 #!/usr/bin/env bash
-# Glean CLI wrapper: reroute the broken `auth login` to our OAuth script.
+# Glean CLI wrapper:
+#   - reroute the broken `auth login` to our OAuth script;
+#   - default `chat` to --save=false so throwaway queries don't pile up as
+#     saved sessions (the CLI has no way to delete them).
 #
 # Lives in ~/.local/bin, which precedes the real `glean` binary on PATH, so
 # this shadows it for every shell (fish, bash, agents) instead of relying on
 # a shell-specific function.
 set -euo pipefail
 
+# The upstream `auth login` is broken, so hand off to our OAuth script.
 if [ "${1:-}" = auth ] && [ "${2:-}" = login ]; then
   exec glean-auth-login
+fi
+
+# For `glean chat`, opt out of saving sessions unless the caller set --save.
+if [ "${1:-}" = chat ]; then
+  save_set=false
+  for arg in "$@"; do
+    case "$arg" in
+    --save | --save=*) save_set=true ;;
+    esac
+  done
+  if [ "$save_set" = false ]; then
+    shift
+    set -- chat --save=false "$@"
+  fi
 fi
 
 real_glean=$(
