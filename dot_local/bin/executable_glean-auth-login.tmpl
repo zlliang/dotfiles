@@ -11,6 +11,10 @@ we reuse Booking's public Glean OAuth client (PKCE, no secret — the same one t
 Glean MCP uses) and write the CLI's token files directly. Idempotent — safe to
 re-run whenever auth stops working.
 
+Re-running prefers a silent refresh: if a stored refresh token is still valid we
+swap it for a fresh access token without touching the browser, and only fall back
+to the full PKCE flow when that fails.
+
 Reference: https://bpages.booking.com/6g5K/glean-cli-setup
 """
 
@@ -38,6 +42,12 @@ REDIRECT = "http://localhost:8080/oauth/callback"
 SCOPE = "openid email profile offline_access"
 PORT = 8080
 
+HTTP_TIMEOUT = 30
+CALLBACK_TIMEOUT = 180
+
+
+# --- Console output -------------------------------------------------------
+
 
 def step(msg: str) -> None:
     console.print(f"▸ {msg}")
@@ -52,10 +62,103 @@ def die(msg: str) -> None:
     sys.exit(1)
 
 
+# --- Credential storage ---------------------------------------------------
+#
+# ~/.glean/config.json holds only the server URL. Tokens live under
+# ~/.local/state/glean-cli/<sha256(host)[:8]>/ in tokens.json + client.json.
+
+
+def write_json(path: Path, obj: dict) -> None:
+    path.parent.mkdir(mode=0o700, parents=True, exist_ok=True)
+    path.write_text(json.dumps(obj, indent=2))
+    path.chmod(0o600)
+
+
+def state_dir() -> Path:
+    host = (
+        SERVER_URL.strip()
+        .lower()
+        .removeprefix("https://")
+        .removeprefix("http://")
+        .rstrip("/")
+    )
+    key = hashlib.sha256(host.encode()).digest()[:8].hex()
+    return Path.home() / ".local/state/glean-cli" / key
+
+
+def load_tokens() -> dict | None:
+    try:
+        return json.loads((state_dir() / "tokens.json").read_text())
+    except (OSError, json.JSONDecodeError):
+        return None
+
+
+def save_credentials(token: dict, endpoint: str, prev: dict | None = None) -> dict:
+    """Turn an Okta token response into the CLI's on-disk records and write them.
+
+    `prev` carries the previous tokens.json so we can keep a still-valid refresh
+    token when Okta's response omits one (it doesn't rotate on every exchange).
+    Returns the persisted tokens record.
+    """
+    prev = prev or {}
+    claims = jwt_claims(token["access_token"])
+    tokens = {
+        "access_token": token["access_token"],
+        "refresh_token": token.get("refresh_token") or prev.get("refresh_token", ""),
+        "expiry": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime(claims["exp"])),
+        "email": claims.get("sub", prev.get("email", "")),
+        "token_type": "Bearer",
+        "token_endpoint": endpoint,
+    }
+    write_json(Path.home() / ".glean/config.json", {"server_url": SERVER_URL})
+    write_json(state_dir() / "tokens.json", tokens)
+    write_json(state_dir() / "client.json", {"client_id": CLIENT_ID})
+    return tokens
+
+
+# --- OAuth primitives -----------------------------------------------------
+
+
 def jwt_claims(token: str) -> dict:
     payload = token.split(".")[1]
     payload += "=" * (-len(payload) % 4)
     return json.loads(base64.urlsafe_b64decode(payload))
+
+
+def post_token(endpoint: str, **data: str) -> httpx.Response:
+    with httpx.Client(timeout=HTTP_TIMEOUT) as client:
+        return client.post(endpoint, data={"client_id": CLIENT_ID, **data})
+
+
+def discover_oidc() -> dict:
+    step("Discovering Okta endpoints")
+    with httpx.Client(timeout=HTTP_TIMEOUT, follow_redirects=True) as client:
+        meta = (
+            client.get(f"{SERVER_URL}/.well-known/oauth-protected-resource")
+            .raise_for_status()
+            .json()
+        )
+        issuer = meta["authorization_servers"][0].rstrip("/")
+        return (
+            client.get(f"{issuer}/.well-known/openid-configuration")
+            .raise_for_status()
+            .json()
+        )
+
+
+def verify_access() -> bool:
+    step("Verifying access")
+    return (
+        subprocess.run(
+            ["glean", "search", "test", "--page-size", "1"],
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+        ).returncode
+        == 0
+    )
+
+
+# --- Browser (PKCE) flow --------------------------------------------------
 
 
 def wait_for_callback(auth_url: str, state: str) -> str:
@@ -85,7 +188,7 @@ def wait_for_callback(auth_url: str, state: str) -> str:
     console.print(auth_url, markup=False, style="cyan", soft_wrap=True)
     webbrowser.open(auth_url)
 
-    deadline = time.time() + 180
+    deadline = time.time() + CALLBACK_TIMEOUT
     while "code" not in result and "error" not in result and time.time() < deadline:
         server.timeout = max(1, deadline - time.time())
         server.handle_request()
@@ -99,26 +202,7 @@ def wait_for_callback(auth_url: str, state: str) -> str:
     return result["code"]
 
 
-def main() -> None:
-    console.print(
-        "[bold]Glean CLI login for Booking.com:[/] [dim]`glean auth login` is broken"
-        "org-side; reusing the public Okta client (PKCE).[/]"
-    )
-
-    step("Discovering Okta endpoints")
-    with httpx.Client(timeout=20, follow_redirects=True) as client:
-        meta = (
-            client.get(f"{SERVER_URL}/.well-known/oauth-protected-resource")
-            .raise_for_status()
-            .json()
-        )
-        issuer = meta["authorization_servers"][0].rstrip("/")
-        oidc = (
-            client.get(f"{issuer}/.well-known/openid-configuration")
-            .raise_for_status()
-            .json()
-        )
-
+def browser_login(oidc: dict) -> dict:
     verifier = base64.urlsafe_b64encode(secrets.token_bytes(64)).rstrip(b"=").decode()
     challenge = (
         base64.urlsafe_b64encode(hashlib.sha256(verifier.encode()).digest())
@@ -144,77 +228,79 @@ def main() -> None:
     )
 
     code = wait_for_callback(auth_url, state)
-
-    with httpx.Client(timeout=20) as client:
-        resp = client.post(
-            oidc["token_endpoint"],
-            data={
-                "grant_type": "authorization_code",
-                "code": code,
-                "redirect_uri": REDIRECT,
-                "client_id": CLIENT_ID,
-                "code_verifier": verifier,
-            },
-        )
+    resp = post_token(
+        oidc["token_endpoint"],
+        grant_type="authorization_code",
+        code=code,
+        redirect_uri=REDIRECT,
+        code_verifier=verifier,
+    )
     if resp.is_error:
         die(f"Token exchange failed: {resp.text}")
-    token = resp.json()
+    return resp.json()
 
-    claims = jwt_claims(token["access_token"])
-    expiry = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime(claims["exp"]))
 
-    # ~/.glean/config.json holds only the server URL.
-    glean_dir = Path.home() / ".glean"
-    glean_dir.mkdir(mode=0o700, exist_ok=True)
-    config = glean_dir / "config.json"
-    config.write_text(json.dumps({"server_url": SERVER_URL}, indent=2))
-    config.chmod(0o600)
+# --- Orchestration --------------------------------------------------------
 
-    # Tokens live in files under ~/.local/state/glean-cli/<sha256(host)[:8]>/.
-    host = (
-        SERVER_URL.strip()
-        .lower()
-        .removeprefix("https://")
-        .removeprefix("http://")
-        .rstrip("/")
+
+def try_refresh() -> bool:
+    """Silently swap a stored refresh token for a fresh access token.
+
+    Returns True once credentials are refreshed and verified; False when there's
+    no usable refresh token or Okta rejects it, so the caller falls back to the
+    browser flow.
+    """
+    tokens = load_tokens()
+    if (
+        not tokens
+        or not tokens.get("refresh_token")
+        or not tokens.get("token_endpoint")
+    ):
+        return False
+
+    step("Found a stored refresh token — attempting silent refresh")
+    resp = post_token(
+        tokens["token_endpoint"],
+        grant_type="refresh_token",
+        refresh_token=tokens["refresh_token"],
     )
-    key = hashlib.sha256(host.encode()).digest()[:8].hex()
-    state_dir = Path.home() / ".local/state/glean-cli" / key
-    state_dir.mkdir(mode=0o700, parents=True, exist_ok=True)
+    if resp.is_error:
+        step(
+            f"Refresh token rejected ({resp.status_code}) — falling back to browser "
+            "login"
+        )
+        return False
 
-    for name, obj in {
-        "tokens.json": {
-            "access_token": token["access_token"],
-            "refresh_token": token.get("refresh_token", ""),
-            "expiry": expiry,
-            "email": claims.get("sub", ""),
-            "token_type": "Bearer",
-            "token_endpoint": oidc["token_endpoint"],
-        },
-        "client.json": {"client_id": CLIENT_ID},
-    }.items():
-        path = state_dir / name
-        path.write_text(json.dumps(obj, indent=2))
-        path.chmod(0o600)
+    refreshed = save_credentials(resp.json(), tokens["token_endpoint"], prev=tokens)
+    if not verify_access():
+        step("Refreshed token failed verification — falling back to browser login")
+        return False
 
+    done(f"Refreshed session for {refreshed['email'] or '?'} — Glean CLI is ready")
+    return True
+
+
+def main() -> None:
+    console.print(
+        "[bold]Glean CLI login for Booking.com:[/] [dim]`glean auth login` is broken"
+        "org-side; reusing the public Okta client (PKCE).[/]"
+    )
+
+    if try_refresh():
+        return
+
+    oidc = discover_oidc()
+    token = browser_login(oidc)
+    tokens = save_credentials(token, oidc["token_endpoint"])
     step(
         "Storing credentials in ~/.glean/config.json and "
-        f"~/.local/state/glean-cli/{key}/"
+        f"~/.local/state/glean-cli/{state_dir().name}/"
     )
 
-    step("Verifying access")
-    ok = (
-        subprocess.run(
-            ["glean", "search", "test", "--page-size", "1"],
-            stdout=subprocess.DEVNULL,
-            stderr=subprocess.DEVNULL,
-        ).returncode
-        == 0
-    )
-    if not ok:
+    if not verify_access():
         die("Verification failed. Re-run this script.")
 
-    done(f"Signed in as {claims.get('sub', '?')} — Glean CLI is ready")
+    done(f"Signed in as {tokens['email'] or '?'} — Glean CLI is ready")
 
 
 if __name__ == "__main__":
