@@ -17,7 +17,7 @@ def resetAgentsDirectories(dirs: list[Path]) -> None:
 
 
 def installSkills(repo: str, skills: list[str] | None = None) -> None:
-    agents = ["amp", "pi"]
+    agents = ["amp"]  # Only installs to `~/.agents/skills`
     run(["npx", "-y", "skills", "add", repo, *(["--skill", *skills] if skills else []), "--full-depth", "-g", "-y", "-a", *agents])
 
 
