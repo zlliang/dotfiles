@@ -91,6 +91,23 @@ check = "uv"
 run = [
   "uv python install --default",
   "uv python upgrade",
+  """
+set -e
+install_dir=$(uv python dir)
+old_versions=$(uv python list --only-installed --output-format json \
+  | jq -r --arg dir "$install_dir" '
+      [.[] | select(.path | startswith($dir))]
+      | unique_by(.key)
+      | group_by([.version_parts.major, .version_parts.minor])
+      | map(sort_by(.version_parts.patch) | .[0:-1])
+      | flatten
+      | .[].key
+    ')
+for v in $old_versions; do
+  echo "Removing old Python $v..."
+  uv python uninstall "$v"
+done
+""",
 ]
 
 [[tasks]]
