@@ -50,30 +50,15 @@ resetAgentsDirectories([
     Path.home() / ".pi" / "agent" / "skills",
 ])
 
-installSkills("zlliang/skills", [
-    "building-skills",
-    "gh-cli",
-    "git-commit",
-    "mcporter",
-    "writing-issues-and-prs",
-])
+installSkills("zlliang/skills")
 installBrew(["gh"])
 installBun(["mcporter"])
 
-installSkills("vercel-labs/agent-browser", [
-    "agent-browser"
-])
+installSkills("vercel-labs/agent-browser")
 installBun(["agent-browser"])
 
 {{- if eq .machine "work" }}
-installSkills("https://gitlab.com/{{ .work.gitlabNamespace }}/personal/zilong.liang/skills", [
-    "atlassian-cli",
-    "k8s-at-booking-com",
-    "sourcegraph-cli",
-    "translate-api",
-    "working-at-booking-com",
-    "writing-work-messages",
-])
+installSkills("https://gitlab.com/{{ .work.gitlabNamespace }}/personal/zilong.liang/skills")
 installBrew([
     "atlassian/acli/acli",
     "sourcegraph/src-cli/src-cli",
@@ -85,9 +70,7 @@ installSkills("https://gitlab.com/gitlab-org/ai/skills", [
 ])
 installBrew(["glab"])
 
-installSkills("https://github.com/gleanwork/glean-cli", [
-    "glean-cli"
-])
+installSkills("https://github.com/gleanwork/glean-cli")
 installBrew(["gleanwork/tap/glean-cli"])
 
 installSkills("googleworkspace/cli", [
