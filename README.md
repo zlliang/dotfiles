@@ -55,6 +55,8 @@ Personal dotfiles and development environment for macOS, managed by [chezmoi](ht
 - **Git**: conditional personal/work identity (`~/.gitconfig`)
 - **Ghostty**: terminal config (`~/.config/ghostty/`)
 - **Amp & Pi**: coding agent configs and global skills
+- **MCPorter**: MCP server registry (`~/.mcporter/`)
+- **`~/.local/bin`**: helper scripts (agent skills setup, Glean CLI wrapper and OAuth login)
 
 ## Structure
 
