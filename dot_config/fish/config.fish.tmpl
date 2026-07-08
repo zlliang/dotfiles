@@ -60,6 +60,9 @@ set -gx COREPACK_ENABLE_AUTO_PIN 0
 set -gx PNPM_HOME "$HOME/.pnpm"
 fish_add_path -g "$HOME/.bun/bin"
 
+# Rust
+fish_add_path -g "$HOME/.cargo/bin"
+
 # Python
 # Suppress default virtual env prompt
 set -gx VIRTUAL_ENV_DISABLE_PROMPT "true"
