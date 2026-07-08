@@ -136,7 +136,7 @@ run = ["bk update"]
 [[tasks]]
 name = "bklogin"
 description = "Log in to Booking.com"
-steps = ["bklogin-ssh", "bklogin-auth"]
+steps = ["bklogin-ssh", "bklogin-auth", "bklogin-glean-auth"]
 
 [[tasks]]
 name = "bklogin-ssh"
@@ -147,6 +147,13 @@ run = ["ssh -A ssh.booking.com"]
 [[tasks]]
 name = "bklogin-auth"
 description = "Authenticate with bk CLI"
+check = "bk"
 run = ["bk auth:login --skip-okta-auth"]
+
+[[tasks]]
+name = "bklogin-glean-auth"
+description = "Authenticate with Glean CLI"
+check = "glean-auth-login"
+run = ["glean-auth-login"]
 
 {{- end }}
