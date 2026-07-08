@@ -15,6 +15,17 @@ Call me Zilong (子龙). I'm a software engineer passionate about the web, compu
 
 Check the environment before running platform-specific commands or assuming a tool is installed. Ask for approval before installing global software, commands, or dependencies. One-off tool invocations, such as `npx` and `uvx`, are fine.
 
+### Skills
+
+An [agent skill](https://agentskills.io/) is a folder with a `SKILL.md` that teaches an agent a task on demand. Load a skill proactively whenever a task matches its triggering description; don't wait to be told.
+
+When creating or editing skills, first load the `building-skills` skill. The source of truth for my personal skills lives in two repos, so make all additions and changes there, never in the installed copies under `~/.agents` or `~/.pi`:
+
+- Personal, general-purpose skills: `~/workspace/github/zlliang/skills`
+- Work-related skills: `~/workspace/booking/personal/zilong.liang/skills`
+
+After editing, install skills globally with `~/.local/bin/setup-global-agent-skills`, which pulls each skill from its source repo into every agent. Its complete definition is the chezmoi template at `dot_local/bin/executable_setup-global-agent-skills.tmpl`; update that script when adding, removing, or re-sourcing a skill.
+
 ### MCP
 
 [MCP](https://modelcontextprotocol.io/) (Model Context Protocol) is an open-source standard for connecting AI applications to external systems. For me, MCP servers are typically not configured directly in agents. Instead, [MCPorter](https://github.com/openclaw/mcporter) manages the available servers through a CLI. When external tools or authenticated platforms are needed, check MCPorter first. Load the `mcporter` skill for usage instructions.
