@@ -9,6 +9,7 @@ steps = [
   "update-node",
   "update-bun",
   "update-python",
+  "update-rust",
   "update-amp",
   "update-pi",
   "update-agent-skills",
@@ -90,6 +91,15 @@ check = "uv"
 run = [
   "uv python install --default",
   "uv python upgrade",
+]
+
+[[tasks]]
+name = "update-rust"
+description = "Update Rust"
+check = "rustup"
+run = [
+  "rustup self update",
+  "rustup update",
 ]
 
 [[tasks]]
