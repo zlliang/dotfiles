@@ -57,6 +57,7 @@ Personal dotfiles and development environment for macOS, managed by [chezmoi](ht
 - **Amp & Pi**: coding agent configs and global skills
 - **MCPorter**: MCP server registry (`~/.mcporter/`)
 - **`~/.local/bin`**: helper scripts (agent skills setup, Glean CLI wrapper and OAuth login)
+- **Vim**: editor config (`~/.vimrc`) and key-repeat fix for the VS Code Vim extension
 
 ## Structure
 
