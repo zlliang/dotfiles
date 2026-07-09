@@ -1,6 +1,6 @@
 ---
-description: Add a not-yet-supported model, or clear the config file
-argument-hint: "<provider> <model> | clear"
+description: Add a not-yet-supported model, or clear the config file or a model
+argument-hint: "<provider-and-model> | clear [provider-and/or-model]"
 ---
 
 Add a model that Pi doesn't yet support to `~/.pi/agent/models.json` so it shows up in `/model`, or remove that file.
@@ -34,4 +34,7 @@ Confirm the provider, model, API type, key metadata and its source, and any API 
 
 ## Clear
 
-If the argument is just `clear` (any case), run `rm -f ~/.pi/agent/models.json`, confirm, and stop.
+If the first argument is `clear`:
+
+- With nothing after it, run `rm -f ~/.pi/agent/models.json`, confirm, and stop.
+- With a provider and/or model after it, remove just what's specified from `~/.pi/agent/models.json` — a single model, or a whole provider (drop a provider that ends up empty), keeping valid JSON. Confirm and stop.
