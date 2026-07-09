@@ -20,7 +20,7 @@ settings["treeFilterMode"] = "no-tools"
 # Packages
 settings["packages"] = [
     {{- if eq .machine "work" }}
-    "ssh://git@gitlab.com/{{ .work.gitlabNamespace }}/pi-agent/pi-booking-genai",
+    "git:gitlab.com/{{ .work.gitlabNamespace }}/pi-agent/pi-booking-genai.git",
     {{- end }}
     "git:github.com/zlliang/pi-spark",
 ]
