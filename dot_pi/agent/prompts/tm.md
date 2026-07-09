@@ -41,4 +41,4 @@ If the argument is `list`, read `~/.pi/agent/models.json` and show the configure
 If the first argument is `clear`:
 
 - With nothing after it, run `rm -f ~/.pi/agent/models.json`, confirm, and stop.
-- With a provider and/or model after it, remove just what's specified from `~/.pi/agent/models.json` — a single model, or a whole provider (drop a provider that ends up empty), keeping valid JSON. Confirm and stop.
+- With a provider and/or model after it, remove just what's specified from `~/.pi/agent/models.json` — a single model, or a whole provider (drop a provider that ends up empty), keeping valid JSON. If nothing is left, delete the file. Confirm and stop.
