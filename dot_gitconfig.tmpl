@@ -39,8 +39,8 @@
 
 {{- if eq .machine "work" }}
 
-[url "git@gitlab.com:{{ .work.gitlabNamespace }}"]
-  insteadOf = https://gitlab.com/{{ .work.gitlabNamespace }}
+[credential "https://gitlab.com"]
+	helper = !bk gitlab:git-credential
 
 [includeIf "gitdir:~/workspace/booking/"]
   path = ~/.gitconfig-work
