@@ -1,6 +1,6 @@
 ---
-description: Add a not-yet-supported model, or clear the config file or a model
-argument-hint: "<provider-and-model> | clear [provider-and/or-model]"
+description: Add a not-yet-supported model, list configured ones, or clear the config file or a model
+argument-hint: "<provider-and-model> | list | clear [provider-and/or-model]"
 ---
 
 Add a model that Pi doesn't yet support to `~/.pi/agent/models.json` so it shows up in `/model`, or remove that file.
@@ -31,6 +31,10 @@ Understand the `models.json` format from Pi's docs, then:
 ### 3. Report
 
 Confirm the provider, model, API type, key metadata and its source, and any API key env var to set. Note that `/model` reloads the file on open; if the model is unavailable it usually just needs provider auth.
+
+## List
+
+If the argument is `list`, read `~/.pi/agent/models.json` and show the configured providers with their models and basic info (id, context window, max output, reasoning, modalities). If the file is missing or empty, say so. Stop.
 
 ## Clear
 
