@@ -15,11 +15,6 @@
       "provider": "openai-codex",
       "model": "gpt-5.5",
       "thinkingLevel": "high"
-    },
-    "glm": {
-      "provider": "fireworks",
-      "model": "accounts/fireworks/models/glm-5p2",
-      "thinkingLevel": "xhigh"
     }
     {{- else }}
     "claude-opus": {
@@ -52,7 +47,18 @@
   "recap": {
     {{- if eq .machine "work" }}
     "provider": "openai-codex",
-    "model": "gpt-5.5",
+    "model": "gpt-5.4-mini",
+    "thinkingLevel": "off"
+    {{- else }}
+    "provider": "deepseek",
+    "model": "deepseek-v4-flash",
+    "thinkingLevel": "off"
+    {{- end }}
+  },
+  "title": {
+    {{- if eq .machine "work" }}
+    "provider": "openai-codex",
+    "model": "gpt-5.4-mini",
     "thinkingLevel": "off"
     {{- else }}
     "provider": "deepseek",
