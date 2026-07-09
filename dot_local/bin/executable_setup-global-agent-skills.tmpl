@@ -85,7 +85,6 @@ install_skills("googleworkspace/cli", [
 ])
 install_brew(["googleworkspace-cli"])
 
-shared_repo = "https://gitlab.com/{{ .work.gitlabNamespace }}/genai-eng/coding-agent-tools/-/tree/main"
-install_skills(f"{shared_repo}/common/skills/bpages")
-
+coding_agent_tools_repo = "https://gitlab.com/{{ .work.gitlabNamespace }}/genai-eng/coding-agent-tools/-/tree/main"
+install_skills(f"{coding_agent_tools_repo}/common", ["bpages"])
 {{- end }}
