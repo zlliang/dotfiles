@@ -7,7 +7,6 @@ from collections import OrderedDict
 existing = json.loads(sys.stdin.read().strip() or "{}")
 settings = OrderedDict()
 
-
 claudeOpus = {
     "provider": {{ ternary "booking-genai" "vercel-ai-gateway" (eq .machine "work") | quote }},
     "model": {{ ternary "claude-opus-4-8" "anthropic/claude-opus-4.8" (eq .machine "work") | quote }},
