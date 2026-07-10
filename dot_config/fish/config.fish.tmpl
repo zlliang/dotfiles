@@ -71,17 +71,17 @@ fish_add_path -g "$HOME/.cargo/bin"
 
 # Identity
 set -gx USER_NAME "$USER"
-set -gx WORK_EMAIL "{{ .work.email }}"
-set -gx TEAM_NAME "{{ .work.teamName }}"
-set -gx TEAM_ID "{{ .work.teamId }}"
+set -gx WORK_EMAIL {{ .work.email | quote }}
+set -gx TEAM_NAME {{ .work.teamName | quote }}
+set -gx TEAM_ID {{ .work.teamId | quote }}
 
 # Sourcegraph CLI
-set -gx SRC_ENDPOINT "{{ .work.sourcegraphSite }}"
+set -gx SRC_ENDPOINT {{ .work.sourcegraphSite | quote }}
 
 # Atlassian REST API
-set -gx ATLASSIAN_SITE "{{ .work.atlassianSite }}"
+set -gx ATLASSIAN_SITE {{ .work.atlassianSite | quote }}
 set -gx ATLASSIAN_EMAIL "$WORK_EMAIL"
-set -gx ATLASSIAN_API_TOKEN "{{ .work.atlassianApiToken }}"
+set -gx ATLASSIAN_API_TOKEN {{ .work.atlassianApiToken | quote }}
 
 # Google Cloud SDK
 if test -f $HOME/.local/share/google-cloud-sdk/path.fish.inc

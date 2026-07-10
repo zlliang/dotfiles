@@ -28,6 +28,9 @@ settings["packages"] = [
 # Markdown
 settings["markdown"] = {"codeBlockIndent": ""}
 
+# Thinking block
+settings["hideThinkingBlock"] = True
+
 # Project trust
 settings["defaultProjectTrust"] = "always"
 
@@ -35,6 +38,7 @@ settings["defaultProjectTrust"] = "always"
 for key in ["defaultProvider", "defaultModel", "defaultThinkingLevel"]:
     if key in existing:
         settings[key] = existing[key]
+
 
 {{- if eq .machine "work" }}
 

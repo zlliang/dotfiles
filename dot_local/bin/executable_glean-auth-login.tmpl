@@ -36,8 +36,8 @@ from rich.console import Console
 console = Console()
 err = Console(stderr=True)
 
-SERVER_URL = "{{ .work.gleanServerUrl }}"
-CLIENT_ID = "{{ .work.gleanClientId }}"
+SERVER_URL = {{ .work.gleanServerUrl | quote }}
+CLIENT_ID = {{ .work.gleanClientId | quote }}
 REDIRECT = "http://localhost:8080/oauth/callback"
 SCOPE = "openid email profile offline_access"
 PORT = 8080

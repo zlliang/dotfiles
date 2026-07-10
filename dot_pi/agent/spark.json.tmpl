@@ -1,36 +1,31 @@
+{{- $anthropicProvider := ternary "booking-genai" "vercel-ai-gateway" (eq .machine "work") -}}
+{{- $smallModelProvider := ternary "openai-codex" "deepseek" (eq .machine "work") -}}
+{{- $smallModel := ternary "gpt-5.6-luna" "deepseek-v4-flash" (eq .machine "work") -}}
+
 {
   "presets": {
-    {{- if eq .machine "work" }}
+    "gpt-sol": {
+      "provider": "openai-codex",
+      "model": "gpt-5.6-sol",
+      "thinkingLevel": "high"
+    },
+    "gpt-terra": {
+      "provider": "openai-codex",
+      "model": "gpt-5.6-terra",
+      "thinkingLevel": "high"
+    },
     "claude-opus": {
-      "provider": "booking-genai",
+      "provider": {{ $anthropicProvider | quote }},
       "model": "claude-opus-4-8",
       "thinkingLevel": "high"
     },
     "claude-sonnet": {
-      "provider": "booking-genai",
+      "provider": {{ $anthropicProvider | quote }},
       "model": "claude-sonnet-5",
       "thinkingLevel": "high"
-    },
-    "gpt": {
-      "provider": "openai-codex",
-      "model": "gpt-5.5",
-      "thinkingLevel": "high"
+    {{- if eq .machine "work" }}
     }
     {{- else }}
-    "claude-opus": {
-      "provider": "vercel-ai-gateway",
-      "model": "anthropic/claude-opus-4.8",
-      "thinkingLevel": "high"
-    },
-    "claude-sonnet": {
-      "provider": "vercel-ai-gateway",
-      "model": "anthropic/claude-sonnet-5",
-      "thinkingLevel": "high"
-    },
-    "gpt": {
-      "provider": "openai-codex",
-      "model": "gpt-5.5",
-      "thinkingLevel": "high"
     },
     "glm": {
       "provider": "fireworks",
@@ -45,25 +40,13 @@
     {{- end }}
   },
   "recap": {
-    {{- if eq .machine "work" }}
-    "provider": "openai-codex",
-    "model": "gpt-5.4-mini",
+    "provider": {{ $smallModelProvider | quote }},
+    "model": {{ $smallModel | quote }},
     "thinkingLevel": "off"
-    {{- else }}
-    "provider": "deepseek",
-    "model": "deepseek-v4-flash",
-    "thinkingLevel": "off"
-    {{- end }}
   },
   "title": {
-    {{- if eq .machine "work" }}
-    "provider": "openai-codex",
-    "model": "gpt-5.4-mini",
+    "provider": {{ $smallModelProvider | quote }},
+    "model": {{ $smallModel | quote }},
     "thinkingLevel": "off"
-    {{- else }}
-    "provider": "deepseek",
-    "model": "deepseek-v4-flash",
-    "thinkingLevel": "off"
-    {{- end }}
   }
 }
