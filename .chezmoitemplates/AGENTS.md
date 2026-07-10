@@ -13,7 +13,7 @@ Call me Zilong (子龙). I'm a software engineer passionate about the web, compu
 - Main code editor: VS Code
 - System utilities: Homebrew, ripgrep, fd, etc.
 
-Check the environment before running platform-specific commands or assuming a tool is installed. Ask for approval before installing global software, commands, or dependencies. One-off tool invocations, such as `npx` and `uvx`, are fine.
+Check the environment before running platform-specific commands or assuming a tool is installed. Ask for approval before installing global software, commands, or dependencies. One-off tool invocations, such as `npx`, `bunx` and `uvx`, are fine.
 
 ### Skills
 

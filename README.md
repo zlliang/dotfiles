@@ -6,10 +6,10 @@ Personal dotfiles and development environment for macOS, managed by [chezmoi](ht
 
 1. Install [Xcode Command Line Tools](https://developer.apple.com/xcode/): `xcode-select --install`
 2. Install [Homebrew](https://brew.sh)
-3. Bootstrap everything:
+3. Install the bootstrap dependencies and initialize chezmoi:
 
     ```bash
-    brew install chezmoi
+    brew install chezmoi fish
     chezmoi init --apply https://github.com/zlliang/dotfiles.git
     ```
 
@@ -19,14 +19,14 @@ Personal dotfiles and development environment for macOS, managed by [chezmoi](ht
     chezmoi init -S ~/workspace/github/zlliang/dotfiles --apply https://github.com/zlliang/dotfiles.git
     ```
 
-    This automatically installs packages listed below, installs coding agents, and applies configuration for all tools.
+    Fish is needed while the post-apply scripts load the newly applied shell environment. The command installs the remaining packages and coding agents, then applies their configuration.
 
-4. Set [Fish](https://fishshell.com) as default shell:
+4. Set [Fish](https://fishshell.com) as the default shell:
 
-   ```bash
-   echo /opt/homebrew/bin/fish | sudo tee -a /etc/shells
-   chsh -s /opt/homebrew/bin/fish
-   ```
+    ```bash
+    echo /opt/homebrew/bin/fish | sudo tee -a /etc/shells
+    chsh -s /opt/homebrew/bin/fish
+    ```
 
 5. After initialized, just update the latest changes regularly:
 
@@ -41,7 +41,7 @@ Personal dotfiles and development environment for macOS, managed by [chezmoi](ht
 - **Shell:** [fish](https://fishshell.com)
 - **Dev toolkits:** [nodenv](https://github.com/nodenv/nodenv), [bun](https://bun.sh), [uv](https://docs.astral.sh/uv/), [rustup](https://rustup.rs/)
 - **CLI tools:** [bat](https://github.com/sharkdp/bat), [eza](https://github.com/eza-community/eza), [fd](https://github.com/sharkdp/fd), [ripgrep](https://github.com/BurntSushi/ripgrep), [zoxide](https://github.com/ajeetdsouza/zoxide), [gh](https://github.com/cli/cli), [fastfetch](https://github.com/fastfetch-cli/fastfetch), [hyperfine](https://github.com/sharkdp/hyperfine)
-- **System utilities:** [chezmoi](https://www.chezmoi.io/), [Mole](https://github.com/tw93/Mole)
+- **System utilities:** [chezmoi](https://www.chezmoi.io/), [Mole](https://github.com/tw93/Mole), [FFmpeg](https://ffmpeg.org/), [Chore](https://github.com/zlliang/chore)
 - **Desktop apps:** [Ghostty](https://ghostty.org), [Keka](https://keka.io/), [OrbStack](https://orbstack.dev/), [Thaw](https://github.com/stonerl/Thaw)
 
 ### Coding agents

@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+from __future__ import annotations
+
 import shutil
 import subprocess
 from pathlib import Path
@@ -18,7 +20,7 @@ def reset_agents_directories(dirs: list[Path]) -> None:
 
 def install_skills(repo: str, skills: list[str] | None = None) -> None:
     agents = ["amp"]  # Only installs to `~/.agents/skills`
-    run(["npx", "-y", "skills", "add", repo, *(["--skill", *skills] if skills else []), "--full-depth", "-g", "-y", "-a", *agents])
+    run(["bunx", "--bun", "skills", "add", repo, *(["--skill", *skills] if skills else []), "--full-depth", "-g", "-y", "-a", *agents])
 
 
 def install_brew(packages: list[str]) -> None:
