@@ -49,7 +49,7 @@ end
 # JavaScript
 # Use `nodenv` to manage Node.js versions. See https://github.com/nodenv/nodenv.
 if type -q nodenv
-  nodenv init - fish | source
+  nodenv init - --no-rehash fish | source
 end
 set -gx NODE_OPTIONS "--no-warnings"
 set -gx NODE_TLS_REJECT_UNAUTHORIZED 0
@@ -91,7 +91,6 @@ end
 
 # BK CLI
 if type -q bk
-  bk completion fish | source
   set -gx BK_AUTH_SSO_TIMEOUT 600000
 end
 

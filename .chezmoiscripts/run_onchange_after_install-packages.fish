@@ -58,4 +58,6 @@ if not type -q pi
   or exit
 end
 
-setup-global-agent-skills
+if not test -d "$HOME/.agents/skills"
+  setup-global-agent-skills
+end

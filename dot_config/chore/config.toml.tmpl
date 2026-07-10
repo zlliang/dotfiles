@@ -62,7 +62,6 @@ echo "Installing Node.js $latest_lts via nodenv..."
 nodenv install -s "$latest_lts"
 echo "Setting global Node.js version to $latest_lts..."
 nodenv global "$latest_lts"
-nodenv rehash
 major="${latest_lts%%.*}"
 for installed in $(nodenv versions --bare); do
   case "$installed" in
@@ -76,6 +75,7 @@ done
 echo "Enabling corepack..."
 corepack enable
 corepack prepare pnpm@latest --activate
+nodenv rehash
 """]
 
 [[tasks]]
@@ -158,7 +158,10 @@ done
 name = "update-bk"
 description = "Update BK CLI and its plugins"
 check = "bk"
-run = ["bk update"]
+run = [
+  "bk update",
+  "mkdir -p ~/.config/fish/completions && bk completion fish > ~/.config/fish/completions/bk.fish",
+]
 
 [[tasks]]
 name = "bklogin"
