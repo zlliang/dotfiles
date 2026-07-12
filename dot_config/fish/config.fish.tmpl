@@ -47,9 +47,9 @@ if type -q zoxide
 end
 
 # JavaScript
-# Use `nodenv` to manage Node.js versions. See https://github.com/nodenv/nodenv.
-if type -q nodenv
-  nodenv init - --no-rehash fish | source
+# Use `fnm` to manage Node.js versions. See https://github.com/Schniz/fnm.
+if type -q fnm
+  fnm env --use-on-cd --version-file-strategy=recursive --corepack-enabled --shell fish | source
 end
 set -gx NODE_OPTIONS "--no-warnings"
 set -gx NODE_TLS_REJECT_UNAUTHORIZED 0

@@ -18,7 +18,7 @@ function install_missing_brew_packages
 end
 
 install_missing_brew_packages \
-  nodenv \
+  fnm \
   uv \
   bat \
   eza \

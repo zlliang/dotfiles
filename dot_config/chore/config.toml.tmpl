@@ -36,46 +36,21 @@ run = [
 
 [[tasks]]
 name = "update-node"
-description = "Update Node.js (LTS) via nodenv"
-check = "nodenv"
+description = "Update Node.js (LTS) via fnm"
+check = "fnm"
 run = ["""
 set -e
-node_index=$(curl -fsSL https://nodejs.org/dist/index.tab)
-lts_versions=$(printf '%s\n' "$node_index" | awk 'NR > 1 && $10 != "-" {gsub(/^v/, "", $1); print $1}')
-if [ -z "$lts_versions" ]; then
-  echo "Failed to resolve LTS Node.js versions"
-  exit 1
-fi
-available=$(nodenv install -l | sed 's/^[[:space:]]*//' | grep -E '^[0-9]+\\.[0-9]+\\.[0-9]+$')
-latest_lts=""
-for v in $lts_versions; do
-  if printf '%s\n' "$available" | grep -qx "$v"; then
-    latest_lts="$v"
-    break
+fnm install --lts --use
+latest_lts=$(fnm current | grep -oE '[0-9]+\\.[0-9]+\\.[0-9]+')
+fnm default "$latest_lts"
+for installed in $(fnm list | grep -oE 'v[0-9]+\\.[0-9]+\\.[0-9]+' | sed 's/^v//' | sort -u); do
+  if [ "$installed" != "$latest_lts" ]; then
+    echo "Removing old Node.js $installed..."
+    fnm uninstall "$installed"
   fi
 done
-if [ -z "$latest_lts" ]; then
-  echo "No installable LTS Node.js version found via nodenv"
-  exit 1
-fi
-echo "Installing Node.js $latest_lts via nodenv..."
-nodenv install -s "$latest_lts"
-echo "Setting global Node.js version to $latest_lts..."
-nodenv global "$latest_lts"
-major="${latest_lts%%.*}"
-for installed in $(nodenv versions --bare); do
-  case "$installed" in
-    "$latest_lts") ;;
-    "$major".*)
-      echo "Removing old Node.js $installed..."
-      nodenv uninstall -f "$installed"
-      ;;
-  esac
-done
-echo "Enabling corepack..."
-corepack enable
+echo "Updating pnpm..."
 corepack prepare pnpm@latest --activate
-nodenv rehash
 """]
 
 [[tasks]]
