@@ -30,7 +30,6 @@ install_missing_brew_packages \
   chezmoi \
   mole \
   ffmpeg \
-  zlliang/tap/chore \
   ghostty \
   keka \
   orbstack \
