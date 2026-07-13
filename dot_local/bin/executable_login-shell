@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
+# Fish waits for EOF before reading commands from a non-interactive pipe. VS Code Remote-SSH's
+# local-server mode keeps that pipe open, so startup times out. Use Fish for terminal sessions and
+# Bash for non-interactive tools.
 
-if [ -t 0 ]; then
-  exec "$(command -v fish)" "$@"
-fi
+shell=bash
+[[ -t 0 ]] && shell=fish
 
-exec "$(command -v bash)" "$@"
+exec "$(command -v "$shell")" "$@"

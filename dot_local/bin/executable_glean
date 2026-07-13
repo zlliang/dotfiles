@@ -7,6 +7,7 @@
 # Lives in ~/.local/bin, which precedes the real `glean` binary on PATH, so
 # this shadows it for every shell (fish, bash, agents) instead of relying on
 # a shell-specific function.
+
 set -euo pipefail
 
 # The upstream `auth login` is broken, so hand off to our OAuth script.

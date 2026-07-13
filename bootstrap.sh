@@ -5,12 +5,6 @@ set -euo pipefail
 DOTFILES_REPO="https://github.com/zlliang/dotfiles.git"
 SOURCE_DIR="${SOURCE_DIR:-$HOME/workspace/github/zlliang/dotfiles}"
 
-if [[ -t 0 ]]; then
-  interactive=true
-else
-  interactive=false
-fi
-
 BOLD=""
 BLUE=""
 CYAN=""
@@ -59,7 +53,7 @@ die() {
 }
 
 run_as_root() {
-  if [[ ${EUID:-$(id -u)} -eq 0 ]]; then
+  if (( EUID == 0 )); then
     "$@"
   else
     sudo "$@"
@@ -95,26 +89,22 @@ install_macos_prerequisites() {
 
 set_default_shell() {
   local shell_path=$1
-  local shell_name=$2
-  local user
 
-  user="$(id -un)"
   if ! grep -qxF "$shell_path" /etc/shells 2>/dev/null; then
     printf '%s\n' "$shell_path" | run_as_root tee -a /etc/shells >/dev/null
   fi
 
   if [[ ${SHELL:-} != "$shell_path" ]]; then
-    log "Setting $shell_name as the default shell"
-    run_as_root chsh -s "$shell_path" "$user"
+    log "Setting $shell_path as the default shell"
+    run_as_root chsh -s "$shell_path" "$(id -un)"
   fi
 }
 
 title
 
-os="$(uname -s)"
-case "$os" in
+case "$(uname -s)" in
   Darwin)
-    [[ ${EUID:-$(id -u)} -ne 0 ]] || die "Do not run this script as root on macOS"
+    (( EUID != 0 )) || die "Do not run this script as root on macOS"
     command -v sudo >/dev/null 2>&1 || die "sudo is required"
     run_as_root -v
 
@@ -128,10 +118,9 @@ case "$os" in
     "$brew_path" install fish
 
     default_shell_path="$("$brew_path" --prefix)/bin/fish"
-    default_shell_name="Fish"
     ;;
   Linux)
-    if [[ ${EUID:-$(id -u)} -ne 0 ]]; then
+    if (( EUID != 0 )); then
       command -v sudo >/dev/null 2>&1 || die "sudo is required"
       run_as_root -v
     fi
@@ -139,10 +128,9 @@ case "$os" in
     install_linux_packages
 
     default_shell_path="$HOME/.local/bin/login-shell"
-    default_shell_name="the interactive Fish wrapper"
     ;;
   *)
-    die "Unsupported operating system: $os"
+    die "Unsupported operating system: $(uname -s)"
     ;;
 esac
 
@@ -157,10 +145,10 @@ chezmoi_path="$("$mise_path" which chezmoi --tool chezmoi@latest)"
 
 log "Initializing dotfiles"
 chezmoi_args=(init -S "$SOURCE_DIR" --apply)
-if ! $interactive; then
+if [[ ! -t 0 ]]; then
   chezmoi_args+=(--promptString machine=personal)
 fi
 "$chezmoi_path" "${chezmoi_args[@]}" "$DOTFILES_REPO"
 
-set_default_shell "$default_shell_path" "$default_shell_name"
+set_default_shell "$default_shell_path"
 success "Bootstrap complete. Restart your shell to finish."

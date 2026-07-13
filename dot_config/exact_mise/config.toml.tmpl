@@ -12,11 +12,10 @@ zoxide = "latest"
 # Languages
 node = "lts"
 bun = "latest"
+"npm:corepack" = "latest"
 python = "latest"
 uv = "latest"
 rust = "latest"
-# Corepack
-"npm:corepack" = "latest"
 # AI tools
 "github:earendil-works/pi" = "latest"
 "npm:agent-browser" = "latest"
@@ -47,6 +46,7 @@ run = "chezmoi update --force"
 [tasks."update:homebrew"]
 description = "Update Homebrew packages"
 run = ["brew update", "brew upgrade -y", "brew cleanup"]
+
 {{- end }}
 
 [tasks."update:mise"]
