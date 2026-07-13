@@ -149,6 +149,5 @@ chezmoi_path="$("$mise_path" which chezmoi --tool chezmoi@latest)"
 log "Initializing dotfiles"
 "$chezmoi_path" init -S "$SOURCE_DIR" --apply "$DOTFILES_REPO"
 
-log "Setting Fish as the default shell"
 set_default_shell "$fish_path"
 success "Bootstrap complete. Restart your shell to finish."
