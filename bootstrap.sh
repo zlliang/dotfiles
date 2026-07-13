@@ -78,8 +78,11 @@ create_linuxbrew_user() {
 
 run_as_homebrew_user() {
   if [[ ${EUID:-$(id -u)} -eq 0 ]]; then
-    runuser -u "$HOMEBREW_USER" -- env \
-      HOME="$HOMEBREW_HOME" USER="$HOMEBREW_USER" LOGNAME="$HOMEBREW_USER" "$@"
+    (
+      cd "$HOMEBREW_HOME"
+      runuser -u "$HOMEBREW_USER" -- env \
+        HOME="$HOMEBREW_HOME" USER="$HOMEBREW_USER" LOGNAME="$HOMEBREW_USER" "$@"
+    )
   else
     "$@"
   fi
