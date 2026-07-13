@@ -12,5 +12,8 @@ bootstrap.sh
 {{- end }}
 
 {{- if ne .chezmoi.os "darwin" }}
+.chezmoiscripts/install-desktop-apps.sh
+.chezmoiscripts/install-work-specific-clis.sh
+.config/fish/conf.d/03-brew.fish
 .config/ghostty/
 {{- end }}
