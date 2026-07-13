@@ -1,0 +1,20 @@
+[tools]
+# Utilities
+bat = "latest"
+chezmoi = "latest"
+eza = "latest"
+fd = "latest"
+gh = "latest"
+jq = "latest"
+ripgrep = "latest"
+zoxide = "latest"
+# Languages
+node = "lts"
+bun = "latest"
+python = "latest"
+uv = "latest"
+rust = "latest"
+# AI tools
+"github:earendil-works/pi" = "latest"
+"npm:agent-browser" = "latest"
+"npm:mcporter" = "latest"

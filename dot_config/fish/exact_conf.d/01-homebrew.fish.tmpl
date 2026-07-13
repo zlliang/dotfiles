@@ -1,3 +1,0 @@
-{{ ternary "/opt/homebrew/bin/brew" "/home/linuxbrew/.linuxbrew/bin/brew" (eq .chezmoi.os "darwin") }} shellenv | source
-set -gx HOMEBREW_NO_ENV_HINTS 1
-set -gx HOMEBREW_NO_REQUIRE_TAP_TRUST 1
