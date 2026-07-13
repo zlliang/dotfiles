@@ -25,11 +25,8 @@ install_missing_brew_packages \
   fd \
   ripgrep \
   zoxide \
-  fastfetch \
-  hyperfine \
   chezmoi \
   mole \
-  ffmpeg \
   ghostty \
   keka \
   orbstack \

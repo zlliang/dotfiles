@@ -40,8 +40,8 @@ Personal dotfiles and development environment for macOS, managed by [chezmoi](ht
 
 - **Shell:** [fish](https://fishshell.com)
 - **Dev toolkits:** [fnm](https://github.com/Schniz/fnm), [bun](https://bun.sh), [uv](https://docs.astral.sh/uv/), [rustup](https://rustup.rs/)
-- **CLI tools:** [bat](https://github.com/sharkdp/bat), [eza](https://github.com/eza-community/eza), [fd](https://github.com/sharkdp/fd), [ripgrep](https://github.com/BurntSushi/ripgrep), [zoxide](https://github.com/ajeetdsouza/zoxide), [gh](https://github.com/cli/cli), [fastfetch](https://github.com/fastfetch-cli/fastfetch), [hyperfine](https://github.com/sharkdp/hyperfine)
-- **System utilities:** [chezmoi](https://www.chezmoi.io/), [Mole](https://github.com/tw93/Mole), [FFmpeg](https://ffmpeg.org/)
+- **CLI tools:** [bat](https://github.com/sharkdp/bat), [eza](https://github.com/eza-community/eza), [fd](https://github.com/sharkdp/fd), [ripgrep](https://github.com/BurntSushi/ripgrep), [zoxide](https://github.com/ajeetdsouza/zoxide), [gh](https://github.com/cli/cli)
+- **System utilities:** [chezmoi](https://www.chezmoi.io/), [Mole](https://github.com/tw93/Mole)
 - **Desktop apps:** [Ghostty](https://ghostty.org), [Keka](https://keka.io/), [OrbStack](https://orbstack.dev/), [Thaw](https://github.com/stonerl/Thaw)
 
 ### Coding agents
