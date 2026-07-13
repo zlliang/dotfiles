@@ -1,11 +1,4 @@
 set -gx LANG "en_US.UTF-8"
 set -gx EDITOR {{ ternary "code --wait" "vim" (eq .chezmoi.os "darwin") | quote }}
 
-for brew_path in /opt/homebrew/bin/brew /home/linuxbrew/.linuxbrew/bin/brew /usr/local/bin/brew
-  if test -x "$brew_path"
-    eval ($brew_path shellenv fish)
-    break
-  end
-end
-
 fish_add_path -g "$HOME/.local/bin"
