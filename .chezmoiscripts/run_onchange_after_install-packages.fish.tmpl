@@ -1,9 +1,32 @@
 #!/usr/bin/env fish
 
-source "$HOME/.config/fish/config.fish"
+set -l brew_path
+
+if test (id -u) -eq 0
+  set brew_path /home/linuxbrew/.linuxbrew/bin/brew
+  fish_add_path -g /home/linuxbrew/.linuxbrew/bin "$HOME/.local/bin"
+else
+  source "$HOME/.config/fish/config.fish"
+  set brew_path (command -s brew)
+end
+
+if not test -x "$brew_path"
+  echo "Homebrew not found at $brew_path" >&2
+  exit 1
+end
+
+function run_brew --inherit-variable brew_path
+  if test (id -u) -eq 0
+    command runuser -u linuxbrew -- env \
+      HOME=/home/linuxbrew USER=linuxbrew LOGNAME=linuxbrew \
+      /bin/bash -c 'cd "$HOME" && exec "$@"' bash "$brew_path" $argv
+  else
+    command "$brew_path" $argv
+  end
+end
 
 function install_missing_brew_packages
-  set -l installed_packages (brew list --versions --json | jq -r '.formulae[].name, .casks[].token')
+  set -l installed_packages (run_brew list --versions --json | jq -r '.formulae[].name, .casks[].token')
   set -l missing_packages
 
   for package in $argv
@@ -13,7 +36,7 @@ function install_missing_brew_packages
   end
 
   if test (count $missing_packages) -gt 0
-    brew install $missing_packages
+    run_brew install $missing_packages
   end
 end
 
