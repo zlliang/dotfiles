@@ -5,6 +5,12 @@ set -euo pipefail
 DOTFILES_REPO="https://github.com/zlliang/dotfiles.git"
 SOURCE_DIR="${SOURCE_DIR:-$HOME/workspace/github/zlliang/dotfiles}"
 
+if [[ -t 0 ]]; then
+  interactive=true
+else
+  interactive=false
+fi
+
 BOLD=""
 BLUE=""
 CYAN=""
@@ -115,7 +121,7 @@ case "$os" in
     install_macos_prerequisites
 
     log "Installing Homebrew"
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     brew_path="/opt/homebrew/bin/brew"
 
     log "Installing Fish"
@@ -150,7 +156,11 @@ log "Installing chezmoi"
 chezmoi_path="$("$mise_path" which chezmoi --tool chezmoi@latest)"
 
 log "Initializing dotfiles"
-"$chezmoi_path" init -S "$SOURCE_DIR" --apply "$DOTFILES_REPO"
+chezmoi_args=(init -S "$SOURCE_DIR" --apply)
+if ! $interactive; then
+  chezmoi_args+=(--promptString machine=personal)
+fi
+"$chezmoi_path" "${chezmoi_args[@]}" "$DOTFILES_REPO"
 
 set_default_shell "$default_shell_path" "$default_shell_name"
 success "Bootstrap complete. Restart your shell to finish."
