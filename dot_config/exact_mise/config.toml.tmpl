@@ -58,9 +58,9 @@ description = "Update Amp"
 run = "amp update"
 
 [tasks."update:pi"]
-description = "Update Pi packages"
+description = "Update Pi extensions"
 dir = "{{ .chezmoi.homeDir }}/.pi/agent/extensions"
-run = ["pi update --all", "npm update"]
+run = ["pi update --extensions", "npm update"]
 
 [tasks."update:agent-skills"]
 description = "Update global agent skills"
