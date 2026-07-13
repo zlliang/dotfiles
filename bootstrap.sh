@@ -5,12 +5,41 @@ set -euo pipefail
 DOTFILES_REPO="https://github.com/zlliang/dotfiles.git"
 SOURCE_DIR="${SOURCE_DIR:-$HOME/workspace/github/zlliang/dotfiles}"
 
+BOLD=""
+BLUE=""
+CYAN=""
+GREEN=""
+RED=""
+RESET=""
+
+if [[ -t 1 && ${TERM:-dumb} != dumb && ${NO_COLOR+x} != x ]]; then
+  BOLD=$'\033[1m'
+  BLUE=$'\033[34m'
+  CYAN=$'\033[36m'
+  GREEN=$'\033[32m'
+  RED=$'\033[31m'
+  RESET=$'\033[0m'
+fi
+
+title() {
+  printf '\n%s%sDotfiles bootstrap%s\n' "$BOLD" "$BLUE" "$RESET"
+  printf 'Set up your development environment\n'
+}
+
 log() {
-  printf '\n==> %s\n' "$*"
+  printf '\n%s%s==>%s %s%s%s\n' "$BOLD" "$BLUE" "$RESET" "$BOLD" "$*" "$RESET"
+}
+
+note() {
+  printf '%s%sNote:%s %s\n' "$BOLD" "$CYAN" "$RESET" "$*"
+}
+
+success() {
+  printf '\n%s%s✓%s %s\n' "$BOLD" "$GREEN" "$RESET" "$*"
 }
 
 die() {
-  printf 'error: %s\n' "$*" >&2
+  printf '%s%serror:%s %s\n' "$BOLD" "$RED" "$RESET" "$*" >&2
   exit 1
 }
 
@@ -43,7 +72,7 @@ install_macos_prerequisites() {
 
   log "Installing Xcode Command Line Tools"
   xcode-select --install >/dev/null 2>&1 || true
-  printf 'Complete the installation dialog to continue.\n'
+  note "Complete the installation dialog to continue"
   until xcode-select -p >/dev/null 2>&1; do
     sleep 5
   done
@@ -69,6 +98,8 @@ find_brew() {
 
   return 1
 }
+
+title
 
 if [[ ${EUID:-$(id -u)} -eq 0 ]]; then
   die "Run this script as a regular user, not root"
@@ -113,7 +144,9 @@ log "Initializing dotfiles"
 chezmoi init -S "$SOURCE_DIR" --apply "$DOTFILES_REPO"
 
 fish_path="$(brew --prefix)/bin/fish"
-log "Bootstrap complete"
-printf 'To make Fish your default shell, run:\n'
-printf '  grep -qxF %q /etc/shells || echo %q | sudo tee -a /etc/shells\n' "$fish_path" "$fish_path"
-printf '  chsh -s %q\n' "$fish_path"
+success "Bootstrap complete"
+printf '\n%sNext step%s\n' "$BOLD" "$RESET"
+printf 'Make Fish your default shell:\n\n'
+printf '  %sgrep -qxF %q /etc/shells || echo %q | sudo tee -a /etc/shells%s\n' \
+  "$CYAN" "$fish_path" "$fish_path" "$RESET"
+printf '  %schsh -s %q%s\n\n' "$CYAN" "$fish_path" "$RESET"
