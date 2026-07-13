@@ -145,7 +145,7 @@ chezmoi_path="$("$mise_path" which chezmoi --tool chezmoi@latest)"
 
 log "Initializing dotfiles"
 chezmoi_args=(init -S "$SOURCE_DIR" --apply)
-if [[ ! -t 0 ]]; then
+if [[ ${CODESPACES:-} == true || ! -t 0 ]]; then
   chezmoi_args+=(--promptString machine=personal)
 fi
 "$chezmoi_path" "${chezmoi_args[@]}" "$DOTFILES_REPO"
