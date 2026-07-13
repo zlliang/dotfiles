@@ -1,3 +1,3 @@
-#!/usr/bin/env fish
+#!/usr/bin/env bash
 
 curl -fsSL https://ampcode.com/install.sh | bash

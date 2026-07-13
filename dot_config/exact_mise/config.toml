@@ -2,7 +2,7 @@
 # Utilities
 bat = "latest"
 chezmoi = "latest"
-eza = "latest"
+eza = "0.23.4"
 fd = "latest"
 gh = "latest"
 jq = "latest"
