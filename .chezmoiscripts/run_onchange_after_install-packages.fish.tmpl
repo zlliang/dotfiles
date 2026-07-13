@@ -18,19 +18,24 @@ function install_missing_brew_packages
 end
 
 install_missing_brew_packages \
-  fnm \
-  uv \
+  # Formulae
   bat \
+  chezmoi \
   eza \
   fd \
-  ripgrep \
-  zoxide \
-  chezmoi \
+  fnm \
+  gh \
   mole \
+  ripgrep \
+  uv \
+  zoxide \
+  {{- if eq .chezmoi.os "darwin" }}
+  # Casks
   ghostty \
   keka \
   orbstack \
   thaw
+  {{- end }}
 or exit
 
 if not type -q bun

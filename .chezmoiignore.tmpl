@@ -1,6 +1,7 @@
 README.md
 AGENTS.md
 LICENSE
+bootstrap.sh
 
 {{- if ne .machine "work" }}
 .config/fish/conf.d/20-work.fish
@@ -10,7 +11,5 @@ LICENSE
 {{- end }}
 
 {{- if ne .chezmoi.os "darwin" }}
-.chezmoiscripts/configure-vscode-vim.fish
-.chezmoiscripts/install-packages.fish
 .config/ghostty/
 {{- end }}

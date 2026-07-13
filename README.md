@@ -1,53 +1,39 @@
 # Dotfiles 🌚
 
-Personal dotfiles and development environment for macOS, managed by [chezmoi](https://www.chezmoi.io/).
+Personal dotfiles and development environment for macOS and Linux, managed by [chezmoi](https://www.chezmoi.io/).
 
 ## Quick start
 
-1. Install [Xcode Command Line Tools](https://developer.apple.com/xcode/): `xcode-select --install`
-2. Install [Homebrew](https://brew.sh)
-3. Install the bootstrap dependencies and initialize chezmoi:
+Run the bootstrap script as a regular user:
 
-    ```bash
-    brew install chezmoi fish
-    chezmoi init --apply https://github.com/zlliang/dotfiles.git
-    ```
+```bash
+curl -fsSL https://raw.githubusercontent.com/zlliang/dotfiles/main/bootstrap.sh | bash
+```
 
-    I use `~/workspace/github/zlliang/dotfiles` as the source directory, so for me:
+Set `SOURCE_DIR` on the Bash process to use a different chezmoi source directory:
 
-    ```bash
-    chezmoi init -S ~/workspace/github/zlliang/dotfiles --apply https://github.com/zlliang/dotfiles.git
-    ```
+```bash
+curl -fsSL https://raw.githubusercontent.com/zlliang/dotfiles/main/bootstrap.sh | SOURCE_DIR="$HOME/.local/share/chezmoi" bash
+```
 
-    Fish is needed while the post-apply scripts load the newly applied shell environment. The command installs the remaining packages and coding agents, then applies their configuration.
+The script supports macOS and Linux distributions using apt or dnf. It installs the system prerequisites, Homebrew, Fish, and chezmoi, then applies the dotfiles and installs the remaining packages. On macOS, complete the Xcode Command Line Tools dialog if prompted.
 
-4. Set [Fish](https://fishshell.com) as the default shell:
+After initialization, update the environment regularly:
 
-    ```bash
-    echo /opt/homebrew/bin/fish | sudo tee -a /etc/shells
-    chsh -s /opt/homebrew/bin/fish
-    ```
-
-5. After initialized, just update the latest changes regularly:
-
-    ```bash
-    chezmoi update
-    ```
+```bash
+chezmoi update
+```
 
 ## What's included
 
 ### Packages
 
 - **Shell:** [fish](https://fishshell.com)
-- **Dev toolkits:** [fnm](https://github.com/Schniz/fnm), [bun](https://bun.sh), [uv](https://docs.astral.sh/uv/), [rustup](https://rustup.rs/)
-- **CLI tools:** [bat](https://github.com/sharkdp/bat), [eza](https://github.com/eza-community/eza), [fd](https://github.com/sharkdp/fd), [ripgrep](https://github.com/BurntSushi/ripgrep), [zoxide](https://github.com/ajeetdsouza/zoxide), [gh](https://github.com/cli/cli)
+- **Dev toolkits:** [Python](https://www.python.org/), [fnm](https://github.com/Schniz/fnm), [bun](https://bun.sh), [uv](https://docs.astral.sh/uv/), [rustup](https://rustup.rs/)
+- **CLI tools:** [bat](https://github.com/sharkdp/bat), [eza](https://github.com/eza-community/eza), [fd](https://github.com/sharkdp/fd), [jq](https://jqlang.org/), [ripgrep](https://github.com/BurntSushi/ripgrep), [zoxide](https://github.com/ajeetdsouza/zoxide), [gh](https://github.com/cli/cli)
 - **System utilities:** [chezmoi](https://www.chezmoi.io/), [Mole](https://github.com/tw93/Mole)
+- **Coding agents:** [Amp](https://ampcode.com/), [Pi](https://pi.dev/)
 - **Desktop apps:** [Ghostty](https://ghostty.org), [Keka](https://keka.io/), [OrbStack](https://orbstack.dev/), [Thaw](https://github.com/stonerl/Thaw)
-
-### Coding agents
-
-- [Amp](https://ampcode.com/)
-- [Pi](https://pi.dev/)
 
 ### Configuration
 

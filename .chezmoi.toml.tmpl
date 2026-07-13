@@ -1,6 +1,6 @@
 {{- $machine := promptStringOnce . "machine" "Machine type (personal/work)" "personal" -}}
 
-sourceDir = "~/workspace/github/zlliang/dotfiles"
+sourceDir = {{ .chezmoi.sourceDir | quote }}
 
 [data]
 machine = {{ $machine | quote }}
