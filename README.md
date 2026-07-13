@@ -16,7 +16,7 @@ Set `SOURCE_DIR` on the Bash process to use a different chezmoi source directory
 curl -fsSL https://raw.githubusercontent.com/zlliang/dotfiles/main/bootstrap.sh | SOURCE_DIR="$HOME/.local/share/chezmoi" bash
 ```
 
-The script supports macOS and Linux distributions using apt or dnf. It installs the system prerequisites, Homebrew, Fish, and chezmoi, then applies the dotfiles and installs the remaining packages. On macOS, complete the Xcode Command Line Tools dialog if prompted.
+The script supports macOS and Linux distributions using apt or dnf. It installs the system prerequisites, Homebrew, Fish, and chezmoi, then applies the dotfiles and installs the remaining packages. When run as root on Linux, it creates a dedicated `linuxbrew` user and runs Homebrew as that user. On macOS, complete the Xcode Command Line Tools dialog if prompted.
 
 After initialization, update the environment regularly:
 

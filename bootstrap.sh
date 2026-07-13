@@ -4,6 +4,9 @@ set -euo pipefail
 
 DOTFILES_REPO="https://github.com/zlliang/dotfiles.git"
 SOURCE_DIR="${SOURCE_DIR:-$HOME/workspace/github/zlliang/dotfiles}"
+HOMEBREW_USER="linuxbrew"
+HOMEBREW_HOME="/home/$HOMEBREW_USER"
+HOMEBREW_PREFIX="$HOMEBREW_HOME/.linuxbrew"
 
 BOLD=""
 BLUE=""
@@ -51,16 +54,35 @@ run_as_root() {
   fi
 }
 
-enable_root_homebrew() {
-  if [[ -f /.dockerenv || -f /run/.containerenv ]] ||
-    grep -Eq "azpl_job|actions_job|docker|garden|kubepods" /proc/1/cgroup 2>/dev/null; then
-    return
+create_linuxbrew_user() {
+  local group
+
+  if ! id "$HOMEBREW_USER" >/dev/null 2>&1; then
+    log "Creating $HOMEBREW_USER user"
+    useradd --create-home --shell /bin/bash "$HOMEBREW_USER"
   fi
 
-  ROOT_CONTAINER_MARKER="/.dockerenv"
-  touch "$ROOT_CONTAINER_MARKER"
-  trap 'rm -f "$ROOT_CONTAINER_MARKER"' EXIT
-  note "Forcing Homebrew's container mode to run as root"
+  group="$(id -gn "$HOMEBREW_USER")"
+  if [[ ! -d $HOMEBREW_HOME ]]; then
+    install -d -m 0755 -o "$HOMEBREW_USER" -g "$group" "$HOMEBREW_HOME"
+  else
+    chown "$HOMEBREW_USER:$group" "$HOMEBREW_HOME"
+  fi
+
+  if [[ ! -d $HOMEBREW_PREFIX ]]; then
+    install -d -m 0755 -o "$HOMEBREW_USER" -g "$group" "$HOMEBREW_PREFIX"
+  elif [[ $(stat -c %u "$HOMEBREW_PREFIX") != "$(id -u "$HOMEBREW_USER")" ]]; then
+    chown -R "$HOMEBREW_USER:$group" "$HOMEBREW_PREFIX"
+  fi
+}
+
+run_as_homebrew_user() {
+  if [[ ${EUID:-$(id -u)} -eq 0 ]]; then
+    runuser -u "$HOMEBREW_USER" -- env \
+      HOME="$HOMEBREW_HOME" USER="$HOMEBREW_USER" LOGNAME="$HOMEBREW_USER" "$@"
+  else
+    "$@"
+  fi
 }
 
 install_linux_prerequisites() {
@@ -120,7 +142,9 @@ title
 os="$(uname -s)"
 if [[ ${EUID:-$(id -u)} -eq 0 ]]; then
   [[ $os == Linux ]] || die "Running as root is supported only on Linux"
-  enable_root_homebrew
+  command -v runuser >/dev/null 2>&1 || die "runuser is required"
+  command -v useradd >/dev/null 2>&1 || die "useradd is required"
+  create_linuxbrew_user
 else
   command -v sudo >/dev/null 2>&1 || die "sudo is required"
   run_as_root -v
@@ -140,14 +164,15 @@ esac
 
 if ! brew_path=$(find_brew); then
   log "Installing Homebrew"
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  run_as_homebrew_user /bin/bash -c \
+    "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   brew_path=$(find_brew) || die "Homebrew was installed but brew could not be found"
 fi
 
-eval "$("$brew_path" shellenv)"
+eval "$(run_as_homebrew_user "$brew_path" shellenv)"
 
 log "Installing bootstrap packages"
-brew install chezmoi fish jq
+run_as_homebrew_user "$brew_path" install chezmoi fish jq
 
 if [[ -e "$SOURCE_DIR" && ! -d "$SOURCE_DIR/.git" ]]; then
   die "$SOURCE_DIR exists but is not a Git repository"
@@ -161,7 +186,7 @@ fi
 log "Initializing dotfiles"
 chezmoi init -S "$SOURCE_DIR" --apply "$DOTFILES_REPO"
 
-fish_path="$(brew --prefix)/bin/fish"
+fish_path="$(run_as_homebrew_user "$brew_path" --prefix)/bin/fish"
 success "Bootstrap complete. To make Fish your default shell:"
 if [[ ${EUID:-$(id -u)} -eq 0 ]]; then
   printf '\n%sgrep -qxF %q /etc/shells || echo %q >> /etc/shells%s\n' \
