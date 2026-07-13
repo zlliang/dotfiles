@@ -27,7 +27,7 @@ title() {
 }
 
 log() {
-  printf '\n%s%s==>%s %s%s%s\n' "$BOLD" "$BLUE" "$RESET" "$BOLD" "$*" "$RESET"
+  printf '\n%s%s▸%s %s%s%s\n' "$BOLD" "$BLUE" "$RESET" "$BOLD" "$*" "$RESET"
 }
 
 note() {
@@ -80,15 +80,26 @@ install_macos_prerequisites() {
 
 initialize_dotfiles() {
   local chezmoi_path=$1
+  local status
   local tty_fd
 
   if { exec {tty_fd}</dev/tty; } 2>/dev/null; then
-    "$chezmoi_path" init -S "$SOURCE_DIR" --apply "$DOTFILES_REPO" <&"$tty_fd"
+    if "$chezmoi_path" init --verbose -S "$SOURCE_DIR" --apply "$DOTFILES_REPO" <&"$tty_fd"; then
+      status=0
+    else
+      status=$?
+    fi
     exec {tty_fd}<&-
   else
     note "No terminal detected; using the default personal-machine configuration"
-    "$chezmoi_path" init -S "$SOURCE_DIR" --apply --promptDefaults "$DOTFILES_REPO"
+    if "$chezmoi_path" init --verbose -S "$SOURCE_DIR" --apply --promptDefaults "$DOTFILES_REPO"; then
+      status=0
+    else
+      status=$?
+    fi
   fi
+
+  return "$status"
 }
 
 set_default_shell() {
@@ -159,7 +170,10 @@ if [[ -d $SOURCE_DIR/.git ]]; then
 fi
 
 log "Initializing dotfiles"
-initialize_dotfiles "$chezmoi_path"
+if ! initialize_dotfiles "$chezmoi_path"; then
+  die "chezmoi failed to initialize or apply dotfiles"
+fi
+success "Dotfiles initialized and applied"
 
 set_default_shell "$fish_path"
 success "Bootstrap complete. Restart your shell to finish."
