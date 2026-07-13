@@ -140,13 +140,14 @@ esac
 log "Installing mise"
 curl -fsSL https://mise.run | sh
 mise_path="$HOME/.local/bin/mise"
+"$mise_path" activate bash | source
 
 log "Installing chezmoi"
 "$mise_path" install chezmoi@latest
 chezmoi_path="$("$mise_path" which chezmoi --tool chezmoi@latest)"
 
 log "Initializing dotfiles"
-"$chezmoi_path" init --verbose -S "$SOURCE_DIR" --apply "$DOTFILES_REPO"
+"$chezmoi_path" init -S "$SOURCE_DIR" --apply "$DOTFILES_REPO"
 
 log "Setting Fish as the default shell"
 set_default_shell "$fish_path"
