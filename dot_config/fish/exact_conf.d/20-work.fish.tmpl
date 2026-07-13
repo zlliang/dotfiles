@@ -1,0 +1,26 @@
+# Identity
+set -gx USER_NAME "$USER"
+set -gx WORK_EMAIL {{ .work.email | quote }}
+set -gx TEAM_NAME {{ .work.teamName | quote }}
+set -gx TEAM_ID {{ .work.teamId | quote }}
+
+# Sourcegraph CLI
+set -gx SRC_ENDPOINT {{ .work.sourcegraphSite | quote }}
+
+# Atlassian REST API
+set -gx ATLASSIAN_SITE {{ .work.atlassianSite | quote }}
+set -gx ATLASSIAN_EMAIL "$WORK_EMAIL"
+set -gx ATLASSIAN_API_TOKEN {{ .work.atlassianApiToken | quote }}
+
+# Google Cloud SDK
+if test -f $HOME/.local/share/google-cloud-sdk/path.fish.inc
+  source $HOME/.local/share/google-cloud-sdk/path.fish.inc
+end
+
+# BK CLI
+if type -q bk
+  set -gx BK_AUTH_SSO_TIMEOUT 600000
+end
+
+# Booking Pages
+fish_add_path -g "$HOME/.bpages/bin"

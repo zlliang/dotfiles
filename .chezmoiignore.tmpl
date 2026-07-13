@@ -3,9 +3,10 @@ AGENTS.md
 LICENSE
 
 {{- if ne .machine "work" }}
-.gitconfig-work
+.config/fish/conf.d/work.fish
 .local/bin/glean
 .local/bin/glean-auth-login
+.gitconfig-work
 {{- end }}
 
 {{- if ne .chezmoi.os "darwin" }}
