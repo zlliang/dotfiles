@@ -144,9 +144,7 @@ log "Initializing dotfiles"
 chezmoi init -S "$SOURCE_DIR" --apply "$DOTFILES_REPO"
 
 fish_path="$(brew --prefix)/bin/fish"
-success "Bootstrap complete"
-printf '\n%sNext step%s\n' "$BOLD" "$RESET"
-printf 'Make Fish your default shell:\n\n'
-printf '  %sgrep -qxF %q /etc/shells || echo %q | sudo tee -a /etc/shells%s\n' \
+success "Bootstrap complete. To make Fish your default shell:"
+printf '\n%sgrep -qxF %q /etc/shells || echo %q | sudo tee -a /etc/shells%s\n' \
   "$CYAN" "$fish_path" "$fish_path" "$RESET"
-printf '  %schsh -s %q%s\n\n' "$CYAN" "$fish_path" "$RESET"
+printf '%schsh -s %q%s\n\n' "$CYAN" "$fish_path" "$RESET"
