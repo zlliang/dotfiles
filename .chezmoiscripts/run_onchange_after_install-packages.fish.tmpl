@@ -40,8 +40,7 @@ function install_missing_brew_packages
   end
 end
 
-install_missing_brew_packages \
-  # Formulae
+set -l brew_packages \
   bat \
   chezmoi \
   eza \
@@ -49,17 +48,20 @@ install_missing_brew_packages \
   fnm \
   gh \
   jq \
-  mole \
   ripgrep \
   uv \
-  zoxide \
-  {{- if eq .chezmoi.os "darwin" }}
-  # Casks
+  zoxide
+
+{{- if eq .chezmoi.os "darwin" }}
+set -a brew_packages \
+  mole \
   ghostty \
   keka \
   orbstack \
   thaw
-  {{- end }}
+{{- end }}
+
+install_missing_brew_packages $brew_packages
 or exit
 
 if not type -q bun
