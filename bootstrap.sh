@@ -140,7 +140,7 @@ esac
 log "Installing mise"
 curl -fsSL https://mise.run | sh
 mise_path="$HOME/.local/bin/mise"
-"$mise_path" activate bash | source
+"$mise_path" activate bash
 
 log "Installing chezmoi"
 "$mise_path" install chezmoi@latest
