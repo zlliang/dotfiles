@@ -27,10 +27,16 @@ title() {
 }
 
 log() {
-  printf '\n%s%s---%s\n%s%s%s\n%s%s---%s\n' \
-    "$BOLD" "$BLUE" "$RESET" \
-    "$BOLD" "$*" "$RESET" \
-    "$BOLD" "$BLUE" "$RESET"
+  local divider
+  local message=$*
+
+  printf -v divider '%*s' "${#message}" ''
+  divider=${divider// /=}
+
+  printf '\n%s%s%s%s\n%s%s%s\n%s%s%s%s\n' \
+    "$BOLD" "$BLUE" "$divider" "$RESET" \
+    "$BOLD" "$message" "$RESET" \
+    "$BOLD" "$BLUE" "$divider" "$RESET"
 }
 
 note() {
