@@ -21,7 +21,7 @@ The script supports macOS and Linux distributions using apt or dnf. It installs 
 After initialization, update the environment regularly:
 
 ```bash
-chezmoi update
+mise run update
 ```
 
 ## Structure

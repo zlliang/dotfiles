@@ -24,7 +24,7 @@ When creating or editing skills, first load the `building-skills` skill. The sou
 - Personal, general-purpose skills: `~/workspace/github/zlliang/skills`
 - Work-related skills: `~/workspace/booking/personal/zilong.liang/skills`
 
-After editing, install skills globally with `~/.local/bin/setup-global-agent-skills`, which pulls each skill from its source repo into every agent. Its complete definition is the chezmoi template at `dot_local/bin/executable_setup-global-agent-skills.tmpl`; update that script when adding, removing, or re-sourcing a skill.
+After editing, install skills globally with `mise run update:agent-skills`, which pulls each skill from its source repo into every agent. Its complete definition is the mise task in `~/workspace/github/zlliang/dotfiles/dot_config/exact_mise/config.toml.tmpl`; update that task when adding, removing, or re-sourcing a skill.
 
 ### MCP
 
