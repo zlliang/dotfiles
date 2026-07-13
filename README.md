@@ -4,7 +4,7 @@ Personal dotfiles and development environment for macOS and Linux, managed by [c
 
 ## Quick start
 
-Run the bootstrap script as a regular user:
+Run the bootstrap script:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/zlliang/dotfiles/main/bootstrap.sh | bash

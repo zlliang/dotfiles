@@ -44,7 +44,23 @@ die() {
 }
 
 run_as_root() {
-  sudo "$@"
+  if [[ ${EUID:-$(id -u)} -eq 0 ]]; then
+    "$@"
+  else
+    sudo "$@"
+  fi
+}
+
+enable_root_homebrew() {
+  if [[ -f /.dockerenv || -f /run/.containerenv ]] ||
+    grep -Eq "azpl_job|actions_job|docker|garden|kubepods" /proc/1/cgroup 2>/dev/null; then
+    return
+  fi
+
+  ROOT_CONTAINER_MARKER="/.dockerenv"
+  touch "$ROOT_CONTAINER_MARKER"
+  trap 'rm -f "$ROOT_CONTAINER_MARKER"' EXIT
+  note "Forcing Homebrew's container mode to run as root"
 }
 
 install_linux_prerequisites() {
@@ -101,14 +117,16 @@ find_brew() {
 
 title
 
+os="$(uname -s)"
 if [[ ${EUID:-$(id -u)} -eq 0 ]]; then
-  die "Run this script as a regular user, not root"
+  [[ $os == Linux ]] || die "Running as root is supported only on Linux"
+  enable_root_homebrew
+else
+  command -v sudo >/dev/null 2>&1 || die "sudo is required"
+  run_as_root -v
 fi
 
-command -v sudo >/dev/null 2>&1 || die "sudo is required"
-run_as_root -v
-
-case "$(uname -s)" in
+case "$os" in
   Darwin)
     install_macos_prerequisites
     ;;
@@ -116,7 +134,7 @@ case "$(uname -s)" in
     install_linux_prerequisites
     ;;
   *)
-    die "Unsupported operating system: $(uname -s)"
+    die "Unsupported operating system: $os"
     ;;
 esac
 
@@ -145,6 +163,11 @@ chezmoi init -S "$SOURCE_DIR" --apply "$DOTFILES_REPO"
 
 fish_path="$(brew --prefix)/bin/fish"
 success "Bootstrap complete. To make Fish your default shell:"
-printf '\n%sgrep -qxF %q /etc/shells || echo %q | sudo tee -a /etc/shells%s\n' \
-  "$CYAN" "$fish_path" "$fish_path" "$RESET"
+if [[ ${EUID:-$(id -u)} -eq 0 ]]; then
+  printf '\n%sgrep -qxF %q /etc/shells || echo %q >> /etc/shells%s\n' \
+    "$CYAN" "$fish_path" "$fish_path" "$RESET"
+else
+  printf '\n%sgrep -qxF %q /etc/shells || echo %q | sudo tee -a /etc/shells%s\n' \
+    "$CYAN" "$fish_path" "$fish_path" "$RESET"
+fi
 printf '%schsh -s %q%s\n\n' "$CYAN" "$fish_path" "$RESET"
