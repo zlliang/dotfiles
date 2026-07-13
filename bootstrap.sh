@@ -98,7 +98,7 @@ fi
 eval "$("$brew_path" shellenv)"
 
 log "Installing bootstrap packages"
-brew install chezmoi fish jq python
+brew install chezmoi fish jq
 
 if [[ -e "$SOURCE_DIR" && ! -d "$SOURCE_DIR/.git" ]]; then
   die "$SOURCE_DIR exists but is not a Git repository"
