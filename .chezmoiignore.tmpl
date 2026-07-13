@@ -17,3 +17,7 @@ bootstrap.sh
 .config/fish/conf.d/03-brew.fish
 .config/ghostty/
 {{- end }}
+
+{{- if ne .chezmoi.os "linux" }}
+.local/bin/login-shell
+{{- end }}

@@ -88,17 +88,18 @@ install_macos_prerequisites() {
 }
 
 set_default_shell() {
-  local fish_path=$1
+  local shell_path=$1
+  local shell_name=$2
   local user
 
   user="$(id -un)"
-  if ! grep -qxF "$fish_path" /etc/shells 2>/dev/null; then
-    printf '%s\n' "$fish_path" | run_as_root tee -a /etc/shells >/dev/null
+  if ! grep -qxF "$shell_path" /etc/shells 2>/dev/null; then
+    printf '%s\n' "$shell_path" | run_as_root tee -a /etc/shells >/dev/null
   fi
 
-  if [[ ${SHELL:-} != "$fish_path" ]]; then
-    log "Setting Fish as the default shell"
-    run_as_root chsh -s "$fish_path" "$user"
+  if [[ ${SHELL:-} != "$shell_path" ]]; then
+    log "Setting $shell_name as the default shell"
+    run_as_root chsh -s "$shell_path" "$user"
   fi
 }
 
@@ -120,7 +121,8 @@ case "$os" in
     log "Installing Fish"
     "$brew_path" install fish
 
-    fish_path="$("$brew_path" --prefix)/bin/fish"
+    default_shell_path="$("$brew_path" --prefix)/bin/fish"
+    default_shell_name="Fish"
     ;;
   Linux)
     if [[ ${EUID:-$(id -u)} -ne 0 ]]; then
@@ -130,7 +132,8 @@ case "$os" in
 
     install_linux_packages
 
-    fish_path="$(command -v fish)"
+    default_shell_path="$HOME/.local/bin/login-shell"
+    default_shell_name="the interactive Fish wrapper"
     ;;
   *)
     die "Unsupported operating system: $os"
@@ -149,5 +152,5 @@ chezmoi_path="$("$mise_path" which chezmoi --tool chezmoi@latest)"
 log "Initializing dotfiles"
 "$chezmoi_path" init -S "$SOURCE_DIR" --apply "$DOTFILES_REPO"
 
-set_default_shell "$fish_path"
+set_default_shell "$default_shell_path" "$default_shell_name"
 success "Bootstrap complete. Restart your shell to finish."
