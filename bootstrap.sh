@@ -27,7 +27,10 @@ title() {
 }
 
 log() {
-  printf '\n%s%s▸%s %s%s%s\n' "$BOLD" "$BLUE" "$RESET" "$BOLD" "$*" "$RESET"
+  printf '\n%s%s---%s\n%s%s%s\n%s%s---%s\n' \
+    "$BOLD" "$BLUE" "$RESET" \
+    "$BOLD" "$*" "$RESET" \
+    "$BOLD" "$BLUE" "$RESET"
 }
 
 note() {
@@ -76,30 +79,6 @@ install_macos_prerequisites() {
   until xcode-select -p >/dev/null 2>&1; do
     sleep 5
   done
-}
-
-initialize_dotfiles() {
-  local chezmoi_path=$1
-  local status
-  local tty_fd
-
-  if { exec {tty_fd}</dev/tty; } 2>/dev/null; then
-    if "$chezmoi_path" init --verbose -S "$SOURCE_DIR" --apply "$DOTFILES_REPO" <&"$tty_fd"; then
-      status=0
-    else
-      status=$?
-    fi
-    exec {tty_fd}<&-
-  else
-    note "No terminal detected; using the default personal-machine configuration"
-    if "$chezmoi_path" init --verbose -S "$SOURCE_DIR" --apply --promptDefaults "$DOTFILES_REPO"; then
-      status=0
-    else
-      status=$?
-    fi
-  fi
-
-  return "$status"
 }
 
 set_default_shell() {
@@ -160,20 +139,8 @@ log "Installing chezmoi"
 "$mise_path" install chezmoi@latest
 chezmoi_path="$("$mise_path" which chezmoi --tool chezmoi@latest)"
 
-if [[ -e $SOURCE_DIR && ! -d $SOURCE_DIR/.git ]]; then
-  die "$SOURCE_DIR exists but is not a Git repository"
-fi
-
-if [[ -d $SOURCE_DIR/.git ]]; then
-  log "Updating dotfiles repository"
-  git -C "$SOURCE_DIR" pull --ff-only
-fi
-
 log "Initializing dotfiles"
-if ! initialize_dotfiles "$chezmoi_path"; then
-  die "chezmoi failed to initialize or apply dotfiles"
-fi
-success "Dotfiles initialized and applied"
+"$chezmoi_path" init --verbose -S "$SOURCE_DIR" --apply "$DOTFILES_REPO"
 
 set_default_shell "$fish_path"
 success "Bootstrap complete. Restart your shell to finish."
