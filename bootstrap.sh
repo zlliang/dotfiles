@@ -164,7 +164,7 @@ esac
 
 if ! brew_path=$(find_brew); then
   log "Installing Homebrew"
-  run_as_homebrew_user /bin/bash -c \
+  run_as_homebrew_user env NONINTERACTIVE=1 /bin/bash -c \
     "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   brew_path=$(find_brew) || die "Homebrew was installed but brew could not be found"
 fi
