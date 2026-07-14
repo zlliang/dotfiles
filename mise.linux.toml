@@ -1,0 +1,13 @@
+[bootstrap.packages]
+"apt:ca-certificates" = "latest"
+"apt:curl" = "latest"
+"apt:fish" = "latest"
+"apt:git" = "latest"
+"dnf:ca-certificates" = "latest"
+"dnf:curl" = "latest"
+"dnf:fish" = "latest"
+"dnf:git" = "latest"
+
+[dotfiles]
+"~/.bash_profile" = "src/bash_profile"
+"~/.bashrc" = "src/bashrc"

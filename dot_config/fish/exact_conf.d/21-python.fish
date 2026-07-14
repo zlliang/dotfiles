@@ -1,1 +1,0 @@
-set -gx VIRTUAL_ENV_DISABLE_PROMPT "true"

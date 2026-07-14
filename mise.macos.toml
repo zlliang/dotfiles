@@ -1,0 +1,8 @@
+[bootstrap.packages]
+"brew:fish" = "latest"
+
+[bootstrap.user]
+login_shell = "/opt/homebrew/bin/fish"
+
+[dotfiles]
+"~/.config/ghostty" = { source = "src/config/ghostty", mode = "copy" }

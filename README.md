@@ -1,29 +1,37 @@
 # Dotfiles 🌚
 
-Personal dotfiles and development environment for macOS and Linux, managed by [chezmoi](https://www.chezmoi.io/).
+Personal dotfiles and development environment for macOS and Linux, managed by [mise](https://mise.jdx.dev/).
 
 ## Quick start
-
-Run the bootstrap script:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/zlliang/dotfiles/main/bootstrap.sh | bash
 ```
 
-Set `SOURCE_DIR` on the Bash process to use a different chezmoi source directory:
+Use the work profile when needed:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/zlliang/dotfiles/main/bootstrap.sh | SOURCE_DIR="$HOME/.local/share/chezmoi" bash
+curl -fsSL https://raw.githubusercontent.com/zlliang/dotfiles/main/bootstrap.sh | PROFILE=work bash
 ```
 
-The script supports macOS and Linux distributions using apt or dnf. It installs necessary system dependencies and [mise](https://mise.jdx.dev/), applies the dotfiles, installs the remaining tools, and sets Fish as the default shell.
+The work profile copies `mise.work.local.toml.example` to `~/.config/mise/config.work.local.toml`. Fill in the placeholders and rerun bootstrap.
 
-After initialization, update the environment regularly:
+The stage-zero script installs prerequisites and mise, clones this repository, selects the machine profile, then runs:
 
 ```bash
+mise bootstrap --yes
+```
+
+Inspect or update the environment with:
+
+```bash
+mise -C ~/workspace/github/zlliang/dotfiles bootstrap status
+mise -C ~/workspace/github/zlliang/dotfiles bootstrap --dry-run
 mise run update
 ```
 
 ## Structure
 
-This is a chezmoi source directory. Files use chezmoi naming conventions (`dot_`, `.tmpl`, `run_onchange_`, etc.) and are applied to `~` via `chezmoi apply`.
+- `mise.toml` — bootstrap orchestration and dotfiles
+- `mise.macos.toml`, `mise.linux.toml`, `mise.work.toml` — scoped machine configuration
+- `src/` — copied and rendered user configuration, mirroring target paths

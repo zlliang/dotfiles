@@ -2,53 +2,18 @@
 
 set -euo pipefail
 
-DOTFILES_REPO="https://github.com/zlliang/dotfiles.git"
-SOURCE_DIR="${SOURCE_DIR:-$HOME/workspace/github/zlliang/dotfiles}"
-
-BOLD=""
-BLUE=""
-CYAN=""
-GREEN=""
-RED=""
-RESET=""
-
-if [[ -t 1 && ${TERM:-dumb} != dumb && ${NO_COLOR+x} != x ]]; then
-  BOLD=$'\033[1m'
-  BLUE=$'\033[34m'
-  CYAN=$'\033[36m'
-  GREEN=$'\033[32m'
-  RED=$'\033[31m'
-  RESET=$'\033[0m'
-fi
-
-title() {
-  printf '\n%s%sDotfiles bootstrap%s\n' "$BOLD" "$BLUE" "$RESET"
-  printf 'Set up your development environment\n'
-}
+DOTFILES_REPO="${DOTFILES_REPO:-https://github.com/zlliang/dotfiles.git}"
+SOURCE_DIR="$HOME/workspace/github/zlliang/dotfiles"
+MISE_PATH="${MISE_PATH:-$HOME/.local/bin/mise}"
+PROFILE="${PROFILE:-personal}"
+WORK_CONFIG_NEEDS_SETUP=false
 
 log() {
-  local divider
-  local message=$*
-
-  printf -v divider '%*s' "${#message}" ''
-  divider=${divider// /=}
-
-  printf '\n%s%s%s%s\n%s%s%s\n%s%s%s%s\n' \
-    "$BOLD" "$BLUE" "$divider" "$RESET" \
-    "$BOLD" "$message" "$RESET" \
-    "$BOLD" "$BLUE" "$divider" "$RESET"
-}
-
-note() {
-  printf '%s%sNote:%s %s\n' "$BOLD" "$CYAN" "$RESET" "$*"
-}
-
-success() {
-  printf '\n%s%s✓%s %s\n' "$BOLD" "$GREEN" "$RESET" "$*"
+  printf '\n\033[1m==> %s\033[0m\n' "$*"
 }
 
 die() {
-  printf '%s%serror:%s %s\n' "$BOLD" "$RED" "$RESET" "$*" >&2
+  printf 'error: %s\n' "$*" >&2
   exit 1
 }
 
@@ -60,96 +25,93 @@ run_as_root() {
   fi
 }
 
-install_linux_packages() {
-  if command -v apt-get >/dev/null 2>&1; then
-    log "Installing system packages with apt"
-    run_as_root apt-get update
-    run_as_root apt-get install -y ca-certificates curl fish git
-  elif command -v dnf >/dev/null 2>&1; then
-    log "Installing system packages with dnf"
-    run_as_root dnf update
-    run_as_root dnf install -y ca-certificates curl fish git
-  else
-    die "Unsupported Linux distribution: apt-get or dnf is required"
+install_prerequisites() {
+  case "$(uname -s)" in
+    Darwin)
+      (( EUID != 0 )) || die "Do not run this script as root on macOS"
+      [[ "$(uname -m)" == "arm64" ]] || die "Only Apple Silicon macOS is supported"
+
+      if ! xcode-select -p >/dev/null 2>&1; then
+        log "Installing Xcode Command Line Tools"
+        xcode-select --install >/dev/null 2>&1 || true
+        until xcode-select -p >/dev/null 2>&1; do sleep 5; done
+      fi
+
+      if [[ ! -x "/opt/homebrew/bin/brew" ]]; then
+        log "Installing Homebrew"
+        NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        export PATH="/opt/homebrew/bin:$PATH"
+      fi
+      ;;
+    Linux)
+      if (( EUID != 0 )); then
+        command -v sudo >/dev/null 2>&1 || die "sudo is required"
+      fi
+
+      if command -v apt-get >/dev/null 2>&1; then
+        log "Installing bootstrap dependencies with apt"
+        run_as_root apt-get update
+        run_as_root apt-get install -y ca-certificates curl git
+      elif command -v dnf >/dev/null 2>&1; then
+        log "Installing bootstrap dependencies with dnf"
+        run_as_root dnf install -y ca-certificates curl git
+      else
+        die "Unsupported Linux distribution: apt-get or dnf is required"
+      fi
+      ;;
+    *)
+      die "Unsupported operating system: $(uname -s)"
+      ;;
+  esac
+}
+
+validate_profile() {
+  [[ "$PROFILE" == "personal" || "$PROFILE" == "work" ]] || die "PROFILE must be personal or work"
+}
+
+write_profile_config() {
+  local config_dir="$HOME/.config/mise"
+  local local_config="$config_dir/config.work.local.toml"
+
+  [[ "$PROFILE" == "work" ]] || return
+  mkdir -p "$config_dir"
+
+  if [[ ! -f "$local_config" ]]; then
+    cp "$SOURCE_DIR/mise.work.local.toml.example" "$local_config"
+  fi
+
+  ln -sfn "$local_config" "$SOURCE_DIR/mise.work.local.toml"
+  if grep -q '= ""$' "$local_config"; then
+    WORK_CONFIG_NEEDS_SETUP=true
   fi
 }
 
-install_macos_prerequisites() {
-  if xcode-select -p >/dev/null 2>&1; then
-    return
-  fi
-
-  log "Installing Xcode Command Line Tools"
-  xcode-select --install >/dev/null 2>&1 || true
-  note "Complete the installation dialog to continue"
-  until xcode-select -p >/dev/null 2>&1; do
-    sleep 5
-  done
-}
-
-set_default_shell() {
-  local shell_path=$1
-
-  if ! grep -qxF "$shell_path" /etc/shells 2>/dev/null; then
-    printf '%s\n' "$shell_path" | run_as_root tee -a /etc/shells >/dev/null
-  fi
-
-  if [[ ${SHELL:-} != "$shell_path" ]]; then
-    log "Setting $shell_path as the default shell"
-    run_as_root chsh -s "$shell_path" "$(id -un)"
-  fi
-}
-
-title
-
-operating_system=$(uname -s)
-case "$operating_system" in
-  Darwin)
-    (( EUID != 0 )) || die "Do not run this script as root on macOS"
-    command -v sudo >/dev/null 2>&1 || die "sudo is required"
-    run_as_root -v
-
-    install_macos_prerequisites
-
-    log "Installing Homebrew"
-    NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    brew_path="/opt/homebrew/bin/brew"
-
-    log "Installing Fish"
-    "$brew_path" install fish
-
-    default_shell_path="$("$brew_path" --prefix)/bin/fish"
-    ;;
-  Linux)
-    if (( EUID != 0 )); then
-      command -v sudo >/dev/null 2>&1 || die "sudo is required"
-      run_as_root -v
-    fi
-
-    install_linux_packages
-    ;;
-  *)
-    die "Unsupported operating system: $operating_system"
-    ;;
-esac
+validate_profile
+install_prerequisites
 
 log "Installing mise"
 curl -fsSL https://mise.run | sh
-mise_path="$HOME/.local/bin/mise"
-eval "$("$mise_path" activate bash)"
+export PATH="$HOME/.local/bin:$PATH"
 
-log "Installing chezmoi"
-"$mise_path" install chezmoi@latest
-chezmoi_path="$("$mise_path" which chezmoi --tool chezmoi@latest)"
-
-log "Initializing dotfiles"
-chezmoi_args=(init -S "$SOURCE_DIR" --apply)
-if [[ ${CODESPACES:-} == true || ! -t 0 ]]; then
-  chezmoi_args+=(--promptDefaults)
+if [[ ! -e "$SOURCE_DIR" ]]; then
+  log "Cloning dotfiles"
+  git clone "$DOTFILES_REPO" "$SOURCE_DIR"
+elif [[ ! -d "$SOURCE_DIR/.git" ]]; then
+  die "$SOURCE_DIR exists but is not a Git repository"
 fi
-"$chezmoi_path" "${chezmoi_args[@]}" "$DOTFILES_REPO"
 
-if [[ $operating_system == Darwin ]]; then
-  set_default_shell "$default_shell_path"
+write_profile_config
+
+log "Trusting the dotfiles configuration"
+"$MISE_PATH" trust --all -C "$SOURCE_DIR"
+
+log "Bootstrapping the machine"
+trusted_paths="$SOURCE_DIR:$HOME/.config/mise"
+MISE_TRUSTED_CONFIG_PATHS="$trusted_paths" MISE_AUTO_ENV=1 MISE_ENV="$PROFILE" "$MISE_PATH" -C "$SOURCE_DIR" bootstrap --yes
+MISE_TRUSTED_CONFIG_PATHS="$trusted_paths" "$MISE_PATH" trust "$HOME/.config/mise/miserc.toml"
+
+printf '\nBootstrap complete. Restart your shell to finish.\n'
+if [[ "$WORK_CONFIG_NEEDS_SETUP" == "true" ]]; then
+  printf 'Fill in %s and rerun bootstrap to apply the work settings.\n' \
+    "$HOME/.config/mise/config.work.local.toml"
 fi
-success "Bootstrap complete. Restart your shell to finish."

@@ -1,0 +1,23 @@
+{
+  "lastChangelogVersion": "{{ exec(command="jq -er \".lastChangelogVersion // empty\" \"$HOME/.pi/agent/settings.json\" 2>/dev/null || mise exec github:earendil-works/pi@latest -- pi --version") }}",
+  "theme": "light/dark",
+  "treeFilterMode": "no-tools",
+  "packages": [
+    {%- if "work" in mise_env %}
+    "git:gitlab.com/{{ vars.GITLAB_NAMESPACE }}/pi-agent/pi-booking-genai.git",
+    {%- endif %}
+    "git:github.com/zlliang/pi-spark"
+  ],
+  "markdown": {
+    "codeBlockIndent": ""
+  },
+  "defaultProjectTrust": "always",
+  "defaultProvider": "{{ exec(command="jq -er \".defaultProvider // empty\" \"$HOME/.pi/agent/settings.json\" 2>/dev/null || printf openai-codex") }}",
+  "defaultModel": "{{ exec(command="jq -er \".defaultModel // empty\" \"$HOME/.pi/agent/settings.json\" 2>/dev/null || printf gpt-5.6-sol") }}",
+  "defaultThinkingLevel": "{{ exec(command="jq -er \".defaultThinkingLevel // empty\" \"$HOME/.pi/agent/settings.json\" 2>/dev/null || printf high") }}"
+  {%- if "work" in mise_env %},
+  "booking-genai": {
+    "showCost": ["day", "week"]
+  }
+  {%- endif %}
+}

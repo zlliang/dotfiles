@@ -1,0 +1,46 @@
+{
+  "presets": {
+    "gpt-sol": {
+      "provider": "openai-codex",
+      "model": "gpt-5.6-sol",
+      "thinkingLevel": "high"
+    },
+    "gpt-terra": {
+      "provider": "openai-codex",
+      "model": "gpt-5.6-terra",
+      "thinkingLevel": "high"
+    },
+    "claude-opus": {
+      "provider": "{{ "booking-genai" if "work" in mise_env else "vercel-ai-gateway" }}",
+      "model": "{{ "claude-opus-4-8" if "work" in mise_env else "anthropic/claude-opus-4.8" }}",
+      "thinkingLevel": "high"
+    },
+    "claude-sonnet": {
+      "provider": "{{ "booking-genai" if "work" in mise_env else "vercel-ai-gateway" }}",
+      "model": "{{ "claude-sonnet-5" if "work" in mise_env else "anthropic/claude-sonnet-5" }}",
+      "thinkingLevel": "high"
+    }
+    {%- if not ("work" in mise_env) %},
+    "glm": {
+      "provider": "fireworks",
+      "model": "accounts/fireworks/routers/glm-5p2-fast",
+      "thinkingLevel": "max"
+    },
+    "deepseek": {
+      "provider": "deepseek",
+      "model": "deepseek-v4-flash",
+      "thinkingLevel": "max"
+    }
+    {%- endif %}
+  },
+  "recap": {
+    "provider": "{{ "openai-codex" if "work" in mise_env else "deepseek" }}",
+    "model": "{{ "gpt-5.6-luna" if "work" in mise_env else "deepseek-v4-flash" }}",
+    "thinkingLevel": "off"
+  },
+  "title": {
+    "provider": "{{ "openai-codex" if "work" in mise_env else "deepseek" }}",
+    "model": "{{ "gpt-5.6-luna" if "work" in mise_env else "deepseek-v4-flash" }}",
+    "thinkingLevel": "off"
+  }
+}

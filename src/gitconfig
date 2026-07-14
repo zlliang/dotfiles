@@ -1,0 +1,50 @@
+[user]
+  name = Zilong Liang
+  email = zlliang96@outlook.com
+  signingKey = ~/.ssh/id_ed25519.pub
+
+[gpg]
+  format = ssh
+
+[commit]
+  gpgSign = true
+
+[init]
+  defaultBranch = main
+
+[core]
+  editor = "{{ "code --wait" if os() == "macos" else "vim" }}"
+  excludesfile = ~/.gitignore
+{%- if os() == "macos" %}
+
+[credential]
+  helper = osxkeychain
+{%- endif %}
+
+[fetch]
+  prune = true
+
+[pull]
+  rebase = true
+
+[push]
+  autoSetupRemote = true
+
+[alias]
+  st = status
+  ci = commit
+  co = checkout
+  br = branch
+  unstage = reset HEAD --
+  last = log -1 HEAD
+  lg = log --color --graph --decorate --all --oneline
+
+{%- if "work" in mise_env %}
+
+[credential "https://gitlab.com"]
+  helper = !bk gitlab:git-credential
+
+[includeIf "gitdir:~/workspace/booking/"]
+  path = ~/.gitconfig-work
+
+{%- endif %}

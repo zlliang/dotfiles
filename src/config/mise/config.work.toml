@@ -1,0 +1,47 @@
+[tools]
+"github:gleanwork/glean-cli" = "latest"
+"github:googleworkspace/cli" = "latest"
+"acli" = "latest"
+"glab" = "latest"
+"github:sourcegraph/src-cli" = "latest"
+
+[tasks."update:agent-skills"]
+description = "Update global agent skills"
+run = [
+  "rm -rf ~/.agents ~/.pi/agent/skills",
+  "bunx --bun skills add zlliang/skills --full-depth -g -y -a amp",
+  "bunx --bun skills add vercel-labs/agent-browser --skill agent-browser --full-depth -g -y -a amp",
+  "bunx --bun skills add https://gitlab.com/{{ vars.GITLAB_NAMESPACE }}/personal/zilong.liang/skills --full-depth -g -y -a amp",
+  "bunx --bun skills add https://gitlab.com/gitlab-org/ai/skills --skill glab glab-glql --full-depth -g -y -a amp",
+  "bunx --bun skills add https://github.com/gleanwork/glean-cli --skill glean-cli --full-depth -g -y -a amp",
+  "bunx --bun skills add googleworkspace/cli --skill gws-shared gws-gmail gws-calendar gws-drive gws-docs gws-sheets gws-slides --full-depth -g -y -a amp",
+  "bunx --bun skills add https://gitlab.com/{{ vars.GITLAB_NAMESPACE }}/genai-eng/coding-agent-tools/-/tree/main/common --skill bpages --full-depth -g -y -a amp",
+]
+
+[tasks."update:bk"]
+description = "Update BK CLI and its plugins"
+run = [
+  "bk update",
+  "mkdir -p ~/.config/fish/completions && bk completion fish > ~/.config/fish/completions/bk.fish",
+]
+
+[tasks.bkauth]
+description = "Log in to Booking.com"
+run = [
+  { task = "bkauth:ssh" },
+  { task = "bkauth:auth" },
+  { task = "bkauth:glean-auth" },
+]
+
+[tasks."bkauth:ssh"]
+description = "SSH to Booking.com"
+interactive = true
+run = "ssh -A ssh.booking.com"
+
+[tasks."bkauth:auth"]
+description = "Authenticate with BK CLI"
+run = "bk auth:login --skip-okta-auth"
+
+[tasks."bkauth:glean-auth"]
+description = "Authenticate with Glean CLI"
+run = "glean-auth-login"

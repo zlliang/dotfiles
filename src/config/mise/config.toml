@@ -1,0 +1,70 @@
+min_version = "2026.7.5"
+
+[tools]
+# Utilities
+"bat" = "latest"
+"eza" = "latest"
+"fd" = "latest"
+"gh" = "latest"
+"jq" = "latest"
+"ripgrep" = "latest"
+"usage" = "latest"
+"zoxide" = "latest"
+# Languages
+"node" = "lts"
+"bun" = "latest"
+"npm:corepack" = "latest"
+"python" = "latest"
+"uv" = "latest"
+"rust" = "latest"
+# AI tools
+"github:earendil-works/pi" = "latest"
+"npm:agent-browser" = "latest"
+"npm:mcporter" = "latest"
+
+[tasks.update]
+description = "Update the development environment"
+run = [
+  { task = "update:dotfiles" },
+  { task = "update:packages" },
+  { task = "update:mise" },
+  { task = "update:amp" },
+  { task = "update:pi" },
+  { task = "update:agent-skills" },
+  { task = "update:bk" },
+]
+
+[tasks."update:dotfiles"]
+description = "Update dotfiles and converge the machine"
+dir = "{{ env.HOME }}/workspace/github/zlliang/dotfiles"
+run = ["git pull --ff-only", "mise bootstrap --yes"]
+
+[tasks."update:packages"]
+description = "Upgrade managed system packages"
+dir = "{{ env.HOME }}/workspace/github/zlliang/dotfiles"
+run = "mise bootstrap packages upgrade --yes"
+
+[tasks."update:mise"]
+description = "Update mise and managed tools"
+run = ["mise self-update -y", "mise upgrade", "mise prune"]
+
+[tasks."update:amp"]
+description = "Update Amp"
+run = "amp update"
+
+[tasks."update:pi"]
+description = "Update Pi extensions"
+dir = "{{ env.HOME }}/.pi/agent/extensions"
+run = ["pi update --extensions", "npm update"]
+
+[tasks."update:agent-skills"]
+description = "Update global agent skills"
+run = [
+  "rm -rf ~/.agents ~/.pi/agent/skills",
+  "bunx --bun skills add zlliang/skills --full-depth -g -y -a amp",
+  "bunx --bun skills add vercel-labs/agent-browser --skill agent-browser --full-depth -g -y -a amp",
+]
+
+[tasks."update:bk"]
+description = "Update work tools when configured"
+run = "true"

@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "exa": {
+      "url": "https://mcp.exa.ai/mcp"
+    }
+    {%- if "work" in mise_env %},
+    "booking-toolbox": {
+      "type": "stdio",
+      "command": "bk",
+      "args": ["genai:mcp:toolbox"]
+    }
+    {%- endif %}
+  },
+  "imports": []
+}
