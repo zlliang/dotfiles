@@ -135,8 +135,8 @@ log "Trusting the dotfiles configuration"
 log "Bootstrapping the machine"
 MISE_AUTO_ENV=1 MISE_ENV="$PROFILE" "$MISE_PATH" bootstrap --yes --force-dotfiles
 
-printf "\n%s✓ Bootstrap complete. Restart your shell to finish.%s\n" "$GREEN" "$RESET"
+printf "\n%sBootstrap complete. Restart your shell to finish.%s\n" "$GREEN" "$RESET"
 if [[ "$WORK_CONFIG_NEEDS_SETUP" == "true" ]]; then
-  printf "  Fill in %s and rerun bootstrap to apply the work settings.\n" \
+  printf "Fill in %s and rerun bootstrap to apply the work settings.\n" \
     "$HOME/.config/mise/config.work.local.toml"
 fi
