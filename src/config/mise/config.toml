@@ -3,7 +3,7 @@ min_version = "2026.7.5"
 [tools]
 # Utilities
 "bat" = "latest"
-"eza" = "latest"
+"eza" = "0.23.4"
 "fd" = "latest"
 "gh" = "latest"
 "jq" = "latest"
