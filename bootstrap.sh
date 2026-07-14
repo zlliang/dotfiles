@@ -8,12 +8,35 @@ MISE_PATH="${MISE_PATH:-$HOME/.local/bin/mise}"
 PROFILE="${PROFILE:-personal}"
 WORK_CONFIG_NEEDS_SETUP=false
 
+BOLD=$'\033[1m'
+CYAN=$'\033[36m'
+RED=$'\033[31m'
+GREEN=$'\033[32m'
+RESET=$'\033[0m'
+
+if [[ -n "${NO_COLOR:-}" ]]; then
+  BOLD=""
+  CYAN=""
+  RED=""
+  GREEN=""
+  RESET=""
+fi
+
+print_title() {
+  printf "\n%s%s%s%s\n%s\n" \
+    "$BOLD" \
+    "$CYAN" \
+    "Zilong's Dotfiles" \
+    "$RESET" \
+    "Personal dotfiles and development environment for macOS and Linux, managed by mise"
+}
+
 log() {
-  printf '\n\033[1m==> %s\033[0m\n' "$*"
+  printf "\n%s%s==>%s %s%s%s\n" "$BOLD" "$CYAN" "$RESET" "$BOLD" "$*" "$RESET"
 }
 
 die() {
-  printf 'error: %s\n' "$*" >&2
+  printf "%s%serror:%s %s\n" "$BOLD" "$RED" "$RESET" "$*" >&2
   exit 1
 }
 
@@ -81,11 +104,12 @@ write_profile_config() {
   fi
 
   ln -sfn "$local_config" "$SOURCE_DIR/mise.work.local.toml"
-  if grep -q '= ""$' "$local_config"; then
+  if grep -q "= \"\"\$" "$local_config"; then
     WORK_CONFIG_NEEDS_SETUP=true
   fi
 }
 
+print_title
 validate_profile
 install_prerequisites
 
@@ -106,12 +130,13 @@ cd "$SOURCE_DIR"
 
 log "Trusting the dotfiles configuration"
 "$MISE_PATH" trust --all
+"$MISE_PATH" trust --show
 
 log "Bootstrapping the machine"
 MISE_AUTO_ENV=1 MISE_ENV="$PROFILE" "$MISE_PATH" bootstrap --yes --force-dotfiles
 
-printf '\nBootstrap complete. Restart your shell to finish.\n'
+printf "\n%s✓ Bootstrap complete. Restart your shell to finish.%s\n" "$GREEN" "$RESET"
 if [[ "$WORK_CONFIG_NEEDS_SETUP" == "true" ]]; then
-  printf 'Fill in %s and rerun bootstrap to apply the work settings.\n' \
+  printf "  Fill in %s and rerun bootstrap to apply the work settings.\n" \
     "$HOME/.config/mise/config.work.local.toml"
 fi
