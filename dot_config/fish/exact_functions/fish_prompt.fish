@@ -29,7 +29,7 @@ function __prompt_jobs
 end
 
 function __prompt_host
-  if set -q SSH_CONNECTION
+  if set -q SSH_CONNECTION; or set -q container; or test -e /.dockerenv; or test -e /run/.containerenv
     string join "" (set_color blue) $USER "@" (prompt_hostname) (set_color normal)
   end
 end
