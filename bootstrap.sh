@@ -102,12 +102,14 @@ fi
 
 write_profile_config
 
+cd "$SOURCE_DIR"
+
 log "Trusting the dotfiles configuration"
-"$MISE_PATH" trust --all -C "$SOURCE_DIR"
+"$MISE_PATH" trust --all
 
 log "Bootstrapping the machine"
 trusted_paths="$SOURCE_DIR:$HOME/.config/mise"
-MISE_TRUSTED_CONFIG_PATHS="$trusted_paths" MISE_AUTO_ENV=1 MISE_ENV="$PROFILE" "$MISE_PATH" -C "$SOURCE_DIR" bootstrap --yes --force-dotfiles
+MISE_TRUSTED_CONFIG_PATHS="$trusted_paths" MISE_AUTO_ENV=1 MISE_ENV="$PROFILE" "$MISE_PATH" bootstrap --yes --force-dotfiles
 MISE_TRUSTED_CONFIG_PATHS="$trusted_paths" "$MISE_PATH" trust "$HOME/.config/mise/miserc.toml"
 
 printf '\nBootstrap complete. Restart your shell to finish.\n'
