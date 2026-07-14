@@ -25,6 +25,5 @@ dotfiles.default_mode = "template"
 description = "Apply setup that is not declarative"
 dir = "{{ config_root }}"
 run = [
-  "./cleanup.sh",
   "command -v amp >/dev/null 2>&1 || curl -fsSL https://ampcode.com/install.sh | bash",
 ]
