@@ -73,7 +73,7 @@ write_profile_config() {
   local config_dir="$HOME/.config/mise"
   local local_config="$config_dir/config.work.local.toml"
 
-  [[ "$PROFILE" == "work" ]] || return
+  [[ "$PROFILE" == "work" ]] || return 0
   mkdir -p "$config_dir"
 
   if [[ ! -f "$local_config" ]]; then
