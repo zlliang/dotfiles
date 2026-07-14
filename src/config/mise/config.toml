@@ -31,7 +31,9 @@ run = [
   { task = "update:amp" },
   { task = "update:pi" },
   { task = "update:agent-skills" },
+  {%- if "work" in mise_env %}
   { task = "update:bk" },
+  {%- endif %}
 ]
 
 [tasks."update:dotfiles"]
@@ -64,7 +66,3 @@ run = [
   "bunx --bun skills add zlliang/skills --full-depth -g -y -a amp",
   "bunx --bun skills add vercel-labs/agent-browser --skill agent-browser --full-depth -g -y -a amp",
 ]
-
-[tasks."update:bk"]
-description = "Update work tools when configured"
-run = "true"
