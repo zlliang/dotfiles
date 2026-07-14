@@ -4,7 +4,8 @@ set -euo pipefail
 
 DOTFILES_REPO="${DOTFILES_REPO:-https://github.com/zlliang/dotfiles.git}"
 SOURCE_DIR="$HOME/workspace/github/zlliang/dotfiles"
-MISE_PATH="${MISE_PATH:-$HOME/.local/bin/mise}"
+MISE_INSTALL_PATH="${MISE_INSTALL_PATH:-$HOME/.local/bin/mise}"
+MISE_INSTALL_SKIP_IF_EXISTS="${MISE_INSTALL_SKIP_IF_EXISTS:-1}"
 PROFILE="${PROFILE:-personal}"
 WORK_CONFIG_NEEDS_SETUP=false
 
@@ -114,8 +115,10 @@ validate_profile
 install_prerequisites
 
 log "Installing mise"
-curl -fsSL https://mise.run | sh
-export PATH="$HOME/.local/bin:$PATH"
+curl -fsSL https://mise.run | \
+  MISE_INSTALL_PATH="$MISE_INSTALL_PATH" \
+  MISE_INSTALL_SKIP_IF_EXISTS="$MISE_INSTALL_SKIP_IF_EXISTS" sh
+export PATH="$(dirname "$MISE_INSTALL_PATH"):$PATH"
 
 if [[ ! -e "$SOURCE_DIR" ]]; then
   log "Cloning dotfiles"
@@ -129,11 +132,11 @@ write_profile_config
 cd "$SOURCE_DIR"
 
 log "Trusting the dotfiles configuration"
-"$MISE_PATH" trust --all
-"$MISE_PATH" trust --show
+"$MISE_INSTALL_PATH" trust --all
+"$MISE_INSTALL_PATH" trust --show
 
 log "Bootstrapping the machine"
-MISE_AUTO_ENV=1 MISE_ENV="$PROFILE" "$MISE_PATH" bootstrap --yes --force-dotfiles
+MISE_AUTO_ENV=1 MISE_ENV="$PROFILE" "$MISE_INSTALL_PATH" bootstrap --yes --force-dotfiles
 
 printf "\n%sBootstrap complete. Restart your shell to finish.%s\n" "$GREEN" "$RESET"
 if [[ "$WORK_CONFIG_NEEDS_SETUP" == "true" ]]; then
