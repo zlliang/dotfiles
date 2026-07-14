@@ -25,5 +25,5 @@ dotfiles.default_mode = "template"
 description = "Apply setup that is not declarative"
 dir = "{{ config_root }}"
 run = [
-  "command -v amp >/dev/null 2>&1 || curl -fsSL https://ampcode.com/install.sh | bash",
+  "rm -rf ~/.amp/bin ~/.local/bin/amp",
 ]
