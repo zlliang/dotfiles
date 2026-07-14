@@ -19,7 +19,7 @@ The work profile copies `mise.work.local.toml.example` to `~/.config/mise/config
 The stage-zero script installs prerequisites and mise, clones this repository, selects the machine profile, then runs:
 
 ```bash
-mise bootstrap --yes
+mise bootstrap --yes --force-dotfiles
 ```
 
 Inspect or update the environment with:
