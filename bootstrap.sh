@@ -102,7 +102,8 @@ set_default_shell() {
 
 title
 
-case "$(uname -s)" in
+operating_system=$(uname -s)
+case "$operating_system" in
   Darwin)
     (( EUID != 0 )) || die "Do not run this script as root on macOS"
     command -v sudo >/dev/null 2>&1 || die "sudo is required"
@@ -126,11 +127,9 @@ case "$(uname -s)" in
     fi
 
     install_linux_packages
-
-    default_shell_path="$HOME/.local/bin/login-shell"
     ;;
   *)
-    die "Unsupported operating system: $(uname -s)"
+    die "Unsupported operating system: $operating_system"
     ;;
 esac
 
@@ -150,5 +149,7 @@ if [[ ${CODESPACES:-} == true || ! -t 0 ]]; then
 fi
 "$chezmoi_path" "${chezmoi_args[@]}" "$DOTFILES_REPO"
 
-set_default_shell "$default_shell_path"
+if [[ $operating_system == Darwin ]]; then
+  set_default_shell "$default_shell_path"
+fi
 success "Bootstrap complete. Restart your shell to finish."
