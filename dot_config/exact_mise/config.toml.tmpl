@@ -20,6 +20,14 @@ rust = "latest"
 "github:earendil-works/pi" = "latest"
 "npm:agent-browser" = "latest"
 "npm:mcporter" = "latest"
+{{- if eq .machine "work" }}
+# Work
+"github:gleanwork/glean-cli" = "latest"
+"github:googleworkspace/cli" = "latest"
+"acli" = "latest"
+"glab" = "latest"
+"github:sourcegraph/src-cli" = "latest"
+{{- end }}
 
 [tasks.update]
 description = "Update all developer tools"

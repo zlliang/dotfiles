@@ -1,1 +1,1 @@
-$HOME/.local/bin/mise activate fish | source
+$HOME/.local/bin/mise activate fish --shims | source

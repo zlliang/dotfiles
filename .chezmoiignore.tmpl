@@ -4,7 +4,6 @@ LICENSE
 bootstrap.sh
 
 {{- if ne .machine "work" }}
-.chezmoiscripts/install-work-specific-clis.sh
 .config/fish/conf.d/30-work.fish
 .local/bin/glean
 .local/bin/glean-auth-login
@@ -13,7 +12,6 @@ bootstrap.sh
 
 {{- if ne .chezmoi.os "darwin" }}
 .chezmoiscripts/install-desktop-apps.sh
-.chezmoiscripts/install-work-specific-clis.sh
 .config/fish/conf.d/01-brew.fish
 .config/ghostty/
 {{- end }}
