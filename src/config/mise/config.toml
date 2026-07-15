@@ -30,6 +30,7 @@ run = [
   { task = "update:dotfiles" },
   { task = "update:packages" },
   { task = "update:mise" },
+  { task = "update:pnpm" },
   { task = "update:amp" },
   { task = "update:pi" },
   { task = "update:agent-skills" },
@@ -51,6 +52,10 @@ run = "mise bootstrap packages upgrade --yes"
 [tasks."update:mise"]
 description = "Update mise and managed tools"
 run = ["mise self-update -y", "mise upgrade", "mise prune"]
+
+[tasks."update:pnpm"]
+description = "Update pnpm"
+run = "corepack prepare pnpm@latest --activate"
 
 [tasks."update:amp"]
 description = "Update Amp"
