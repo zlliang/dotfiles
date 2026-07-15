@@ -24,7 +24,7 @@ The work profile needs a few machine-local values: the script seeds the gitignor
 
 [`.miserc.toml`](.miserc.toml) enables [`auto_env`](https://mise.jdx.dev/configuration/environments.html), so mise composes the configuration from layered files selected by platform and profile:
 
-- [`mise.toml`](mise.toml): shared config — the dotfile map and a `bootstrap` task that runs at the end of every bootstrap
+- [`mise.toml`](mise.toml): shared config — the dotfile map and dated one-time migrations that run as a final bootstrap hook
 - [`mise.macos.toml`](mise.macos.toml) & [`mise.linux.toml`](mise.linux.toml): OS-specific packages, dotfiles, and user settings, loaded automatically on the matching platform
 - [`mise.work.toml`](mise.work.toml): work-specific dotfiles, loaded when the work profile is active
 - `mise.work.local.toml` (gitignored): per-machine `[vars]` for the work profile, consumed by templates

@@ -8,6 +8,9 @@
 "dnf:fish" = "latest"
 "dnf:git" = "latest"
 
+# No [bootstrap.user] login_shell here: tools like VS Code Remote SSH are incompatible
+# with fish as the login shell, so ~/.bashrc replaces interactive shells with fish instead.
+
 [dotfiles]
 "~/.bash_profile" = "src/bash_profile"
 "~/.bashrc" = "src/bashrc"
