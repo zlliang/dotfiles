@@ -59,8 +59,10 @@ let &t_SI.="\e[5 q" " SI = INSERT mode
 let &t_SR.="\e[3 q" " SR = REPLACE mode
 let &t_EI.="\e[1 q" " EI = NORMAL mode (ELSE)
 
-" Reset cursor style on startup
-autocmd VimEnter * :normal :startinsert :stopinsert
+" Reset cursor style on startup by emitting the NORMAL-mode style once
+if exists('*echoraw')
+  autocmd VimEnter * call echoraw(&t_EI)
+endif
 
 " Remaps
 nnoremap <C-j> :m .+1<CR>==
