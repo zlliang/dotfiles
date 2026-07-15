@@ -22,8 +22,9 @@ dotfiles.default_mode = "template"
 "~/.vimrc" = "src/vimrc"
 
 [tasks.bootstrap]
-description = "Apply setup that is not declarative"
+description = "Clean up legacy and unmanaged files"
 dir = "{{ config_root }}"
 run = [
   "rm -rf ~/.amp/bin ~/.local/bin/amp",
+  "if [ -f ~/.config/mise/config.work.local.toml ]; then rm -f mise.work.local.toml && mv ~/.config/mise/config.work.local.toml mise.work.local.toml; fi",
 ]

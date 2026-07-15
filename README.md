@@ -14,7 +14,7 @@ Use the work profile when needed:
 curl -fsSL https://raw.githubusercontent.com/zlliang/dotfiles/main/bootstrap.sh | PROFILE=work bash
 ```
 
-The work profile copies `mise.work.local.toml.example` to `~/.config/mise/config.work.local.toml`. Fill in the placeholders and rerun bootstrap.
+The work profile copies `mise.work.local.toml.example` to the ignored `mise.work.local.toml` in this repository. Fill in the placeholders and rerun bootstrap.
 
 The stage-zero script installs prerequisites and mise, clones this repository, selects the machine profile, then runs:
 

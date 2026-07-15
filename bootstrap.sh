@@ -94,17 +94,14 @@ validate_profile() {
 }
 
 write_profile_config() {
-  local config_dir="$HOME/.config/mise"
-  local local_config="$config_dir/config.work.local.toml"
+  local local_config="$SOURCE_DIR/mise.work.local.toml"
 
   [[ "$PROFILE" == "work" ]] || return 0
-  mkdir -p "$config_dir"
 
   if [[ ! -f "$local_config" ]]; then
     cp "$SOURCE_DIR/mise.work.local.toml.example" "$local_config"
   fi
 
-  ln -sfn "$local_config" "$SOURCE_DIR/mise.work.local.toml"
   if grep -q "= \"\"\$" "$local_config"; then
     WORK_CONFIG_NEEDS_SETUP=true
   fi
@@ -115,9 +112,7 @@ validate_profile
 install_prerequisites
 
 log "Installing mise"
-curl -fsSL https://mise.run | \
-  MISE_INSTALL_PATH="$MISE_INSTALL_PATH" \
-  MISE_INSTALL_SKIP_IF_EXISTS="$MISE_INSTALL_SKIP_IF_EXISTS" sh
+curl -fsSL https://mise.run | MISE_INSTALL_PATH="$MISE_INSTALL_PATH" MISE_INSTALL_SKIP_IF_EXISTS="$MISE_INSTALL_SKIP_IF_EXISTS" sh
 export PATH="$(dirname "$MISE_INSTALL_PATH"):$PATH"
 
 if [[ ! -e "$SOURCE_DIR" ]]; then
@@ -140,6 +135,5 @@ MISE_AUTO_ENV=1 MISE_ENV="$PROFILE" "$MISE_INSTALL_PATH" bootstrap --yes --force
 
 printf "\n%sBootstrap complete. Restart your shell to finish.%s\n" "$GREEN" "$RESET"
 if [[ "$WORK_CONFIG_NEEDS_SETUP" == "true" ]]; then
-  printf "Fill in %s and rerun bootstrap to apply the work settings.\n" \
-    "$HOME/.config/mise/config.work.local.toml"
+  printf "Fill in %s and rerun bootstrap to apply the work settings.\n" "$SOURCE_DIR/mise.work.local.toml"
 fi
