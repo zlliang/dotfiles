@@ -28,8 +28,8 @@ For a modification, fetch only what the requested change needs and trust existin
 
 Understand the `models.json` format from Pi's docs, then choose the right mechanism:
 
-- **Modifying a built-in (or extension-registered) model?** Prefer `modelOverrides` on its provider — it patches only the given fields (`name`, `reasoning`, `thinkingLevelMap`, `input`, `cost`, `contextWindow`, `maxTokens`, `headers`, `compat`) while Pi keeps its built-in metadata for the rest. Redeclare the model in `models` only when the change can't be expressed as an override (e.g., a different `api`).
-- **Adding a model?** If the provider is built-in, merge only the model into its `models` array (Pi reuses its baseUrl/api/auth). Otherwise add a full provider config (`baseUrl`, `api`, `apiKey`, etc.), inferring the API type from the provider's SDK/API style.
+- **Modifying a built-in (or extension-registered) model?** Prefer `modelOverrides` on its provider — it patches only the given fields while Pi keeps its built-in metadata for the rest. Redeclare the model in `models` only when the change can't be expressed as an override.
+- **Adding a model?** If the provider is built-in, merge only the model into its `models` array. Otherwise add a full provider config (`baseUrl`, `api`, `apiKey`, etc.), inferring the API type from the provider's SDK/API style.
 - Merge non-destructively: preserve existing providers, models, and overrides; upsert by model `id`; keep valid JSON. For a modification, change only the requested fields.
 
 ### 3. Report
@@ -45,4 +45,4 @@ If the instruction is `list`, read `~/.pi/agent/models.json` and show the config
 If the instruction starts with `clear`:
 
 - With nothing after it, run `rm -f ~/.pi/agent/models.json`, confirm, and stop.
-- With a provider and/or model after it, remove just what's specified from `~/.pi/agent/models.json` — a single model (from both `models` and `modelOverrides`), or a whole provider (drop a provider left with no models, overrides, or other settings), keeping valid JSON. If nothing is left, delete the file. Confirm and stop.
+- With a provider and/or model after it, remove just what's specified from `~/.pi/agent/models.json` — a single model, or a whole provider (drop a provider left with no models, overrides, or other settings), keeping valid JSON. If nothing is left, delete the file. Confirm and stop.
