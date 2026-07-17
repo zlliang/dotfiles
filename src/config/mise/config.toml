@@ -20,7 +20,7 @@ minimum_release_age = "0s"
 "rust" = "latest"
 # AI tools
 "amp" = { version = "latest", "prerelease" = true }
-"github:earendil-works/pi" = "latest"
+"pi" = "latest"
 "npm:agent-browser" = "latest"
 "npm:mcporter" = "latest"
 
