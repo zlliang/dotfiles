@@ -31,7 +31,6 @@ run = [
   { task = "update:packages" },
   { task = "update:mise" },
   { task = "update:pnpm" },
-  { task = "update:amp" },
   { task = "update:pi" },
   { task = "update:agent-skills" },
   {%- if "work" in mise_env %}
@@ -56,10 +55,6 @@ run = ["mise self-update -y", "mise upgrade", "mise prune"]
 [tasks."update:pnpm"]
 description = "Update pnpm"
 run = "corepack prepare pnpm@latest --activate"
-
-[tasks."update:amp"]
-description = "Update Amp"
-run = "amp update"
 
 [tasks."update:pi"]
 description = "Update Pi models, extensions"
