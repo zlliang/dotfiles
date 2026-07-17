@@ -24,8 +24,10 @@ dotfiles.default_mode = "template"
 # One-time migrations, each dated when added: delete a line once every machine has run it.
 [bootstrap.hooks.final]
 run = [
-  # 2026-07-14: Amp became a mise-managed tool; drop the self-managed installation
+  # 2026-07-14: Amp became a mise-managed tool; drop the self-managed installation.
   "rm -rf ~/.amp/bin ~/.local/bin/amp",
-  # 2026-07-15: work-local vars moved from ~/.config/mise into the repository
+  # 2026-07-15: work-local vars moved from ~/.config/mise into the repository.
   "if [ -f ~/.config/mise/config.work.local.toml ]; then rm -f ~/workspace/github/zlliang/dotfiles/mise.work.local.toml && mv ~/.config/mise/config.work.local.toml ~/workspace/github/zlliang/dotfiles/mise.work.local.toml; fi",
+  # 2026-07-17: the tm prompt was renamed to cm; drop the stale copy.
+  "rm -f ~/.pi/agent/prompts/tm.md",
 ]
