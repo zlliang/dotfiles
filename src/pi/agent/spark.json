@@ -21,6 +21,11 @@
       "thinkingLevel": "high"
     }
     {%- if not ("work" in mise_env) %},
+    "kimi": {
+      "provider": "kimi-coding",
+      "model": "k3",
+      "thinkingLevel": "max"
+    },
     "glm": {
       "provider": "fireworks",
       "model": "accounts/fireworks/routers/glm-5p2-fast",
