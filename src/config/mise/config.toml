@@ -62,9 +62,9 @@ description = "Update Amp"
 run = "amp update"
 
 [tasks."update:pi"]
-description = "Update Pi extensions"
+description = "Update Pi models, extensions"
 dir = "{{ env.HOME }}/.pi/agent/extensions"
-run = ["pi update --extensions", "npm update"]
+run = ["pi update --models", "pi update --extensions", "npm update"]
 
 [tasks."update:agent-skills"]
 description = "Update global agent skills"
