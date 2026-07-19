@@ -33,7 +33,7 @@ The profile chosen at bootstrap persists beyond the first run: `~/.config/mise/m
 
 ## Dotfiles
 
-Dotfile sources live under [`src`](src), mirroring the layout of the home directory. The default mode is `template`: each source renders through the [mise template engine](https://mise.jdx.dev/templates.html), so one file can produce different output per profile — for example, [`src/AGENTS.md`](src/AGENTS.md) includes work-specific sections only when the `work` profile is active, and [`src/config/mise/config.work.toml`](src/config/mise/config.work.toml) fills in values from `mise.work.local.toml`. Fully managed directories use `copy` mode instead.
+Dotfile sources live under [`src`](src), mirroring the layout of the home directory. The default mode is `template`: each source renders through the [mise template engine](https://mise.jdx.dev/templates.html), so one file can produce different output per profile — for example, [`templates/AGENTS.md`](templates/AGENTS.md) includes work-specific sections only when the `work` profile is active, and [`src/config/mise/config.work.toml`](src/config/mise/config.work.toml) fills in values from `mise.work.local.toml`. Fully managed directories use `copy` mode instead.
 
 Everything converges through `mise bootstrap`: it installs OS packages, applies dotfiles, sets the login shell, and installs mise-managed tools, skipping whatever is already in the desired state. Useful commands:
 

@@ -4,7 +4,7 @@ min_version = "2026.7.5"
 dotfiles.default_mode = "template"
 
 [dotfiles]
-"~/.config/amp/AGENTS.md" = "src/AGENTS.md"
+"~/.config/amp/AGENTS.md" = "templates/AGENTS.md"
 "~/.config/amp/settings.json" = "src/config/amp/settings.json"
 "~/.config/fish/functions" = { source = "src/config/fish/functions", mode = "copy" }
 "~/.config/fish/config.fish" = "src/config/fish/config.fish"
@@ -13,7 +13,7 @@ dotfiles.default_mode = "template"
 "~/.mcporter/mcporter.json" = "src/mcporter/mcporter.json"
 "~/.pi/agent/extensions" = { source = "src/pi/agent/extensions", mode = "copy" }
 "~/.pi/agent/prompts" = { source = "src/pi/agent/prompts", mode = "copy" }
-"~/.pi/agent/AGENTS.md" = "src/AGENTS.md"
+"~/.pi/agent/AGENTS.md" = "templates/AGENTS.md"
 "~/.pi/agent/settings.json" = "src/pi/agent/settings.json"
 "~/.pi/agent/spark.json" = "src/pi/agent/spark.json"
 "~/.gitconfig" = "src/gitconfig"
