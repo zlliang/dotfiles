@@ -14,15 +14,15 @@ minimum_release_age = "0s"
 # Languages
 "node" = "lts"
 "bun" = "latest"
-"npm:corepack" = "latest"
+"npm:corepack" = { version = "latest", allow_builds = true }
 "python" = "latest"
 "uv" = "latest"
 "rust" = "latest"
 # AI tools
 "amp" = { version = "latest", "prerelease" = true }
 "pi" = "latest"
-"npm:agent-browser" = "latest"
-"npm:mcporter" = "latest"
+"npm:agent-browser" = { version = "latest", allow_builds = true }
+"npm:mcporter" = { version = "latest", allow_builds = true }
 
 [tasks.update]
 description = "Update the development environment"
