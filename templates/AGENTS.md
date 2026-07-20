@@ -15,6 +15,10 @@ Call me Zilong (子龙). I'm a software engineer passionate about the web, compu
 
 Check the environment before running platform-specific commands or assuming a tool is installed. Ask for approval before installing global software, commands, or dependencies. One-off tool invocations, such as `npx`, `bunx` and `uvx`, are fine.
 
+### Dotfiles
+
+My dotfiles and development environment for macOS and Linux live in `~/workspace/github/zlliang/dotfiles`, managed by [mise](https://mise.jdx.dev/). Treat that repo as the single source of truth: when changing any dotfile, edit it there and apply with `mise dotfiles apply`, never edit the rendered copies in my home directory.
+
 ### Skills
 
 An [agent skill](https://agentskills.io/) is a folder with a `SKILL.md` that teaches an agent a task on demand. Load a skill proactively whenever a task matches its triggering description; don't wait to be told.
@@ -26,7 +30,7 @@ When creating or editing skills, first load the `building-skills` skill. Make al
 - Work-related skills: `~/workspace/booking/personal/zilong.liang/skills`
 {%- endif %}
 
-After editing, install skills globally with `mise run update:agent-skills`, which pulls each skill from its source repo into every agent. Its definitions are in `~/workspace/github/zlliang/dotfiles/src/config/mise/config.toml`{% if "work" in mise_env %} and `~/workspace/github/zlliang/dotfiles/src/config/mise/config.work.toml`{% endif %}; update them when adding, removing, or re-sourcing a skill.
+After editing, install skills globally with `mise run update:agent-skills`, which pulls each skill from its source repo into every agent. The task is defined in my dotfiles repo at `src/config/mise/config.toml`{% if "work" in mise_env %} and `src/config/mise/config.work.toml`{% endif %}; update it when adding, removing, or re-sourcing a skill.
 
 ### MCP
 
