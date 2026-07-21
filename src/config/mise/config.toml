@@ -4,7 +4,7 @@ minimum_release_age = "0s"
 [tools]
 # Utilities
 "bat" = "latest"
-"eza" = "0.23.4" # Pinned: "latest" currently fails to install
+"eza" = "latest"
 "fd" = "latest"
 "gh" = "latest"
 "jq" = "latest"
