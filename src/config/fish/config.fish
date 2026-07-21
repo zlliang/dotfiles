@@ -1,7 +1,6 @@
 # Environment
 set -gx LANG "en_US.UTF-8"
 set -gx EDITOR "{{ "code --wait" if os() == "macos" else "vim" }}"
-fish_add_path -g "$HOME/.local/bin"
 
 {%- if os() == "macos" %}
 
@@ -85,3 +84,6 @@ end
 fish_add_path -g "$HOME/.bpages/bin"
 
 {%- endif %}
+
+# Local binaries
+fish_add_path -g "$HOME/.local/bin"
