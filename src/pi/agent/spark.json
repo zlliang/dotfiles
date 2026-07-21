@@ -1,4 +1,7 @@
 {
+  "editor": {
+    "thinkingLevelIndicator": "model"
+  },
   "presets": {
     "gpt-sol": {
       "provider": "openai-codex",
