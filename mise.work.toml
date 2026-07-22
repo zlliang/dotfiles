@@ -3,3 +3,4 @@
 "~/.local/bin/glean" = "src/local/bin/glean"
 "~/.local/bin/glean-auth-login" = "src/local/bin/glean-auth-login"
 "~/.gitconfig-work" = "src/gitconfig-work"
+"~/.npmrc" = "src/npmrc"
