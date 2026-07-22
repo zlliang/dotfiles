@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "{{ exec(command="jq -er \".lastChangelogVersion // empty\" \"$HOME/.pi/agent/settings.json\" 2>/dev/null || mise exec github:earendil-works/pi@latest -- pi --version") }}",
+  "lastChangelogVersion": "{{ exec(command="jq -er \".lastChangelogVersion // empty\" \"$HOME/.pi/agent/settings.json\" 2>/dev/null || mise exec pi@latest -- pi --version") }}",
   "theme": "github-light-default/github-dark-default",
   "treeFilterMode": "no-tools",
   "packages": [
