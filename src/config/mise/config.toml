@@ -20,7 +20,7 @@ minimum_release_age = "0s"
 "rust" = "latest"
 # AI tools
 "amp" = { version = "latest", "prerelease" = true }
-"github:earendil-works/pi" = "latest"
+"pi" = "latest"
 "npm:agent-browser" = { version = "latest", allow_builds = true }
 "npm:mcporter" = { version = "latest", allow_builds = true }
 
@@ -50,7 +50,7 @@ run = "mise bootstrap packages upgrade --yes"
 
 [tasks."update:mise"]
 description = "Update mise and managed tools"
-run = ["mise self-update -y", "mise upgrade", "mise prune"]
+run = ["mise self-update -y", "mise upgrade -y", "mise prune -y"]
 
 [tasks."update:pnpm"]
 description = "Update pnpm"
