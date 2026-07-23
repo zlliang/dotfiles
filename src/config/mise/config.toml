@@ -49,12 +49,12 @@ run = [
 [tasks."update:dotfiles"]
 description = "Update dotfiles and converge the machine"
 dir = "{{ env.HOME }}/workspace/github/zlliang/dotfiles"
-run = ["git pull --ff-only", "mise bootstrap --yes"]
+run = ["git pull --ff-only", "mise bootstrap -y"]
 
 [tasks."update:packages"]
 description = "Upgrade managed system packages"
 dir = "{{ env.HOME }}/workspace/github/zlliang/dotfiles"
-run = "mise bootstrap packages upgrade --yes"
+run = "mise bootstrap packages upgrade -y"
 
 [tasks."update:mise"]
 description = "Update mise and managed tools"
