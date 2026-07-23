@@ -29,6 +29,12 @@ npm.package_manager = "pnpm"
 description = "Update the development environment"
 run = [
   { task = "update:dotfiles" },
+  "exec mise run update:rest",
+]
+
+[tasks."update:rest"]
+hide = true
+run = [
   { task = "update:packages" },
   { task = "update:mise" },
   { task = "update:pnpm" },
