@@ -1,6 +1,6 @@
 # Dotfiles 🌚
 
-Personal dotfiles and development environment for macOS and Linux, managed by [mise](https://mise.jdx.dev/).
+My personal dotfiles and development environment for macOS and Linux, managed by [mise](https://mise.jdx.dev/).
 
 ## Quick start
 
