@@ -30,4 +30,6 @@ run = [
   "if [ -f ~/.config/mise/config.work.local.toml ]; then rm -f ~/workspace/github/zlliang/dotfiles/mise.work.local.toml && mv ~/.config/mise/config.work.local.toml ~/workspace/github/zlliang/dotfiles/mise.work.local.toml; fi",
   # 2026-07-17: the tm prompt was renamed to cm; drop the stale copy.
   "rm -f ~/.pi/agent/prompts/tm.md",
+  # 2026-07-23: the package manager for npm packages changed to pnpm; drop obsolete aube data.
+  "rm -rf ~/.cache/aube ~/.local/share/aube ~/Library/Caches/aube",
 ]

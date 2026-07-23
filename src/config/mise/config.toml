@@ -1,5 +1,6 @@
 [settings]
 minimum_release_age = "0s"
+npm.package_manager = "pnpm"
 
 [tools]
 # Utilities
