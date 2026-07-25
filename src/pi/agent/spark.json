@@ -15,7 +15,7 @@
     },
     "claude-opus": {
       "provider": "{{ "booking-genai" if "work" in mise_env else "vercel-ai-gateway" }}",
-      "model": "{{ "claude-opus-4-8" if "work" in mise_env else "anthropic/claude-opus-4.8" }}",
+      "model": "{{ "claude-opus-4-8" if "work" in mise_env else "anthropic/claude-opus-5" }}",
       "thinkingLevel": "high"
     },
     "claude-sonnet": {
