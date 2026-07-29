@@ -16,9 +16,4 @@
   "defaultProvider": "{{ exec(command="jq -er \".defaultProvider // empty\" \"$HOME/.pi/agent/settings.json\" 2>/dev/null || printf openai-codex") }}",
   "defaultModel": "{{ exec(command="jq -er \".defaultModel // empty\" \"$HOME/.pi/agent/settings.json\" 2>/dev/null || printf gpt-5.6-sol") }}",
   "defaultThinkingLevel": "{{ exec(command="jq -er \".defaultThinkingLevel // empty\" \"$HOME/.pi/agent/settings.json\" 2>/dev/null || printf high") }}"
-  {%- if "work" in mise_env %},
-  "booking-genai": {
-    "showCost": ["day", "week"]
-  }
-  {%- endif %}
 }
