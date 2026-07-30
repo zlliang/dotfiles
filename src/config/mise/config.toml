@@ -2,7 +2,7 @@
 use_versions_host = false
 fetch_remote_versions_cache = "0s"
 minimum_release_age = "0s"
-npm.package_manager = "pnpm"
+npm.package_manager = "npm"
 
 [tools]
 # Utilities
