@@ -23,13 +23,7 @@
       "model": "{{ "claude-sonnet-5" if "work" in mise_env else "anthropic/claude-sonnet-5" }}",
       "thinkingLevel": "high"
     }
-    {%- if "work" in mise_env %},
-    "glm": {
-      "provider": "booking-genai",
-      "model": "glm-5_2-fp8",
-      "thinkingLevel": "max"
-    }
-    {%- else %},
+    {%- if not ("work" in mise_env) %},
     "kimi": {
       "provider": "fireworks",
       "model": "accounts/fireworks/routers/kimi-k3-fast",
