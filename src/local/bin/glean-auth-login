@@ -281,7 +281,7 @@ def try_refresh() -> bool:
 
 def main() -> None:
     console.print(
-        "[bold]Glean CLI login for Booking.com:[/] [dim]`glean auth login` is broken"
+        "[bold]Glean CLI login for Booking.com:[/] [dim]`glean auth login` is broken "
         "org-side; reusing the public Okta client (PKCE).[/]"
     )
 
