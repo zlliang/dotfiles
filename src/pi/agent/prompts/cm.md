@@ -1,15 +1,15 @@
 ---
-description: Customize models — add or modify model metadata, list configured ones, or clear the config
-argument-hint: "<instructions> | list | clear [provider-and/or-model]"
+description: Customize models — add, modify, list, clean up, or clear
+argument-hint: "<instructions> | list | clean up [provider-and/or-model] | clear [provider-and/or-model]"
 ---
 
-Customize models in `~/.pi/agent/models.json`: add models Pi doesn't yet support, modify metadata of configured or built-in ones, list them, or clear the config. Changes show up in `/model`.
+Customize models in `~/.pi/agent/models.json`: add or override model metadata, inspect the config, remove metadata Pi now provides, or clear it. `/model` reloads the file when opened.
 
 <instructions>
 $@
 </instructions>
 
-If the instructions are ambiguous about the provider, model, or intended change, ask me — don't guess.
+Follow exactly one matching section: `list`, `clean up`, or `clear`; otherwise use **Add or modify**. If the provider, model, or intended change is ambiguous, ask me — don't guess.
 
 ## Add or modify
 
@@ -38,7 +38,19 @@ Confirm the provider, model, mechanism used (`modelOverrides` vs. `models`), wha
 
 ## List
 
-If the instruction is `list`, read `~/.pi/agent/models.json` and show the configured providers with their models, `modelOverrides`, and basic info (id, context window, max output, reasoning, modalities). If the file is missing or empty, say so. Stop.
+If the instruction is `list`:
+
+- Read `~/.pi/agent/models.json` and show the configured providers with their models, `modelOverrides`, and basic info (id, context window, max output, reasoning, modalities).
+- If the file is missing or empty, say so, and stop.
+
+## Clean up
+
+If the instruction starts with `clean up`:
+
+- Read `~/.pi/agent/models.json`; if missing or empty, say so and stop. Run `pi update --models`; if it fails, stop without editing.
+- For the requested provider/model, or everything by default, compare with Pi's effective metadata while ignoring `models.json`: bundled data plus applicable `models-store.json` overlays, using Pi's precedence.
+- Remove matching fields from `modelOverrides`; remove a `models` entry only when its normalized metadata fully matches. Preserve differences, unknown models, partial entries, and provider-level settings.
+- Prune empty structures, delete the file if empty, report the result, and stop.
 
 ## Clear
 
