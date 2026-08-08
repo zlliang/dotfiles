@@ -14,6 +14,7 @@ dotfiles.default_mode = "template"
 "~/.pi/agent/extensions" = { source = "src/pi/agent/extensions", mode = "copy" }
 "~/.pi/agent/prompts" = { source = "src/pi/agent/prompts", mode = "copy" }
 "~/.pi/agent/AGENTS.md" = "templates/AGENTS.md"
+"~/.pi/agent/dispatcher.json" = "src/pi/agent/dispatcher.json"
 "~/.pi/agent/settings.json" = "src/pi/agent/settings.json"
 "~/.pi/agent/spark.json" = "src/pi/agent/spark.json"
 "~/.gitconfig" = "src/gitconfig"

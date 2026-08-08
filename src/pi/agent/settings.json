@@ -7,7 +7,8 @@
     {%- if "work" in mise_env %}
     "git:gitlab.com/{{ vars.GITLAB_NAMESPACE }}/pi-agent/pi-booking-genai.git",
     {%- endif %}
-    "git:github.com/zlliang/pi-spark"
+    "git:github.com/zlliang/pi-spark",
+    "git:github.com/zlliang/pi-dispatcher"
   ],
   "markdown": {
     "codeBlockIndent": ""
