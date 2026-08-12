@@ -8,6 +8,9 @@
       "type": "stdio",
       "command": "bk",
       "args": ["genai:mcp:toolbox"]
+    },
+    "miro": {
+      "url": "https://mcp.miro.com"
     }
     {%- endif %}
   },
