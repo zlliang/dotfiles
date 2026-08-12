@@ -20,7 +20,7 @@ dotfiles.default_mode = "template"
 "~/.gitconfig" = "src/gitconfig"
 "~/.gitignore" = "src/gitignore"
 "~/.hushlogin" = "src/hushlogin"
-"~/.vimrc" = "src/vimrc"
+"~/.config/vim/vimrc" = "src/config/vim/vimrc"
 
 # One-time migrations, each dated when added: delete a line once every machine has run it.
 [bootstrap.hooks.final]
@@ -35,4 +35,6 @@ run = [
   "rm -rf ~/.cache/aube ~/.local/share/aube ~/Library/Caches/aube",
   # 2026-08-03: Raft is no longer used; drop its leftover state.
   "rm -rf ~/.slock",
+  # 2026-08-12: Vim configuration moved to ~/.config/vim/vimrc.
+  "rm -f ~/.vimrc",
 ]
