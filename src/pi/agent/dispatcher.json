@@ -33,6 +33,10 @@
     },
     {
       "provider": "deepseek",
+      "model": "deepseek-v4-pro"
+    },
+    {
+      "provider": "deepseek",
       "model": "deepseek-v4-flash"
     }
     {%- endif %}
