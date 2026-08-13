@@ -11,6 +11,7 @@ adjust-cell-height = 24%
 
 shell-integration-features = no-cursor
 cursor-style-blink = false
+adjust-cursor-thickness = 1
 
 window-theme = auto
 macos-titlebar-style = tabs
