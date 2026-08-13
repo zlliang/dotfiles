@@ -17,7 +17,7 @@ Check the environment before running platform-specific commands or assuming a to
 
 ### Dotfiles
 
-My dotfiles and development environment for macOS and Linux live in `~/workspace/github/zlliang/dotfiles`, managed by [mise](https://mise.jdx.dev/). Treat that repo as the single source of truth: when changing any dotfile, edit it there and apply with `mise dotfiles apply`, never edit the rendered copies in my home directory.
+My dotfiles and development environment for macOS and Linux live in `~/workspace/github/zlliang/dotfiles`, managed by [mise](https://mise.jdx.dev/). Treat that repo as the single source of truth: when changing any dotfile, edit it there and apply with `mise bootstrap dotfiles apply`, never edit the rendered copies in my home directory.
 
 ### Skills
 

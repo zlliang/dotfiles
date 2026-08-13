@@ -38,10 +38,10 @@ Dotfile sources live under [`src`](src), mirroring the layout of the home direct
 Everything converges through `mise bootstrap`: it installs OS packages, applies dotfiles, sets the login shell, and installs mise-managed tools, skipping whatever is already in the desired state. Useful commands:
 
 ```bash
-mise bootstrap                  # converge the machine
-mise bootstrap status           # inspect every declarative part
-mise dotfiles status            # applied / missing / differs, per entry
-mise dotfiles apply --dry-run   # preview dotfile changes
+mise bootstrap                            # converge the machine
+mise bootstrap status                     # inspect every declarative part
+mise bootstrap dotfiles status            # applied / missing / differs, per entry
+mise bootstrap dotfiles apply --dry-run   # preview dotfile changes
 ```
 
 ## Tools and tasks
