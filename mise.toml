@@ -10,6 +10,8 @@ dotfiles.default_mode = "template"
 "~/.config/fish/config.fish" = "src/config/fish/config.fish"
 "~/.config/mise/config.toml" = "src/config/mise/config.toml"
 "~/.config/mise/miserc.toml" = "src/config/mise/miserc.toml"
+"~/.config/nvim/init.lua" = "src/config/nvim/init.lua"
+"~/.config/vim/vimrc" = "src/config/vim/vimrc"
 "~/.mcporter/mcporter.json" = "src/mcporter/mcporter.json"
 "~/.pi/agent/extensions" = { source = "src/pi/agent/extensions", mode = "copy" }
 "~/.pi/agent/prompts" = { source = "src/pi/agent/prompts", mode = "copy" }
@@ -20,7 +22,6 @@ dotfiles.default_mode = "template"
 "~/.gitconfig" = "src/gitconfig"
 "~/.gitignore" = "src/gitignore"
 "~/.hushlogin" = "src/hushlogin"
-"~/.config/vim/vimrc" = "src/config/vim/vimrc"
 
 # One-time migrations, each dated when added: delete a line once every machine has run it.
 [bootstrap.hooks.final]
