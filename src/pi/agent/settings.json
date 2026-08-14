@@ -2,6 +2,7 @@
   "lastChangelogVersion": "{{ exec(command="jq -er \".lastChangelogVersion // empty\" \"$HOME/.pi/agent/settings.json\" 2>/dev/null || mise exec npm:@earendil-works/pi-coding-agent@latest -- pi --version") }}",
   "theme": "github-light-default/github-dark-default",
   "tuiMode": "fullscreen",
+  "fullscreenExitOutput": "resume-hint",
   "treeFilterMode": "no-tools",
   "packages": [
     {%- if "work" in mise_env %}
