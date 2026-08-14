@@ -76,6 +76,6 @@ run = ["pi update --extensions", "npm update"]
 description = "Update global agent skills"
 run = [
   "rm -rf ~/.agents ~/.pi/agent/skills",
-  "bunx --bun skills add zlliang/skills --full-depth -g -y -a amp",
-  "bunx --bun skills add vercel-labs/agent-browser --skill agent-browser --full-depth -g -y -a amp",
+  "npx skills add zlliang/skills --full-depth -g -y -a amp",
+  "npx skills add vercel-labs/agent-browser --skill agent-browser --full-depth -g -y -a amp",
 ]
