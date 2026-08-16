@@ -11,10 +11,12 @@ npm.package_manager = "npm"
 "fd" = "latest"
 "gh" = "latest"
 "jq" = "latest"
-"neovim" = "latest"
 "ripgrep" = "latest"
 "zoxide" = "latest"
 "usage" = "latest"
+# Code editing
+"neovim" = "latest"
+"tree-sitter" = "latest"
 # Languages
 "node" = "lts"
 "bun" = "latest"
