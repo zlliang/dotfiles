@@ -106,7 +106,10 @@ vim.pack.add { gh 'neovim/nvim-lspconfig', gh 'mason-org/mason.nvim', gh 'mason-
 require('mason').setup()
 require('mason-lspconfig').setup {
   ensure_installed = {
-    'ts_ls',
+    'vtsls',
+    'basedpyright',
+    'ruff',
+    'rust_analyzer',
   },
 }
 
