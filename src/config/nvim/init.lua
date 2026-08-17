@@ -175,8 +175,16 @@ if vim.fn.filereadable(fzf_native.path .. '/build/libfzf.so') == 0 then
 end
 
 local telescope = require('telescope')
+local actions = require('telescope.actions')
 
 telescope.setup {
+  defaults = {
+    mappings = {
+      i = {
+        ['<Esc>'] = actions.close,
+      },
+    },
+  },
   extensions = {
     fzf = {
       fuzzy = true,
