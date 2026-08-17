@@ -133,6 +133,7 @@ require('mason-lspconfig').setup {
     'vtsls',
     'basedpyright',
     'ruff',
+    'lua_ls',
     'rust_analyzer',
   },
 }
