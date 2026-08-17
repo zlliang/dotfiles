@@ -2,13 +2,28 @@
 -- Options
 -- ====================================================================
 
-vim.o.number = true
-vim.o.signcolumn = 'yes'
-vim.o.splitbelow = true
-vim.o.splitright = true
-vim.o.mouse = 'a'
+vim.loader.enable()
 
 vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+
+vim.o.number = true
+vim.o.mouse = 'a'
+vim.o.signcolumn = 'yes'
+
+vim.o.splitbelow = true
+vim.o.splitright = true
+
+vim.o.list = true
+vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+
+vim.o.inccommand = 'split'
+vim.o.cursorline = true
+vim.o.scrolloff = 0
+vim.o.confirm = true
+
+-- Sync clipboard between OS and Neovim.
+vim.schedule(function() vim.o.clipboard = 'unnamedplus' end)
 
 -- ====================================================================
 -- Helpers
@@ -54,9 +69,9 @@ apply_theme()
 vim.api.nvim_create_autocmd('VimEnter', { once = true, callback = schedule_theme })
 vim.api.nvim_create_autocmd('OptionSet', { pattern = 'background', callback = schedule_theme })
 
--- ============================================================
+-- ====================================================================
 -- Status line
--- ============================================================
+-- ====================================================================
 
 vim.pack.add {
   gh 'nvim-lualine/lualine.nvim',
@@ -92,6 +107,9 @@ ts.install({
   'typescript',
   'tsx',
   'json',
+  'python',
+  'lua',
+  'rust',
 })
 
 vim.api.nvim_create_autocmd('FileType', {
@@ -116,7 +134,11 @@ vim.pack.add {
 local cmp = require('blink.cmp')
 
 cmp.build():pwait()
-cmp.setup()
+cmp.setup {
+  completion = {
+    menu = { scrolloff = 0 },
+  },
+}
 
 -- ====================================================================
 -- LSP
