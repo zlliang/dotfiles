@@ -6,6 +6,7 @@ vim.o.number = true
 vim.o.signcolumn = 'yes'
 vim.o.splitbelow = true
 vim.o.splitright = true
+vim.o.mouse = 'a'
 
 vim.g.mapleader = ' '
 
