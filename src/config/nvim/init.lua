@@ -18,12 +18,20 @@ vim.o.splitright = true
 local function gh(repo) return 'https://github.com/' .. repo end
 
 -- ====================================================================
+-- Common dependencies
+-- ====================================================================
+
+vim.pack.add {
+  gh 'nvim-lua/plenary.nvim',
+  gh 'nvim-tree/nvim-web-devicons',
+}
+
+-- ====================================================================
 -- Theme
 -- ====================================================================
 
 vim.pack.add {
   gh 'projekt0n/github-nvim-theme',
-  gh 'nvim-tree/nvim-web-devicons',
 }
 
 -- Neovim detects the terminal background via OSC 11, so this follows
@@ -132,7 +140,6 @@ require('mason-lspconfig').setup {
 -- ====================================================================
 
 vim.pack.add {
-  gh 'nvim-lua/plenary.nvim',
   gh 'nvim-telescope/telescope.nvim',
   gh 'nvim-telescope/telescope-fzf-native.nvim',
 }
