@@ -21,7 +21,10 @@ local function gh(repo) return 'https://github.com/' .. repo end
 -- Theme
 -- ====================================================================
 
-vim.pack.add { gh 'projekt0n/github-nvim-theme', gh 'nvim-tree/nvim-web-devicons' }
+vim.pack.add {
+  gh 'projekt0n/github-nvim-theme',
+  gh 'nvim-tree/nvim-web-devicons',
+}
 
 -- Neovim detects the terminal background via OSC 11, so this follows
 -- macOS appearance.
@@ -44,7 +47,9 @@ vim.api.nvim_create_autocmd('OptionSet', { pattern = 'background', callback = sc
 -- Status line
 -- ============================================================
 
-vim.pack.add { gh 'nvim-lualine/lualine.nvim' }
+vim.pack.add {
+  gh 'nvim-lualine/lualine.nvim',
+}
 
 vim.o.cmdheight = 0
 vim.o.laststatus = 3
@@ -64,7 +69,9 @@ require('lualine').setup {
 -- tree-sitter
 -- ====================================================================
 
-vim.pack.add { gh 'nvim-treesitter/nvim-treesitter' }
+vim.pack.add {
+  gh 'nvim-treesitter/nvim-treesitter',
+}
 
 local ts = require('nvim-treesitter')
 
@@ -90,7 +97,10 @@ vim.api.nvim_create_autocmd('FileType', {
 -- Blink
 -- ====================================================================
 
-vim.pack.add { gh 'Saghen/blink.lib', gh 'Saghen/blink.cmp' }
+vim.pack.add {
+  gh 'Saghen/blink.lib',
+  gh 'Saghen/blink.cmp',
+}
 
 local cmp = require('blink.cmp')
 
@@ -101,7 +111,11 @@ cmp.setup()
 -- LSP
 -- ====================================================================
 
-vim.pack.add { gh 'neovim/nvim-lspconfig', gh 'mason-org/mason.nvim', gh 'mason-org/mason-lspconfig.nvim' }
+vim.pack.add {
+  gh 'neovim/nvim-lspconfig',
+  gh 'mason-org/mason.nvim',
+  gh 'mason-org/mason-lspconfig.nvim',
+}
 
 require('mason').setup()
 require('mason-lspconfig').setup {
@@ -113,10 +127,63 @@ require('mason-lspconfig').setup {
   },
 }
 
--- ============================================================
--- Git
--- ============================================================
+-- ====================================================================
+-- Telescope
+-- ====================================================================
 
-vim.pack.add { gh 'lewis6991/gitsigns.nvim' }
+vim.pack.add {
+  gh 'nvim-lua/plenary.nvim',
+  gh 'nvim-telescope/telescope.nvim',
+  gh 'nvim-telescope/telescope-fzf-native.nvim',
+}
+
+-- fzf-native is a C implementation of the fzf algorithm, so it does not
+-- require the fzf executable. Build its shared library after installation
+-- and updates instead.
+local fzf_native_name = 'telescope-fzf-native.nvim'
+
+local function build_fzf_native(path)
+  local result = vim.system({ 'make' }, { cwd = path }):wait()
+  if result.code ~= 0 then
+    error(('failed to build %s: %s'):format(fzf_native_name, result.stderr))
+  end
+end
+
+vim.api.nvim_create_autocmd('PackChanged', {
+  callback = function(args)
+    local data = args.data
+    if data.spec.name == fzf_native_name and (data.kind == 'install' or data.kind == 'update') then
+      build_fzf_native(data.path)
+    end
+  end,
+})
+
+local fzf_native = vim.pack.get({ fzf_native_name })[1]
+if vim.fn.filereadable(fzf_native.path .. '/build/libfzf.so') == 0 then
+  build_fzf_native(fzf_native.path)
+end
+
+local telescope = require('telescope')
+
+telescope.setup {
+  extensions = {
+    fzf = {
+      fuzzy = true,
+      override_generic_sorter = true,
+      override_file_sorter = true,
+      case_mode = 'smart_case',
+    },
+  },
+}
+
+telescope.load_extension('fzf')
+
+-- ====================================================================
+-- Git
+-- ====================================================================
+
+vim.pack.add {
+  gh 'lewis6991/gitsigns.nvim',
+}
 
 require('gitsigns').setup()
