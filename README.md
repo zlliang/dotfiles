@@ -24,7 +24,7 @@ The work profile needs a few machine-local values: the script seeds the gitignor
 
 [`.miserc.toml`](.miserc.toml) enables [`auto_env`](https://mise.jdx.dev/configuration/environments.html), so mise composes the configuration from layered files selected by platform and profile:
 
-- [`mise.toml`](mise.toml): shared config — the dotfile map and dated one-time migrations that run as a final bootstrap hook
+- [`mise.toml`](mise.toml): shared config — the repo list, the dotfile map, and dated one-time migrations that run as a final bootstrap hook
 - [`mise.macos.toml`](mise.macos.toml) & [`mise.linux.toml`](mise.linux.toml): OS-specific packages, dotfiles, and user settings, loaded automatically on the matching platform
 - [`mise.work.toml`](mise.work.toml): work-specific dotfiles, loaded when the work profile is active
 - `mise.work.local.toml` (gitignored): per-machine `[vars]` for the work profile, consumed by templates
@@ -38,14 +38,16 @@ Dotfile sources live under [`src`](src), mirroring the layout of the home direct
 Everything converges through `mise bootstrap`: it installs OS packages, applies dotfiles, sets the login shell, and installs mise-managed tools, skipping whatever is already in the desired state. Useful commands:
 
 ```bash
-mise bootstrap                            # converge the machine
-mise bootstrap status                     # inspect every declarative part
-mise bootstrap dotfiles status            # applied / missing / differs, per entry
-mise bootstrap dotfiles apply --dry-run   # preview dotfile changes
+mise bootstrap
+mise bootstrap status
+mise bootstrap repos status
+mise bootstrap repos update
+mise bootstrap dotfiles status
+mise bootstrap dotfiles apply
 ```
 
 ## Tools and tasks
 
 Daily tools and routines live in the rendered global config, [`src/config/mise/config.toml`](src/config/mise/config.toml), with work additions in [`src/config/mise/config.work.toml`](src/config/mise/config.work.toml).
 
-The `mise run update` task keeps a machine current: it pulls this repository, reruns `mise bootstrap`, and upgrades system packages, mise itself, managed tools, and AI agents and their skills.
+The `mise run update` task keeps a machine current: it pulls the declared repos, reruns `mise bootstrap`, and upgrades system packages, mise itself, managed tools, and AI agents and their skills.

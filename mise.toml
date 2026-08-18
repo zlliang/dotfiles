@@ -3,6 +3,10 @@ min_version = "2026.7.5"
 [settings]
 dotfiles.default_mode = "template"
 
+[bootstrap.repos]
+"~/workspace/github/zlliang/dotfiles" = { url = "https://github.com/zlliang/dotfiles.git" }
+"~/workspace/github/zlliang/nvim" = { url = "https://github.com/zlliang/nvim.git" }
+
 [dotfiles]
 "~/.config/amp/AGENTS.md" = "templates/AGENTS.md"
 "~/.config/amp/settings.json" = "src/config/amp/settings.json"
@@ -10,8 +14,7 @@ dotfiles.default_mode = "template"
 "~/.config/fish/config.fish" = "src/config/fish/config.fish"
 "~/.config/mise/config.toml" = "src/config/mise/config.toml"
 "~/.config/mise/miserc.toml" = "src/config/mise/miserc.toml"
-"~/.config/nvim/.luarc.json" = "src/config/nvim/.luarc.json"
-"~/.config/nvim/init.lua" = "src/config/nvim/init.lua"
+"~/.config/nvim" = { source = "../nvim", mode = "copy", exclude = [".git", ".gitignore", "*.md"] }
 "~/.config/vim/vimrc" = "src/config/vim/vimrc"
 "~/.mcporter/mcporter.json" = "src/mcporter/mcporter.json"
 "~/.pi/agent/extensions" = { source = "src/pi/agent/extensions", mode = "copy" }
