@@ -42,6 +42,4 @@ run = [
   "rm -rf ~/.slock",
   # 2026-08-12: Vim configuration moved to ~/.config/vim/vimrc.
   "rm -f ~/.vimrc",
-  # 2026-08-18: vtsls is no longer used; remove its Mason package and generated links.
-  "rm -rf ~/.local/share/nvim/mason/packages/vtsls ~/.local/share/nvim/mason/bin/vtsls ~/.local/share/nvim/mason/share/mason-schemas/lsp/vtsls.json",
 ]
