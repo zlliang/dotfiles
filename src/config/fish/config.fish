@@ -32,6 +32,10 @@ end
 if type -q zoxide
   zoxide init fish | source
 end
+if type -q nvim
+  alias vi "nvim"
+  alias vim "nvim"
+end
 
 # JavaScript
 {%- if "work" in mise_env %}
