@@ -15,6 +15,7 @@ dotfiles.default_mode = "template"
 "~/.config/mise/config.toml" = "src/config/mise/config.toml"
 "~/.config/mise/miserc.toml" = "src/config/mise/miserc.toml"
 "~/.config/nvim" = { source = "../nvim", mode = "copy", exclude = [".git", ".gitignore", "*.md"] }
+"~/.config/tmux/tmux.conf" = "src/config/tmux/tmux.conf"
 "~/.config/vim/vimrc" = "src/config/vim/vimrc"
 "~/.mcporter/mcporter.json" = "src/mcporter/mcporter.json"
 "~/.pi/agent/extensions" = { source = "src/pi/agent/extensions", mode = "copy" }
