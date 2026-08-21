@@ -45,7 +45,7 @@ end
 if type -q try
   set -gx TRY_PATH "$HOME/workspace/playgrounds"
   set -gx TRY_PROJECTS "$HOME/workspace/github/zlliang"
-  try init | source
+  env SHELL=fish try init | source
 end
 
 # JavaScript
