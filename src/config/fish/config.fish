@@ -28,6 +28,7 @@ if type -q eza
 end
 if type -q zoxide
   zoxide init fish | source
+  alias zq "zoxide query"
 end
 if type -q bat
   alias cat "bat"
