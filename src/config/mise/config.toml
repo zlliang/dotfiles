@@ -5,17 +5,18 @@ minimum_release_age = "0s"
 npm.package_manager = "npm"
 
 [tools]
-# Utilities
-"bat" = "latest"
+# Shell tools
 "eza" = "latest"
-"fd" = "latest"
-"gh" = "latest"
-"jq" = "latest"
-"ripgrep" = "latest"
-"tmux" = "latest"
-"usage" = "latest"
 "zoxide" = "latest"
-# Code editing
+"bat" = "latest"
+"ripgrep" = "latest"
+"fd" = "latest"
+"jq" = "latest"
+"gh" = "latest"
+"tldr" = "latest"
+"usage" = "latest"
+# Development
+"tmux" = "latest"
 "neovim" = "latest"
 "tree-sitter" = "latest"
 # Languages

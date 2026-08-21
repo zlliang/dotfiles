@@ -20,17 +20,22 @@ if status is-interactive
   stty -echoctl 2>/dev/null
 end
 
-# Utilities
+# Shell tools
 if type -q eza
   alias ls "eza -lhH --no-quotes --group-directories-first --git --time-style=long-iso"
   alias la "ls -a"
   alias tree "ls --tree --level=2"
 end
+if type -q zoxide
+  zoxide init fish | source
+end
 if type -q bat
   alias cat "bat"
 end
-if type -q zoxide
-  zoxide init fish | source
+
+# Development
+if type -q tmux
+  alias t "tmux"
 end
 if type -q nvim
   alias vi "nvim"
