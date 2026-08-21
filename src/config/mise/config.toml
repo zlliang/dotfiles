@@ -12,8 +12,9 @@ npm.package_manager = "npm"
 "ripgrep" = "latest"
 "fd" = "latest"
 "jq" = "latest"
-"lazygit" = "latest"
 "gh" = "latest"
+"lazygit" = "latest"
+"hunk" = "latest"
 "btop" = { version = "latest", os = ["linux"] }
 "tlrc" = "latest"
 "usage" = "latest" # Required for generating mise's shell completions.
