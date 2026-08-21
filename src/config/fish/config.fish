@@ -36,7 +36,7 @@ end
 
 # Development
 if type -q tmux
-  alias t "tmux"
+  alias t "tmux new-session -A -s Personal"
 end
 if type -q nvim
   alias vi "nvim"
