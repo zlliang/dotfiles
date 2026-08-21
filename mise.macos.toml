@@ -1,6 +1,6 @@
 [bootstrap.packages]
-"brew:btop" = "latest"
 "brew:fish" = "latest"
+"brew:btop" = "latest"
 
 [bootstrap.user]
 login_shell = "/opt/homebrew/bin/fish"
