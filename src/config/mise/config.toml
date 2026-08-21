@@ -13,7 +13,7 @@ npm.package_manager = "npm"
 "fd" = "latest"
 "jq" = "latest"
 "gh" = "latest"
-"tldr" = "latest"
+"tlrc" = "latest"
 "usage" = "latest"
 # Development
 "tmux" = "latest"
