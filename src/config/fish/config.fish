@@ -41,6 +41,10 @@ if type -q nvim
   alias vi "nvim"
   alias vim "nvim"
 end
+if type -q try
+  set -gx TRY_PATH "$HOME/workspace/playgrounds"
+  try init | source
+end
 
 # JavaScript
 {%- if "work" in mise_env %}

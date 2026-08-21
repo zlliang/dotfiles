@@ -19,6 +19,7 @@ npm.package_manager = "npm"
 "tmux" = "latest"
 "neovim" = "latest"
 "tree-sitter" = "latest"
+"gem:try-cli" = "latest"
 # Languages
 "node" = "lts"
 "bun" = "latest"
