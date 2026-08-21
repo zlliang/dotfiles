@@ -8,12 +8,14 @@
     {
       "provider": "openai-codex",
       "model": "gpt-5.6-sol",
-      "thinkingLevels": ["medium", "high", "xhigh", "max"]
+      "thinkingLevels": ["medium", "high", "xhigh", "max"],
+      "hint": "Prefer xhigh for general research and planning tasks."
     },
     {
       "provider": "openai-codex",
       "model": "gpt-5.6-luna",
-      "thinkingLevels": ["off", "xhigh", "max"]
+      "thinkingLevels": ["off", "xhigh", "max"],
+      "hint": "Use off only for small, routine tasks such as creating a Git commit. Use xhigh for straightforward, well-scoped implementation tasks."
     }
     {%- if "work" in mise_env %},
     {
