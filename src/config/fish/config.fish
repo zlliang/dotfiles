@@ -43,6 +43,7 @@ if type -q nvim
 end
 if type -q try
   set -gx TRY_PATH "$HOME/workspace/playgrounds"
+  set -gx TRY_PROJECTS "$HOME/workspace/github/zlliang"
   try init | source
 end
 
