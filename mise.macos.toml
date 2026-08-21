@@ -1,4 +1,5 @@
 [bootstrap.packages]
+"brew:btop" = "latest"
 "brew:fish" = "latest"
 
 [bootstrap.user]
