@@ -21,7 +21,6 @@ npm.package_manager = "npm"
 "tmux" = "latest"
 "neovim" = "latest"
 "tree-sitter" = "latest"
-"gem:try-cli" = "latest"
 # Languages
 "node" = "lts"
 "bun" = "latest"
@@ -29,7 +28,6 @@ npm.package_manager = "npm"
 "python" = "latest"
 "uv" = "latest"
 "rust" = "latest"
-"ruby" = "latest" # Required by try-cli.
 # AI tools
 "npm:@ampcode/cli" = { version = "latest", allow_builds = true }
 "npm:@earendil-works/pi-coding-agent" = { version = "latest", allow_builds = true }
