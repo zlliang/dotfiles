@@ -14,9 +14,6 @@ cursor-style-blink = false
 adjust-cursor-thickness = 1
 
 window-theme = auto
-macos-titlebar-style = hidden
-fullscreen = true
-
 window-width = 140
 window-height = 32
 window-padding-x = 12
