@@ -1,0 +1,48 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  bootstrap:
+    name: ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - macos-latest
+          - ubuntu-latest
+    env:
+      # Match bootstrap.sh's expected path inside an isolated home directory.
+      HOME: ${{ github.workspace }}/home
+      XDG_CONFIG_HOME: ${{ github.workspace }}/home/.config
+      XDG_CACHE_HOME: ${{ github.workspace }}/home/.cache
+      XDG_DATA_HOME: ${{ github.workspace }}/home/.local/share
+      XDG_STATE_HOME: ${{ github.workspace }}/home/.local/state
+      PROFILE: personal
+      GH_TOKEN: ${{ github.token }}
+      NO_COLOR: 1
+    defaults:
+      run:
+        working-directory: ${{ github.workspace }}/home/workspace/github/zlliang/dotfiles
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+        with:
+          path: home/workspace/github/zlliang/dotfiles
+
+      - name: Bootstrap
+        run: ./bootstrap.sh
+
+      - name: Verify bootstrap state
+        run: ~/.local/bin/mise bootstrap status --missing
