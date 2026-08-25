@@ -30,7 +30,7 @@ npm.package_manager = "npm"
 "rust" = "latest"
 # AI tools
 "pi" = "latest"
-"npm:@ampcode/cli" = { version = "latest", allow_builds = true }
+"amp" = "latest"
 "npm:agent-browser" = { version = "latest", allow_builds = true }
 "npm:mcporter" = { version = "latest", allow_builds = true }
 
