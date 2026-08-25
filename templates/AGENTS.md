@@ -1,6 +1,6 @@
 # Global Agent Guidelines
 
-Defaults for every AI agent session (Amp, Pi, Codex, etc.). I use agents not only for coding, but also for daily scripting, managing my operating system, learning new topics, writing articles, and general problem-solving.
+Defaults for every AI agent session (Pi, Amp, Codex, etc.). I use agents not only for coding, but also for daily scripting, managing my operating system, learning new topics, writing articles, and general problem-solving.
 
 ## About me
 
