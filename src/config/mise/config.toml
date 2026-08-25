@@ -50,9 +50,6 @@ run = [
   { task = "update:pnpm" },
   { task = "update:pi" },
   { task = "update:agent-skills" },
-  {%- if "work" in mise_env %}
-  { task = "update:bk" },
-  {%- endif %}
 ]
 
 [tasks."update:dotfiles"]

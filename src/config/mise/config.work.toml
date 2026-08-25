@@ -5,6 +5,17 @@
 "glab" = "latest"
 "github:sourcegraph/src-cli" = "latest"
 
+[tasks."update:rest"]
+hide = true
+run = [
+  { task = "update:packages" },
+  { task = "update:mise" },
+  { task = "update:pnpm" },
+  { task = "update:pi" },
+  { task = "update:agent-skills" },
+  { task = "update:bk" },
+]
+
 [tasks."update:agent-skills"]
 description = "Update global agent skills"
 run = [
