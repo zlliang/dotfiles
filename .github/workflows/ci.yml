@@ -41,6 +41,16 @@ jobs:
         with:
           path: home/workspace/github/zlliang/dotfiles
 
+      - name: Allow passwordless shell changes on macOS
+        if: runner.os == 'macOS'
+        run: |
+          mkdir -p ~/.local/bin
+          cat > ~/.local/bin/chsh <<'EOF'
+          #!/bin/sh
+          exec sudo -n /usr/bin/chsh "$@" "$USER"
+          EOF
+          chmod +x ~/.local/bin/chsh
+
       - name: Bootstrap
         run: ./bootstrap.sh
 
