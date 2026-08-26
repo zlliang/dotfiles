@@ -43,4 +43,6 @@ run = [
   "rm -rf ~/.slock",
   # 2026-08-12: Vim configuration moved to ~/.config/vim/vimrc.
   "rm -f ~/.vimrc",
+  # 2026-08-26: The tdl fish function was removed; drop the stale copy.
+  "rm -f ~/.config/fish/functions/tdl.fish",
 ]
