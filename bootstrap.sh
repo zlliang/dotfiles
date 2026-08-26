@@ -29,7 +29,7 @@ print_title() {
     "$CYAN" \
     "Zilong's Dotfiles" \
     "$RESET" \
-    "Personal dotfiles and development environment for macOS and Linux, managed by mise"
+    "Personal dotfiles and development environment for macOS and Linux, managed by mise."
 }
 
 log() {
