@@ -14,7 +14,7 @@ npm.package_manager = "npm"
 "jq" = "latest"
 "gh" = "latest"
 "lazygit" = "latest"
-"btop" = { version = "latest", os = ["linux"] }
+"btop" = { version = "latest", os = ["linux"] } # Managed by Homebrew on macOS.
 "tlrc" = "latest"
 "usage" = "latest" # Required for generating mise's shell completions.
 # Development
