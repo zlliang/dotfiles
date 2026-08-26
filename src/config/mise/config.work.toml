@@ -40,7 +40,7 @@ run = [
 [tasks.bkauth]
 description = "Log in to Booking.com"
 run = [
-  { task = "bkauth:ssh" },
+  # { task = "bkauth:ssh" },
   { task = "bkauth:auth" },
   { task = "bkauth:glean-auth" },
 ]
