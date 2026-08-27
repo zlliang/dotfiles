@@ -45,4 +45,6 @@ run = [
   "rm -f ~/.vimrc",
   # 2026-08-26: The tdl fish function was removed; drop the stale copy.
   "rm -f ~/.config/fish/functions/tdl.fish",
+  # 2026-08-27: btop is no longer used; drop its config and macOS package.
+  "rm -rf ~/.config/btop; if [ \"$(uname)\" = Darwin ] && command -v brew >/dev/null 2>&1 && brew list --formula btop >/dev/null 2>&1; then brew remove btop; fi",
 ]
