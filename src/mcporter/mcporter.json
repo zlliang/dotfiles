@@ -7,7 +7,7 @@
     "booking-toolbox": {
       "type": "stdio",
       "command": "bk",
-      "args": ["genai:mcp:toolbox"]
+      "args": ["genai:mcp:toolbox", "--disable-tool-search"]
     },
     "miro": {
       "url": "https://mcp.miro.com"
