@@ -26,7 +26,7 @@ run = [
   "npx -y skills add https://github.com/gleanwork/glean-cli --skill glean-cli --full-depth -g -y -a amp",
   "npx -y skills add googleworkspace/cli --skill gws-shared gws-gmail gws-calendar gws-drive gws-docs gws-sheets gws-slides --full-depth -g -y -a amp",
   "npx -y skills add https://gitlab.com/gitlab-org/ai/skills --skill glab glab-glql --full-depth -g -y -a amp",
-  "npx -y skills add miroapp/miro-ai --skill miro-mcp miro-diagram --full-depth -g -y -a amp",
+  "npx -y skills add miroapp/miro-ai --skill miro-browse miro-diagram --full-depth -g -y -a amp",
   "npx -y skills add https://gitlab.com/{{ vars.GITLAB_NAMESPACE }}/genai-eng/coding-agent-tools/-/tree/main/common --skill bpages --full-depth -g -y -a amp",
 ]
 
