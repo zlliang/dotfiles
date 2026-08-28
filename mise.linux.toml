@@ -1,12 +1,6 @@
 [bootstrap.packages]
-"apt:ca-certificates" = "latest"
-"apt:curl" = "latest"
 "apt:fish" = "latest"
-"apt:git" = "latest"
-"dnf:ca-certificates" = "latest"
-"dnf:curl" = "latest"
 "dnf:fish" = "latest"
-"dnf:git" = "latest"
 
 # No [bootstrap.user] login_shell here: tools like VS Code Remote SSH are incompatible
 # with fish as the login shell, so ~/.bashrc replaces interactive shells with fish instead.
