@@ -13,9 +13,7 @@ npm.package_manager = "npm"
 "fd" = "latest"
 "jq" = "latest"
 "gh" = "latest"
-"lazygit" = "latest"
-"tlrc" = "latest"
-"usage" = "latest" # Required for generating mise's shell completions.
+"usage" = "latest"  # Required for generating mise's shell completions.
 # Development
 "tmux" = "latest"
 "neovim" = "latest"
