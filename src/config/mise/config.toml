@@ -25,8 +25,6 @@ npm.package_manager = "npm"
 "python" = "latest"
 "uv" = "latest"
 "rust" = "latest"
-"cmake" = "latest"
-"ninja" = "latest"
 # AI tools
 "pi" = "latest"
 "amp" = "latest"
