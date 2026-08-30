@@ -42,7 +42,6 @@ After editing, install skills globally with `mise run update:agent-skills`, whic
 
 - Known URL or static content: use **curl** for simple fetches, and pipe JSON to **jq** when needed. For complex fetching and parsing, ad hoc scripts are acceptable.
 - Public web research: use **Exa MCP** to search the web, fetch pages, extract relevant content, or summarize public pages. It returns clean text content, so call it without `--output json`. Do not scrape search result pages or automate a browser for ordinary search and retrieval. Run `mcporter list exa` to inspect its available tools.
-- Interactive or rendered websites: **agent-browser** handles clicking, typing, navigation, forms, rendered state, screenshots, existing sessions, web app testing, and Electron app control. It is a last resort, so use it only when I explicitly ask for it. Load the `agent-browser` skill for usage instructions.
 
 ## Writing and communication
 

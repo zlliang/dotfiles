@@ -23,7 +23,6 @@ npm.package_manager = "npm"
 # AI tools
 "pi" = "latest"
 "amp" = "latest"
-"npm:agent-browser" = { version = "latest", allow_builds = true }
 "npm:mcporter" = { version = "latest", allow_builds = true }
 
 [tasks.update]
@@ -72,5 +71,4 @@ description = "Update global agent skills"
 run = [
   "rm -rf ~/.agents ~/.pi/agent/skills",
   "npx -y skills add zlliang/skills --full-depth -g -y -a amp",
-  "npx -y skills add vercel-labs/agent-browser --skill agent-browser --full-depth -g -y -a amp",
 ]

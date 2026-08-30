@@ -36,4 +36,6 @@ run = [
   "rm -f ~/.vimrc",
   # 2026-08-30: Rust is no longer used; drop its toolchains.
   "rm -rf ~/.rustup ~/.cargo",
+  # 2026-08-30: agent-browser was removed; drop its data.
+  "rm -rf ~/.agent-browser",
 ]
