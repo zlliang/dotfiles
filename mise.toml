@@ -5,7 +5,6 @@ dotfiles.default_mode = "template"
 
 [bootstrap.repos]
 "~/workspace/github/zlliang/dotfiles" = { url = "https://github.com/zlliang/dotfiles.git" }
-"~/workspace/github/zlliang/nvim" = { url = "https://github.com/zlliang/nvim.git" }
 
 [dotfiles]
 "~/.config/amp/AGENTS.md" = "templates/AGENTS.md"
@@ -14,8 +13,6 @@ dotfiles.default_mode = "template"
 "~/.config/fish/config.fish" = "src/config/fish/config.fish"
 "~/.config/mise/config.toml" = "src/config/mise/config.toml"
 "~/.config/mise/miserc.toml" = "src/config/mise/miserc.toml"
-"~/.config/nvim" = { source = "../nvim", mode = "copy", exclude = [".git", ".gitignore", "*.md"] }
-"~/.config/tmux/tmux.conf" = "src/config/tmux/tmux.conf"
 "~/.config/vim/vimrc" = "src/config/vim/vimrc"
 "~/.mcporter/mcporter.json" = "src/mcporter/mcporter.json"
 "~/.pi/agent/extensions" = { source = "src/pi/agent/extensions", mode = "copy" }
@@ -48,5 +45,11 @@ run = [
   # 2026-08-27: btop is no longer used; drop its config and macOS package.
   "rm -rf ~/.config/btop; if [ \"$(uname)\" = Darwin ] && command -v brew >/dev/null 2>&1 && brew list --formula btop >/dev/null 2>&1; then brew remove btop; fi",
   # 2026-08-28: lazygit is no longer used; drop its config.
-  "rm -rf ~/.config/lazygit",
+  "rm -rf ~/.config/lazygit ~/.local/state/lazygit",
+  # 2026-08-30: Rust is no longer used; drop its toolchains.
+  "rm -rf ~/.rustup ~/.cargo",
+  # 2026-08-30: Neovim and Tree-sitter are no longer used; drop their files.
+  "rm -rf ~/workspace/github/zlliang/nvim ~/.config/nvim ~/.local/share/nvim ~/.local/state/nvim ~/.cache/nvim ~/.tree-sitter ~/.config/tree-sitter ~/.cache/tree-sitter",
+  # 2026-08-30: tmux is no longer used; drop its configuration and plugin data.
+  "rm -rf ~/.config/tmux ~/.local/share/tmux ~/.local/state/tmux ~/.cache/tmux",
 ]

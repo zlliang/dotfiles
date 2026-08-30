@@ -20,7 +20,7 @@ if status is-interactive
   stty -echoctl 2>/dev/null
 end
 
-# Shell tools
+# Tools
 if type -q eza
   alias ls "eza -lhH --no-quotes --group-directories-first --git --time-style=long-iso"
   alias la "ls -a"
@@ -32,20 +32,6 @@ if type -q zoxide
 end
 if type -q bat
   alias cat "bat"
-end
-
-# Development
-if type -q tmux
-  alias t "tmux new-session -A"
-end
-if type -q nvim
-  alias vi "nvim"
-  alias vim "nvim"
-end
-if type -q try
-  set -gx TRY_PATH "$HOME/workspace/playgrounds"
-  set -gx TRY_PROJECTS "$HOME/workspace/github/zlliang"
-  env SHELL=fish try init | source
 end
 
 # JavaScript
