@@ -5,6 +5,7 @@ dotfiles.default_mode = "template"
 
 [bootstrap.repos]
 "~/workspace/github/zlliang/dotfiles" = { url = "https://github.com/zlliang/dotfiles.git" }
+"~/workspace/github/zlliang/zlliang" = { url = "https://github.com/zlliang/zlliang.git" }
 
 [dotfiles]
 "~/.config/amp/AGENTS.md" = "templates/AGENTS.md"
