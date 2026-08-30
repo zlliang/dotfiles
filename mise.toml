@@ -4,8 +4,9 @@ min_version = "2026.7.5"
 dotfiles.default_mode = "template"
 
 [bootstrap.repos]
-"~/workspace/github/zlliang/dotfiles" = { url = "https://github.com/zlliang/dotfiles.git" }
 "~/workspace/github/zlliang/zlliang" = { url = "https://github.com/zlliang/zlliang.git" }
+"~/workspace/github/zlliang/dotfiles" = { url = "https://github.com/zlliang/dotfiles.git" }
+"~/workspace/github/zlliang/skills" = { url = "https://github.com/zlliang/skills.git" }
 
 [dotfiles]
 "~/.config/amp/AGENTS.md" = "templates/AGENTS.md"

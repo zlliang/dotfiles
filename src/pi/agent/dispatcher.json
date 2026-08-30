@@ -9,24 +9,26 @@
       "provider": "openai-codex",
       "model": "gpt-5.6-sol",
       "thinkingLevels": ["medium", "high", "xhigh", "max"],
-      "hint": "Prefer xhigh for general research and planning tasks."
+      "hint": "Best for complex research, architecture, security, and broad planning. Prefer xhigh; reserve max for the hardest quality-first work."
     },
     {
       "provider": "openai-codex",
       "model": "gpt-5.6-luna",
       "thinkingLevels": ["off", "xhigh", "max"],
-      "hint": "Use off only for small, routine tasks such as creating a Git commit. Use xhigh for straightforward, well-scoped implementation tasks."
+      "hint": "Best for fast, low-cost chores and clear, bounded implementation. Use off only for trivial work and xhigh when reasoning or tools matter."
     }
     {%- if "work" in mise_env %},
     {
       "provider": "booking-genai",
       "model": "claude-opus-5",
-      "thinkingLevels": ["high", "xhigh", "max"]
+      "thinkingLevels": ["high", "xhigh", "max"],
+      "hint": "Best for ambiguous, high-stakes, or long-horizon coding, difficult debugging, large refactors, and exacting review. Start at high; raise effort only when needed."
     },
     {
       "provider": "booking-genai",
       "model": "claude-sonnet-5",
-      "thinkingLevels": ["xhigh", "max"]
+      "thinkingLevels": ["xhigh", "max"],
+      "hint": "Best-value Claude for day-to-day coding, brownfield debugging, and well-scoped multi-step tool use. Prefer xhigh; reserve max for unusually difficult work."
     }
     {%- endif %}
   ]
