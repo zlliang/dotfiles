@@ -7,9 +7,9 @@
   "candidates": [
     {
       "provider": "openai-codex",
-      "model": "gpt-5.6-sol",
+      "model": "gpt-6-astra",
       "thinkingLevels": ["medium", "high", "xhigh", "max"],
-      "hint": "Best for complex research, architecture, security, and broad planning. Prefer xhigh; reserve max for the hardest quality-first work."
+      "hint": "Best for complex engineering, cross-file debugging and review, and deep research. Prefer medium for bounded work, high for complex tasks; reserve xhigh/max for deeper investigation and verification."
     },
     {
       "provider": "openai-codex",
