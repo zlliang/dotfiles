@@ -102,4 +102,4 @@ Formatting rules:
 - Follow any language- or project-specific style guide, linter config, or formatter settings. These rules are fallback defaults.
 - Prefer spaces over tabs. Default to 2-space indentation.
 - Prefer aesthetic consistency over strict line length. Wrap doc comments at 100 characters.
-- Follow basic Markdown formatting in doc comments. Use third-person singular for function summaries and the imperative mood for caller instructions.
+- Follow basic Markdown formatting in doc comments. When a function summary starts with a verb, use third-person singular; use the imperative mood for caller instructions.
