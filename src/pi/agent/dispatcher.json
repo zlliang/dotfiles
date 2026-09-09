@@ -9,26 +9,32 @@
       "provider": "openai-codex",
       "model": "gpt-6-astra",
       "thinkingLevels": ["medium", "high", "xhigh", "max"],
-      "hint": "Best for complex engineering, cross-file debugging and review, and deep research. Prefer medium for bounded work, high for complex tasks; reserve xhigh/max for deeper investigation and verification."
+      "hint": "Strongest all-round engineer: state of the art on agentic coding, terminal and computer use, research, and math, and token-efficient per task despite the price. Communicates clearly and needs little rework. Use medium for single-shot review, analysis, and bounded changes; high for long autonomous tool loops, where it wastes fewer turns; xhigh/max only when high has measurably failed on hard architecture or debugging."
     },
     {
       "provider": "openai-codex",
       "model": "gpt-5.6-luna",
-      "thinkingLevels": ["off", "xhigh", "max"],
-      "hint": "Best for fast, low-cost chores and clear, bounded implementation. Use off only for trivial work and xhigh when reasoning or tools matter."
+      "thinkingLevels": ["off", "high", "xhigh", "max"],
+      "hint": "Fast and cheap, yet a competent agent when the task is well specified: routine features, local bugs, tests, scripts, formatting, translation, summaries. Use off for trivial single-step work, high as the default when it must explore, edit several files, or verify, and xhigh when a bounded task still needs extra care. Do not push it into ambiguous architecture, security, or subtle concurrency work; escalate instead."
     }
     {%- if "work" in mise_env %},
     {
       "provider": "booking-genai",
+      "model": "claude-fable-5-1",
+      "thinkingLevels": ["high", "xhigh", "max"],
+      "hint": "Anthropic's top generally available model for long-horizon autonomous work: multi-hour agentic coding, deep research, exacting code review, front-end polish, and the best independent reasoning scores. Takes a brief and runs to completion with little check-in, so it suits well-briefed large tasks over interactive back-and-forth. Safeguards may refuse security or exploit-adjacent work; route that to Opus. Start at high; xhigh/max only when Opus 5 at xhigh would still fall short."
+    },
+    {
+      "provider": "booking-genai",
       "model": "claude-opus-5",
       "thinkingLevels": ["high", "xhigh", "max"],
-      "hint": "Best for ambiguous, high-stakes, or long-horizon coding, difficult debugging, large refactors, and exacting review. Start at high; raise effort only when needed."
+      "hint": "Anthropic's recommended starting point for complex agentic coding: deep reasoning, large multi-file refactors and migrations, obscure root causes, and high-stakes or irreversible changes, with strong self-verification and judgment. Pauses at natural checkpoints, so it fits ambiguous, collaborative work better than Fable. Converts extra effort into results reliably: start at high, xhigh for the most demanding work, max rarely. Prose is dense; avoid for writing-heavy tasks."
     },
     {
       "provider": "booking-genai",
       "model": "claude-sonnet-5",
       "thinkingLevels": ["xhigh", "max"],
-      "hint": "Best-value Claude for day-to-day coding, brownfield debugging, and well-scoped multi-step tool use. Prefer xhigh; reserve max for unusually difficult work."
+      "hint": "Best-value Claude and the Claude Code default: strong on everyday coding, bug fixes, tests, refactors, CI triage, and long terminal or tool sequences, and it checks its own output unprompted. Trails Opus on the hardest long-horizon problems, ambiguous architecture, and image-heavy code tasks; escalate when a task needs several correct judgment calls in a row. Prefer xhigh; max for unusually difficult work."
     }
     {%- endif %}
   ]
