@@ -22,8 +22,8 @@ jobs:
           - macos-latest
           - ubuntu-latest
     env:
-      PROFILE: personal
       GITHUB_TOKEN: ${{ github.token }}
+      PROFILE: personal
       NO_COLOR: 1
 
     steps:
