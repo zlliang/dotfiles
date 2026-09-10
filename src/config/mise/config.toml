@@ -25,12 +25,6 @@ npm.package_manager = "npm"
 "amp" = "latest"
 "npm:mcporter" = { version = "latest", allow_builds = true }
 
-[bootstrap.services.mise-history]
-builtin = "history-watch"
-
-[dotfiles]
-"~/.pi/agent/models.json" = { mode = "track" }
-
 [tasks.update]
 description = "Update the development environment"
 quiet = true

@@ -8,9 +8,6 @@ dotfiles.default_mode = "template"
 "~/workspace/github/zlliang/dotfiles" = { url = "https://github.com/zlliang/dotfiles.git" }
 "~/workspace/github/zlliang/skills" = { url = "https://github.com/zlliang/skills.git" }
 
-[bootstrap.services.mise-history]
-builtin = "history-watch"
-
 [dotfiles]
 "~/.config/amp/AGENTS.md" = "templates/AGENTS.md"
 "~/.config/amp/settings.json" = "src/config/amp/settings.json"
