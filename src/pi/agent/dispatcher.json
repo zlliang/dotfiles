@@ -1,7 +1,12 @@
 {
   "dispatcher": {
+    {%- if "work" in mise_env %}
     "provider": "openai-codex",
     "model": "gpt-5.6-luna",
+    {%- else %}
+    "provider": "deepseek",
+    "model": "deepseek-flash",
+    {%- endif %}
     "thinkingLevel": "off"
   },
   "candidates": [
@@ -35,6 +40,12 @@
       "model": "claude-sonnet-5",
       "thinkingLevels": ["xhigh", "max"],
       "hint": "Best-value Claude and the Claude Code default: strong on everyday coding, bug fixes, tests, refactors, CI triage, and long terminal or tool sequences, and it checks its own output unprompted. Trails Opus on the hardest long-horizon problems, ambiguous architecture, and image-heavy code tasks; escalate when a task needs several correct judgment calls in a row. Prefer xhigh; max for unusually difficult work."
+    }
+    {%- else %},
+    {
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "hint": "Fast, economical model for everyday coding, repository exploration, and automation. Use off for summaries, low for simple edits, high for multi-step work, and max for harder bounded tasks at the cost of longer reasoning."
     }
     {%- endif %}
   ]

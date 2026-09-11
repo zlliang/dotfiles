@@ -3,13 +3,23 @@
     "thinkingLevelIndicator": "model"
   },
   "recap": {
+    {%- if "work" in mise_env %}
     "provider": "openai-codex",
     "model": "gpt-5.6-luna",
+    {%- else %}
+    "provider": "deepseek",
+    "model": "deepseek-flash",
+    {%- endif %}
     "thinkingLevel": "off"
   },
   "title": {
+    {%- if "work" in mise_env %}
     "provider": "openai-codex",
     "model": "gpt-5.6-luna",
+    {%- else %}
+    "provider": "deepseek",
+    "model": "deepseek-flash",
+    {%- endif %}
     "thinkingLevel": "off"
   }
 }
