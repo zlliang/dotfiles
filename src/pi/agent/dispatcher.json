@@ -14,38 +14,33 @@
       "provider": "openai-codex",
       "model": "gpt-6-astra",
       "thinkingLevels": ["medium", "high", "xhigh", "max"],
-      "hint": "Strongest all-round engineer: state of the art on agentic coding, terminal and computer use, research, and math, and token-efficient per task despite the price. Communicates clearly and needs little rework. Use medium for single-shot review, analysis, and bounded changes; high for long autonomous tool loops, where it wastes fewer turns; xhigh/max only when high has measurably failed on hard architecture or debugging."
+      "hint": "OpenAI's frontier model. Suited to complex, in-depth research, incident investigation, automation, and advanced engineering. Use medium or high for ordinary tasks; reserve xhigh and max for tasks with ambiguous context, easy to derail, requiring high autonomy and complex reasoning. For simple tasks, choose a more economical model."
     },
     {
       "provider": "openai-codex",
       "model": "gpt-5.6-luna",
-      "thinkingLevels": ["off", "high", "xhigh", "max"],
-      "hint": "Fast and cheap, yet a competent agent when the task is well specified: routine features, local bugs, tests, scripts, formatting, translation, summaries. Use off for trivial single-step work, high as the default when it must explore, edit several files, or verify, and xhigh when a bounded task still needs extra care. Do not push it into ambiguous architecture, security, or subtle concurrency work; escalate instead."
+      "thinkingLevels": ["off", "medium", "high", "xhigh", "max"],
+      "hint": "OpenAI's economical model. Suited to simple tasks with clear context and well-defined goals: small feature additions, bug fixes, and scoped documentation, research, and automation."
     }
     {%- if "work" in mise_env %},
     {
       "provider": "booking-genai",
       "model": "claude-fable-5-1",
       "thinkingLevels": ["high", "xhigh", "max"],
-      "hint": "Anthropic's top generally available model for long-horizon autonomous work: multi-hour agentic coding, deep research, exacting code review, front-end polish, and the best independent reasoning scores. Takes a brief and runs to completion with little check-in, so it suits well-briefed large tasks over interactive back-and-forth. Safeguards may refuse security or exploit-adjacent work; route that to Opus. Start at high; xhigh/max only when Opus 5 at xhigh would still fall short."
+      "hint": "Anthropic's frontier model. Suited to complex tasks with ambiguous context: research, investigation, engineering, and code review. It may refuse topics related to cybersecurity and frontier LLM research."
     },
     {
       "provider": "booking-genai",
       "model": "claude-opus-5",
       "thinkingLevels": ["high", "xhigh", "max"],
-      "hint": "Anthropic's recommended starting point for complex agentic coding: deep reasoning, large multi-file refactors and migrations, obscure root causes, and high-stakes or irreversible changes, with strong self-verification and judgment. Pauses at natural checkpoints, so it fits ambiguous, collaborative work better than Fable. Converts extra effort into results reliably: start at high, xhigh for the most demanding work, max rarely. Prose is dense; avoid for writing-heavy tasks."
+      "hint": "Anthropic's workhorse model. Suited to day-to-day cross-system research, investigation, engineering, and code review."
     },
-    {
-      "provider": "booking-genai",
-      "model": "claude-sonnet-5",
-      "thinkingLevels": ["xhigh", "max"],
-      "hint": "Best-value Claude and the Claude Code default: strong on everyday coding, bug fixes, tests, refactors, CI triage, and long terminal or tool sequences, and it checks its own output unprompted. Trails Opus on the hardest long-horizon problems, ambiguous architecture, and image-heavy code tasks; escalate when a task needs several correct judgment calls in a row. Prefer xhigh; max for unusually difficult work."
-    }
     {%- else %},
     {
       "provider": "deepseek",
       "model": "deepseek-flash",
-      "hint": "Fast, economical model for everyday coding, repository exploration, and automation. Use off for summaries, low for simple edits, high for multi-step work, and max for harder bounded tasks at the cost of longer reasoning."
+      "thinkingLevels": ["low", "high", "max"],
+      "hint": "Currently points to DeepSeek V4.1 Flash: highly cost-effective with fast output. On tasks with clear context, boundaries, and goals it approaches frontier-model quality. Use low for routine work like git commits; high and max for harder tasks needing detailed reasoning. Leave tasks with ambiguous context or requirements — likely to need long research and alignment — to stronger models."
     }
     {%- endif %}
   ]
