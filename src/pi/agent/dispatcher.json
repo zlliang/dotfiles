@@ -19,7 +19,7 @@
     {
       "provider": "openai-codex",
       "model": "gpt-5.6-luna",
-      "thinkingLevels": ["off", "medium", "high", "xhigh", "max"],
+      "thinkingLevels": ["medium", "high", "xhigh", "max"],
       "hint": "OpenAI's economical model. Suited to simple tasks with clear context and well-defined goals: small feature additions, bug fixes, and scoped documentation, research, and automation."
     }
     {%- if "work" in mise_env %},
@@ -40,7 +40,7 @@
       "provider": "deepseek",
       "model": "deepseek-flash",
       "thinkingLevels": ["low", "high", "max"],
-      "hint": "Currently points to DeepSeek V4.1 Flash: highly cost-effective with fast output. On tasks with clear context, boundaries, and goals it approaches frontier-model quality. Use low for routine work like git commits; high and max for harder tasks needing detailed reasoning. Leave tasks with ambiguous context or requirements — likely to need long research and alignment — to stronger models."
+      "hint": "Currently points to DeepSeek V4.1 Flash: highly cost-effective with very fast output. On tasks with clear context, boundaries, and goals it approaches frontier-model quality. Use low for routine work like git commits; high and max for harder tasks needing detailed reasoning. Leave tasks with ambiguous context or requirements — likely to need long research and alignment — to stronger models."
     }
     {%- endif %}
   ]
