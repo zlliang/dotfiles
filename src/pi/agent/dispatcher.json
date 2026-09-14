@@ -34,7 +34,7 @@
       "model": "claude-opus-5",
       "thinkingLevels": ["high", "xhigh", "max"],
       "hint": "Anthropic's workhorse model. Suited to day-to-day cross-system research, investigation, engineering, and code review."
-    },
+    }
     {%- else %},
     {
       "provider": "deepseek",
