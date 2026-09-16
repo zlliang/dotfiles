@@ -3,11 +3,6 @@ min_version = "2026.7.5"
 [settings]
 dotfiles.default_mode = "template"
 
-[bootstrap.repos]
-"~/workspace/github/zlliang/zlliang" = { url = "https://github.com/zlliang/zlliang.git" }
-"~/workspace/github/zlliang/dotfiles" = { url = "https://github.com/zlliang/dotfiles.git" }
-"~/workspace/github/zlliang/skills" = { url = "https://github.com/zlliang/skills.git" }
-
 [dotfiles]
 "~/.config/fish/functions" = { source = "src/config/fish/functions", mode = "copy" }
 "~/.config/fish/config.fish" = "src/config/fish/config.fish"
