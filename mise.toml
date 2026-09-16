@@ -39,5 +39,5 @@ run = [
   # 2026-08-30: agent-browser was removed; drop its data.
   "rm -rf ~/.agent-browser",
   # 2026-09-16: Amp was removed; drop its data.
-  "rm -rf ~/.local/share/amp ~/.local/state/amp ~/.cache/amp",
+  "rm -rf ~/.amp ~/.local/share/amp ~/.local/state/amp ~/.cache/amp",
 ]
