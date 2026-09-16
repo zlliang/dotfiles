@@ -9,8 +9,6 @@ dotfiles.default_mode = "template"
 "~/workspace/github/zlliang/skills" = { url = "https://github.com/zlliang/skills.git" }
 
 [dotfiles]
-"~/.config/amp/AGENTS.md" = "templates/AGENTS.md"
-"~/.config/amp/settings.json" = "src/config/amp/settings.json"
 "~/.config/fish/functions" = { source = "src/config/fish/functions", mode = "copy" }
 "~/.config/fish/config.fish" = "src/config/fish/config.fish"
 "~/.config/mise/config.toml" = "src/config/mise/config.toml"
@@ -40,4 +38,6 @@ run = [
   "rm -rf ~/.rustup ~/.cargo",
   # 2026-08-30: agent-browser was removed; drop its data.
   "rm -rf ~/.agent-browser",
+  # 2026-09-16: Amp was removed; drop its data.
+  "rm -rf ~/.local/share/amp ~/.local/state/amp ~/.cache/amp",
 ]
