@@ -35,13 +35,11 @@ The profile chosen at bootstrap persists beyond the first run: `~/.config/mise/m
 
 Dotfile sources live under [`src`](src), mirroring the layout of the home directory. The default mode is `template`: each source renders through the [mise template engine](https://mise.jdx.dev/templates.html), so one file can produce different output per profile — for example, [`templates/AGENTS.md`](templates/AGENTS.md) includes work-specific sections only when the `work` profile is active, and [`src/config/mise/config.work.toml`](src/config/mise/config.work.toml) fills in values from `mise.work.local.toml`. Fully managed directories use `copy` mode instead.
 
-Everything converges through `mise bootstrap`: it installs OS packages, clones necessary repos, applies dotfiles, sets the login shell, and installs mise-managed tools, skipping whatever is already in the desired state. Useful commands:
+Everything converges through `mise bootstrap`: it installs OS packages, applies dotfiles, sets the login shell, and installs mise-managed tools, skipping whatever is already in the desired state. Useful commands:
 
 ```bash
 mise bootstrap
 mise bootstrap status
-mise bootstrap repos status
-mise bootstrap repos update
 mise bootstrap dotfiles status
 mise bootstrap dotfiles apply
 ```
@@ -50,4 +48,4 @@ mise bootstrap dotfiles apply
 
 Daily tools and routines live in the rendered global config, [`src/config/mise/config.toml`](src/config/mise/config.toml), with work additions in [`src/config/mise/config.work.toml`](src/config/mise/config.work.toml).
 
-The `mise run update` task keeps a machine current: it pulls the declared repos, reruns `mise bootstrap`, and upgrades system packages, mise itself, managed tools, and AI agents and their skills.
+The `mise run update` task keeps a machine current: it reruns `mise bootstrap`, and upgrades system packages, mise itself, managed tools, and AI agents and their skills.
