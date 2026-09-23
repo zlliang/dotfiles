@@ -16,7 +16,13 @@
   },
   "collapseChangelog": true,
   "defaultProjectTrust": "always",
+  {%- if "work" in mise_env %}
   "defaultProvider": "openai-codex",
-  "defaultModel": "gpt-6-astra",
+  "defaultModel": "gpt-5.6-luna",
+  "defaultThinkingLevel": "medium"
+  {%- else %}
+  "defaultProvider": "deepseek",
+  "defaultModel": "deepseek-flash",
   "defaultThinkingLevel": "high"
+  {%- endif %}
 }

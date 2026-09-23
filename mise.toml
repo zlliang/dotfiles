@@ -14,7 +14,6 @@ dotfiles.default_mode = "template"
 "~/.pi/agent/extensions" = { source = "src/pi/agent/extensions", mode = "copy" }
 "~/.pi/agent/prompts" = { source = "src/pi/agent/prompts", mode = "copy" }
 "~/.pi/agent/AGENTS.md" = "templates/AGENTS.md"
-"~/.pi/agent/dispatcher.json" = "src/pi/agent/dispatcher.json"
 "~/.pi/agent/models.json" = "src/pi/agent/models.json"
 "~/.pi/agent/settings.json" = "src/pi/agent/settings.json"
 "~/.pi/agent/spark.json" = "src/pi/agent/spark.json"
@@ -35,4 +34,6 @@ run = [
   "rm -rf ~/.agent-browser",
   # 2026-09-16: Amp was removed; drop its data.
   "rm -rf ~/.amp ~/.config/amp ~/.local/share/amp ~/.local/state/amp ~/.cache/amp",
+  # 2026-09-23: pi-dispatcher was removed; drop its data.
+  "rm -rf ~/.pi/agent/dispatcher.json",
 ]
