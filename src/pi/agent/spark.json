@@ -6,13 +6,13 @@
     {%- if "work" in mise_env %}
     "ultra": {
       "provider": "booking-genai",
-      "model": "claude-fable-5-1",
-      "thinkingLevel": "high"
+      "model": "claude-opus-5-5",
+      "thinkingLevel": "xhigh"
     },
     "high": {
       "provider": "booking-genai",
-      "model": "claude-opus-5",
-      "thinkingLevel": "xhigh"
+      "model": "claude-opus-5-5",
+      "thinkingLevel": "high"
     },
     "medium": {
       "provider": "openai-codex",
