@@ -1,5 +1,12 @@
 {
-  "lastChangelogVersion": "{{ exec(command="jq -er \".lastChangelogVersion // empty\" \"$HOME/.pi/agent/settings.json\" 2>/dev/null || mise exec pi@latest -- pi --version") }}",
+  {%- set last_changelog_version = exec(command="jq -r \".lastChangelogVersion // empty\" \"$HOME/.pi/agent/settings.json\" 2>/dev/null || true") %}
+  {%- if last_changelog_version %}
+  "lastChangelogVersion": "{{ last_changelog_version }}",
+  {%- endif %}
+  {%- set device_id = exec(command="jq -r \".deviceId // empty\" \"$HOME/.pi/agent/settings.json\" 2>/dev/null || true") %}
+  {%- if device_id %}
+  "deviceId": "{{ device_id }}",
+  {%- endif %}
   "theme": "github-light-default/github-dark-default",
   "tuiMode": "fullscreen",
   "fullscreenExitOutput": "resume-hint",
