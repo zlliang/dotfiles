@@ -21,7 +21,7 @@ My dotfiles and development environment for macOS and Linux live in `~/workspace
 
 ### Skills
 
-An [agent skill](https://agentskills.io/) is a folder with a `SKILL.md` that teaches an agent a task on demand. Load a skill proactively whenever a task matches its triggering description; don't wait to be told.
+An [agent skill](https://agentskills.io/) is a folder with a `SKILL.md` that teaches an agent a task on demand. Load a skill proactively whenever a task matches its triggering description.
 
 When creating or editing skills, first load the `building-skills` skill. Make all changes in the source repositories, never in the installed copies under `~/.agents` or `~/.pi`:
 
@@ -34,14 +34,14 @@ After editing, install skills globally with `mise run update:agent-skills`, whic
 
 ### MCP
 
-[MCP](https://modelcontextprotocol.io/) (Model Context Protocol) is an open-source standard for connecting AI applications to external systems. For me, MCP servers are typically not configured directly in agents. Instead, [MCPorter](https://github.com/openclaw/mcporter) manages the available servers through a CLI. When external tools or authenticated platforms are needed, check MCPorter first. Load the `mcporter` skill for usage instructions.
+[MCP](https://modelcontextprotocol.io/) (Model Context Protocol) is an open-source standard for connecting AI applications to external systems. Use MCP proactively when a task involves an external system or platform that an available MCP server covers.
 
 ### Web access
 
 **Use web access proactively**. When you need the latest information, authoritative facts or evidence, or precise specifics that are easy to misremember (such as exact API details or version-specific behavior), search the web instead of guessing or relying on stale memory. Choose the lightest tool that can answer the question, and prefer built-in web access tools when available; otherwise use the following routes.
 
 - Known URL or static content: use **curl** for simple fetches, and pipe JSON to **jq** when needed. For complex fetching and parsing, ad hoc scripts are acceptable.
-- Public web research: use **Exa MCP** to search the web, fetch pages, extract relevant content, or summarize public pages. It returns clean text content, so call it without `--output json`. Do not scrape search result pages or automate a browser for ordinary search and retrieval. Run `mcporter list exa` to inspect its available tools.
+- Public web research: use **Exa MCP** to search the web, fetch pages, extract relevant content, or summarize public pages.
 
 ## Writing and communication
 

@@ -10,10 +10,10 @@ dotfiles.default_mode = "template"
 "~/.config/mise/miserc.toml" = "src/config/mise/miserc.toml"
 "~/.config/ruff/ruff.toml" = "src/config/ruff/ruff.toml"
 "~/.config/vim/vimrc" = "src/config/vim/vimrc"
-"~/.mcporter/mcporter.json" = "src/mcporter/mcporter.json"
 "~/.pi/agent/extensions" = { source = "src/pi/agent/extensions", mode = "copy" }
 "~/.pi/agent/prompts" = { source = "src/pi/agent/prompts", mode = "copy" }
 "~/.pi/agent/AGENTS.md" = "templates/AGENTS.md"
+"~/.pi/agent/mcp.json" = "src/pi/agent/mcp.json"
 "~/.pi/agent/models.json" = "src/pi/agent/models.json"
 "~/.pi/agent/settings.json" = "src/pi/agent/settings.json"
 "~/.pi/agent/spark.json" = "src/pi/agent/spark.json"
@@ -36,4 +36,6 @@ run = [
   "rm -rf ~/.amp ~/.config/amp ~/.local/share/amp ~/.local/state/amp ~/.cache/amp",
   # 2026-09-23: pi-dispatcher was removed; drop its data.
   "rm -rf ~/.pi/agent/dispatcher.json",
+  # 2026-10-05: MCPorter was replaced by Pi's built-in MCP; drop its config and credentials.
+  "rm -rf ~/.mcporter",
 ]

@@ -1,0 +1,19 @@
+{
+  "mcpServers": {
+    "exa": {
+      "url": "https://mcp.exa.ai/mcp",
+      "description": "Public web search and page fetching as clean text"
+    }
+    {%- if "work" in mise_env %},
+    "booking-toolbox": {
+      "command": "bk",
+      "args": ["genai:mcp:toolbox", "--disable-tool-search"],
+      "description": "Booking.com internal tools: Slack, Staff Directory, Grafana, Feature Flags, Flog, and Lingo"
+    },
+    "miro": {
+      "url": "https://mcp.miro.com",
+      "description": "Miro boards: search, read, and edit board content, comments, and diagrams"
+    }
+    {%- endif %}
+  }
+}
