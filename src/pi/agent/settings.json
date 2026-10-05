@@ -8,7 +8,6 @@
   "deviceId": "{{ device_id }}",
   {%- endif %}
   "theme": "github-light-default/github-dark-default",
-  "tuiMode": "fullscreen",
   "fullscreenExitOutput": "resume-hint",
   "treeFilterMode": "no-tools",
   "packages": [

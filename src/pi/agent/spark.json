@@ -11,8 +11,8 @@
     },
     "high": {
       "provider": "booking-genai",
-      "model": "claude-opus-5-5",
-      "thinkingLevel": "high"
+      "model": "claude-sonnet-5-5",
+      "thinkingLevel": "xhigh"
     },
     "medium": {
       "provider": "openai-codex",
@@ -28,11 +28,11 @@
     "ultra": {
       "provider": "openai-codex",
       "model": "gpt-6-astra",
-      "thinkingLevel": "high"
+      "thinkingLevel": "xhigh"
     },
     "high": {
       "provider": "openai-codex",
-      "model": "gpt-6-sol",
+      "model": "gpt-6.1-sol",
       "thinkingLevel": "xhigh"
     },
     "medium": {
