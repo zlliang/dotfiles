@@ -1,3 +1,5 @@
+auto-update-channel = tip
+
 theme = light:GitHub Light Default,dark:GitHub Dark Default
 
 font-family = "Monaspace Neon NF"
