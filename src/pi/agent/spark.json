@@ -15,14 +15,14 @@
       "thinkingLevel": "xhigh"
     },
     "medium": {
-      "provider": "openai-codex",
-      "model": "gpt-6-luna",
+      "provider": "booking-genai",
+      "model": "claude-haiku-5-5",
       "thinkingLevel": "xhigh"
     },
     "low": {
       "provider": "openai-codex",
       "model": "gpt-6-luna",
-      "thinkingLevel": "medium"
+      "thinkingLevel": "high"
     }
     {%- else %}
     "ultra": {
