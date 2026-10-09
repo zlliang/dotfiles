@@ -24,7 +24,7 @@
   {%- if "work" in mise_env %}
   "defaultProvider": "openai-codex",
   "defaultModel": "gpt-6-luna",
-  "defaultThinkingLevel": "medium"
+  "defaultThinkingLevel": "high"
   {%- else %}
   "defaultProvider": "deepseek",
   "defaultModel": "deepseek-flash",
