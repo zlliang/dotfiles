@@ -3,6 +3,10 @@
     "exa": {
       "url": "https://mcp.exa.ai/mcp",
       "description": "Public web search and page fetching as clean text"
+    },
+    "superlogical": {
+      "url": "https://www.superlogical.com/rex/community-mcp",
+      "description": "Rex documentation, the changelog, and current and past discussions from the Rex Beta Discord"
     }
     {%- if "work" in mise_env %},
     "booking-toolbox": {
