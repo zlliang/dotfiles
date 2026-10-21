@@ -67,4 +67,6 @@ description = "Update global agent skills"
 run = [
   "rm -rf ~/.agents ~/.pi/agent/skills",
   "npx -y skills add zlliang/skills --full-depth -g -y -a amp",
+  # Rex ships its own skill, so restore it after the wipe.
+  "if command -v rex >/dev/null 2>&1; then rex skill setup; fi",
 ]
