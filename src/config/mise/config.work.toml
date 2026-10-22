@@ -13,6 +13,7 @@ run = [
   { task = "update:pnpm" },
   { task = "update:pi" },
   { task = "update:agent-skills" },
+  { task = "update:rex" },
   { task = "update:bk" },
 ]
 
@@ -26,15 +27,13 @@ run = [
   "npx -y skills add googleworkspace/cli --skill gws-shared gws-gmail gws-calendar gws-drive gws-docs gws-sheets gws-slides --full-depth -g -y -a amp",
   "npx -y skills add https://gitlab.com/gitlab-org/ai/skills --skill glab glab-glql --full-depth -g -y -a amp",
   "npx -y skills add https://gitlab.com/{{ vars.GITLAB_NAMESPACE }}/genai-eng/coding-agent-tools/-/tree/main/common --skill bpages --full-depth -g -y -a amp",
-  # Rex ships its own skill, so restore it after the wipe.
-  "if command -v rex >/dev/null 2>&1; then rex skill setup; fi",
 ]
 
 [tasks."update:bk"]
 description = "Update BK CLI and its plugins"
 run = [
   "bk update",
-  "mkdir -p ~/.config/fish/completions && bk completion fish > ~/.config/fish/completions/bk.fish",
+  "bk completion fish > ~/.config/fish/completions/bk.fish",
 ]
 
 [tasks.bkauth]

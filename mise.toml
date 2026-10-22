@@ -4,6 +4,7 @@ min_version = "2026.7.5"
 dotfiles.default_mode = "template"
 
 [dotfiles]
+"~/.config/fish/completions" = { source = "src/config/fish/completions", mode = "copy" }
 "~/.config/fish/functions" = { source = "src/config/fish/functions", mode = "copy" }
 "~/.config/fish/config.fish" = "src/config/fish/config.fish"
 "~/.config/mise/config.toml" = "src/config/mise/config.toml"

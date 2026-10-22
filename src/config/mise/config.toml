@@ -37,6 +37,7 @@ run = [
   { task = "update:pnpm" },
   { task = "update:pi" },
   { task = "update:agent-skills" },
+  { task = "update:rex" },
 ]
 
 [tasks."update:dotfiles"]
@@ -67,6 +68,13 @@ description = "Update global agent skills"
 run = [
   "rm -rf ~/.agents ~/.pi/agent/skills",
   "npx -y skills add zlliang/skills --full-depth -g -y -a amp",
-  # Rex ships its own skill, so restore it after the wipe.
-  "if command -v rex >/dev/null 2>&1; then rex skill setup; fi",
+]
+
+[tasks."update:rex"]
+description = "Update Rex CLI integration"
+skip_if = "! command -v rex"
+run = [
+  "rex completion fish > ~/.config/fish/completions/rex.fish",
+  "rex terminfo setup",
+  "rex skill setup",
 ]
