@@ -39,4 +39,6 @@ run = [
   "rm -rf ~/.pi/agent/dispatcher.json",
   # 2026-10-05: MCPorter was replaced by Pi's built-in MCP; drop its config and credentials.
   "rm -rf ~/.mcporter",
+  # 2026-10-28: Ghostty was removed; drop its config.
+  "rm -rf ~/.config/ghostty",
 ]
