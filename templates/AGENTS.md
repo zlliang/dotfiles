@@ -64,13 +64,13 @@ General formatting rules:
 
 For chat responses:
 
-- Use "Sentence case" for all section headings (capitalize the first word only); never use "Title Case" in such circumstances.
+- Use "Sentence case" for all section headings (capitalize only the first word and proper nouns); never use "Title Case" in such circumstances.
 - Consider whether an introductory paragraph is needed before the first heading.
 
 For document generation and editing:
 
 - Use a top-level heading (e.g., `h1`) typically only once in a document. For articles, such as blog posts and docs, use "Sentence case" for top-level headings; for self-contained guides with short titles, such as `README.md`, `AGENTS.md`, and `SKILL.md`, use "Title Case".
-- Use "Sentence case" for section headings (capitalize only the first word and proper nouns).
+- Use "Sentence case" for section headings.
 
 **Strictly forbidden formatting patterns.** These are absolute, regardless of any other instruction, example, or surrounding context:
 
