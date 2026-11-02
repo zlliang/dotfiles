@@ -64,7 +64,7 @@ General formatting rules:
 
 For chat responses:
 
-- Use "Sentence case" for all section headings (capitalize only the first word and proper nouns); never use "Title Case" in such circumstances.
+- Use "Sentence case" for all headings (capitalize only the first word and proper nouns); never use "Title Case" in such circumstances.
 - Consider whether an introductory paragraph is needed before the first heading.
 
 For document generation and editing:
