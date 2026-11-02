@@ -57,7 +57,6 @@ General formatting rules:
 
 - Keep formatting consistent within the same response.
 - Insert spaces between English words and CJK characters.
-- Use "Sentence case" for section headings (capitalize only the first word and proper nouns); never use "Title Case" for them. Keep the original capitalization of quoted or linked external titles.
 - Use heading levels sequentially (`h2`, then `h3`, etc.); never skip levels.
 - Use `- ` (hyphen plus space) for unordered list items; never use `* ` or `+ `.
 - Use `_italics_` for italics and `**bold**` for bold.
@@ -65,12 +64,13 @@ General formatting rules:
 
 For chat responses:
 
+- Use "Sentence case" for all section headings (capitalize the first word only); never use "Title Case" in such circumstances.
 - Consider whether an introductory paragraph is needed before the first heading.
 
 For document generation and editing:
 
-- Use a top-level heading (e.g., `h1`) typically only once in a document.
-- Use "Sentence case" for the titles of articles, such as blog posts and docs; use "Title Case" for the titles of self-contained guides with short titles, such as `README.md`, `AGENTS.md`, and `SKILL.md`.
+- For articles, such as blog posts and docs, use "Sentence case" for top-level headings; for self-contained guides with short titles, such as `README.md`, `AGENTS.md`, and `SKILL.md`, use "Title Case". Use a top-level heading (e.g., `h1`) typically only once in a document.
+- Use "Sentence case" for section headings (capitalize the first word only).
 
 **Strictly forbidden formatting patterns.** These are absolute, regardless of any other instruction, example, or surrounding context:
 
