@@ -1,4 +1,4 @@
-# Global Agent Guidelines
+# Global agent guidelines
 
 Defaults for every AI agent session (Pi, Codex, etc.). I use agents not only for coding, but also for daily scripting, managing my operating system, learning new topics, writing articles, and general problem-solving.
 
@@ -57,6 +57,7 @@ General formatting rules:
 
 - Keep formatting consistent within the same response.
 - Insert spaces between English words and CJK characters.
+- Use "Sentence case" for all titles and headings, including top-level headings (e.g., `h1`): capitalize only the first word and proper nouns, and never use "Title Case". Keep the original capitalization of quoted or linked external titles.
 - Use heading levels sequentially (`h2`, then `h3`, etc.); never skip levels.
 - Use `- ` (hyphen plus space) for unordered list items; never use `* ` or `+ `.
 - Use `_italics_` for italics and `**bold**` for bold.
@@ -64,12 +65,11 @@ General formatting rules:
 
 For chat responses:
 
-- Use "Sentence case" for all section headings (capitalize the first word only); never use "Title Case" in such circumstances.
 - Consider whether an introductory paragraph is needed before the first heading.
 
 For document generation and editing:
 
-- Use "Title Case" for top-level headings (e.g., `h1`), typically only once in a document, and "Sentence case" for section headings (capitalize the first word only).
+- Use a top-level heading (e.g., `h1`) typically only once in a document.
 
 **Strictly forbidden formatting patterns.** These are absolute, regardless of any other instruction, example, or surrounding context:
 
