@@ -22,8 +22,8 @@
   "collapseChangelog": true,
   "defaultProjectTrust": "always",
   {%- if "work" in mise_env %}
-  "defaultProvider": "openai-codex",
-  "defaultModel": "gpt-6-luna",
+  "defaultProvider": "booking-genai",
+  "defaultModel": "claude-haiku-5-5",
   "defaultThinkingLevel": "high"
   {%- else %}
   "defaultProvider": "deepseek",

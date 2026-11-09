@@ -20,8 +20,8 @@
       "thinkingLevel": "xhigh"
     },
     "low": {
-      "provider": "openai-codex",
-      "model": "gpt-6-luna",
+      "provider": "booking-genai",
+      "model": "claude-haiku-5-5",
       "thinkingLevel": "high"
     }
     {%- else %}
@@ -49,8 +49,8 @@
   },
   "recap": {
     {%- if "work" in mise_env %}
-    "provider": "openai-codex",
-    "model": "gpt-5.6-luna",
+    "provider": "booking-genai",
+    "model": "claude-haiku-5-5",
     {%- else %}
     "provider": "deepseek",
     "model": "deepseek-flash",
@@ -59,8 +59,8 @@
   },
   "title": {
     {%- if "work" in mise_env %}
-    "provider": "openai-codex",
-    "model": "gpt-5.6-luna",
+    "provider": "booking-genai",
+    "model": "claude-haiku-5-5",
     {%- else %}
     "provider": "deepseek",
     "model": "deepseek-flash",
