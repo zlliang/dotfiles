@@ -18,6 +18,7 @@ npm.package_manager = "npm"
 "npm:corepack" = { version = "latest", allow_builds = true }
 "python" = "latest"
 "uv" = "latest"
+"rust" = "latest"
 # AI tools
 "pi" = "latest"
 
