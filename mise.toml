@@ -31,8 +31,6 @@ run = [
   "rm -f ~/.vimrc",
   # 2026-08-30: agent-browser was removed; drop its data.
   "rm -rf ~/.agent-browser",
-  # 2026-09-16: Amp was removed; drop its data.
-  "rm -rf ~/.amp ~/.config/amp ~/.local/share/amp ~/.local/state/amp ~/.cache/amp",
   # 2026-09-23: pi-dispatcher was removed; drop its data.
   "rm -rf ~/.pi/agent/dispatcher.json",
   # 2026-10-05: MCPorter was replaced by Pi's built-in MCP; drop its config and credentials.
