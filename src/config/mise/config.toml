@@ -77,5 +77,5 @@ skip_if = "! command -v rex"
 run = [
   "rex completion fish > ~/.config/fish/completions/rex.fish",
   "rex terminfo setup",
-  "rex skill setup",
+  "rex skill setup --agent pi",
 ]
